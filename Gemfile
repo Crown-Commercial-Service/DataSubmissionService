@@ -35,6 +35,10 @@ gem 'haml-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Authentication
+gem 'omniauth'
+gem 'omniauth-auth0', '~> 2.0.0'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
@@ -53,6 +57,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', require: false
+  gem 'database_cleaner'
   gem 'poltergeist'
 end
