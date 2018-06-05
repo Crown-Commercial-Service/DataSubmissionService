@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
     redirect_to '/tasks', notice: 'You are now signed in'
   end
 
+  def destroy
+    session[:user_id] = nil
+
+    redirect_to '/', notice: 'You are now signed out'
+  end
+
   protected
 
   def auth_hash

@@ -11,6 +11,7 @@
       - if current_user
         Signed in as
         = current_user.email
+        = link_to 'Sign out', '/sign_out'
       - else
         = link_to 'Sign in', '/auth/auth0'
 
