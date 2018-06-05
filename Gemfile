@@ -57,6 +57,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', require: false
+  gem 'database_cleaner'
   gem 'poltergeist'
 end
