@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
+    %title Data Submission Service
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body
+    %nav
+      - if current_user
+        Signed in as
+        = current_user.email
+      - else
+        = link_to 'Sign in', '/auth/auth0'
+
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "flash flash-#{key}"
+
+    = yield
