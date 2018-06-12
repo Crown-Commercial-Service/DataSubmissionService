@@ -1,0 +1,45 @@
+html {
+  background-color: $light-grey;
+}
+
+main {
+  @extend %site-width-container;
+
+  background-color: $white;
+  font-weight: 400;
+  max-width: 1280px;
+  padding: 1.5em 0;
+
+  strong {
+    font-weight: bold;
+  }
+
+  h1 {
+    @include heading-48;
+
+    font-weight: 600;
+  }
+
+  h2 {
+    @include heading-27;
+
+    font-weight: 600;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+
+  ul, ol, .panel, .notice {
+    margin: $gutter 0;
+  }
+
+  abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+}

@@ -1,0 +1,22 @@
+#beta-banner {
+  background-color: $black;
+  color: $white;
+
+  .beta-wrapper {
+    @extend %site-width-container;
+    max-width: 1280px;
+  }
+
+  .beta-text {
+    background-color: $white;
+    color: $black;
+    display: inline-block;
+    font-weight: bold;
+    padding: 4px;
+  }
+
+  .beta-message {
+    display: inline-block;
+    padding: 4px;
+  }
+}
