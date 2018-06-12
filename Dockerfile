@@ -30,6 +30,8 @@ RUN \
 
 COPY . $INSTALL_PATH
 
+RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
+
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 EXPOSE 3100
