@@ -108,6 +108,8 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -289,10 +291,10 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   dotenv-rails
-  faraday
   govuk_elements_rails
   govuk_frontend_toolkit
   haml-rails
+  httparty
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_racer

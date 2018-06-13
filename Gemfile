@@ -40,7 +40,7 @@ gem 'omniauth'
 gem 'omniauth-auth0', '~> 2.0.0'
 
 # API requests
-gem 'faraday'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
