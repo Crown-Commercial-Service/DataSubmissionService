@@ -3,10 +3,14 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(auth_hash)
     session[:user_id] = user.id
 
+    Auditor.new.user_signed_in(user_id: user.id)
+
     redirect_to '/tasks', notice: 'You are now signed in'
   end
 
   def destroy
+    Auditor.new.user_signed_out(user_id: session[:user_id])
+
     session[:user_id] = nil
 
     redirect_to '/', notice: 'You are now signed out'

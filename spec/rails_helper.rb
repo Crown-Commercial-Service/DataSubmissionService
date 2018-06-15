@@ -56,4 +56,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each, type: :feature) do
+    # Stub audit requests
+    stub_request(:any, %r{/v1/events/}).and_return(status: 201)
+  end
 end

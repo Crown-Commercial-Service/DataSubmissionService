@@ -39,6 +39,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'omniauth'
 gem 'omniauth-auth0', '~> 2.0.0'
 
+# API requests
+gem 'httparty'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
@@ -60,4 +63,5 @@ group :test do
   gem 'capybara', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'webmock'
 end
