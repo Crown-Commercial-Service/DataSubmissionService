@@ -42,6 +42,9 @@ gem 'omniauth-auth0', '~> 2.0.0'
 # API requests
 gem 'httparty'
 
+# Forms
+gem 'simple_form'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
