@@ -43,3 +43,11 @@ main {
     text-decoration: underline dotted;
   }
 }
+
+.breadcrumbs {
+  padding: 0;
+
+  ol {
+    margin: 0 0 $gutter 0;
+  }
+}

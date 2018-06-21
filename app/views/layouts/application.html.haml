@@ -55,6 +55,16 @@
         .column-full
           - flash.each do |key, value|
             = content_tag :div, value, class: "flash flash-#{key}"
+
+      .grid-row
+        .column-full
+          .breadcrumbs
+            %ol
+              %li
+                %a{ href: '/' } Home
+              %li
+                Placeholder
+
       .grid-row
         .column-full
           = yield
