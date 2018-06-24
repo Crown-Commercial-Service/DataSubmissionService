@@ -65,3 +65,6 @@ Metrics/BlockLength:
     Max: 40
     Exclude:
         - 'spec/**/*'
+
+Lint/UnusedMethodArgument:
+    AllowUnusedKeywordArguments: true
