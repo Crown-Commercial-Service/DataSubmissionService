@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_171947) do
+ActiveRecord::Schema.define(version: 2018_06_05_150542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -27,79 +27,6 @@ ActiveRecord::Schema.define(version: 2018_06_11_171947) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "agreements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "framework_id", null: false
-    t.uuid "supplier_id", null: false
-    t.index ["framework_id"], name: "index_agreements_on_framework_id"
-    t.index ["supplier_id"], name: "index_agreements_on_supplier_id"
-  end
-
-  create_table "event_store_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "event_type", null: false
-    t.text "metadata"
-    t.text "data", null: false
-    t.datetime "created_at", null: false
-    t.index ["created_at"], name: "index_event_store_events_on_created_at"
-  end
-
-  create_table "event_store_events_in_streams", id: :serial, force: :cascade do |t|
-    t.string "stream", null: false
-    t.integer "position"
-    t.uuid "event_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["created_at"], name: "index_event_store_events_in_streams_on_created_at"
-    t.index ["stream", "event_id"], name: "index_event_store_events_in_streams_on_stream_and_event_id", unique: true
-    t.index ["stream", "position"], name: "index_event_store_events_in_streams_on_stream_and_position", unique: true
-  end
-
-  create_table "framework_lots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "framework_id", null: false
-    t.string "number", null: false
-    t.string "description"
-    t.index ["framework_id", "number"], name: "index_framework_lots_on_framework_id_and_number", unique: true
-    t.index ["framework_id"], name: "index_framework_lots_on_framework_id"
-  end
-
-  create_table "frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.string "short_name", null: false
-    t.index ["short_name"], name: "index_frameworks_on_short_name", unique: true
-  end
-
-  create_table "submission_entries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "submission_id", null: false
-    t.uuid "submission_file_id"
-    t.jsonb "source"
-    t.jsonb "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["submission_file_id"], name: "index_submission_entries_on_submission_file_id"
-    t.index ["submission_id"], name: "index_submission_entries_on_submission_id"
-  end
-
-  create_table "submission_files", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "submission_id", null: false
-    t.index ["submission_id"], name: "index_submission_files_on_submission_id"
-  end
-
-  create_table "submissions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "framework_id", null: false
-    t.uuid "supplier_id", null: false
-    t.index ["framework_id"], name: "index_submissions_on_framework_id"
-    t.index ["supplier_id"], name: "index_submissions_on_supplier_id"
-  end
-
-  create_table "suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name", null: false
-  end
-
-  create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["status"], name: "index_tasks_on_status"
-  end
-
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "uid"
     t.string "email", null: false
@@ -107,10 +34,4 @@ ActiveRecord::Schema.define(version: 2018_06_11_171947) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "framework_lots", "frameworks"
-  add_foreign_key "submission_entries", "submission_files"
-  add_foreign_key "submission_entries", "submissions"
-  add_foreign_key "submission_files", "submissions"
-  add_foreign_key "submissions", "frameworks"
-  add_foreign_key "submissions", "suppliers"
 end

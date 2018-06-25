@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :validate_content_type, only: [:create]
+  before_action :validate_file_presence_and_content_type, only: [:create]
 
   def create
     blob = ActiveStorage::Blob.create_after_upload!(
@@ -14,10 +14,13 @@ class UploadsController < ApplicationController
 
   private
 
-  def validate_content_type
-    return if content_type_valid?
-
+  def handle_content_type_validation
     flash.now[:alert] = 'File content_type must be an xlsx or xlx'
+    render 'tasks/index'
+  end
+
+  def handle_file_presence_validation
+    flash.now[:alert] = 'Please select a file'
     render 'tasks/index'
   end
 
@@ -28,5 +31,11 @@ class UploadsController < ApplicationController
   def excel_mime_types
     %w[application/vnd.ms-excel
        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]
+  end
+
+  def validate_file_presence_and_content_type
+    handle_file_presence_validation && return if params[:upload].nil?
+
+    handle_content_type_validation unless content_type_valid?
   end
 end

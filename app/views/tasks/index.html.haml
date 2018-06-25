@@ -8,5 +8,5 @@
     Second task
 
 = form_tag(uploads_path, multipart: true) do
-  = file_field_tag 'upload'
+  = file_field_tag 'upload', required: true
   = submit_tag 'Upload file'

@@ -67,4 +67,7 @@ Metrics/BlockLength:
         - 'spec/**/*'
 
 Lint/UnusedMethodArgument:
-    AllowUnusedKeywordArguments: true
+    AllowUnusedKeywordArguments: false
+    Exclude:
+        - 'config/initializers/active_storage_patch.rb'
+        - 'lib/active_storage/**/*'
