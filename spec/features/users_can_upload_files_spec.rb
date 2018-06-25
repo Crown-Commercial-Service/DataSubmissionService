@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User uploads a file' do
   describe 'Signed-in user can upload a file' do
-    it 'successfully, if the file has an xlsx or xlx content_type' do
+    scenario 'successfully, if the file has an xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/tasks'
@@ -20,7 +20,7 @@ RSpec.feature 'User uploads a file' do
       expect(page).to have_content(blob.filename)
     end
 
-    it 'throws an error if the file does not have xlsx or xlx content_type' do
+    scenario 'throws an error if the file does not have xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/tasks'
@@ -35,7 +35,7 @@ RSpec.feature 'User uploads a file' do
       expect(page).to have_content('File content_type must be an xlsx or xlx')
     end
 
-    it 'throws an error if no file was selected' do
+    scenario 'throws an error if no file was selected' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/tasks'
