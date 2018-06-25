@@ -1,21 +1,38 @@
 require 'rails_helper'
 
 RSpec.feature 'User uploads a file' do
-  scenario 'Signed-in user can upload a file' do
-    mock_sso_with(email: 'email@example.com')
+  describe 'Signed-in user can upload a file' do
+    scenario 'successfully, if the file has an xlsx or xlx content_type' do
+      mock_sso_with(email: 'email@example.com')
 
-    visit '/tasks'
-    click_on 'Sign in'
+      visit '/tasks'
+      click_on 'Sign in'
 
-    expect do
-      attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
-      click_button 'Upload file'
-    end.to change(ActiveStorage::Blob, :count).by(1)
+      expect do
+        attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
+        click_button 'Upload file'
+      end.to change(ActiveStorage::Blob, :count).by(1)
 
-    blob = ActiveStorage::Blob.last
+      blob = ActiveStorage::Blob.last
 
-    expect(current_path).to eq(tasks_path)
-    expect(page).to have_content('upload successful')
-    expect(page).to have_content(blob.filename)
+      expect(current_path).to eq(tasks_path)
+      expect(page).to have_content('upload successful')
+      expect(page).to have_content(blob.filename)
+    end
+
+    scenario 'throws an error if the file does not have xlsx or xlx content_type' do
+      mock_sso_with(email: 'email@example.com')
+
+      visit '/tasks'
+      click_on 'Sign in'
+
+      expect do
+        attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.pdf')
+        click_button 'Upload file'
+      end.to change(ActiveStorage::Blob, :count).by(0)
+
+      expect(current_path).to eq(uploads_path)
+      expect(page).to have_content('File content_type must be an xlsx or xlx')
+    end
   end
 end
