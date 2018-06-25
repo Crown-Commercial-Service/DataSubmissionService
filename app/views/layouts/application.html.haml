@@ -1,21 +1,81 @@
 !!!
-%html
+%html{ lang: 'en-GB' }
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
     %title Data Submission Service
+
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }/
+    %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
+    %meta{ name: 'format-detection', content: 'telephone=no' }/
+
+    %link{ href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600', rel: 'stylesheet' }/
+
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+
   %body
-    %nav
-      - if current_user
-        Signed in as
-        = current_user.email
-        = link_to 'Sign out', '/sign_out'
-      - else
-        = link_to 'Sign in', '/auth/auth0'
+    #skiplink-container
+      %div
+        %a{ href: '#content', class: 'skiplink' }/
 
-    - flash.each do |key, value|
-      = content_tag :div, value, class: "flash flash-#{key}"
+    #beta-banner
+      .beta-wrapper
+        .beta-text
+          BETA
+        .beta-message
+          Please give us your feedback so we can improve this site
 
-    = yield
+    %header#global-header.with-proposition{ role: 'banner' }
+      .header-wrapper
+        .header-global
+          .header-logo
+            %a#logo.content{ href: 'https://crowncommercialservice.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
+              %img{ src: asset_path('ccs-logo-white.png'), width: 160, height: 131, alt: 'Crown Commercial Service' }
+
+        .header-proposition
+          .content
+            %nav#proposition-menu
+              %a#proposition-name{ href: '/' } Data Submission Service
+              %ul#proposition-links
+                %li
+                  %a{ class: 'active', href: '/' }
+                    Home
+                %li
+                  %a{ href: tasks_path }
+                    Tasks
+                %li
+                  - if current_user
+                    = link_to 'Sign out', '/sign_out'
+                  - else
+                    = link_to 'Sign in', '/auth/auth0'
+
+    %main{ role: 'main' }
+      .grid-row
+        .column-full
+          - flash.each do |key, value|
+            = content_tag :div, value, class: "flash flash-#{key}"
+
+      .grid-row
+        .column-full
+          .breadcrumbs
+            %ol
+              %li
+                %a{ href: '/' } Home
+              %li
+                Placeholder
+
+      .grid-row
+        .column-full
+          = yield
+
+    %footer#footer{ class: 'group', role: 'contentinfo' }
+      .footer-wrapper
+        .footer-meta
+          %a#logo.content{ href: 'https://crowncommercialservice.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
+            %img{ src: asset_path('ccs-logo-white.png'), width: 160, height: 131, alt: 'Crown Commercial Service' }
+
+          .copyright
+            %a{ href: 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/' }
+              © Crown copyright
+
