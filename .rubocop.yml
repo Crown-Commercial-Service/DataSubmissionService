@@ -65,3 +65,9 @@ Metrics/BlockLength:
     Max: 40
     Exclude:
         - 'spec/**/*'
+
+Lint/UnusedMethodArgument:
+    AllowUnusedKeywordArguments: false
+    Exclude:
+        - 'config/initializers/active_storage_patch.rb'
+        - 'lib/active_storage/**/*'
