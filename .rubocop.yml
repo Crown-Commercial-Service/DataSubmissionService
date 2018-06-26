@@ -10,6 +10,10 @@ AllCops:
 Rails:
     Enabled: true
 
+Rails/HasManyOrHasOneDependent:
+    Exclude:
+        - 'app/models/api/*'
+
 Bundler/OrderedGems:
     Enabled: false
 
