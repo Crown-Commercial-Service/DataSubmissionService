@@ -30,7 +30,7 @@ RUN \
 
 COPY . $INSTALL_PATH
 
-RUN bundle exec rake SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
+RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
