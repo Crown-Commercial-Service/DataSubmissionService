@@ -1,0 +1,14 @@
+en:
+  tasks:
+    index:
+      completed_return: Submit management information for RM1234 Framework A
+      nil_return: Submit a nil return for RM1234 Framework A
+    completed_return:
+      sub_heading: Upload and submit data
+      heading: Upload management information data for RM1234 Framework A
+    complete:
+      message:
+        para_1: You’ll receive an invoice from Crown Commercial Service within a week, based on the management information you’ve provided.
+        para_2: We estimate that this will be £xxxx
+        para_3: If you’ve made a mistake or need to amend the management information you’ve supplied, [contact the service desk] for help.
+        para_4: Next month’s management information is due on [date]. We’ll send you a reminder for this and any other outstanding tasks on [date]. You can [set an earlier reminder] if you need to.

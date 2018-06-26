@@ -1,0 +1,11 @@
+%h1.heading-xlarge
+  %span.heading-secondary
+    = t('.sub_heading')
+  = t('.heading')
+
+= form_tag(uploads_path, multipart: true) do
+  .form-group
+    %label.form-label Choose a file
+    = file_field_tag 'upload', required: true
+  .form-group
+    = submit_tag 'Upload file', class: 'button'

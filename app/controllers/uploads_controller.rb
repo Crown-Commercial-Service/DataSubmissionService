@@ -7,9 +7,15 @@ class UploadsController < ApplicationController
       filename: params[:upload].original_filename,
       content_type: params[:upload].content_type,
       # TODO: to be changed to a dynamic submission_id
-      metadata: { submission_id: 'f57f4344-0c6c-4a84-9fbc-76ea71b57b29' }
+      metadata: { submission_id: helpers.temp_submission_id }
     )
-    redirect_to tasks_path, flash: { message: "#{blob.filename} file upload successful!" }
+    redirect_to upload_review_task_path(id: helpers.temp_task_id), flash: { message: "#{blob.filename} file upload successful!" }
+  end
+
+  def completed_return
+  end
+
+  def review
   end
 
   private

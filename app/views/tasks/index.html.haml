@@ -1,12 +1,15 @@
-%h1
-  Tasks
+%h2.heading-large
+  = "Tasks for #{current_month}"
 
-%ul
-  %li
-    First task
-  %li
-    Second task
-
-= form_tag(uploads_path, multipart: true) do
-  = file_field_tag 'upload', required: true
-  = submit_tag 'Upload file'
+%table
+  %thead
+    %tr
+      %th Description
+      %th Deadline
+  %tbody
+    %tr
+      %th
+        = link_to t('.completed_return'), upload_task_path(id: temp_task_id)
+        = ' or'
+        = link_to t('.nil_return'), root_path
+      %td 07 July 2018

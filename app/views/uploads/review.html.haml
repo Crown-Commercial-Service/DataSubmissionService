@@ -1,0 +1,27 @@
+%h1.heading-xlarge
+  %span.heading-secondary
+    = t('.sub_heading')
+  = t('.heading')
+
+%p= t('.intro')
+%p= t('.desc')
+
+.grid-row
+  .column-one-third
+    .data
+      %span.data-item.bold-xxlarge 1
+      %span.data-item.bold-xsmall Orders
+  .column-one-third
+    .data
+      %span.data-item.bold-xxlarge 1
+      %span.data-item.bold-xsmall Invoices
+  .column-one-third
+
+.grid-row
+  .form-group
+    = link_to t('.submit'), complete_task_path, class: 'button'
+
+  %span= t('.looks_wrong')
+
+  .form-group
+    = link_to t('.back'), tasks_path, class: 'button'

@@ -1,0 +1,13 @@
+en:
+  uploads:
+    completed_return:
+      sub_heading: Upload and submit data
+      heading: Upload management information data for RM1234 Framework A
+    review:
+      sub_heading: Review your information
+      heading: "File uploaded: ready to submit..."
+      intro: Your management information for RM1234 Framework A is now ready to be submitted.
+      desc: "Your uploaded file contains:"
+      looks_wrong: If this looks wrong, you can go back to your task list and start again.
+      submit: Submit your data
+      back: Go back to tasks
