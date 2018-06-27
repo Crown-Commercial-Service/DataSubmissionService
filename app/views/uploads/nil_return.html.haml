@@ -1,0 +1,11 @@
+%h1.heading-xlarge
+  = t('.heading')
+
+%p= t('.description') + ' for ' + "#{current_month}"
+
+%p= t('.framework_name')
+
+.form-group
+  = link_to t('.confirm_submit'), complete_task_path, class: 'button'
+
+= link_to t('uploads.review.back'), tasks_path

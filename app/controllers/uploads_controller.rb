@@ -16,6 +16,8 @@ class UploadsController < ApplicationController
 
   def completed_return; end
 
+  def nil_return; end
+
   def review; end
 
   private

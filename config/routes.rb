@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :tasks, only: %i[index show] do
     member do
       get 'upload', to: 'uploads#completed_return'
+      get 'nil', to: 'uploads#nil_return'
       get 'upload/review', to: 'uploads#review'
       get 'complete', to: 'tasks#complete'
     end

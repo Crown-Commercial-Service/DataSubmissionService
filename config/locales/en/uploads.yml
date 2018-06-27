@@ -3,6 +3,11 @@ en:
     completed_return:
       sub_heading: Upload and submit data
       heading: Upload management information data for RM1234 Framework A
+    nil_return:
+      heading: Submit a nil return for RM1234 Framework A
+      description: By submitting a nil return, you’re confirming that you have no transactions to report on this framework for
+      framework_name: RM1234 Framework A
+      confirm_submit: Confirm and submit nil a return
     review:
       sub_heading: Review your information
       heading: "File uploaded: ready to submit..."
