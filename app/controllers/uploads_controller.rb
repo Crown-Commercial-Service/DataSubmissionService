@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+  before_action :ensure_user_signed_in
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def create
@@ -9,14 +10,13 @@ class UploadsController < ApplicationController
       # TODO: to be changed to a dynamic submission_id
       metadata: { submission_id: helpers.temp_submission_id }
     )
-    redirect_to upload_review_task_path(id: helpers.temp_task_id), flash: { message: "#{blob.filename} file upload successful!" }
+    redirect_to upload_review_task_path(id: helpers.temp_task_id),
+                flash: { message: "#{blob.filename} file upload successful!" }
   end
 
-  def completed_return
-  end
+  def completed_return; end
 
-  def review
-  end
+  def review; end
 
   private
 

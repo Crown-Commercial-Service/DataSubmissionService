@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
+  root to: 'home#index'
   resources :uploads, only: %i[create]
 
-  resources :tasks, only: [:index, :show] do
+  resources :tasks, only: %i[index show] do
     member do
       get 'upload', to: 'uploads#completed_return'
       get 'upload/review', to: 'uploads#review'

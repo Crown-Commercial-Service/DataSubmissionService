@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def current_month
-    Date.today.strftime("%B")
+    Time.zone.today.strftime('%B')
   end
 end
