@@ -8,9 +8,8 @@ RSpec.feature 'User reviews completed spreadsheet' do
       visit '/tasks'
       click_on 'Sign in'
 
-      # TODO:
-      # mock already uploaded file in the submission process within a task
-      # mock backend transactions and API calls when that's added
+      # TODO: mock already uploaded file in the submission process within a task
+      # TODO: mock backend transactions and API calls when that's added
       visit upload_review_task_path(id: temp_task_id)
       expect(page).to have_content(I18n.t('uploads.review.heading'))
       expect(page).to have_content(I18n.t('uploads.review.intro'))
@@ -30,9 +29,8 @@ RSpec.feature 'User reviews completed spreadsheet' do
       visit '/tasks'
       click_on 'Sign in'
 
-      # TODO:
-      # mock already uploaded file in the submission process within a task
-      # mock backend transactions and API calls when that's added
+      # TODO: mock already uploaded file in the submission process within a task
+      # TODO: mock backend transactions and API calls when that's added
       visit upload_review_task_path(id: temp_task_id)
       expect(page).to have_content(I18n.t('uploads.review.heading'))
       expect(page).to have_content(I18n.t('uploads.review.intro'))
