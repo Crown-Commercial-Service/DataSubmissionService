@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_user_signed_in
-    redirect_to root_path unless current_user
+    # redirect_to root_path unless current_user
   end
 end
