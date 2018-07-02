@@ -4,6 +4,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
   describe 'Signed-in user can upload a completed spreadsheet' do
     scenario 'successfully, if the file has an xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'
@@ -26,6 +27,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'throws an error if the file does not have xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'
@@ -43,6 +45,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'throws an error if no file was selected' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'

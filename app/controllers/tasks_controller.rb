@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :ensure_user_signed_in
 
   def index
-    # NO OP
+    @tasks = API::Task.all
   end
 
   def complete; end

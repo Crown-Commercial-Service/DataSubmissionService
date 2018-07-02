@@ -4,6 +4,7 @@ RSpec.feature 'User submits nil return' do
   describe 'Signed-in user can submit nil return' do
     scenario 'successfully' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'

@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User reviews completed spreadsheet' do
-  describe 'Signed-in user can review an uploaded completed spreadsheet' do
+  feature 'Signed-in user can review an uploaded completed spreadsheet' do
     scenario 'successfully review and complete the submission process' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'
@@ -25,6 +26,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
 
     scenario 'and cancel/go back to re upload the spreadsheet' do
       mock_sso_with(email: 'email@example.com')
+      mock_tasks_endpoint!
 
       visit '/tasks'
       click_on 'Sign in'
