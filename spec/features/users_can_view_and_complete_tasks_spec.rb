@@ -33,8 +33,11 @@ RSpec.feature 'Managing tasks' do
         body: mock_api_response.to_json
       )
 
-    visit '/tasks'
+    Timecop.freeze(Time.zone.local(2018, 7, 2)) do
+      visit '/tasks'
+    end
 
+    expect(page).to have_text 'Tasks for July'
     expect(page).to have_text 'First task'
     expect(page).to have_text 'Second task'
   end
