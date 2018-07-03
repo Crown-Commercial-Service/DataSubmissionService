@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :uploads, only: %i[create]
 
-  resources :tasks, only: %i[index show] do
-    member do
-      get 'upload', to: 'uploads#completed_return'
-      get 'nil', to: 'uploads#nil_return'
-      get 'upload/review', to: 'uploads#review'
-      get 'complete', to: 'tasks#complete'
+  resources :tasks, only: %i[index] do
+    resources :submissions, only: %i[new create] do
+      resource :review, only: %i[new create]
     end
   end
 

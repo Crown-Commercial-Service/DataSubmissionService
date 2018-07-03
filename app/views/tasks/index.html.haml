@@ -4,12 +4,19 @@
 %table
   %thead
     %tr
-      %th Description
-      %th Deadline
+      %th{ scope: 'col' } Description
+      %th{ scope: 'col' }
   %tbody
-    %tr
-      %th
-        = link_to t('.completed_return'), upload_task_path(id: temp_task_id)
-        = ' or'
-        = link_to t('.nil_return'), nil_task_path(id: temp_task_id)
-      %td 07 July 2018
+    - if @tasks
+      - @tasks.each do |task|
+        %tr
+          %th
+            %strong
+              = task.description
+            %br/
+            Due:
+            = task.due_on
+          %td
+            = link_to 'Submit management information', new_task_submission_path(task_id: task.id), class: 'button'
+            = ' '
+            = link_to 'Submit nil return', new_task_submission_path(task_id: task.id, type: 'nil_return'), class: 'button'

@@ -42,6 +42,7 @@ gem 'omniauth-auth0', '~> 2.0.0'
 
 # API requests
 gem 'httparty'
+gem 'jsonapi-consumer', '~> 1.0'
 
 # Forms
 gem 'simple_form'
@@ -67,5 +68,6 @@ group :test do
   gem 'capybara', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'timecop'
   gem 'webmock'
 end
