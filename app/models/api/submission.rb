@@ -1,6 +1,5 @@
 module API
   class Submission < Base
-    has_many :submission_files
-    has_many :submission_entries
+    has_many :entries
   end
 end

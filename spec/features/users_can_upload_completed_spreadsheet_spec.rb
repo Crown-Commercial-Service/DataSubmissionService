@@ -57,6 +57,36 @@ RSpec.feature 'User uploads completed spreadsheet' do
         }
       }
 
+      submission_with_entries = {
+        data: {
+          id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+          type: 'submissions',
+          attributes: {
+            framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
+            supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
+          },
+          relationships: {
+            entries: {
+              data: {
+                type: 'submission_entries',
+                id: 'f87717d4-874a-43d9-b99f-c8cf2897b526'
+              }
+            }
+          }
+        },
+        included: [
+          {
+            id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
+            type: 'submission_entries',
+            attributes: {
+              source: { row: 42, type: 'InvoicesReceived' },
+              data: { test: 'test' },
+              status: 'pending'
+            }
+          }
+        ]
+      }
+
       stub_request(:get, 'https://ccs.api/v1/tasks')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
@@ -73,6 +103,12 @@ RSpec.feature 'User uploads completed spreadsheet' do
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: task_submission.to_json
+        )
+
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=entries')
+        .to_return(
+          headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
+          body: submission_with_entries.to_json
         )
     end
 
