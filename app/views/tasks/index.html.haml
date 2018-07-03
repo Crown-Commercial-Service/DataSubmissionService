@@ -5,16 +5,18 @@
   %thead
     %tr
       %th{ scope: 'col' } Description
-      %th{ scope: 'col' } Due
+      %th{ scope: 'col' }
   %tbody
     - if @tasks
       - @tasks.each do |task|
         %tr
           %th
-            = task.description
-          %td
+            %strong
+              = task.description
+            %br/
+            Due:
             = task.due_on
-
-= link_to t('.completed_return'), upload_task_path(id: temp_task_id)
-= ' or'
-= link_to t('.nil_return'), nil_task_path(id: temp_task_id)
+          %td
+            = link_to 'Submit management information', new_task_submission_path(task_id: task.id), class: 'button'
+            = ' '
+            = link_to 'Submit nil return', new_task_submission_path(task_id: task.id, type: 'nil_return'), class: 'button'

@@ -17,6 +17,10 @@ main {
     @include heading-48;
 
     font-weight: 600;
+
+    &.heading-xlarge {
+      margin-bottom: $gutter;
+    }
   }
 
   h2 {

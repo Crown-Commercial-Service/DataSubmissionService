@@ -1,0 +1,12 @@
+%h1.heading-xlarge
+  %span.heading-secondary
+    Upload and submit data
+  Upload management information data for
+  = @task.framework.short_name
+
+= form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
+  .form-group
+    %label.form-label Choose a file
+    = file_field_tag 'upload', required: true
+  .form-group
+    = submit_tag 'Upload', class: 'button'

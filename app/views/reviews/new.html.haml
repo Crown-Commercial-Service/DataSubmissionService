@@ -1,0 +1,29 @@
+%h1.heading-xlarge
+  %span.heading-secondary
+    Review your information
+  File uploaded: {status}
+
+%p
+  Your management information for
+  = @task.framework.short_name
+  is currently {status}
+
+%p
+  Your uploaded file contains:
+
+.grid-row
+  .column-one-third
+    .data
+      %span.data-item.bold-xxlarge 1
+      %span.data-item.bold-xsmall Orders
+  .column-one-third
+    .data
+      %span.data-item.bold-xxlarge 1
+      %span.data-item.bold-xsmall Invoices
+  .column-one-third
+
+%p
+  If this looks wrong, you can
+  = link_to 'submit another file', new_task_submission_path(@task.id)
+  and start again
+
