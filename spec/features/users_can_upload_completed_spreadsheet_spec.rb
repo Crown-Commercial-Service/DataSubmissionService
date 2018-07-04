@@ -79,7 +79,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
             id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
             type: 'submission_entries',
             attributes: {
-              source: { row: 42, type: 'InvoicesReceived' },
+              source: { row: 42, sheet: 'InvoicesReceived' },
               data: { test: 'test' },
               status: 'pending'
             }
