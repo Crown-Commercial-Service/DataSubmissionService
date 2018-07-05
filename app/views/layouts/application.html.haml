@@ -35,20 +35,7 @@
 
         .header-proposition
           .content
-            %nav#proposition-menu
-              %a#proposition-name{ href: '/' } Data Submission Service
-              %ul#proposition-links
-                %li
-                  %a{ class: 'active', href: '/' }
-                    Home
-                %li
-                  %a{ href: tasks_path }
-                    Tasks
-                %li
-                  - if current_user
-                    = link_to 'Sign out', '/sign_out'
-                  - else
-                    = link_to 'Sign in', '/auth/auth0'
+            = render 'shared/top_navigation'
 
     %main{ role: 'main' }
 
