@@ -189,6 +189,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
     scenario 'successfully review and complete the submission process' do
       mock_sso_with(email: 'email@example.com')
 
+      visit '/'
+      click_on 'Sign in'
+
       visit '/tasks'
       click_on 'Submit management information'
 
@@ -210,6 +213,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
 
     scenario 'and cancel/go back to re upload the spreadsheet' do
       mock_sso_with(email: 'email@example.com')
+
+      visit '/'
+      click_on 'Sign in'
 
       visit '/tasks'
       click_on 'Submit management information'

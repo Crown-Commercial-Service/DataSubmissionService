@@ -132,20 +132,6 @@ RSpec.feature 'User uploads completed spreadsheet' do
     scenario 'successfully, if the file has an xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
 
-      task = {
-        data: {
-          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
-          type: 'tasks',
-          attributes: {
-            status: 'in_progress',
-            description: 'test task',
-            due_on: '2030-01-01',
-            framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
-            supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
-          }
-        }
-      }
-
       task_params = {
         data: {
           id: '2d98639e-5260-411f-a5ee-61847a2e067c',
@@ -160,8 +146,11 @@ RSpec.feature 'User uploads completed spreadsheet' do
         .with(body: task_params.to_json)
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          body: task.to_json
+          status: 204
         )
+
+      visit '/'
+      click_on 'Sign in'
 
       visit '/tasks'
       click_on 'Submit management information'
@@ -180,6 +169,9 @@ RSpec.feature 'User uploads completed spreadsheet' do
     scenario 'throws an error if the file does not have xlsx or xlx content_type' do
       mock_sso_with(email: 'email@example.com')
 
+      visit '/'
+      click_on 'Sign in'
+
       visit '/tasks'
       click_on 'Submit management information'
 
@@ -193,6 +185,9 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'throws an error if no file was selected' do
       mock_sso_with(email: 'email@example.com')
+
+      visit '/'
+      click_on 'Sign in'
 
       visit '/tasks'
       click_on 'Submit management information'

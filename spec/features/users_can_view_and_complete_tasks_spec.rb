@@ -33,6 +33,9 @@ RSpec.feature 'Managing tasks' do
         body: mock_api_response.to_json
       )
 
+    visit '/'
+    click_on 'Sign in'
+
     Timecop.freeze(Time.zone.local(2018, 7, 2)) do
       visit '/tasks'
     end
