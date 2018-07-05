@@ -71,6 +71,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
                 {
                   type: 'submission_entries',
                   id: 'f87717d4-874a-43d9-b99f-c8cf2897b526'
+                },
+                {
+                  type: 'submission_entries',
+                  id: '1eb3b8ee-0ac6-4b8f-86a5-6886b33c63ff'
+                },
+                {
+                  type: 'submission_entries',
+                  id: '32423310-e3b6-4e2f-b022-a4854d8085ab'
                 }
               ]
             }
@@ -81,7 +89,25 @@ RSpec.feature 'User reviews completed spreadsheet' do
             id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
             type: 'submission_entries',
             attributes: {
-              source: { row: 42, type: 'InvoicesReceived' },
+              source: { row: 42, sheet: 'InvoicesRaised' },
+              data: { test: 'test' },
+              status: 'pending'
+            }
+          },
+          {
+            id: '32423310-e3b6-4e2f-b022-a4854d8085ab',
+            type: 'submission_entries',
+            attributes: {
+              source: { row: 40, sheet: 'Invoices Raised' },
+              data: { test: 'test' },
+              status: 'pending'
+            }
+          },
+          {
+            id: '1eb3b8ee-0ac6-4b8f-86a5-6886b33c63ff',
+            type: 'submission_entries',
+            attributes: {
+              source: { row: 1, sheet: ' Orders  Received ' },
               data: { test: 'test' },
               status: 'pending'
             }
@@ -126,6 +152,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
       click_button 'Upload'
 
       expect(page).to have_content('Review your information')
+
+      within '#invoices' do
+        expect(page).to have_content('2')
+      end
+
+      within '#orders' do
+        expect(page).to have_content('1')
+      end
     end
 
     scenario 'and cancel/go back to re upload the spreadsheet' do
