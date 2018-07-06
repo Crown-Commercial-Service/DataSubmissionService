@@ -16,6 +16,20 @@ RSpec.feature 'User reviews completed spreadsheet' do
         ]
       }
 
+      task = {
+        data: {
+          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          type: 'tasks',
+          attributes: {
+            status: 'in_progress',
+            description: 'test task',
+            due_on: '2030-01-01',
+            framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
+            supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
+          }
+        }
+      }
+
       task_with_framework = {
         data: {
           id: '2d98639e-5260-411f-a5ee-61847a2e067c',
@@ -137,6 +151,23 @@ RSpec.feature 'User reviews completed spreadsheet' do
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: submission_with_entries.to_json
+        )
+
+      task_params = {
+        data: {
+          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          type: 'tasks',
+          attributes: {
+            status: 'in_progress'
+          }
+        }
+      }
+
+      stub_request(:patch, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c')
+        .with(body: task_params.to_json)
+        .to_return(
+          headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
+          body: task.to_json
         )
     end
 
