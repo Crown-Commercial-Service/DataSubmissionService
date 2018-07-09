@@ -28,6 +28,7 @@ RSpec.feature 'Managing tasks' do
     }
 
     stub_request(:get, 'https://ccs.api/v1/tasks')
+      .with(query: hash_including({}))
       .to_return(
         headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
         body: mock_api_response.to_json

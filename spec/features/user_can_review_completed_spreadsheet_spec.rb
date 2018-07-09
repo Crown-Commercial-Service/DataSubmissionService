@@ -143,6 +143,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
       }
 
       stub_request(:get, 'https://ccs.api/v1/tasks')
+        .with(query: hash_including({}))
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: tasks.to_json
