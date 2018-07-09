@@ -24,8 +24,20 @@
       %span.data-item.bold-xsmall Invoices
   .column-one-third
 
-%p
-  If this looks wrong, you can
-  = link_to 'submit another file', new_task_submission_path(@task.id)
-  and start again
+- if @validator.errors
+  %ul
+  - @validator.errors.each do |error|
+    %li.u_error= error['message']
 
+  = link_to 'Submit another file', new_task_submission_path(@task.id)
+  and start again
+- else
+  %p
+    If this looks wrong, you can
+    = link_to 'submit another file', new_task_submission_path(@task.id)
+    and start again
+
+- if @validator.status == 'validated'
+  = form_tag(task_submission_review_path(submission_id: params[:submission_id])) do
+    .form-group
+      = submit_tag 'Continue', class: 'button'

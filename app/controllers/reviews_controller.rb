@@ -8,26 +8,21 @@ class ReviewsController < ApplicationController
     @validator = Validator.new(submission_entries: submission_entries)
 
     case @validator.status
-    # if equal and all status is validated, display status
     when 'validated'
       flash.now[:notice] = 'All entries are valid'
-    # if equal and atleast 1 status is errored, display errors
     when 'errored'
-      flash.now[:alert] = "There are #{@validator.errors.count} errors"
+      flash.now[:alert] = "There are #{@validator.errors.count} errors in the uploaded spreadsheet"
     end
   end
 
   def create
-    # NO OP
+    render 'tasks/complete'
   end
 
   def processing
-    # compare rows with entries count
-    # if not equal, do nothing, keep polling
     redirect_to new_task_submission_review_path if ingest_entries_completed?
   end
 
-  # JS endpoint for ingested entries status
   def ingest_status_polling
     render json: { complete: ingest_entries_completed? }
   end
@@ -40,7 +35,6 @@ class ReviewsController < ApplicationController
   end
 
   def submission_file
-    # TODO: I think we should find a less expensive way to get submission_file_id
     submission_file_id = submission_entries.first.submission_file_id
     @submission_file ||= API::SubmissionFile.where(submission_id: params[:submission_id]).find(submission_file_id).first
   end

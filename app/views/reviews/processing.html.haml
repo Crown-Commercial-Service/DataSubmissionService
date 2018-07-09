@@ -7,11 +7,11 @@
   var polling_url = "#{task_submission_review_ingest_status_polling_path}";
   var review_url = "#{new_task_submission_review_path}";
 
-  function checkResult() {
+  function checkStatus() {
     $.getJSON(polling_url, function(result) {
       if(result.complete) location.href = review_url;
-      else setTimeout(checkResult, 2000);
+      else setTimeout(checkStatus, 2000);
     });
   }
 
-  checkResult();
+  checkStatus();

@@ -71,6 +71,17 @@ RSpec.feature 'User reviews completed spreadsheet' do
         }
       }
 
+      submission_file = {
+        data: {
+          id: '41bea03d-fc99-45fb-9efc-2787530409f8',
+          type: 'submission_files',
+          attributes: {
+            submission_id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+            rows: 3
+          }
+        }
+      }
+
       submission_with_entries = {
         data: {
           id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
@@ -145,6 +156,12 @@ RSpec.feature 'User reviews completed spreadsheet' do
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: task_submission.to_json
+        )
+
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/files')
+        .to_return(
+          headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
+          body: submission_file.to_json
         )
 
       stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=entries')
