@@ -32,6 +32,7 @@ gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
+gem 'govuk_template'
 gem 'haml-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
