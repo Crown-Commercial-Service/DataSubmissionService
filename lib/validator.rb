@@ -17,6 +17,10 @@ class Validator
     @submission_entries.map(&:validation_errors).compact.flatten
   end
 
+  def pending?
+    @submission_entries.map(&:status).any? { |status| status == 'pending' }
+  end
+
   private
 
   def validated?

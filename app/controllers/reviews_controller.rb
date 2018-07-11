@@ -5,9 +5,7 @@ class ReviewsController < ApplicationController
     @invoices_count = submission_entries.count { |e| e.source['sheet'].match?(/invoice/i) }
     @orders_count = submission_entries.count { |e| e.source['sheet'].match?(/order/i) }
 
-    @validator = Validator.new(submission_entries: submission_entries)
-
-    case @validator.status
+    case validator.status
     when 'validated'
       flash.now[:notice] = 'All entries are valid'
     when 'errored'
@@ -46,6 +44,12 @@ class ReviewsController < ApplicationController
   end
 
   def ingest_entries_completed?
+    return false if validator.pending?
+
     expected_number_of_rows == submission_entries.count
+  end
+
+  def validator
+    @validator ||= Validator.new(submission_entries: submission_entries)
   end
 end
