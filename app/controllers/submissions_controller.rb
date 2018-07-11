@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
   def create
     task = API::Task.includes(:framework).find(params[:task_id]).first
     submission = API::Submission.create(task_id: task.id)
+    task.update(status: 'in_progress')
 
     blob = ActiveStorage::Blob.create_after_upload!(
       io: params[:upload],
@@ -24,7 +25,7 @@ class SubmissionsController < ApplicationController
     )
 
     redirect_to(
-      new_task_submission_review_path(task_id: task.id, submission_id: submission.id),
+      task_submission_review_processing_path(task_id: task.id, submission_id: submission.id),
       flash: { notice: "#{blob.filename} file upload successful!" }
     )
   end

@@ -57,7 +57,18 @@ RSpec.feature 'User reviews completed spreadsheet' do
         }
       }
 
-      submission_with_entries = {
+      submission_file = {
+        data: {
+          id: '41bea03d-fc99-45fb-9efc-2787530409f8',
+          type: 'submission_files',
+          attributes: {
+            submission_id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+            rows: 3
+          }
+        }
+      }
+
+      submission_with_files_and_entries = {
         data: {
           id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
           type: 'submissions',
@@ -79,6 +90,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
                 {
                   type: 'submission_entries',
                   id: '32423310-e3b6-4e2f-b022-a4854d8085ab'
+                }
+              ]
+            },
+            files: {
+              data: [
+                {
+                  type: 'submission_files',
+                  id: '41bea03d-fc99-45fb-9efc-2787530409f8'
                 }
               ]
             }
@@ -111,6 +130,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
               data: { test: 'test' },
               status: 'pending'
             }
+          },
+          {
+            id: '41bea03d-fc99-45fb-9efc-2787530409f8',
+            type: 'submission_files',
+            attributes: {
+              submission_id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+              rows: 3
+            }
           }
         ]
       }
@@ -133,11 +160,30 @@ RSpec.feature 'User reviews completed spreadsheet' do
           body: task_submission.to_json
         )
 
-      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=entries')
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/files')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          body: submission_with_entries.to_json
+          body: submission_file.to_json
         )
+
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
+        .to_return(
+          headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
+          body: submission_with_files_and_entries.to_json
+        )
+
+      task_params = {
+        data: {
+          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          type: 'tasks',
+          attributes: {
+            status: 'in_progress'
+          }
+        }
+      }
+
+      stub_request(:patch, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c')
+        .with(body: task_params.to_json)
     end
 
     scenario 'successfully review and complete the submission process' do

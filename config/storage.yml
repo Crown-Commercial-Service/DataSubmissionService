@@ -3,7 +3,7 @@ test:
   root: <%= Rails.root.join("tmp/storage") %>
 
 local:
-  service: Disk
+  service: DiskWithMetadata
   root: <%= Rails.root.join("storage") %>
 
 amazon:

@@ -1,0 +1,17 @@
+.u_text-center
+  = render partial: 'shared/loading_spinner'
+  %p processing...
+
+:javascript
+
+  var polling_url = "#{task_submission_review_ingest_status_polling_path}";
+  var review_url = "#{new_task_submission_review_path}";
+
+  function checkStatus() {
+    $.getJSON(polling_url, function(result) {
+      if(result.complete) location.href = review_url;
+      else setTimeout(checkStatus, 2000);
+    });
+  }
+
+  checkStatus();

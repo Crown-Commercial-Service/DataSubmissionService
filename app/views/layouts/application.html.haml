@@ -51,10 +51,6 @@
                     = link_to 'Sign in', '/auth/auth0'
 
     %main{ role: 'main' }
-      .grid-row
-        .column-full
-          - flash.each do |key, value|
-            = content_tag :div, value, class: "flash flash-#{key}"
 
       .grid-row
         .column-full
@@ -64,6 +60,11 @@
                 %a{ href: '/' } Home
               %li
                 Placeholder
+
+      .grid-row
+        .column-full
+          - flash.each do |key, value|
+            = content_tag :div, value, class: "flash flash-#{key}"
 
       .grid-row
         .column-full

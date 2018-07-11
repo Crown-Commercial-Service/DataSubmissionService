@@ -36,3 +36,17 @@
 @import 'components/header';
 @import 'components/footer';
 @import 'components/beta-banner';
+
+.c_spinner {
+  width: 100px;
+  height: 100px;
+}
+
+.u_text-center {
+  text-align: center;
+}
+
+.u_error {
+  color: $error-colour;
+  margin-bottom: 10px;
+}
