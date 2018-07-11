@@ -41,7 +41,7 @@ RSpec.feature 'Managing tasks' do
       visit '/tasks'
     end
 
-    expect(page).to have_text 'Tasks for July'
+    expect(page).to have_text 'Tasks'
     expect(page).to have_text 'First task'
     expect(page).to have_text 'Second task'
   end

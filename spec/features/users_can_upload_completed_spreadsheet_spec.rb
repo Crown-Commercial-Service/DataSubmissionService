@@ -154,7 +154,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_on 'Sign in'
 
       visit '/tasks'
-      click_on 'Submit management information'
+      click_on 'Upload submission'
 
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
@@ -174,7 +174,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_on 'Sign in'
 
       visit '/tasks'
-      click_on 'Submit management information'
+      click_on 'Upload submission'
 
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.pdf')
@@ -191,7 +191,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_on 'Sign in'
 
       visit '/tasks'
-      click_on 'Submit management information'
+      click_on 'Upload submission'
 
       expect do
         click_button 'Upload'
