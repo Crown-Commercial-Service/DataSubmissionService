@@ -110,7 +110,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
             attributes: {
               source: { row: 42, sheet: 'InvoicesRaised' },
               data: { test: 'test' },
-              status: 'pending'
+              status: 'validated'
             }
           },
           {
@@ -119,7 +119,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
             attributes: {
               source: { row: 40, sheet: 'Invoices Raised' },
               data: { test: 'test' },
-              status: 'pending'
+              status: 'validated'
             }
           },
           {
@@ -128,7 +128,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
             attributes: {
               source: { row: 1, sheet: ' Orders  Received ' },
               data: { test: 'test' },
-              status: 'pending'
+              status: 'validated'
             }
           },
           {
