@@ -1,7 +1,5 @@
 %h1.heading-xlarge
-  %span.heading-secondary
-    Upload and submit data
-  Upload management information data for
+  Upload submission for
   = @task.framework.short_name
 
 = form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do

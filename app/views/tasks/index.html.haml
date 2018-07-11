@@ -1,22 +1,6 @@
-%h2.heading-large
-  = "Tasks for #{current_month}"
+.grid-row
+  .column-full
+    %h2.heading-xlarge
+      Tasks
 
-%table
-  %thead
-    %tr
-      %th{ scope: 'col' } Description
-      %th{ scope: 'col' }
-  %tbody
-    - if @tasks
-      - @tasks.each do |task|
-        %tr
-          %th
-            %strong
-              = task.description
-            %br/
-            Due:
-            = task.due_on
-          %td
-            = link_to 'Submit management information', new_task_submission_path(task_id: task.id), class: 'button'
-            = ' '
-            = link_to 'Submit nil return', new_task_submission_path(task_id: task.id, type: 'nil_return'), class: 'button'
+= render partial: "task", collection: @tasks, as: :task

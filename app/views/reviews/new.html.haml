@@ -29,7 +29,7 @@
   - @validator.errors.each do |error|
     %li.u_error= error['message']
 
-  = link_to 'Submit another file', new_task_submission_path(@task.id)
+  = link_to 'submit another file', new_task_submission_path(@task.id)
   and start again
 - else
   %p

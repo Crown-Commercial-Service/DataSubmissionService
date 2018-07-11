@@ -17,53 +17,50 @@
   %body
     #skiplink-container
       %div
-        %a{ href: '#content', class: 'skiplink' }/
-
-    #beta-banner
-      .beta-wrapper
-        .beta-text
-          BETA
-        .beta-message
-          Please give us your feedback so we can improve this site
+        %a{ href: '#content', class: 'skiplink' }
+          Skip to content
 
     %header#global-header.with-proposition{ role: 'banner' }
       .header-wrapper
         .header-global
           .header-logo
-            %a#logo.content{ href: 'https://crowncommercialservice.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
-              %img{ src: asset_path('ccs-logo-white.png'), width: 160, height: 131, alt: 'Crown Commercial Service' }
+            %a#logo.content{ href: 'https://www.crowncommercial.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
+              %img{ src: asset_path('ccs-logo-white.png'), width: 120, height: 100, alt: 'Crown Commercial Service' }
 
         .header-proposition
           .content
-            = render 'shared/top_navigation'
+            =render 'shared/top_navigation'
+        
 
-    %main{ role: 'main' }
-
-      .grid-row
-        .column-full
-          .breadcrumbs
-            %ol
-              %li
-                %a{ href: '/' } Home
-              %li
-                Placeholder
+    %main{ role: 'main', id: 'content' }
+      .phase-banner
+        <strong class="phase-tag">BETA</strong>
+        Please give us your feedback so we can improve this site
+      .breadcrumbs
+        %ol
+          %li
+            %a{ href: '/' } Home
+          %li
+            Placeholder     
 
       .grid-row
         .column-full
           - flash.each do |key, value|
             = content_tag :div, value, class: "flash flash-#{key}"
-
-      .grid-row
-        .column-full
-          = yield
+            
+      = yield
 
     %footer#footer{ class: 'group', role: 'contentinfo' }
       .footer-wrapper
         .footer-meta
-          %a#logo.content{ href: 'https://crowncommercialservice.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
-            %img{ src: asset_path('ccs-logo-white.png'), width: 160, height: 131, alt: 'Crown Commercial Service' }
-
+          .footer-meta-inner
+            %h2.visually-hidden
+              Support links
+            %ul{ role: 'navigation'} 
+              %li 
+                %a{ href: 'https://www.crowncommercial.gov.uk/' } Crown  Commercial Service
+              %li
+                %a{ href: '/' } Support
           .copyright
             %a{ href: 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/' }
               © Crown copyright
-

@@ -194,9 +194,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
       click_on 'Sign in'
 
       visit '/tasks'
-      click_on 'Submit management information'
+      click_on 'Upload submission'
 
-      expect(page).to have_content('Upload management information data for CBOARD5')
+      expect(page).to have_content('Upload submission for CBOARD5')
 
       attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
       click_button 'Upload'
@@ -219,9 +219,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
       click_on 'Sign in'
 
       visit '/tasks'
-      click_on 'Submit management information'
+      click_on 'Upload submission'
 
-      expect(page).to have_content('Upload management information data for CBOARD5')
+      expect(page).to have_content('Upload submission for CBOARD5')
 
       attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
       click_button 'Upload'
@@ -229,7 +229,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
       expect(page).to have_content('Review your information')
       click_on 'submit another file'
 
-      expect(page).to have_content('Upload and submit data')
+      expect(page).to have_content('Upload submission for CBOARD5')
     end
   end
 end
