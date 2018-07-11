@@ -196,7 +196,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
       visit '/tasks'
       click_on 'Upload submission'
 
-      expect(page).to have_content('pload submission for CBOARD5')
+      expect(page).to have_content('Upload submission for CBOARD5')
 
       attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
       click_button 'Upload'
