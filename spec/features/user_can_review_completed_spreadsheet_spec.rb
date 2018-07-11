@@ -16,20 +16,6 @@ RSpec.feature 'User reviews completed spreadsheet' do
         ]
       }
 
-      task = {
-        data: {
-          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
-          type: 'tasks',
-          attributes: {
-            status: 'in_progress',
-            description: 'test task',
-            due_on: '2030-01-01',
-            framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
-            supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
-          }
-        }
-      }
-
       task_with_framework = {
         data: {
           id: '2d98639e-5260-411f-a5ee-61847a2e067c',
@@ -82,7 +68,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
         }
       }
 
-      submission_with_entries = {
+      submission_with_files_and_entries = {
         data: {
           id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
           type: 'submissions',
@@ -104,6 +90,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
                 {
                   type: 'submission_entries',
                   id: '32423310-e3b6-4e2f-b022-a4854d8085ab'
+                }
+              ]
+            },
+            files: {
+              data: [
+                {
+                  type: 'submission_files',
+                  id: '41bea03d-fc99-45fb-9efc-2787530409f8'
                 }
               ]
             }
@@ -136,6 +130,14 @@ RSpec.feature 'User reviews completed spreadsheet' do
               data: { test: 'test' },
               status: 'pending'
             }
+          },
+          {
+            id: '41bea03d-fc99-45fb-9efc-2787530409f8',
+            type: 'submission_files',
+            attributes: {
+              submission_id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+              rows: 3
+            }
           }
         ]
       }
@@ -164,10 +166,10 @@ RSpec.feature 'User reviews completed spreadsheet' do
           body: submission_file.to_json
         )
 
-      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=entries')
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          body: submission_with_entries.to_json
+          body: submission_with_files_and_entries.to_json
         )
 
       task_params = {
@@ -182,10 +184,6 @@ RSpec.feature 'User reviews completed spreadsheet' do
 
       stub_request(:patch, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c')
         .with(body: task_params.to_json)
-        .to_return(
-          headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          body: task.to_json
-        )
     end
 
     scenario 'successfully review and complete the submission process' do

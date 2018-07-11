@@ -14,16 +14,16 @@ class Validator
   def errors
     return unless errored?
 
-    @submission_entries.entries.map(&:validation_errors).compact.flatten
+    @submission_entries.map(&:validation_errors).compact.flatten
   end
 
   private
 
   def validated?
-    @submission_entries.entries.map(&:status).all? { |status| status == 'validated' }
+    @submission_entries.map(&:status).all? { |status| status == 'validated' }
   end
 
   def errored?
-    @submission_entries.entries.map(&:status).any? { |status| status == 'errored' }
+    @submission_entries.map(&:status).any? { |status| status == 'errored' }
   end
 end

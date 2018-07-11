@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    render 'tasks/complete'
+    render 'reviews/create'
   end
 
   def processing
@@ -29,18 +29,20 @@ class ReviewsController < ApplicationController
 
   private
 
+  def submission
+    @submission ||= API::Submission.includes(:files, :entries).find(params[:submission_id]).first
+  end
+
   def submission_entries
-    submission = API::Submission.includes(:entries).find(params[:submission_id]).first
-    submission.entries
+    @submission_entries ||= submission.entries
   end
 
   def submission_file
-    submission_file_id = submission_entries.first.submission_file_id
-    @submission_file ||= API::SubmissionFile.where(submission_id: params[:submission_id]).find(submission_file_id).first
+    @submission_file ||= submission.files.try(:first)
   end
 
   def expected_number_of_rows
-    @expected_number_of_rows ||= submission_file.rows
+    @expected_number_of_rows ||= submission_file.try(:rows)
   end
 
   def ingest_entries_completed?

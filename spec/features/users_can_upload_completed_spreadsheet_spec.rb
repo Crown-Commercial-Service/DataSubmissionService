@@ -122,7 +122,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
           body: submission_file.to_json
         )
 
-      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=entries')
+      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: submission_with_entries.to_json
