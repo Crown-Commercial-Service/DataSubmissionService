@@ -1,6 +1,6 @@
 @import 'variables';
-
 /* From GDS's alphagov/govuk_frontend_toolkit */
+
 @import 'font_stack';
 @import 'measurements';
 @import 'conditionals';
@@ -8,18 +8,16 @@
 @import 'grid_layout';
 @import 'typography';
 @import 'shims';
-
 @import 'design-patterns/alpha-beta';
 @import 'design-patterns/buttons';
 @import 'design-patterns/breadcrumbs';
-
 /* From GDS's alphagov/govuk_elements */
-@import 'elements/govuk-template-base';
+
+//@import 'elements/govuk-template-base';
 @import 'elements/helpers';
 @import 'elements/reset';
 @import 'elements/layout';
 @import 'elements/elements-typography';
-@import 'elements/buttons';
 @import 'elements/icons';
 @import 'elements/lists';
 @import 'elements/forms';
@@ -30,13 +28,15 @@
 @import 'elements/components';
 @import 'elements/panels';
 @import 'elements/tables';
+/* GOVUK Template */
 
+@import 'govuk-template';
 /* Our components */
-@import 'components/main';
-@import 'components/header';
-@import 'components/footer';
-@import 'components/beta-banner';
 
+@import 'components/header';
+@import 'components/phase-banner';
+@import 'components/tasks';
+@import 'components/buttons';
 .c_spinner {
   width: 100px;
   height: 100px;

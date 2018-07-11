@@ -1,0 +1,7 @@
+.button {
+  @include button($ccs-secondary);
+}
+
+.button-secondary {
+  @include button($light-grey);
+}
