@@ -143,6 +143,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
       }
 
       stub_request(:get, 'https://ccs.api/v1/tasks')
+        .with(query: hash_including({}))
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
           body: tasks.to_json
@@ -189,6 +190,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
     scenario 'successfully review and complete the submission process' do
       mock_sso_with(email: 'email@example.com')
 
+      visit '/'
+      click_on 'Sign in'
+
       visit '/tasks'
       click_on 'Submit management information'
 
@@ -210,6 +214,9 @@ RSpec.feature 'User reviews completed spreadsheet' do
 
     scenario 'and cancel/go back to re upload the spreadsheet' do
       mock_sso_with(email: 'email@example.com')
+
+      visit '/'
+      click_on 'Sign in'
 
       visit '/tasks'
       click_on 'Submit management information'

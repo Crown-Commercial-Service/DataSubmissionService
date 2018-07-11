@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_user_signed_in
-    # redirect_to root_path unless current_user
+    return if current_user
+
+    redirect_to root_path, alert: 'You must sign in to access this page'
   end
 end
