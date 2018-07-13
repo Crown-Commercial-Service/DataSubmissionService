@@ -70,7 +70,7 @@ class ReviewsController < ApplicationController
   end
 
   def levy_calculation_completed?
-    submission.status == 'complete'
+    submission.status == 'completed'
   end
 
   def validator
