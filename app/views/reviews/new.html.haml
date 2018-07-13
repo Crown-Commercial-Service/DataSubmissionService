@@ -24,20 +24,33 @@
       %span.data-item.bold-xsmall Invoices
   .column-one-third
 
-- if @validator.errors
-  %ul
-  - @validator.errors.each do |error|
-    %li.u_error= error['message']
+- if @validator.status == 'levy_completed'
+  .grid-row
+    %p.font-large
+      Your Levy Calculation is:
+      %strong.bold
+        £
+        = @submission.levy
 
-  = link_to 'submit another file', new_task_submission_path(@task.id)
-  and start again
-- else
-  %p
-    If this looks wrong, you can
+.grid-row
+  - if @validator.errors
+    %ul
+    - @validator.errors.each do |error|
+      %li.u_error= error['message']
+
     = link_to 'submit another file', new_task_submission_path(@task.id)
     and start again
+  - else
+    %p
+      If this looks wrong, you can
+      = link_to 'submit another file', new_task_submission_path(@task.id)
+      and start again
 
-- if @validator.status == 'validated'
+- case @validator.status
+- when 'validated'
+  .form-group
+    = link_to 'Continue', task_submission_review_processing_path(task_id: @task.id, submission_id: @submission.id, state: 'calculate'), class: 'button'
+- when 'levy_completed'
   = form_tag(task_submission_review_path(submission_id: params[:submission_id])) do
     .form-group
       = submit_tag 'Continue', class: 'button'

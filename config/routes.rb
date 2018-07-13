@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create] do
       resource :review, only: %i[new create]
       get '/review/ingest_status_polling/', to: 'reviews#ingest_status_polling'
+      get '/review/calculate_status_polling/', to: 'reviews#calculate_status_polling'
       get '/review/processing/', to: 'reviews#processing'
     end
   end

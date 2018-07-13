@@ -1,10 +1,13 @@
 class Validator
-  def initialize(submission_entries:)
-    @submission_entries = submission_entries
+  def initialize(submission:)
+    @submission = submission
+    @submission_entries = submission.entries
   end
 
   def status
-    if validated?
+    if levy_completed?
+      'levy_completed'
+    elsif validated?
       'validated'
     elsif errored?
       'errored'
@@ -29,5 +32,13 @@ class Validator
 
   def errored?
     @submission_entries.map(&:status).any? { |status| status == 'errored' }
+  end
+
+  def submission_completed?
+    @submission.status == 'complete'
+  end
+
+  def levy_completed?
+    validated? && submission_completed?
   end
 end
