@@ -1,0 +1,31 @@
+{
+  "data": {
+    "id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
+    "type": "submissions",
+    "attributes": {
+      "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff"
+    },
+    "relationships": {
+      "entries": {
+        "data": [
+          {
+            "type": "submission_entries",
+            "id": "f87717d4-874a-43d9-b99f-c8cf2897b526"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "type": "submission_entries",
+      "attributes": {
+        "source": { "row": 42, "sheet": "InvoicesRaised" },
+        "data": { "test": "test" },
+        "status": "pending"
+      }
+    }
+  ]
+}

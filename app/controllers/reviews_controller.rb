@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_task, only: %i[new create]
   def new
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
-
     @invoices_count = submission_entries.count { |e| e.source['sheet'].match?(/invoice/i) }
     @orders_count = submission_entries.count { |e| e.source['sheet'].match?(/order/i) }
 
@@ -14,7 +13,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    render 'reviews/create'
+    mark_task_as_completed
+    @submission = submission
+    @submission.status = 'completed'
+
+    if @submission.save
+      flash.now[:notice] = 'You have successfully submitted your return'
+    else
+      flash.now[:alert] = 'Submission failed'
+    end
+    render :create
   end
 
   def processing
@@ -47,6 +55,10 @@ class ReviewsController < ApplicationController
 
   private
 
+  def set_task
+    @task = API::Task.includes(:framework).find(params[:task_id]).first
+  end
+
   def submission
     @submission ||= API::Submission.includes(:files, :entries).find(params[:submission_id]).first
   end
@@ -75,5 +87,9 @@ class ReviewsController < ApplicationController
 
   def validator
     @validator ||= Validator.new(submission: submission)
+  end
+
+  def mark_task_as_completed
+    @task.complete
   end
 end

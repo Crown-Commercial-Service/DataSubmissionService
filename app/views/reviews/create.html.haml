@@ -9,9 +9,14 @@
 .grid-row
   .column-two-thirds
     %p= t('.message.para_1')
+    %p
+      We estimate that this will be
+      %strong.bold
+        £
+        = @submission.levy
+
     %p= t('.message.para_2')
     %p= t('.message.para_3')
-    %p= t('.message.para_4')
 
 .form-group
   = link_to t('uploads.review.back'), tasks_path, class: 'button'

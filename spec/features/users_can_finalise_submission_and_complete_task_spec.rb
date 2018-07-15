@@ -1,31 +1,28 @@
 require 'rails_helper'
 
-RSpec.feature 'User triggers and views levy calculation' do
-  feature 'Signed-in user with an uploaded spreadsheet with validated entries' do
+RSpec.feature 'User confirms submission and complete task' do
+  feature 'Signed-in user with a completed submission and levy' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
       mock_update_task_endpoint!
-    end
-
-    scenario 'can successfully trigger levy calculation' do
-      mock_submission_with_entries_validated_endpoint!
+      mock_submission_with_levy_completed_endpoint!
       mock_levy_calculate_endpoint!
 
+      mock_task_complete_endpoint!
+      mock_update_submission_endpoint!
+    end
+
+    scenario 'can confirm submission and complete task' do
       login_and_upload_file
 
       expect(page).to have_content('Review your information')
 
-      click_link 'Continue'
-      expect(page).to have_content('processing...')
-    end
-
-    scenario 'and successfully view levy calculation' do
-      mock_submission_with_levy_completed_endpoint!
-      mock_levy_calculate_endpoint!
-
-      login_and_upload_file
-
       expect(page).to have_content('Your Levy Calculation is: £ 4500')
+
+      click_button 'Confirm'
+
+      expect(page).to have_content('We estimate that this will be £ 4500')
+      expect(page).to have_content('You have successfully submitted your return')
     end
   end
 
