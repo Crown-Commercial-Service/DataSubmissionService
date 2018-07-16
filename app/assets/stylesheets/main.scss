@@ -28,15 +28,19 @@
 @import 'elements/components';
 @import 'elements/panels';
 @import 'elements/tables';
-/* GOVUK Template */
 
-@import 'govuk-template';
-/* Our components */
-
+/* GOVUK Template components */
+@import 'components/basic';
+@import 'components/accessibility';
 @import 'components/header';
+@import 'components/footer';
+
+
+/* Our components */
 @import 'components/phase-banner';
 @import 'components/tasks';
 @import 'components/buttons';
+
 .c_spinner {
   width: 100px;
   height: 100px;
