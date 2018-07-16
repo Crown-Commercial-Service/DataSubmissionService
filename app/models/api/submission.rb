@@ -4,6 +4,6 @@ module API
     has_many :files, class_name: 'SubmissionFile'
 
     # GET /submissions/:id/calculate
-    custom_endpoint :calculate, on: :member, request_method: :get
+    custom_endpoint :calculate, on: :member, request_method: :post
   end
 end

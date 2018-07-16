@@ -106,10 +106,10 @@ RSpec.feature 'User triggers and views levy calculation' do
       stub_request(:patch, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c')
         .with(body: task_params.to_json)
 
-      stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/calculate')
+      stub_request(:post, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/calculate')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          status: 200
+          status: 204
         )
     end
 
