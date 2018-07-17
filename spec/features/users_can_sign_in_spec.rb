@@ -4,6 +4,7 @@ RSpec.feature 'Signing in as a user' do
   scenario 'Signing in successfully' do
     mock_sso_with(email: 'email@example.com')
     mock_tasks_endpoint!
+    mock_task_with_framework_endpoint!
 
     visit '/tasks'
 
@@ -15,6 +16,7 @@ RSpec.feature 'Signing in as a user' do
   scenario 'Signing out' do
     mock_sso_with(email: 'email@example.com')
     mock_tasks_endpoint!
+    mock_task_with_framework_endpoint!
 
     visit '/tasks'
     click_on 'Sign in'

@@ -33,13 +33,14 @@ module ApiHelpers
   def mock_tasks_endpoint!
     tasks = {
       data: [
-        id: '2d98639e-5260-411f-a5ee-61847a2e067c',
-        type: 'tasks',
-        attributes: {
-          description: 'test task',
-          due_on: '2030-01-01',
-          framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
-          supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
+        {
+          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          type: 'tasks',
+          attributes: {
+            status: 'ready',
+            description: 'First task',
+            due_on: '2030-01-01'
+          }
         }
       ]
     }
