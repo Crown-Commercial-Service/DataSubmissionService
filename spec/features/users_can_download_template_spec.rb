@@ -10,6 +10,6 @@ RSpec.feature 'User downloads a template' do
     click_on 'Sign in'
 
     visit '/tasks'
-    expect(page).to have_link('Download template', href: '/templates/CBOARD5 MISO Data Template (August 2018).xls')
+    expect(page).to have_link('Download template', href: '/templates/CBOARD5 MISO Data Template (July 2018).xls')
   end
 end

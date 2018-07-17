@@ -4,6 +4,6 @@ module ApplicationHelper
 
     return if framework.nil?
 
-    "/templates/#{framework.short_name} MISO Data Template (August 2018).xls"
+    "/templates/#{framework.short_name} MISO Data Template (July 2018).xls"
   end
 end
