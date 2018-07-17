@@ -52,7 +52,8 @@ RSpec.feature 'User reviews completed spreadsheet' do
           id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
           type: 'submissions',
           attributes: {
-            task_id: '2d98639e-5260-411f-a5ee-61847a2e067c'
+            task_id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+            status: 'pending'
           }
         }
       }
@@ -66,80 +67,6 @@ RSpec.feature 'User reviews completed spreadsheet' do
             rows: 3
           }
         }
-      }
-
-      submission_with_files_and_entries = {
-        data: {
-          id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
-          type: 'submissions',
-          attributes: {
-            framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
-            supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff'
-          },
-          relationships: {
-            entries: {
-              data: [
-                {
-                  type: 'submission_entries',
-                  id: 'f87717d4-874a-43d9-b99f-c8cf2897b526'
-                },
-                {
-                  type: 'submission_entries',
-                  id: '1eb3b8ee-0ac6-4b8f-86a5-6886b33c63ff'
-                },
-                {
-                  type: 'submission_entries',
-                  id: '32423310-e3b6-4e2f-b022-a4854d8085ab'
-                }
-              ]
-            },
-            files: {
-              data: [
-                {
-                  type: 'submission_files',
-                  id: '41bea03d-fc99-45fb-9efc-2787530409f8'
-                }
-              ]
-            }
-          }
-        },
-        included: [
-          {
-            id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
-            type: 'submission_entries',
-            attributes: {
-              source: { row: 42, sheet: 'InvoicesRaised' },
-              data: { test: 'test' },
-              status: 'validated'
-            }
-          },
-          {
-            id: '32423310-e3b6-4e2f-b022-a4854d8085ab',
-            type: 'submission_entries',
-            attributes: {
-              source: { row: 40, sheet: 'Invoices Raised' },
-              data: { test: 'test' },
-              status: 'validated'
-            }
-          },
-          {
-            id: '1eb3b8ee-0ac6-4b8f-86a5-6886b33c63ff',
-            type: 'submission_entries',
-            attributes: {
-              source: { row: 1, sheet: ' Orders  Received ' },
-              data: { test: 'test' },
-              status: 'validated'
-            }
-          },
-          {
-            id: '41bea03d-fc99-45fb-9efc-2787530409f8',
-            type: 'submission_files',
-            attributes: {
-              submission_id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
-              rows: 3
-            }
-          }
-        ]
       }
 
       stub_request(:get, 'https://ccs.api/v1/tasks')
@@ -170,7 +97,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
       stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
         .to_return(
           headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-          body: submission_with_files_and_entries.to_json
+          body: Rails.root.join('spec', 'fixtures', 'submission.json')
         )
 
       task_params = {
@@ -187,7 +114,7 @@ RSpec.feature 'User reviews completed spreadsheet' do
         .with(body: task_params.to_json)
     end
 
-    scenario 'successfully review and complete the submission process' do
+    scenario 'successfully review contents in the uploaded file' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
