@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User reviews completed spreadsheet' do
-  feature 'Signed-in user with an upload spreadsheet' do
+  feature 'Signed-in user with an uploaded spreadsheet' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
       mock_update_task_endpoint!

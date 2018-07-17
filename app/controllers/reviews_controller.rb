@@ -13,11 +13,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    mark_task_as_completed
     @submission = submission
     @submission.status = 'completed'
 
     if @submission.save
+      mark_task_as_completed
       flash.now[:notice] = 'You have successfully submitted your return'
     else
       flash.now[:alert] = 'Submission failed'

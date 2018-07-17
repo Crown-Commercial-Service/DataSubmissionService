@@ -96,7 +96,7 @@ module ApiHelpers
   end
 
   def mock_levy_calculate_endpoint!
-    stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/calculate')
+    stub_request(:post, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/calculate')
       .to_return(status: 200)
   end
 
