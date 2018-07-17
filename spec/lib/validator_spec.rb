@@ -25,7 +25,7 @@ RSpec.describe Validator do
     it 'returns levy_completed status' do
       entries = [double('SubmissionEntry', status: 'validated'),
                  double('SubmissionEntry', status: 'validated')]
-      submission = instance_double('Submission', entries: entries, status: 'complete')
+      submission = instance_double('Submission', entries: entries, status: 'completed')
       subject = described_class.new(submission: submission)
       result = subject.status
 

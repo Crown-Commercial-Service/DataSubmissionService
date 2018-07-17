@@ -35,7 +35,7 @@ class Validator
   end
 
   def submission_completed?
-    @submission.status == 'complete'
+    @submission.status == 'completed'
   end
 
   def levy_completed?

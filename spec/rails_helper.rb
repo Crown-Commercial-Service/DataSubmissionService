@@ -28,7 +28,6 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include SingleSignOnHelpers, type: :feature
-  config.include ApplicationHelper, type: :feature
   config.include ApiHelpers, type: :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
