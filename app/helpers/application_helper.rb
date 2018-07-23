@@ -15,4 +15,8 @@ module ApplicationHelper
     levy_in_pounds = BigDecimal(levy_in_pence) / 100
     number_to_currency(levy_in_pounds, unit: '£')
   end
+
+  def task_status(task)
+    task.status == 'completed' ? 'Complete' : "Due by #{task.due_on}"
+  end
 end
