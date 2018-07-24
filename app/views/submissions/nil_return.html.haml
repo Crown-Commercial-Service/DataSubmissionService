@@ -1,15 +1,15 @@
 %h1.heading-xlarge
-  Submit nil return for
+  Report no business on
   = @task.framework.short_name
 
 %p
-  By submitting a nil return, you’re confirming that you have
+  By reporting no business you are confirming that you have
   no transactions to report on this framework for
   = @task.period_month
   = "/"
   = @task.period_year
 
 .form-group
-  = link_to 'Confirm and submit a nil return', '#', class: 'button'
+  = link_to 'Confirm', '#', class: 'button'
 
-= link_to 'Back to tasks', tasks_path
+= link_to 'Back', tasks_path, class: 'link-back'
