@@ -6,6 +6,12 @@
       Complete by
       = task.due_on
   .column-two-thirds.task-controls
-    = link_to 'Download template', framework_template_url_for(task_id: task.id), class: 'button button-secondary'
-    = link_to 'Upload submission', new_task_submission_path(task_id: task.id), class: 'button'
-    = link_to 'Submit nil return', new_task_submission_path(task_id: task.id, type: 'nil_return'), class: 'button'
+    .grid-row
+      .column-one-third
+        = link_to 'Download template', framework_template_url_for(task_id: task.id), class: 'button button-secondary'
+      .column-one-third
+        = link_to 'Upload submission', new_task_submission_path(task_id: task.id), class: 'button'
+      .column-one-third
+        = link_to 'Report no business', new_task_submission_path(task_id: task.id, type: 'nil_return'), class: 'button'
+        %span.button-hint
+          Previously called nil return
