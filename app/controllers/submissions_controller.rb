@@ -30,7 +30,19 @@ class SubmissionsController < ApplicationController
     )
   end
 
+  def show
+    @submission = API::Submission.includes(:files, :entries).find(params[:id]).first
+
+    render template_for_submission(@submission)
+  end
+
   private
+
+  def template_for_submission(submission)
+    case submission.status
+    when 'pending', 'processing' then :processing
+    end
+  end
 
   def handle_content_type_validation
     redirect_to(

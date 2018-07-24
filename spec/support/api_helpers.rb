@@ -6,6 +6,12 @@ module ApiHelpers
     mock_submission_file_endpoint!
   end
 
+  def mock_pending_submission_endpoint!
+    stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
+      .to_return(headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
+                 body: Rails.root.join('spec', 'fixtures', 'mocks', 'submission_pending.json'))
+  end
+
   def mock_submission_with_entries_pending_endpoint!
     stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
       .to_return(headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
