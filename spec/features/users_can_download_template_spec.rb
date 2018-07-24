@@ -7,7 +7,7 @@ RSpec.feature 'User downloads a template' do
     mock_task_with_framework_endpoint!
 
     visit '/'
-    click_on 'Sign in'
+    click_link 'sign-in'
 
     visit '/tasks'
     expect(page).to have_link('Download template', href: '/templates/CBOARD5 MISO Data Template (July 2018).xls')

@@ -27,7 +27,7 @@ RSpec.feature 'User confirms submission and complete task' do
     mock_sso_with(email: 'email@example.com')
 
     visit '/'
-    click_on 'Sign in'
+    click_link 'sign-in'
 
     visit '/tasks'
     click_on 'Upload submission'
