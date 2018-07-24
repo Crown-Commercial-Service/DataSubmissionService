@@ -16,13 +16,10 @@ RSpec.feature 'User confirms submission and complete task' do
       login_and_upload_file
 
       expect(page).to have_content('Review your information')
-
       expect(page).to have_content('Your Levy Calculation is: £ 4500')
 
       click_button 'Confirm'
-
-      expect(page).to have_content('We estimate that this will be £ 4500')
-      expect(page).to have_content('You have successfully submitted your return')
+      expect(page).to have_content('Submission completed')
     end
   end
 
