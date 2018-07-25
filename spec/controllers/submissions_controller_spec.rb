@@ -61,5 +61,22 @@ RSpec.describe SubmissionsController do
         expect(response.body).to have_css 'input[type="submit"][value="Complete submission"]'
       end
     end
+
+    context 'with an "in_review" submission that has errors' do
+      before do
+        mock_submission_with_entries_errored_endpoint!
+        get :show, params: {
+          task_id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          id: '9a5ef62c-0781-4f80-8850-5793652b6b40'
+        }
+      end
+
+      it 'shows the errors for the submission, and no button to complete it' do
+        expect(response).to be_successful
+        expect(response.body).to have_content('Upload processed')
+        expect(response.body).to have_content('Required value error')
+        expect(response.body).not_to have_css 'input[type="submit"][value="Complete submission"]'
+      end
+    end
   end
 end

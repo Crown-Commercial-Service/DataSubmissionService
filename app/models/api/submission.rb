@@ -13,5 +13,9 @@ module API
     def invoices_count
       entries.count { |entry| entry.source['sheet'].match?(/invoice/i) }
     end
+
+    def errored_entries
+      @errored_entries ||= entries.select { |entry| entry.status == 'errored' }
+    end
   end
 end

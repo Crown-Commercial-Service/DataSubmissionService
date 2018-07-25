@@ -1,0 +1,20 @@
+%table.error
+  %thead
+    %tr
+      %th
+        Location
+      %th
+        Help
+  %tbody
+    - errored_entries.each do |entry|
+      %tr
+        %td
+          %p
+            = entry.source["sheet"]
+          %p
+            Column:
+            = entry.validation_errors.first['location']['column']
+            Row:
+            = entry.validation_errors.first['location']['row']
+        %td
+          = entry.validation_errors.first['message']
