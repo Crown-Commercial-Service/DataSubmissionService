@@ -57,6 +57,10 @@ Metrics/MethodLength:
     Max: 50
     Exclude:
 
+Metrics/ModuleLength:
+    Description: 'Avoid modules longer than 250 lines of code.'
+    Max: 250
+
 Metrics/AbcSize:
     Max: 25 # TODO: Restore to '20'
     Exclude:
