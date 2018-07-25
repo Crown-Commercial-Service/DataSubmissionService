@@ -31,6 +31,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    @task = API::Task.includes(:framework).find(params[:task_id]).first
     @submission = API::Submission.includes(:files, :entries).find(params[:id]).first
 
     render template_for_submission(@submission)
@@ -41,6 +42,7 @@ class SubmissionsController < ApplicationController
   def template_for_submission(submission)
     case submission.status
     when 'pending', 'processing' then :processing
+    when 'in_review' then :in_review
     end
   end
 

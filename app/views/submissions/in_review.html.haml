@@ -1,0 +1,55 @@
+%h1.heading-xlarge
+  Upload processed
+
+%p
+  Your management information for
+  = @task.id
+  is now ready to be submitted.
+
+.notice
+  %i.icon.icon-important
+    %span.visually-hidden
+      Warning
+  %strong.bold-small
+    Your submission is not complete at this stage. Please review the following:
+
+%p
+  Your uploaded submission file contains:
+
+.data#orders
+  %span.data-item.bold-xsmall
+    Orders
+  %span.data-item.bold-xlarge
+    = @submission.orders_count
+  %span.bold-xsmall
+    rows
+
+.data#invoices
+  %span.data-item.bold-xsmall
+    Invoices
+  %span.data-item.bold-xlarge
+    = @submission.invoices_count
+  %span.bold-xsmall
+    rows
+
+%p
+  Based upon this, your levy for [July 2018] has been calculated as:
+
+.data#levy
+  %span.data-item.bold-xlarge
+    = number_to_currency(@submission.levy, unit: "£")
+
+  %p
+    If evertything looks correct please complete this submission.
+
+  %p
+    This submission is not completed until you have clicked this button:
+
+= form_tag(task_submission_review_path(submission_id: @submission.id)) do
+  .form-group
+    = submit_tag 'Complete submission', class: 'button'
+
+%p
+  If you beleive there has been an error or this information looks incorrect, please review your submisson and resubmit.
+
+= link_to 'Back', new_task_submission_path(@task.id), class: 'link-back'

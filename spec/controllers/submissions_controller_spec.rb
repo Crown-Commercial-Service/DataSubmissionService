@@ -44,5 +44,22 @@ RSpec.describe SubmissionsController do
         expect(response.body).to have_content 'processing'
       end
     end
+
+    context 'with an "in_review" submission that has validated' do
+      before do
+        mock_submission_with_entries_validated_endpoint!
+        get :show, params: {
+          task_id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          id: '9a5ef62c-0781-4f80-8850-5793652b6b40'
+        }
+      end
+
+      it 'shows the details for the submission, including a button to complete it' do
+        expect(response).to be_successful
+        expect(response.body).to have_content('Upload processed')
+        expect(response.body).to have_content('£4,500')
+        expect(response.body).to have_css 'input[type="submit"][value="Complete submission"]'
+      end
+    end
   end
 end
