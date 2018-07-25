@@ -6,4 +6,8 @@ module ApplicationHelper
 
     "/templates/#{framework.short_name} MISO Data Template (July 2018).xls"
   end
+
+  def support_email_address
+    'dss@crowncommercial.gov.uk'
+  end
 end

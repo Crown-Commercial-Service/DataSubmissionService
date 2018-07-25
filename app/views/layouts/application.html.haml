@@ -60,7 +60,9 @@
               Support links
             %ul{ role: 'navigation'} 
               %li
-                Having problems using this service? Email <a href="mailto:dss@crowncommercial.gov.uk">dss@crowncommercial.gov.uk</a> for support.
+                Having problems using this service? Email
+                = mail_to(support_email_address)
+                for support.
           .copyright
             %a{ href: 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/' }
               © Crown copyright
