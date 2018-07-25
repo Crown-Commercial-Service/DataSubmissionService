@@ -26,7 +26,7 @@ class SubmissionsController < ApplicationController
 
     redirect_to(
       task_submission_review_processing_path(task_id: task.id, submission_id: submission.id, state: 'ingest'),
-      flash: { notice: "#{blob.filename} file upload successful!" }
+      flash: { notice: "#{blob.filename} was successfully uploaded" }
     )
   end
 
@@ -50,7 +50,7 @@ class SubmissionsController < ApplicationController
   def handle_file_extension_validation
     redirect_to(
       new_task_submission_path(task_id: params[:task_id]),
-      flash: { alert: 'File content_type must be an xlsx or xlx' }
+      flash: { alert: 'Uploaded file must be in Microsoft Excel format (either .xlsx or .xls)' }
     )
   end
 
