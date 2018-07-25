@@ -13,7 +13,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_update_task_endpoint!
 
       visit '/'
-      click_on 'Sign in'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Upload submission'
@@ -33,7 +33,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_on 'Sign in'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Upload submission'
@@ -50,7 +50,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_on 'Sign in'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Upload submission'

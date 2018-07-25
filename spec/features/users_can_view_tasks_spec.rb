@@ -7,7 +7,7 @@ RSpec.feature 'Managing tasks' do
     mock_task_with_framework_endpoint!
 
     visit '/'
-    click_on 'Sign in'
+    click_link 'sign-in'
 
     Timecop.freeze(Time.zone.local(2018, 7, 2)) do
       visit '/tasks'

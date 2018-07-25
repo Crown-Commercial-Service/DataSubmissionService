@@ -8,7 +8,7 @@ RSpec.feature 'Signing in as a user' do
 
     visit '/tasks'
 
-    click_on 'Sign in'
+    click_on 'sign-in'
 
     expect(page).to have_flash_message 'You are now signed in'
   end
@@ -18,9 +18,11 @@ RSpec.feature 'Signing in as a user' do
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
 
-    visit '/tasks'
-    click_on 'Sign in'
-    click_on 'Sign out'
+    visit '/'
+    click_on 'sign-in'
+
+    visit '/'
+    click_on 'sign-out'
 
     expect(page).to have_flash_message 'You are now signed out'
   end
