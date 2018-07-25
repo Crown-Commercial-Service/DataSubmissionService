@@ -1,9 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_task, only: %i[new create]
   def new
-    @invoices_count = submission_entries.count { |e| e.source['sheet'].match?(/invoice/i) }
-    @orders_count = submission_entries.count { |e| e.source['sheet'].match?(/order/i) }
-
     case validator.status
     when 'validated'
       flash.now[:notice] = 'All entries are valid'

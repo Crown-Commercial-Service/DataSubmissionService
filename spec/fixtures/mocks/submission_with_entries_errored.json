@@ -6,7 +6,7 @@
       "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
       "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
       "status": "in_review",
-      "levy": 4500
+      "levy": null
     },
     "relationships": {
       "entries": {
@@ -41,8 +41,11 @@
       "type": "submission_entries",
       "attributes": {
         "source": { "row": 42, "sheet": "InvoicesRaised" },
-        "data": { "test": "test" },
-        "status": "validated"
+        "data": { "test": "" },
+        "status": "errored",
+        "validation_errors": [
+          { "message": "Required value error", "location": { "row": 2, "column": 1 } }
+        ]
       }
     },
     {

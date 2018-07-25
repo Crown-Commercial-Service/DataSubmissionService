@@ -20,7 +20,7 @@ RSpec.feature 'User triggers and views levy calculation' do
     end
 
     scenario 'and successfully view levy calculation' do
-      mock_submission_with_levy_completed_endpoint!
+      mock_submission_completed_endpoint!
       mock_levy_calculate_endpoint!
 
       login_and_upload_file
