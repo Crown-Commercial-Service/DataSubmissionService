@@ -7,7 +7,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_submission_with_entries_pending_endpoint!
     end
 
-    scenario 'successfully, if the file has an xlsx or xlx content_type' do
+    scenario 'successfully, with a XLSX file' do
       mock_sso_with(email: 'email@example.com')
 
       mock_update_task_endpoint!
@@ -29,7 +29,28 @@ RSpec.feature 'User uploads completed spreadsheet' do
       expect(page).to have_content(blob.filename)
     end
 
-    scenario 'throws an error if the file does not have xlsx or xlx content_type' do
+    scenario 'successfully, with a XLS file' do
+      mock_sso_with(email: 'email@example.com')
+
+      mock_update_task_endpoint!
+
+      visit '/'
+      click_link 'sign-in'
+
+      visit '/tasks'
+      click_on 'Upload submission'
+
+      expect do
+        attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xls')
+        click_button 'Upload'
+      end.to change(ActiveStorage::Blob, :count).by(1)
+
+      blob = ActiveStorage::Blob.last
+
+      expect(page).to have_flash_message "#{blob.filename} was successfully uploaded"
+    end
+
+    scenario 'throws an error if the file is not one of the expected formats' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
