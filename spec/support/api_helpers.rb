@@ -24,10 +24,10 @@ module ApiHelpers
                  body: Rails.root.join('spec', 'fixtures', 'mocks', 'submission_with_entries_validated.json'))
   end
 
-  def mock_submission_with_levy_completed_endpoint!
+  def mock_submission_completed_endpoint!
     stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
       .to_return(headers: { 'Content-Type': 'application/vnd.api+json; charset=utf-8' },
-                 body: Rails.root.join('spec', 'fixtures', 'mocks', 'submission_with_levy_completed.json'))
+                 body: Rails.root.join('spec', 'fixtures', 'mocks', 'submission_completed.json'))
   end
 
   def mock_task_with_framework_endpoint!

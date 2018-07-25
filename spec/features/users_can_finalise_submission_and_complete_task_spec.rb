@@ -5,7 +5,7 @@ RSpec.feature 'User confirms submission and complete task' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
       mock_update_task_endpoint!
-      mock_submission_with_levy_completed_endpoint!
+      mock_submission_completed_endpoint!
       mock_levy_calculate_endpoint!
 
       mock_task_complete_endpoint!
