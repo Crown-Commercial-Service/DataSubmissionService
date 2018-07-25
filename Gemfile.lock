@@ -114,8 +114,6 @@ GEM
     govuk_frontend_toolkit (7.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_template (0.24.1)
-      rails (>= 3.1)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -151,7 +149,7 @@ GEM
       faraday (>= 0.9)
       faraday_middleware
     jwt (1.5.6)
-    libv8 (6.3.292.48.1)
+    libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -167,8 +165,8 @@ GEM
     mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    mini_racer (0.1.15)
-      libv8 (~> 6.3)
+    mini_racer (0.2.0)
+      libv8 (>= 6.3)
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
@@ -322,6 +320,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-17
 
 DEPENDENCIES
   aws-sdk-s3
@@ -334,7 +333,6 @@ DEPENDENCIES
   factory_bot_rails
   govuk_elements_rails
   govuk_frontend_toolkit
-  govuk_template
   haml-rails
   httparty
   jbuilder (~> 2.5)
@@ -364,4 +362,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
