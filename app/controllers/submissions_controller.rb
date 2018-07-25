@@ -43,6 +43,7 @@ class SubmissionsController < ApplicationController
     case submission.status
     when 'pending', 'processing' then :processing
     when 'in_review' then :in_review
+    when 'completed' then :completed
     end
   end
 

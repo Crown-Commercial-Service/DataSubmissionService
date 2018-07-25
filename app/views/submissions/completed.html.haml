@@ -1,0 +1,21 @@
+.grid-row
+  .column-two-thirds
+    .govuk-box-highlight
+      %h1.heading-xlarge Submission completed
+.grid-row
+  .column-two-thirds
+    %p
+      If you’ve made a mistake or need to amend the management information
+      you've supplied, email
+      = mail_to(support_email_address)
+      for help.
+    %p
+      Next month's management information is due on [date]. We'll send you a
+      reminder for this and any other outstanding tasks on [date]. You can
+      [set an earlier reminder] if you need to.
+
+.form-group
+  = link_to t('uploads.review.back'), tasks_path, class: 'button'
+
+.form-group
+  = link_to 'Sign out', sign_out_path, class: 'button'
