@@ -44,7 +44,8 @@
         "data": { "test": "" },
         "status": "errored",
         "validation_errors": [
-          { "message": "Required value error", "location": { "row": 2, "column": 1 } }
+          { "message": "Required value error", "location": { "row": 2, "column": 1 } },
+          { "message": "Some other error", "location": { "row": 2, "column": 2 } }
         ]
       }
     },
