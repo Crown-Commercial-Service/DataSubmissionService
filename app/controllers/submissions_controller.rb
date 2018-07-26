@@ -26,7 +26,7 @@ class SubmissionsController < ApplicationController
 
     redirect_to(
       task_submission_review_processing_path(task_id: task.id, submission_id: submission.id, state: 'ingest'),
-      flash: { notice: "#{blob.filename} file upload successful!" }
+      flash: { notice: "#{blob.filename} was successfully uploaded" }
     )
   end
 
@@ -47,10 +47,10 @@ class SubmissionsController < ApplicationController
     end
   end
 
-  def handle_content_type_validation
+  def handle_file_extension_validation
     redirect_to(
       new_task_submission_path(task_id: params[:task_id]),
-      flash: { alert: 'File content_type must be an xlsx or xlx' }
+      flash: { alert: 'Uploaded file must be in Microsoft Excel format (either .xlsx or .xls)' }
     )
   end
 
@@ -61,18 +61,14 @@ class SubmissionsController < ApplicationController
     )
   end
 
-  def content_type_valid?
-    excel_mime_types.include? params[:upload].content_type
-  end
-
-  def excel_mime_types
-    %w[application/vnd.ms-excel
-       application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]
+  def acceptable_file_extension?
+    extension = File.extname(params[:upload].original_filename).downcase[1..-1]
+    %w[xlsx xls].include?(extension)
   end
 
   def validate_file_presence_and_content_type
     handle_file_presence_validation && return if params[:upload].nil?
 
-    handle_content_type_validation unless content_type_valid?
+    handle_file_extension_validation unless acceptable_file_extension?
   end
 end
