@@ -75,6 +75,7 @@ RSpec.describe SubmissionsController do
         expect(response).to be_successful
         expect(response.body).to have_content('Upload processed')
         expect(response.body).to have_content('Required value error')
+        expect(response.body).to have_content('Some other error')
         expect(response.body).not_to have_css 'input[type="submit"][value="Complete submission"]'
       end
     end

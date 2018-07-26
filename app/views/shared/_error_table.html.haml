@@ -7,14 +7,15 @@
         Help
   %tbody
     - errored_entries.each do |entry|
-      %tr
-        %td
-          %p
-            = entry.source["sheet"]
-          %p
-            Column:
-            = entry.validation_errors.first['location']['column']
-            Row:
-            = entry.validation_errors.first['location']['row']
-        %td
-          = entry.validation_errors.first['message']
+      - entry.validation_errors.each do |validation_error|
+        %tr
+          %td
+            %p
+              = entry.source["sheet"]
+            %p
+              Column:
+              = validation_error['location']['column']
+              Row:
+              = validation_error['location']['row']
+          %td
+            = validation_error['message']
