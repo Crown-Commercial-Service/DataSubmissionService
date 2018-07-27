@@ -1,0 +1,36 @@
+{
+  "data": {
+    "id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
+    "type": "submissions",
+    "attributes": {
+      "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
+      "status": "completed",
+      "levy": 4500
+    },
+    "relationships": {
+      "task": {
+        "data": [
+          {
+            "type": "tasks",
+            "id": "2d98639e-5260-411f-a5ee-61847a2e067c"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "2d98639e-5260-411f-a5ee-61847a2e067c",
+      "type": "tasks",
+      "attributes": {
+        "status": "completed",
+        "description": "test task",
+        "due_on": "2030-01-01",
+        "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+        "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff"
+      }
+    }
+  ]
+}
+
