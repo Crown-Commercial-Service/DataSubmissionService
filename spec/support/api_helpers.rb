@@ -31,11 +31,21 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed.json'))
   end
 
+  def mock_submission_completed_with_task_endpoint!
+    stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=task')
+      .to_return(headers: json_headers, body: json_fixture_file('submission_completed_with_task.json'))
+  end
+
   def mock_submission_transitioning_to_in_review!
     stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_pending.json'))
       .then
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_validated.json'))
+  end
+
+  def mock_complete_submission_endpoint!
+    stub_request(:post, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/complete')
+      .to_return(status: 204, body: '', headers: json_headers)
   end
 
   def mock_task_with_framework_endpoint!

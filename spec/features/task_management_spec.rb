@@ -31,6 +31,15 @@ RSpec.feature 'task management' do
     force_reload_to_get_updated_submission_status
 
     expect(page).to have_content 'Upload processed'
+
+    mock_complete_submission_endpoint!
+    mock_submission_completed_with_task_endpoint!
+    mock_submission_completed_endpoint!
+
+    click_on 'Complete submission'
+
+    expect(page).to have_content 'Submission completed'
+    expect(page).to have_flash_message "You have completed task 'test task'"
   end
 
   private
