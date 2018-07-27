@@ -62,7 +62,7 @@
     %p
       This submission is not completed until you have clicked this button:
 
-  = form_tag(task_submission_review_path(submission_id: @submission.id)) do
+  = form_tag(task_submission_review_path(task_id: @task.id, submission_id: @submission.id)) do
     .form-group
       = submit_tag 'Complete submission', class: 'button'
 

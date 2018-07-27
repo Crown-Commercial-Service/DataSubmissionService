@@ -25,7 +25,7 @@ class SubmissionsController < ApplicationController
     )
 
     redirect_to(
-      task_submission_review_processing_path(task_id: task.id, submission_id: submission.id, state: 'ingest'),
+      task_submission_path(task_id: task.id, id: submission.id),
       flash: { notice: "#{blob.filename} was successfully uploaded" }
     )
   end

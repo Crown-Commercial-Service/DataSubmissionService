@@ -31,6 +31,13 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed.json'))
   end
 
+  def mock_submission_transitioning_to_in_review!
+    stub_request(:get, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40?include=files,entries')
+      .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_pending.json'))
+      .then
+      .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_validated.json'))
+  end
+
   def mock_task_with_framework_endpoint!
     stub_request(:get, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c?include=framework')
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
@@ -97,21 +104,6 @@ module ApiHelpers
     }
     stub_request(:patch, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c')
       .with(body: task_params.to_json)
-  end
-
-  def mock_levy_calculate_endpoint!
-    stub_request(:post, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40/calculate')
-      .to_return(status: 200)
-  end
-
-  def mock_task_complete_endpoint!
-    stub_request(:post, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c/complete')
-      .to_return(status: 200)
-  end
-
-  def mock_update_submission_endpoint!
-    stub_request(:patch, 'https://ccs.api/v1/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40')
-      .to_return(status: 200)
   end
 
   private
