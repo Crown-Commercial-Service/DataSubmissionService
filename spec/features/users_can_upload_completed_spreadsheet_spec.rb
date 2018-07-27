@@ -26,6 +26,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       blob = ActiveStorage::Blob.last
 
       expect(page).to have_flash_message "#{blob.filename} was successfully uploaded"
+      expect(page).to have_content 'processing'
     end
 
     scenario 'successfully, with a XLS file' do
@@ -47,6 +48,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       blob = ActiveStorage::Blob.last
 
       expect(page).to have_flash_message "#{blob.filename} was successfully uploaded"
+      expect(page).to have_content 'processing'
     end
 
     scenario 'throws an error if the file is not one of the expected formats' do

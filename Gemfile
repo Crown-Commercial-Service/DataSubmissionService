@@ -70,6 +70,5 @@ group :test do
   gem 'capybara', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
-  gem 'timecop'
   gem 'webmock'
 end

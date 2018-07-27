@@ -57,7 +57,7 @@ RSpec.describe SubmissionsController do
       it 'shows the details for the submission, including a button to complete it' do
         expect(response).to be_successful
         expect(response.body).to have_content('Upload processed')
-        expect(response.body).to have_content('£4,500')
+        expect(response.body).to have_content('£45.00')
         expect(response.body).to have_css 'input[type="submit"][value="Complete submission"]'
       end
     end

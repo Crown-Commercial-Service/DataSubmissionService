@@ -9,7 +9,7 @@ RSpec.feature 'Managing tasks' do
     visit '/'
     click_link 'sign-in'
 
-    Timecop.freeze(Time.zone.local(2018, 7, 2)) do
+    travel_to(Time.zone.local(2018, 7, 2)) do
       visit '/tasks'
     end
 
