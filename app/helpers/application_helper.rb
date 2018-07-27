@@ -10,4 +10,9 @@ module ApplicationHelper
   def support_email_address
     'dss@crowncommercial.gov.uk'
   end
+
+  def levy_as_string(levy_in_pence)
+    levy_in_pounds = BigDecimal(levy_in_pence) / 100
+    number_to_currency(levy_in_pounds, unit: '£')
+  end
 end

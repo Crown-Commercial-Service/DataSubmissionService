@@ -54,7 +54,7 @@
 
   .data#levy
     %span.data-item.bold-xlarge
-      = number_to_currency(@submission.levy, unit: "£")
+      = levy_as_string @submission.levy
 
     %p
       If everything looks correct please complete this submission.
