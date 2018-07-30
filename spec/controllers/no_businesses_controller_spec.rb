@@ -28,7 +28,7 @@ RSpec.describe NoBusinessesController, type: :controller do
       post :create, params: { task_id: task_id }
 
       expect(response)
-        .to redirect_to(task_submission_path(task_id: '2d98639e-5260-411f-a5ee-61847a2e067c', id: submission_id))
+        .to redirect_to(task_submission_path(task_id: task_id, id: submission_id))
     end
   end
 end
