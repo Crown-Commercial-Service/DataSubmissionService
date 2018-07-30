@@ -48,6 +48,25 @@ module ApiHelpers
       .to_return(status: 204, body: '', headers: json_headers)
   end
 
+  def mock_no_business_endpoint!
+    no_business_submission = {
+      data: {
+        id: '9a5ef62c-0781-4f80-8850-5793652b6b40',
+        type: 'submissions',
+        attributes: {
+          task_id: '2d98639e-5260-411f-a5ee-61847a2e067c',
+          framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
+          supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff',
+          status: 'completed',
+          levy: nil,
+        }
+      }
+    }
+
+    stub_request(:post, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c/no_business')
+      .to_return(status: 201, headers: json_headers, body: no_business_submission.to_json)
+  end
+
   def mock_task_with_framework_endpoint!
     stub_request(:get, 'https://ccs.api/v1/tasks/2d98639e-5260-411f-a5ee-61847a2e067c?include=framework')
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))

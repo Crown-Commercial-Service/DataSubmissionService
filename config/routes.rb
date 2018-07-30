@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get '/review/calculate_status_polling/', to: 'reviews#calculate_status_polling'
       get '/review/processing/', to: 'reviews#processing'
     end
+
+    resource :no_business, only: %i[new create]
   end
 
   get '/auth/:provider/callback', to: 'sessions#create'
