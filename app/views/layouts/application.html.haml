@@ -32,34 +32,28 @@
         .header-proposition
           .content
             =render 'shared/top_navigation'
-        
+
 
     %main{ role: 'main', id: 'content' }
       .phase-banner
         <strong class="phase-tag">BETA</strong>
         Please give us your <a href="https://www.surveymonkey.com/r/9QTDW9P">feedback</a> so we can improve this site
-      .breadcrumbs
-        %ol
-          %li
-            %a{ href: '/' } Home
-          %li
-            Placeholder     
 
       .grid-row
         .column-full
           - flash.each do |key, value|
             = content_tag :div, value, class: "flash flash-#{key}"
-            
+
       = yield
 
     %footer#footer{ class: 'group', role: 'contentinfo' }
       .footer-wrapper
         .footer-meta
-          .footer-meta-inner    
+          .footer-meta-inner
             Copyright statement
             %h2.visually-hidden
               Support links
-            %ul{ role: 'navigation'} 
+            %ul{ role: 'navigation'}
               %li
                 Having problems using this service? Email
                 = mail_to(support_email_address)
