@@ -40,17 +40,4 @@
 @import 'components/phase-banner';
 @import 'components/tasks';
 @import 'components/buttons';
-
-.c_spinner {
-  width: 100px;
-  height: 100px;
-}
-
-.u_text-center {
-  text-align: center;
-}
-
-.u_error {
-  color: $error-colour;
-  margin-bottom: 10px;
-}
+@import 'components/processing';

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   get '/style_guide', to: 'styleguide#index'
   get '/tools', to: 'tools#index'
+  get '/support', to: 'support#index'
 end
