@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def task_status(task)
-    task.status == 'completed' ? 'Complete' : "Due by #{task.due_on}"
+    task.status == 'completed' ? 'Task Completed' : "Due by #{task.due_on.to_date}"
   end
 
   def task_period_date(task)
