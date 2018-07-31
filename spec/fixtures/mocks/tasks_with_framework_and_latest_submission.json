@@ -1,0 +1,411 @@
+{
+  "data": [
+    {
+      "id": "2d98639e-5260-411f-a5ee-61847a2e067c",
+      "type": "tasks",
+      "attributes": {
+        "status": "unstarted",
+        "framework_id": "dafc084d-eb8b-42ac-ae56-4eee42be8ef1",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "Unstarted task",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": null
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "dafc084d-eb8b-42ac-ae56-4eee42be8ef1"
+          }
+        }
+      }
+    },
+    {
+      "id": "fc9deeb0-9804-42f7-ad8b-8b9878cce252",
+      "type": "tasks",
+      "attributes": {
+        "status": "in_progress",
+        "framework_id": "21e4a516-9852-49fd-9035-8006bdf76657",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "In progress task (pending submission)",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "63996088-5c20-4e65-b722-287fafeedc97"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "21e4a516-9852-49fd-9035-8006bdf76657"
+          }
+        }
+      }
+    },
+    {
+      "id": "d211060f-e4fa-413a-928e-5928d0083db6",
+      "type": "tasks",
+      "attributes": {
+        "status": "in_progress",
+        "framework_id": "ec2aed23-7c4f-4de8-b4ad-afc54ecf882d",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "In progress task (processing submission)",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "65b11138-8c7e-4427-93a2-c5da3a7c3f9d"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "ec2aed23-7c4f-4de8-b4ad-afc54ecf882d"
+          }
+        }
+      }
+    },
+    {
+      "id": "855d1dd2-d9b3-4432-8c17-b63e90e50bcd",
+      "type": "tasks",
+      "attributes": {
+        "status": "in_progress",
+        "framework_id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "In review task (validated submission)",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e"
+          }
+        }
+      }
+    },
+    {
+      "id": "b847e0f7-027e-4b95-afa2-3490b8d05a1c",
+      "type": "tasks",
+      "attributes": {
+        "status": "in_progress",
+        "framework_id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "In review task (invalid submission)",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "43dfbd10-1c17-4f3c-8665-be8c2776249b"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1"
+          }
+        }
+      }
+    },
+    {
+      "id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+      "type": "tasks",
+      "attributes": {
+        "status": "completed",
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "description": "Completed task",
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "663f8bf9-464b-4d2f-8532-7404ae76063c"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc"
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "dafc084d-eb8b-42ac-ae56-4eee42be8ef1",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "CBOARD5",
+        "name": "Cheese Board 5"
+      }
+    },
+    {
+      "id": "63996088-5c20-4e65-b722-287fafeedc97",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "21e4a516-9852-49fd-9035-8006bdf76657",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "fc9deeb0-9804-42f7-ad8b-8b9878cce252",
+        "levy": null,
+        "status": "pending"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "21e4a516-9852-49fd-9035-8006bdf76657",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard9",
+        "name": "Cheese Board 9"
+      }
+    },
+    {
+      "id": "65b11138-8c7e-4427-93a2-c5da3a7c3f9d",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "ec2aed23-7c4f-4de8-b4ad-afc54ecf882d",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "d211060f-e4fa-413a-928e-5928d0083db6",
+        "levy": null,
+        "status": "processing"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "ec2aed23-7c4f-4de8-b4ad-afc54ecf882d",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard10",
+        "name": "Cheese Board 10"
+      }
+    },
+    {
+      "id": "67e7a34f-5d4c-4946-b045-da77f4b651db",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "855d1dd2-d9b3-4432-8c17-b63e90e50bcd",
+        "levy": 40.50,
+        "status": "in_review"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard11",
+        "name": "Cheese Board 11"
+      }
+    },
+    {
+      "id": "43dfbd10-1c17-4f3c-8665-be8c2776249b",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "b847e0f7-027e-4b95-afa2-3490b8d05a1c",
+        "levy": null,
+        "status": "in_review"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard12",
+        "name": "Cheese Board 12"
+      }
+    },
+    {
+      "id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+        "levy": null,
+        "status": "completed"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard13",
+        "name": "Cheese Board 13"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

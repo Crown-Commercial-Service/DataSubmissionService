@@ -1,10 +1,6 @@
 module ApplicationHelper
-  def framework_template_url_for(task_id:)
-    framework = API::Task.includes(:framework).find(task_id).first.try(:framework)
-
-    return if framework.nil?
-
-    "/templates/#{framework.short_name} MISO Data Template (July 2018).xls"
+  def framework_template_path_for(task)
+    "/templates/#{task.framework.short_name} MISO Data Template (July 2018).xls"
   end
 
   def support_email_address
