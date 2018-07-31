@@ -10,6 +10,6 @@
   = @task.period_year
 
 .form-group
-  = link_to 'Confirm', '#', class: 'button'
+  = button_to 'Confirm', task_no_business_path(task_id: @task), class: 'button'
 
 = link_to 'Back', tasks_path, class: 'link-back'

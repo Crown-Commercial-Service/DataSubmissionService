@@ -4,12 +4,6 @@ class SubmissionsController < ApplicationController
 
   def new
     @task = API::Task.includes(:framework).find(params[:task_id]).first
-
-    if params[:type] && params[:type] == 'nil_return'
-      render 'nil_return'
-    else
-      render 'completed_return'
-    end
   end
 
   def create
