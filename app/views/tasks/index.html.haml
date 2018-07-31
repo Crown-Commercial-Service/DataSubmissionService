@@ -3,4 +3,4 @@
     %h2.heading-xlarge
       Tasks
 
-= render partial: "task", collection: @tasks, as: :task
+= render(collection: @tasks, partial: "task") || render("empty_task")

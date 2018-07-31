@@ -1,0 +1,15 @@
+.grid-row.task-row
+  .column-two-thirds.task-details
+    %h2.heading-medium
+      You have no tasks to complete
+    %p
+      = succeed '.' do
+        Management information can only be reported for a complete calendar month.
+        Tasks will be added to this page on
+        = Date.today.at_beginning_of_month.next_month
+    %p
+      = succeed '.' do
+        Log in again on
+        = Date.today.at_beginning_of_month.next_month
+        to report your Management information for
+        = Date.today.strftime('%B')
