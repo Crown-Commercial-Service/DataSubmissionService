@@ -1,4 +1,4 @@
-.grid-row.task-row
+.grid-row.task-row{id: "task-#{task.id}"}
   .column-one-third.task-details
     %h2.heading-medium
       = task.description
@@ -11,6 +11,7 @@
   - when 'in_progress'
     .column-two-thirds.task-controls
       = link_to 'Download template', framework_template_path_for(task), class: 'button button-secondary'
+      = link_to 'View submission status', task_submission_path(task_id: task.id, id: task.latest_submission.id), class: 'button'
   - else
     .column-two-thirds.task-controls
       = link_to 'Download template', framework_template_path_for(task), class: 'button button-secondary'
