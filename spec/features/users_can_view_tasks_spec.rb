@@ -4,7 +4,6 @@ RSpec.feature 'Managing tasks' do
   scenario 'viewing a list of tasks' do
     mock_sso_with(email: 'email@example.com')
     mock_tasks_endpoint!
-    mock_task_with_framework_endpoint!
 
     visit '/'
     click_link 'sign-in'
@@ -14,6 +13,6 @@ RSpec.feature 'Managing tasks' do
     end
 
     expect(page).to have_text 'Tasks'
-    expect(page).to have_text 'First task'
+    expect(page).to have_text 'Unstarted task'
   end
 end

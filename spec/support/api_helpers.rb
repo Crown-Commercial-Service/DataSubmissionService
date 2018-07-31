@@ -73,22 +73,9 @@ module ApiHelpers
   end
 
   def mock_tasks_endpoint!
-    tasks = {
-      data: [
-        {
-          id: '2d98639e-5260-411f-a5ee-61847a2e067c',
-          type: 'tasks',
-          attributes: {
-            status: 'ready',
-            description: 'First task',
-            due_on: '2030-01-01'
-          }
-        }
-      ]
-    }
     stub_request(:get, 'https://ccs.api/v1/tasks')
       .with(query: hash_including({}))
-      .to_return(headers: json_headers, body: tasks.to_json)
+      .to_return(headers: json_headers, body: json_fixture_file('tasks_with_framework_and_latest_submission.json'))
   end
 
   def mock_create_submission_endpoint!

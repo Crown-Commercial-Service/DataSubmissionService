@@ -10,9 +10,9 @@
     .column-two-thirds.task-controls
   - when 'in_progress'
     .column-two-thirds.task-controls
-      = link_to 'Download template', framework_template_url_for(task_id: task.id), class: 'button button-secondary'
+      = link_to 'Download template', framework_template_path_for(task), class: 'button button-secondary'
   - else
     .column-two-thirds.task-controls
-      = link_to 'Download template', framework_template_url_for(task_id: task.id), class: 'button button-secondary'
+      = link_to 'Download template', framework_template_path_for(task), class: 'button button-secondary'
       = link_to 'Upload submission', new_task_submission_path(task_id: task.id), class: 'button'
       = link_to 'Report no business', new_task_no_business_path(task_id: task.id), class: 'button'
