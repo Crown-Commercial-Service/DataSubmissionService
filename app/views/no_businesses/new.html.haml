@@ -5,9 +5,7 @@
 %p
   By reporting no business you are confirming that you have
   no transactions to report on this framework for
-  = @task.period_month
-  = "/"
-  = @task.period_year
+  = task_period_date(@task)
 
 .form-group
   = button_to 'Confirm', task_no_business_path(task_id: @task), class: 'button'

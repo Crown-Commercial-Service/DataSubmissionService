@@ -15,4 +15,8 @@ module ApplicationHelper
   def task_status(task)
     task.status == 'completed' ? 'Complete' : "Due by #{task.due_on}"
   end
+
+  def task_period_date(task)
+    Date.new(task.period_year, task.period_month).to_s(:month_year)
+  end
 end
