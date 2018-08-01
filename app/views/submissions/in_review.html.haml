@@ -50,7 +50,9 @@
       rows
 
   %p
-    Based upon this, your management charge for [July 2018] has been calculated as:
+    Based upon this, your management charge for
+    = task_period_date(@task)
+    has been calculated as:
 
   .data#levy
     %span.data-item.bold-xlarge
