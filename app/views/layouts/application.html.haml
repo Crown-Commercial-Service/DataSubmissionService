@@ -39,10 +39,7 @@
         <strong class="phase-tag">BETA</strong>
         Please give us your <a href="https://www.surveymonkey.com/r/9QTDW9P">feedback</a> so we can improve this site
 
-      .grid-row
-        .column-full
-          - flash.each do |key, value|
-            = content_tag :div, value, class: "flash flash-#{key}"
+      = render 'shared/alert' if flash[:alert]
 
       = yield
 
