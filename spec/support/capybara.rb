@@ -7,11 +7,3 @@ end
 
 Capybara.javascript_driver = :poltergeist
 Capybara.ignore_hidden_elements = true
-
-module Capybara
-  class Session
-    def has_flash_message?(message)
-      has_css?('div.flash', text: message)
-    end
-  end
-end

@@ -39,7 +39,6 @@ RSpec.feature 'task management' do
     click_on 'Complete submission'
 
     expect(page).to have_content 'Submission completed'
-    expect(page).to have_flash_message "You have completed task 'test task'"
   end
 
   private

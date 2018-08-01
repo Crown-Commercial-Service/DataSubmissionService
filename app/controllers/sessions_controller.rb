@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     Auditor.new.user_signed_in(user_id: user.id)
 
-    redirect_to '/tasks', notice: 'You are now signed in'
+    redirect_to '/tasks'
   end
 
   def destroy
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = nil
 
-    redirect_to '/', notice: 'You are now signed out'
+    redirect_to '/'
   end
 
   protected
