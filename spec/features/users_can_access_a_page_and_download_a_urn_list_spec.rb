@@ -8,7 +8,7 @@ RSpec.feature 'User can access a page' do
     visit '/'
     click_link 'sign-in'
 
-    visit '/tools'
+    click_on 'URN list'
     expect(page).to have_link('Download CCS URN List (July 2018).xls', href: '/urn/CCS URN List (July 2018).xls')
   end
 end

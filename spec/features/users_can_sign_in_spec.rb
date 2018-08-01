@@ -9,7 +9,7 @@ RSpec.feature 'Signing in as a user' do
 
     click_on 'sign-in'
 
-    expect(page).to have_flash_message 'You are now signed in'
+    expect(page).to have_content 'Sign out'
   end
 
   scenario 'Signing out' do
@@ -22,6 +22,6 @@ RSpec.feature 'Signing in as a user' do
     visit '/'
     click_on 'sign-out'
 
-    expect(page).to have_flash_message 'You are now signed out'
+    expect(page).to have_content 'Sign in'
   end
 end

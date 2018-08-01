@@ -23,9 +23,6 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      blob = ActiveStorage::Blob.last
-
-      expect(page).to have_flash_message "#{blob.filename} was successfully uploaded"
       expect(page).to have_content 'processing'
     end
 
@@ -45,9 +42,6 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      blob = ActiveStorage::Blob.last
-
-      expect(page).to have_flash_message "#{blob.filename} was successfully uploaded"
       expect(page).to have_content 'processing'
     end
 
@@ -65,7 +59,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.not_to change(ActiveStorage::Blob, :count)
 
-      expect(page).to have_flash_message 'Uploaded file must be in Microsoft Excel format (either .xlsx or .xls)'
+      expect(page).to have_content 'Uploaded file must be in Microsoft Excel format (either .xlsx or .xls)'
     end
 
     scenario 'throws an error if no file was selected' do
@@ -81,7 +75,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.not_to change(ActiveStorage::Blob, :count)
 
-      expect(page).to have_flash_message 'Please select a file'
+      expect(page).to have_content 'Please select a file'
     end
   end
 end
