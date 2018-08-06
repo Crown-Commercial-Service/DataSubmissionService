@@ -1,0 +1,19 @@
+%h1.heading-xlarge
+  Report management information to CCS
+
+.grid-row
+  .column-two-thirds
+    %p
+      = link_to 'View your tasks', tasks_path
+      to report your management information for this month.
+      If you didn’t do any business, you still need to let us know.
+
+    %p
+      = link_to 'Go to tasks', tasks_path, class: 'button'
+
+    %p
+      = succeed '.' do
+        If you are having problems reporting your management
+        information, please contact support at
+        = mail_to('dss@crowncommercial.gov.uk')
+

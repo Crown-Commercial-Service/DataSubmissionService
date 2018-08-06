@@ -42,3 +42,7 @@ Rebuilds the test server, runs rubocop checks, runs the test suite and cleans up
 
 `bin/dtests`
 
+
+## Release process
+
+The production release process is documented in [RELEASE-PROCESS.md](RELEASE-PROCESS.md).

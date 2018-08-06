@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :ensure_user_signed_in
+
   def create
     user = User.from_omniauth(auth_hash)
     session[:user_id] = user.id

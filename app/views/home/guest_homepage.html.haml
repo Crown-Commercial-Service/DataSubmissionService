@@ -21,7 +21,7 @@
       You will need your new account details. You should have received these details via email.
     %p
       = succeed '.' do
-        If you are unable to log in or have not received any account details, please contact support at
+        If you are unable to sign in or have not received any account details, please contact support at
         = link_to 'dss@crowncommercial.gov.uk', 'mailto:dss@crowncommercial.gov.uk'
     %p
       = link_to 'Sign in', '/auth/auth0'
@@ -29,10 +29,7 @@
     %p
       The deadline to submit your July 2018 data is 7 August.
 
-    - if current_user
-      = link_to 'Sign out', '/sign_out', class: 'button', id: 'sign-out'
-    - else
-      = link_to 'Sign in', '/auth/auth0', class: 'button', id: 'sign-in'
+    = link_to 'Sign in', '/auth/auth0', class: 'button', id: 'sign-in'
 
     %p
-      If you didn’t do any business, you still need to log in and let us know.
+      If you didn’t do any business, you still need to sign in and let us know.
