@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :ensure_user_signed_in
+
   helper_method :current_user
   helper_method :ensure_user_signed_in
 
