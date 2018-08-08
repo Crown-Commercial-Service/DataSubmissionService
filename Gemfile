@@ -48,6 +48,9 @@ gem 'jsonapi-consumer', '~> 1.0'
 # Forms
 gem 'simple_form'
 
+# Exception tracking
+gem 'rollbar'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
