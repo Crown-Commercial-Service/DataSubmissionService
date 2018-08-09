@@ -17,6 +17,10 @@ Rails/HasManyOrHasOneDependent:
 Bundler/OrderedGems:
     Enabled: false
 
+Style/RedundantBegin:
+    Exclude:
+        - 'lib/active_storage/service/s3_with_metadata_service.rb'
+
 Style/Alias:
     Enabled: false
 

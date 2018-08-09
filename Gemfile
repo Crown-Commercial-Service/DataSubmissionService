@@ -52,6 +52,7 @@ gem 'simple_form'
 gem 'rollbar'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
