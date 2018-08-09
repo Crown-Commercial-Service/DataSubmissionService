@@ -64,6 +64,7 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
+    brakeman (4.3.1)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.1.1)
@@ -173,7 +174,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.2)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -237,6 +238,8 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rollbar (2.16.4)
+      multi_json
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -286,7 +289,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -324,6 +327,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.1.0)
+  brakeman
   byebug
   capybara
   coffee-rails (~> 4.2)
@@ -346,6 +350,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.0)
+  rollbar
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
