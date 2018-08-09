@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-3] - 2018-08-09
+
+- Added exception monitoring and reporting
+- Updated dependent libraries
+- Added static code analysis to build process (brakeman)
+
 ## [release-2] - 2018-08-06
 
 - Updated content on the URNs page
