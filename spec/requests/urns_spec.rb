@@ -7,6 +7,6 @@ RSpec.describe 'the urns page' do
     get urns_path
 
     expect(response).to be_successful
-    assert_select 'a[href=?]', '/urn/CCS URN List (July 2018).xls', text: 'Download CCS URN List (July 2018).xls'
+    assert_select 'a[href=?]', '/urn/CCS URN List (August 2018).xls', text: 'Download CCS URN List (August 2018).xls'
   end
 end

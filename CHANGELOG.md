@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-4] - 2018-08-13
+
+- custom 404 and 500 pages
+- static maintenance page for use during scheduled maintenance
+- adjusted in-review submission screens to make re-upload clearer
+- updated URN list file with latest version
+
 ## [release-3] - 2018-08-09
 
 - Added exception monitoring and reporting
