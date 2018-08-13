@@ -69,6 +69,6 @@
       = submit_tag 'Complete submission', class: 'button'
 
   %p
-    If you believe there has been an error or this information looks incorrect, please review your submisson and resubmit.
+    If this looks wrong, check the data in your spreadsheet and re-upload it.
 
-  = link_to 'Back', new_task_submission_path(@task.id), class: 'link-back'
+  = link_to 'Start again', new_task_submission_path(@task.id), class: 'button'
