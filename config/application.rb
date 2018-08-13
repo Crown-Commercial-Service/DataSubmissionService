@@ -34,5 +34,8 @@ module DataSubmissionService
 
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
+
+    # serve dynamic error pages
+    config.exceptions_app = routes
   end
 end
