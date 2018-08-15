@@ -24,14 +24,6 @@
             "id": "32423310-e3b6-4e2f-b022-a4854d8085ab"
           }
         ]
-      },
-      "files": {
-        "data": [
-          {
-            "type": "submission_files",
-            "id": "41bea03d-fc99-45fb-9efc-2787530409f8"
-          }
-        ]
       }
     }
   },
@@ -61,14 +53,6 @@
         "source": { "row": 1, "sheet": " Orders  Received " },
         "data": { "test": "test" },
         "status": "validated"
-      }
-    },
-    {
-      "id": "41bea03d-fc99-45fb-9efc-2787530409f8",
-      "type": "submission_files",
-      "attributes": {
-        "submission_id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
-        "rows": 3
       }
     }
   ]

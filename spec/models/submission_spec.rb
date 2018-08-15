@@ -4,7 +4,7 @@ RSpec.describe API::Submission do
   include ApiHelpers
 
   describe '#orders_count' do
-    let(:submission) { API::Submission.includes(:files, :entries).find(mock_submission_id).first }
+    let(:submission) { API::Submission.includes(:entries).find(mock_submission_id).first }
 
     it 'returns the number of entries against sheets containing the word "order"' do
       mock_submission_with_entries_validated_endpoint!
@@ -13,7 +13,7 @@ RSpec.describe API::Submission do
   end
 
   describe '#invoices_count' do
-    let(:submission) { API::Submission.includes(:files, :entries).find(mock_submission_id).first }
+    let(:submission) { API::Submission.includes(:entries).find(mock_submission_id).first }
 
     it 'returns the number of entries against sheets containing the word "invoice"' do
       mock_submission_with_entries_validated_endpoint!
@@ -22,7 +22,7 @@ RSpec.describe API::Submission do
   end
 
   describe '#errored_entries' do
-    let(:submission) { API::Submission.includes(:files, :entries).find(mock_submission_id).first }
+    let(:submission) { API::Submission.includes(:entries).find(mock_submission_id).first }
 
     it 'returns entries in an "errored" state' do
       mock_submission_with_entries_errored_endpoint!
