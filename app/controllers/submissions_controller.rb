@@ -1,5 +1,4 @@
 class SubmissionsController < ApplicationController
-  before_action :ensure_user_signed_in
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def new
