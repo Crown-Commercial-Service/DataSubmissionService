@@ -4,7 +4,7 @@ module API
 
     belongs_to :submission
 
-    def self.table_name
+    def self.resource_path
       'files'
     end
   end

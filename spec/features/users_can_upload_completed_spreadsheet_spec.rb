@@ -10,8 +10,6 @@ RSpec.feature 'User uploads completed spreadsheet' do
     scenario 'successfully, with a XLSX file' do
       mock_sso_with(email: 'email@example.com')
 
-      mock_update_task_endpoint!
-
       visit '/'
       click_link 'sign-in'
 
@@ -28,8 +26,6 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'successfully, with a XLS file' do
       mock_sso_with(email: 'email@example.com')
-
-      mock_update_task_endpoint!
 
       visit '/'
       click_link 'sign-in'
