@@ -5,11 +5,8 @@ RSpec.feature 'task management' do
     travel_to Time.zone.local(2018, 7, 2)
 
     mock_sso_with(email: 'email@example.com')
-    mock_tasks_endpoint!
-    mock_task_with_framework_endpoint!
-    mock_update_task_endpoint!
-    mock_create_submission_endpoint!
-    mock_submission_transitioning_to_in_review!
+
+    mock_upload_task_submission_flow_endpoints!
 
     visit '/'
     click_link 'sign-in'

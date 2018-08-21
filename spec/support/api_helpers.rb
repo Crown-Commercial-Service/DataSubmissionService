@@ -11,6 +11,8 @@ module ApiHelpers
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_create_submission_endpoint!
+    mock_submission_transitioning_to_in_review!
+    mock_update_task_endpoint!
   end
 
   def mock_pending_submission_endpoint!
