@@ -1,5 +1,4 @@
 class SubmissionsController < ApplicationController
-  before_action :ensure_user_signed_in
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def new
@@ -8,27 +7,45 @@ class SubmissionsController < ApplicationController
 
   def create
     task = API::Task.includes(:framework).find(params[:task_id]).first
-    submission = API::Submission.create(task_id: task.id)
-    task.update(status: 'in_progress')
 
-    ActiveStorage::Blob.create_after_upload!(
-      io: params[:upload],
-      filename: params[:upload].original_filename,
-      content_type: params[:upload].content_type,
-      metadata: { submission_id: submission.id }
-    )
+    submission = upload_file_submission(task, params[:upload])
 
     redirect_to task_submission_path(task_id: task.id, id: submission.id)
   end
 
   def show
     @task = API::Task.includes(:framework).find(params[:task_id]).first
-    @submission = API::Submission.includes(:files, :entries).find(params[:id]).first
+    @submission = API::Submission.includes(:entries).find(params[:id]).first
 
     render template_for_submission(@submission)
   end
 
   private
+
+  def upload_file_submission(task, upload)
+    submission = API::Submission.create(task_id: task.id)
+    submission_file = API::SubmissionFile.create(submission_id: submission.id)
+
+    blob = ActiveStorage::Blob.create_after_upload!(
+      io: upload,
+      filename: upload.original_filename,
+      content_type: upload.content_type,
+      metadata: { submission_id: submission.id, submission_file_id: submission_file.id }
+    )
+
+    # The file_id has to be included in the blob's attributes so that the
+    # JSONAPI::Consumer::Resource correctly routes and assigns the blob to the
+    # submission file
+    blob_attributes = blob
+                      .attributes
+                      .slice('key', 'filename', 'content_type', 'byte_size', 'checksum')
+                      .merge(file_id: submission_file.id)
+
+    API::SubmissionFileBlob.create(blob_attributes)
+    task.update(status: 'in_progress')
+
+    submission
+  end
 
   def template_for_submission(submission)
     case submission.status

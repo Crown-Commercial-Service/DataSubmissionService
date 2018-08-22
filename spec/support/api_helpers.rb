@@ -7,35 +7,42 @@ module ApiHelpers
     '9a5ef62c-0781-4f80-8850-5793652b6b40'
   end
 
+  def mock_submission_file_id
+    '8d0e4289-5fde-4faa-b78e-922846d8460a'
+  end
+
   def mock_upload_task_submission_flow_endpoints!
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_create_submission_endpoint!
-    mock_submission_file_endpoint!
+    mock_create_submission_file_endpoint!
+    mock_create_submission_file_blob_endpoint!
+    mock_submission_transitioning_to_in_review!
+    mock_update_task_endpoint!
   end
 
   def mock_pending_submission_endpoint!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_pending.json'))
   end
 
   def mock_submission_with_entries_pending_endpoint!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_pending.json'))
   end
 
   def mock_submission_with_entries_validated_endpoint!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_validated.json'))
   end
 
   def mock_submission_with_entries_errored_endpoint!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_errored.json'))
   end
 
   def mock_submission_completed_endpoint!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed.json'))
   end
 
@@ -45,7 +52,7 @@ module ApiHelpers
   end
 
   def mock_submission_transitioning_to_in_review!
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=files,entries")
+    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}?include=entries")
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_pending.json'))
       .then
       .to_return(headers: json_headers, body: json_fixture_file('submission_with_entries_validated.json'))
@@ -101,19 +108,27 @@ module ApiHelpers
       .to_return(headers: json_headers, body: task_submission.to_json)
   end
 
-  def mock_submission_file_endpoint!
+  def mock_create_submission_file_endpoint!
     submission_file = {
-      data: {
-        id: '41bea03d-fc99-45fb-9efc-2787530409f8',
+      data:  {
+        id: mock_submission_file_id,
         type: 'submission_files',
         attributes: {
-          submission_id: mock_submission_id,
-          rows: 3
+          submission_id: mock_submission_id
         }
       }
     }
-    stub_request(:get, "https://ccs.api/v1/submissions/#{mock_submission_id}/files")
+
+    stub_request(:post, "https://ccs.api/v1/submissions/#{mock_submission_id}/files")
       .to_return(headers: json_headers, body: submission_file.to_json)
+  end
+
+  def mock_create_submission_file_blob_endpoint!
+    submission_file_blob = {
+    }
+
+    stub_request(:post, "https://ccs.api/v1/files/#{mock_submission_file_id}/blobs")
+      .to_return(headers: json_headers, body: submission_file_blob.to_json)
   end
 
   def mock_update_task_endpoint!
