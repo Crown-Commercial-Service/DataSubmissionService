@@ -1,0 +1,15 @@
+%h1.heading-xlarge
+  Upload processed
+
+.error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
+  %h2.heading-medium.error-summary-heading
+    There are errors in your uploaded file
+
+  %p
+    You need to correct these errors in your spreadsheet and upload it again.
+  %p
+    The errors are listed below.
+
+= link_to 'Re-upload your amended file', new_task_submission_path(@task.id), class: 'button'
+
+=render 'shared/error_table', errored_entries: @submission.errored_entries

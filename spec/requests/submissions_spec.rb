@@ -31,7 +31,7 @@ RSpec.describe 'the submission page' do
       expect(response.body).to include 'processing'
     end
 
-    it 'shows the details for a valid "in_review" submission' do
+    it 'shows the details for a valid submission' do
       mock_submission_with_entries_validated_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
@@ -40,7 +40,7 @@ RSpec.describe 'the submission page' do
       expect(response.body).to include '£45.00'
     end
 
-    it 'shows the errors for an invalid "in_review" submission' do
+    it 'shows the errors for an invalid submission' do
       mock_submission_with_entries_errored_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
