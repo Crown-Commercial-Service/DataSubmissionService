@@ -1,11 +1,15 @@
 # Change Log
 
+## [release-5] - 2018-08-22
+
+- Sync file upload details with API
+
 ## [release-4] - 2018-08-13
 
-- custom 404 and 500 pages
-- static maintenance page for use during scheduled maintenance
-- adjusted in-review submission screens to make re-upload clearer
-- updated URN list file with latest version
+- Custom 404 and 500 pages
+- Static maintenance page for use during scheduled maintenance
+- Adjusted in-review submission screens to make re-upload clearer
+- Updated URN list file with latest version
 
 ## [release-3] - 2018-08-09
 
