@@ -21,6 +21,16 @@ RSpec.describe 'the tasks list' do
       expect(response).to be_successful
       expect(response.body).to include 'Unstarted task'
       expect(response.body).to include 'In review task (validated submission)'
+      expect(response.body).to include 'Completed task'
+    end
+
+    it 'shows the tasks ordered by due date' do
+      expect(response.body.index('7 September')).to be > response.body.index('7 August')
+    end
+
+    it 'shows completed tasks after other tasks' do
+      expect(response.body.index('Completed task')).to be > response.body.index('In review task (validated submission)')
+      expect(response.body.index('Completed task')).to be > response.body.index('Unstarted task')
     end
 
     it 'links to in-progress task submissions' do
@@ -35,7 +45,7 @@ RSpec.describe 'the tasks list' do
       cboard5_task_id = '2d98639e-5260-411f-a5ee-61847a2e067c'
 
       assert_select "#task-#{cboard5_task_id}" do
-        assert_select 'a[href=?]', '/templates/CBOARD5 MISO Data Template (July 2018).xls', text: 'Download template'
+        assert_select 'a[href=?]', '/templates/CBOARD5 MISO Data Template (August 2018).xls', text: 'Download template'
       end
     end
   end
