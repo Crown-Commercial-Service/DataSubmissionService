@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-6] - 2018-08-23
+
+- Tasks are ordered by due date
+- Completed tasks are placed at the bottom of the task list
+- Rename framework templates to August 2018
+- Remove mentions of specific deadline dates from various pages
+
 ## [release-5] - 2018-08-22
 
 - Sync file upload details with API
