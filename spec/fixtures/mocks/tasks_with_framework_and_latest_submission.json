@@ -101,9 +101,9 @@
         "framework_id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "description": "In review task (validated submission)",
-        "due_on": "2018-08-07",
+        "due_on": "2018-09-07",
         "period_year": 2018,
-        "period_month": 7
+        "period_month": 8
       },
       "relationships": {
         "latest_submission": {

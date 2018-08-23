@@ -21,6 +21,16 @@ RSpec.describe 'the tasks list' do
       expect(response).to be_successful
       expect(response.body).to include 'Unstarted task'
       expect(response.body).to include 'In review task (validated submission)'
+      expect(response.body).to include 'Completed task'
+    end
+
+    it 'shows the tasks ordered by due date' do
+      expect(response.body.index('7 September')).to be > response.body.index('7 August')
+    end
+
+    it 'shows completed tasks after other tasks' do
+      expect(response.body.index('Completed task')).to be > response.body.index('In review task (validated submission)')
+      expect(response.body.index('Completed task')).to be > response.body.index('Unstarted task')
     end
 
     it 'links to in-progress task submissions' do
