@@ -8,8 +8,6 @@
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
     %meta{ name: 'format-detection', content: 'telephone=no' }/
 
-    %link{ href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600', rel: 'stylesheet' }/
-
     = content_for(:head)
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
@@ -25,7 +23,7 @@
         %a{ href: '#main-content', class: 'skiplink' }
           Skip to content
 
-    = render 'components/header'
+    = render 'components/header', no_navigation: false
     .govuk-width-container
       %main{ role: 'main', id: 'main-content' }
         .phase-banner
