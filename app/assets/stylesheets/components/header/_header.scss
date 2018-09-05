@@ -39,13 +39,13 @@ a.govuk-header__link--homepage {
   display: block;
   height: 102px;
   width: 122px;
-  background-image: url('/assets/logo_vertical_white.svg');
+  background-image: image-url('logo_vertical_white.svg');
   background-size: cover;
   background-repeat: no-repeat;
   @include govuk-media-query($until: desktop) {
     height: 32px;
     width: auto;
-    background-image: url('/assets/logo_horiozontal_white.svg');
+    background-image: image-url('logo_horiozontal_white.svg');
     background-size: contain;
   }
   @include govuk-media-query($until: tablet) {
