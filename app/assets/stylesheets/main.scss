@@ -41,3 +41,19 @@
 @import 'components/tasks';
 @import 'components/buttons';
 @import 'components/processing';
+
+
+/* GOV.UK Frontend */
+@import "govuk-frontend/settings/all";
+@import "settings";
+
+@import "govuk-frontend/tools/all";
+@import "govuk-frontend/helpers/all";
+
+@import "govuk-frontend/core/all";
+@import "govuk-frontend/objects/all";
+
+@import "components/all";
+
+@import "govuk-frontend/utilities/all";
+@import "govuk-frontend/overrides/all";

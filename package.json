@@ -1,5 +1,7 @@
 {
   "name": "DataSubmissionService",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "govuk-frontend": "^1.3.0"
+  }
 }

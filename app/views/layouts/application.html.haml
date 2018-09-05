@@ -8,53 +8,30 @@
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
     %meta{ name: 'format-detection', content: 'telephone=no' }/
 
-    %link{ href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600', rel: 'stylesheet' }/
-
     = content_for(:head)
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = render 'shared/analytics'
 
-  %body
+  %body.govuk-template__body.app-body-class
+    %script
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+
     #skiplink-container
       %div
-        %a{ href: '#content', class: 'skiplink' }
+        %a{ href: '#main-content', class: 'skiplink' }
           Skip to content
 
-    %header#global-header.with-proposition{ role: 'banner' }
-      .header-wrapper
-        .header-global
-          .header-logo
-            %a#logo.content{ href: 'https://www.crowncommercial.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
-              %img{ src: asset_path('ccs-logo-white.png'), width: 120, height: 100, alt: 'Crown Commercial Service' }
-
-        .header-proposition
-          .content
-            =render 'shared/top_navigation'
-
-
-    %main{ role: 'main', id: 'content' }
-      .phase-banner
-        <strong class="phase-tag">BETA</strong>
-        Please give us your <a href="https://www.surveymonkey.com/r/9QTDW9P">feedback</a> so we can improve this site
+    = render 'components/header', no_navigation: false
+    .govuk-width-container
+      %main{ role: 'main', id: 'main-content' }
+        .phase-banner
+          <strong class="phase-tag">BETA</strong>
+          Please give us your <a href="https://www.surveymonkey.com/r/9QTDW9P">feedback</a> so we can improve this site
 
       = render 'shared/alert' if flash[:alert]
 
       = yield
 
-    %footer#footer{ class: 'group', role: 'contentinfo' }
-      .footer-wrapper
-        .footer-meta
-          .footer-meta-inner
-            Copyright statement
-            %h2.visually-hidden
-              Support links
-            %ul{ role: 'navigation'}
-              %li
-                Having problems using this service? Email
-                = mail_to(support_email_address)
-                for support.
-          .copyright
-            %a{ href: 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/' }
-              © Crown copyright
+    = render 'components/footer'
