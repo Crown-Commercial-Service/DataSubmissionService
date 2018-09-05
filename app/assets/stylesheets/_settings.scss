@@ -7,11 +7,27 @@ $govuk-assets-path: "/";
 $govuk-images-path: "/images/";
 
 $govuk-global-styles: true;
-$govuk-compatibility-govukfrontendtoolkit: true;
-$govuk-compatibility-govuktemplate: true;
-$govuk-compatibility-govukelements: true;
+$govuk-compatibility-govukfrontendtoolkit: false;
+$govuk-compatibility-govuktemplate: false;
+$govuk-compatibility-govukelements: false;
 
 $govuk-colours: (
+  "purple": #2e358b,
+  "light-purple": #6f72af,
+  "bright-purple": #912b88,
+  "pink": #d53880,
+  "light-pink": #f499be,
+  "red": #b10e1e,
+  "bright-red": #df3034,
+  "orange": #f47738,
+  "brown": #b58840,
+  "yellow": #ffbf47,
+  "light-green": #85994b,
+  "green": #006435,
+  "turquoise": #28a197,
+  "light-blue": #2b8cc4,
+  "blue": #005ea5,
+
   "primary": #9B1A47,
   "secondary": #016065,
 
@@ -26,7 +42,7 @@ $govuk-colours: (
   "link-hover": #2B8CC4,
   "link-visited": #4C2C92,
 
-  "error": #B10E1E,
+  "failure": #B10E1E,
   "warning": #DE8F1A,
   "success": #0EB163
 );

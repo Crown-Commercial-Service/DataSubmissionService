@@ -1,5 +1,5 @@
 !!!
-%html{ lang: 'en-GB' }
+%html{ lang: 'en-GB', class: 'govuk-template' }
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
     %title Report management information to CCS
@@ -18,15 +18,25 @@
     %script
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 
-    #skiplink-container
-      %div
-        %a{ href: '#content', class: 'skiplink' }
-          Skip to content
+    %a{ href: '#main-content', class: 'govuk-skip-link' }
+      Skip to main content
 
-    = render 'components/header', no_navigation: true
+    = render 'components/header', no_navigation: false
 
     .govuk-width-container
-      %main{ role: 'main', id: 'main-content' }
-        = yield
+      .govuk-phase-banner
+        %p.govuk-phase-banner__content
+          %strong.govuk-tag.govuk-phase-banner__content__tag
+            beta
+          %span.govuk-phase-banner__text
+            This is a new service – your
+            %a.govuk-link{:href => "https://www.surveymonkey.com/r/9QTDW9P"} feedback
+            will help us to improve it.
+
+      %main{ role: 'main', id: 'main-content', class: 'govuk-main-wrapper'}
+
+      = render 'shared/alert' if flash[:alert]
+
+      = yield
 
     = render 'components/footer'
