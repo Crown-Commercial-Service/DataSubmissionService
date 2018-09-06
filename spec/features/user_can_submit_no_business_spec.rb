@@ -15,7 +15,7 @@ RSpec.feature 'Submitting no business' do
 
     visit '/tasks'
 
-    expect(page).to have_content 'Unstarted task'
+    expect(page).to have_content 'CBOARD5'
 
     click_on 'Report no business'
 

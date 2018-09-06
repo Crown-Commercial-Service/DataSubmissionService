@@ -13,9 +13,9 @@ RSpec.feature 'task management' do
 
     visit '/tasks'
 
-    expect(page).to have_content 'Unstarted task'
+    expect(page).to have_content 'CBOARD5'
 
-    click_on 'Upload submission'
+    click_on 'Report management information'
 
     expect(page).to have_content 'Upload a file'
 

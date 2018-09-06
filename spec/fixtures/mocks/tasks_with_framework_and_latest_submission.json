@@ -330,7 +330,7 @@
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "b847e0f7-027e-4b95-afa2-3490b8d05a1c",
         "levy": null,
-        "status": "in_review"
+        "status": "validation_failed"
       },
       "relationships": {
         "framework": {

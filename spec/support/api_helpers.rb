@@ -93,6 +93,12 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('tasks_with_framework_and_latest_submission.json'))
   end
 
+  def mock_empty_tasks_endpoint!
+    stub_request(:get, 'https://ccs.api/v1/tasks')
+      .with(query: hash_including({}))
+      .to_return(headers: json_headers, body: '{}')
+  end
+
   def mock_create_submission_endpoint!
     task_submission = {
       data: {
