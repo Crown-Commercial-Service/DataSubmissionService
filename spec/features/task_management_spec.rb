@@ -17,7 +17,7 @@ RSpec.feature 'task management' do
 
     click_on 'Upload submission'
 
-    expect(page).to have_content 'Upload submission for CBOARD5'
+    expect(page).to have_content 'Upload a file'
 
     attach_file :upload, example_submission_file
 
