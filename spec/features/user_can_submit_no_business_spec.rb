@@ -19,7 +19,7 @@ RSpec.feature 'Submitting no business' do
 
     click_on 'Report no business'
 
-    expect(page).to have_content 'Report no business on CBOARD5'
+    expect(page).to have_content 'Report no business'
 
     click_on 'Confirm'
 

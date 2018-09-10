@@ -1,13 +1,13 @@
-%h1.heading-xlarge
-  Report no business on
-  = @task.framework.short_name
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Report no business
 
-%p
-  By reporting no business you are confirming that you have
-  no transactions to report on this framework for
-  = task_period_date(@task)
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %p
+      By reporting no business you are confirming that you have no transactions
+      to report on this framework.
 
-.form-group
-  = button_to 'Confirm', task_no_business_path(task_id: @task), class: 'button'
-
-= link_to 'Back', tasks_path, class: 'link-back'
+    .govuk-form-group
+      = button_to 'Confirm no business', task_no_business_path(task_id: @task), class: 'govuk-button'
