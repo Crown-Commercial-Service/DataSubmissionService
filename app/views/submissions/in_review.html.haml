@@ -1,74 +1,57 @@
 %h1.heading-xlarge
   Upload processed
 
-- if @submission.errored_entries.any?
+%p
+  Your management information for
+  = @task.id
+  is now ready to be submitted.
 
-  .error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
-    %h2.heading-medium.error-summary-heading
-      There are errors in your uploaded file
+.notice
+  %i.icon.icon-important
+    %span.visually-hidden
+      Warning
+  %strong.bold-small
+    Your submission is not complete at this stage. Please review the following:
 
-    %p
-      You need to correct these errors in your spreadsheet and upload it again.
-    %p
-      The errors are listed below.
+%p
+  Your uploaded submission file contains:
 
-  = link_to 'Re-upload your amended file', new_task_submission_path(@task.id), class: 'button'
+.data#orders
+  %span.data-item.bold-xsmall
+    Orders
+  %span.data-item.bold-xlarge
+    = @submission.orders_count
+  %span.bold-xsmall
+    rows
 
-  =render 'shared/error_table', errored_entries: @submission.errored_entries
+.data#invoices
+  %span.data-item.bold-xsmall
+    Invoices
+  %span.data-item.bold-xlarge
+    = @submission.invoices_count
+  %span.bold-xsmall
+    rows
 
-- else
+%p
+  Based upon this, your management charge for
+  = task_period_date(@task)
+  has been calculated as:
 
-  %p
-    Your management information for
-    = @task.id
-    is now ready to be submitted.
-
-  .notice
-    %i.icon.icon-important
-      %span.visually-hidden
-        Warning
-    %strong.bold-small
-      Your submission is not complete at this stage. Please review the following:
-
-  %p
-    Your uploaded submission file contains:
-
-  .data#orders
-    %span.data-item.bold-xsmall
-      Orders
-    %span.data-item.bold-xlarge
-      = @submission.orders_count
-    %span.bold-xsmall
-      rows
-
-  .data#invoices
-    %span.data-item.bold-xsmall
-      Invoices
-    %span.data-item.bold-xlarge
-      = @submission.invoices_count
-    %span.bold-xsmall
-      rows
+.data#levy
+  %span.data-item.bold-xlarge
+    = levy_as_string @submission.levy
 
   %p
-    Based upon this, your management charge for
-    = task_period_date(@task)
-    has been calculated as:
-
-  .data#levy
-    %span.data-item.bold-xlarge
-      = levy_as_string @submission.levy
-
-    %p
-      If everything looks correct please complete this submission.
-
-    %p
-      This submission is not completed until you have clicked this button:
-
-  = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id), method: :post) do
-    .form-group
-      = submit_tag 'Complete submission', class: 'button'
+    If everything looks correct please complete this submission.
 
   %p
-    If this looks wrong, check the data in your spreadsheet and re-upload it.
+    This submission is not completed until you have clicked this button:
 
-  = link_to 'Start again', new_task_submission_path(@task.id), class: 'button'
+= form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id), method: :post) do
+  .form-group
+    = submit_tag 'Complete submission', class: 'button'
+
+%p
+  If this looks wrong, check the data in your spreadsheet and re-upload it.
+
+= link_to 'Start again', new_task_submission_path(@task.id), class: 'button'
