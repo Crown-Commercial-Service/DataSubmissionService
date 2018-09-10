@@ -1,57 +1,32 @@
-%h1.heading-xlarge
-  Upload processed
+%h1.govuk-heading-xl
+  Review & submit
 
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
 %p
-  Your management information for
-  = @task.id
-  is now ready to be submitted.
+  Your file has been checked and is ready to submit.
 
-.notice
-  %i.icon.icon-important
-    %span.visually-hidden
-      Warning
-  %strong.bold-small
-    Your submission is not complete at this stage. Please review the following:
-
-%p
-  Your uploaded submission file contains:
-
-.data#orders
-  %span.data-item.bold-xsmall
-    Orders
-  %span.data-item.bold-xlarge
-    = @submission.orders_count
-  %span.bold-xsmall
-    rows
-
-.data#invoices
-  %span.data-item.bold-xsmall
-    Invoices
-  %span.data-item.bold-xlarge
-    = @submission.invoices_count
-  %span.bold-xsmall
-    rows
-
-%p
-  Based upon this, your management charge for
-  = task_period_date(@task)
-  has been calculated as:
-
-.data#levy
-  %span.data-item.bold-xlarge
-    = levy_as_string @submission.levy
-
-  %p
-    If everything looks correct please complete this submission.
-
-  %p
-    This submission is not completed until you have clicked this button:
+%table.govuk-table
+  %thead.govuk-table__head
+    %tr.govuk-table__row
+      %th.govuk-table__cell Filename
+      %th.govuk-table__cell Invocies
+      %th.govuk-table__cell Orders
+  %tbody.govuk-table__body
+    %tr.govuk-table__row
+      %td.govuk-table__cell
+        Uploaded file
+      %td.govuk-table__cell
+        = @submission.invoices_count
+      %td.govuk-table__cell
+        = @submission.orders_count
 
 = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id), method: :post) do
   .form-group
-    = submit_tag 'Complete submission', class: 'button'
-
-%p
-  If this looks wrong, check the data in your spreadsheet and re-upload it.
-
-= link_to 'Start again', new_task_submission_path(@task.id), class: 'button'
+    = submit_tag 'Submit management information', class: 'govuk-button'
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %p
+      If any of this management information looks incorrect, check the data in your spreadsheet and
+      = succeed "." do
+        = link_to 'start again', new_task_submission_path(@task.id)

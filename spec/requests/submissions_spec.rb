@@ -36,8 +36,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Upload processed'
-      expect(response.body).to include '£45.00'
+      expect(response.body).to include 'Review & submit'
     end
 
     it 'shows the errors for an invalid submission' do
@@ -45,8 +44,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Upload processed'
-      expect(response.body).to include 'Required value error'
+      expect(response.body).to include 'Errors to correct'
       expect(response.body).to include 'Some other error'
     end
 
