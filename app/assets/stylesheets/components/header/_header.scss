@@ -32,7 +32,9 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
 }
 
 .govuk-header__navigation-item {
-  border-bottom: 1px solid $ccs-header-nav-item-border-color;
+  @include govuk-media-query($until: tablet) {
+    border-bottom: 1px solid $ccs-header-nav-item-border-color;
+  }
 }
 
 a.govuk-header__link--homepage {
