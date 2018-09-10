@@ -21,7 +21,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      expect(page).to have_content 'processing'
+      expect(page).to have_content 'Checking file'
     end
 
     scenario 'successfully, with a XLS file' do
@@ -38,7 +38,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      expect(page).to have_content 'processing'
+      expect(page).to have_content 'Checking file'
     end
 
     scenario 'throws an error if the file is not one of the expected formats' do

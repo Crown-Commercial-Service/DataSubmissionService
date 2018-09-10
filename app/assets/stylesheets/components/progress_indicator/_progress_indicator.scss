@@ -1,0 +1,15 @@
+.ccs-progress-indicator {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: govuk-spacing(6);
+}
+.ccs-progress-indicator svg {
+  height: 100px;
+  width: 100px;
+}
+
+// this is the id of the element in the SVG
+#progress-indicator {
+  stroke: govuk-colour('primary')
+}

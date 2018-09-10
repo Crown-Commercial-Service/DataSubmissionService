@@ -23,7 +23,7 @@ RSpec.feature 'task management' do
 
     expect { click_button 'Upload' }.to change(ActiveStorage::Blob, :count).by(1)
 
-    expect(page).to have_content 'processing'
+    expect(page).to have_content 'Checking file'
 
     force_reload_to_get_updated_submission_status
 

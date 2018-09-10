@@ -20,7 +20,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'processing'
+      expect(response.body).to include 'Checking file'
     end
 
     it 'shows the "processing" screen for a "processing submission' do
@@ -28,7 +28,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'processing'
+      expect(response.body).to include 'Checking file'
     end
 
     it 'shows the details for a valid submission' do
