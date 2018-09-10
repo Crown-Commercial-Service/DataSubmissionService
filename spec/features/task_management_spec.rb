@@ -35,7 +35,7 @@ RSpec.feature 'task management' do
 
     click_on 'Submit management information'
 
-    expect(page).to have_content 'Submission completed'
+    expect(page).to have_content 'submitted to CCS'
   end
 
   private

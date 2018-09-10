@@ -53,7 +53,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Submission completed'
+      expect(response.body).to include 'submitted to CCS'
     end
   end
 end

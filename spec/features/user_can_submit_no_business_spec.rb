@@ -23,6 +23,6 @@ RSpec.feature 'Submitting no business' do
 
     click_on 'Confirm'
 
-    expect(page).to have_content 'Submission completed'
+    expect(page).to have_content 'submitted to CCS'
   end
 end
