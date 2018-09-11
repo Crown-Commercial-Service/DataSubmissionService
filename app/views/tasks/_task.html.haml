@@ -1,5 +1,12 @@
 %section.ccs-task{id: "task-#{task.id}"}
   %header.ccs-task__information
+    .ccs-task__statuses
+      - if task.complete?
+        %strong.govuk-tag.govuk-tag__success Completed
+      - if task.errors?
+        %strong.govuk-tag.govuk-tag__failure Errors
+      - if task.late?
+        %strong.govuk-tag.govuk-tag__warning Late
     .ccs-task__body
       %h3.govuk-heading-m
         = task.framework.short_name
@@ -7,9 +14,10 @@
       %h4.govuk-heading-s
         Report management information for
         = task_month(task)
-      %p
-        Due
-        = task_due_date(task)
+      - unless task.complete?
+        %p
+          Due
+          = task_due_date(task)
   .ccs-task__action
     .ccs-task__action--primary
       - case task.status

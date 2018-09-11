@@ -87,6 +87,16 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
   end
 
+  def mock_task_with_invalid_submission_endpoint!
+    stub_request(:get, "https://ccs.api/v1/tasks/#{mock_task_id}?include=latest_submission")
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_invalid_submission.json'))
+  end
+
+  def mock_task_with_valid_submission_endpoint!
+    stub_request(:get, "https://ccs.api/v1/tasks/#{mock_task_id}?include=latest_submission")
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_valid_submission.json'))
+  end
+
   def mock_tasks_endpoint!
     stub_request(:get, 'https://ccs.api/v1/tasks')
       .with(query: hash_including({}))
