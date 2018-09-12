@@ -1,6 +1,6 @@
-.grid-row
-  .column-full
-    %h2.heading-xlarge
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %h1.govuk-heading-xl
       Tasks
 
-= render(collection: @tasks, partial: "task") || render("empty_task")
+= render(collection: @tasks, partial: "task") || render("no_tasks")

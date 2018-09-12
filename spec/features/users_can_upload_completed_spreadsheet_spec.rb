@@ -14,14 +14,14 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_link 'sign-in'
 
       visit '/tasks'
-      click_on 'Upload submission'
+      click_on 'Report management information'
 
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      expect(page).to have_content 'processing'
+      expect(page).to have_content 'Checking file'
     end
 
     scenario 'successfully, with a XLS file' do
@@ -31,14 +31,14 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_link 'sign-in'
 
       visit '/tasks'
-      click_on 'Upload submission'
+      click_on 'Report management information'
 
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xls')
         click_button 'Upload'
       end.to change(ActiveStorage::Blob, :count).by(1)
 
-      expect(page).to have_content 'processing'
+      expect(page).to have_content 'Checking file'
     end
 
     scenario 'throws an error if the file is not one of the expected formats' do
@@ -48,7 +48,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_link 'sign-in'
 
       visit '/tasks'
-      click_on 'Upload submission'
+      click_on 'Report management information'
 
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.pdf')
@@ -65,7 +65,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       click_link 'sign-in'
 
       visit '/tasks'
-      click_on 'Upload submission'
+      click_on 'Report management information'
 
       expect do
         click_button 'Upload'

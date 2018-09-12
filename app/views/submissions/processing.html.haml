@@ -1,22 +1,17 @@
 = content_for(:head, tag.meta('http-equiv': 'refresh', content: 5))
 
-.u_text-center
-  = render partial: 'shared/loading_spinner'
-  %p Submission processing
+.govuk-grid-row
+  %h1.govuk-heading-l
+    Checking file…
 
-.grid-row
-  .column-two-thirds
-    #processing-support-message
-      %h2.heading-medium
-        Support
-      %p
-        This is a new service, still in active development. We are working hard
-        to ensure the service is stable and usable for you, but if you need
-        support, you can contact the team at
-        <a href="mailto:dss@crowncommercial.gov.uk">dss@crowncommercial.gov.uk</a>
+  = render 'components/progress_indicator'
 
-      %p
-        CCS provides operational support from 9am to 6pm, Monday to Friday. We
-        will prioritise queries from users who are unable to complete their
-        return, and for these we will respond by the next working day.
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %p
+      Your file is being checked. You do not have to stay on this page.
+
+    %p
+      Your task will be updated as this progresses.
+
 

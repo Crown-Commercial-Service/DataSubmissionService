@@ -1,10 +1,17 @@
-%h1.heading-xlarge
-  Upload submission for
-  = @task.framework.short_name
+%h1.govuk-heading-xl
+  Upload a file
 
-= form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
-  .form-group
-    %label.form-label Choose a file
-    = file_field_tag 'upload', required: true
-  .form-group
-    = submit_tag 'Upload', class: 'button'
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %p
+      Choose a file to upload.
+    %p
+      Accepted file types are Microsoft Excel (.xls or .xlsx).
+    %p
+      You’ll be able to review a summary of the files before you submit.
+
+    = form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
+      .govuk-form-group
+        = file_field_tag 'upload', required: true, class: 'govuk-file-upload'
+      .govuk-form-group
+        = submit_tag 'Upload and check file', class: 'govuk-button'
