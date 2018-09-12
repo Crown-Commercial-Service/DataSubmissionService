@@ -17,7 +17,7 @@ RSpec.feature 'task management' do
 
     click_on 'Report management information'
 
-    expect(page).to have_content 'Upload a file'
+    expect(page).to have_content 'Choose a file'
 
     attach_file :upload, example_submission_file
 

@@ -1,17 +1,28 @@
-%h1.govuk-heading-xl
-  Upload a file
-
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Report management information
 .govuk-grid-row
   .govuk-grid-column-two-thirds
-    %p
-      Choose a file to upload.
+    %h2.govuk-heading-l
+      Choose a file
     %p
       Accepted file types are Microsoft Excel (.xls or .xlsx).
     %p
       You’ll be able to review a summary of the files before you submit.
-
     = form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
       .govuk-form-group
         = file_field_tag 'upload', required: true, class: 'govuk-file-upload'
+      %h2.govuk-heading-l
+        Provide a purchase order number
+      %p
+        You can optionally attach your own purchase order number to this submission
+        that will appear on your invoice.
+      .govuk-form-group
+        %label.govuk-label{ :for => 'purchase_order_number' }
+          Purchase order number
+        %span#purchase-order-number-hint.govuk-hint
+          This field is optional.
+        %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
       .govuk-form-group
         = submit_tag 'Upload and check file', class: 'govuk-button'
