@@ -1,12 +1,12 @@
-%h1.heading-xlarge
+%h1.govuk-heading-xl
   Report management information to CCS
 
-.grid-row
-  .column-two-thirds
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     %p
       Use this service to report on the following frameworks:
 
-    %ul.list.list-bullet
+    %ul.govuk-list.govuk-list--bullet
       %li RM3756 Rail Legal Services
       %li RM3786 General Legal Services
       %li RM3787 Finance & Complex Legal Services
@@ -15,7 +15,7 @@
       If you are reporting on any other framework, use the existing MISO service -
       = link_to 'https://miso.ccs.cabinetoffice.gov.uk/', 'https://miso.ccs.cabinetoffice.gov.uk/'
 
-    %h2.heading-medium
+    %h2.govuk-heading-m
       Before you start
     %p
       You will need your new account details. You should have received these details via email.
@@ -27,7 +27,7 @@
       = link_to 'Sign in', '/auth/auth0'
       to get the template for your framework(s) and to report your management information.
 
-    = link_to 'Sign in', '/auth/auth0', class: 'button', id: 'sign-in'
+    = link_to 'Sign in', '/auth/auth0', class: 'govuk-button', id: 'sign-in'
 
     %p
       If you didn’t do any business, you still need to sign in and let us know.

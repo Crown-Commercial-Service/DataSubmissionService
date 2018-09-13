@@ -15,14 +15,14 @@ RSpec.feature 'Submitting no business' do
 
     visit '/tasks'
 
-    expect(page).to have_content 'Unstarted task'
+    expect(page).to have_content 'CBOARD5'
 
     click_on 'Report no business'
 
-    expect(page).to have_content 'Report no business on CBOARD5'
+    expect(page).to have_content 'Report no business'
 
     click_on 'Confirm'
 
-    expect(page).to have_content 'Submission completed'
+    expect(page).to have_content 'submitted to CCS'
   end
 end

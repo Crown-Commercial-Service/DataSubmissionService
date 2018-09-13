@@ -2,7 +2,17 @@ FROM ruby:2.5.1
 
 MAINTAINER dxw <rails@dxw.com>
 
-RUN apt-get update && apt-get install -qq -y build-essential libpq-dev --fix-missing --no-install-recommends
+RUN apt-get update && apt-get install -qq -y build-essential libpq-dev nodejs --fix-missing --no-install-recommends
+
+RUN YARN_VERSION=$(curl -sSL --compressed https://yarnpkg.com/latest-version) \
+  set -ex \
+  && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
+  && mkdir -p /opt/yarn \
+  && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
+  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
+  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
+  && rm yarn-v$YARN_VERSION.tar.gz
+
 
 ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
@@ -16,6 +26,9 @@ ENV RACK_ENV=${RAILS_ENV:-production}
 
 COPY Gemfile $INSTALL_PATH/Gemfile
 COPY Gemfile.lock $INSTALL_PATH/Gemfile.lock
+COPY package.json yarn.lock $INSTALL_PATH/
+
+RUN yarn
 
 RUN gem install bundler
 

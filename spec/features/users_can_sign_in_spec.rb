@@ -20,7 +20,7 @@ RSpec.feature 'Signing in as a user' do
     click_on 'sign-in'
 
     visit '/'
-    click_on 'Sign out email@example.com'
+    click_on 'Sign out'
 
     expect(page).to have_content 'Sign in'
   end

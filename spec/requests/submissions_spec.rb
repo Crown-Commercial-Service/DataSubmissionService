@@ -20,7 +20,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'processing'
+      expect(response.body).to include 'Checking file'
     end
 
     it 'shows the "processing" screen for a "processing submission' do
@@ -28,25 +28,23 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'processing'
+      expect(response.body).to include 'Checking file'
     end
 
-    it 'shows the details for a valid "in_review" submission' do
+    it 'shows the details for a valid submission' do
       mock_submission_with_entries_validated_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Upload processed'
-      expect(response.body).to include '£45.00'
+      expect(response.body).to include 'Review & submit'
     end
 
-    it 'shows the errors for an invalid "in_review" submission' do
+    it 'shows the errors for an invalid submission' do
       mock_submission_with_entries_errored_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Upload processed'
-      expect(response.body).to include 'Required value error'
+      expect(response.body).to include 'Errors to correct'
       expect(response.body).to include 'Some other error'
     end
 
@@ -55,7 +53,7 @@ RSpec.describe 'the submission page' do
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'Submission completed'
+      expect(response.body).to include 'submitted to CCS'
     end
   end
 end

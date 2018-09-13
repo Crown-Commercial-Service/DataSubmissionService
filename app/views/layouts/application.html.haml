@@ -1,5 +1,5 @@
 !!!
-%html{ lang: 'en-GB' }
+%html{ lang: 'en-GB', class: 'govuk-template' }
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
     %title Report management information to CCS
@@ -8,53 +8,35 @@
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
     %meta{ name: 'format-detection', content: 'telephone=no' }/
 
-    %link{ href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600', rel: 'stylesheet' }/
-
     = content_for(:head)
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = render 'shared/analytics'
 
-  %body
-    #skiplink-container
-      %div
-        %a{ href: '#content', class: 'skiplink' }
-          Skip to content
+  %body.govuk-template__body.app-body-class
+    %script
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 
-    %header#global-header.with-proposition{ role: 'banner' }
-      .header-wrapper
-        .header-global
-          .header-logo
-            %a#logo.content{ href: 'https://www.crowncommercial.gov.uk/', title: 'Go to the Crown Commercial Service homepage' }
-              %img{ src: asset_path('ccs-logo-white.png'), width: 120, height: 100, alt: 'Crown Commercial Service' }
+    %a{ href: '#main-content', class: 'govuk-skip-link' }
+      Skip to main content
 
-        .header-proposition
-          .content
-            =render 'shared/top_navigation'
+    = render 'components/header', no_navigation: false
 
+    .govuk-width-container
+      .govuk-phase-banner
+        %p.govuk-phase-banner__content
+          %strong.govuk-tag.govuk-phase-banner__content__tag
+            beta
+          %span.govuk-phase-banner__text
+            This is a new service – your
+            %a.govuk-link{:href => "https://www.surveymonkey.com/r/9QTDW9P"} feedback
+            will help us to improve it.
 
-    %main{ role: 'main', id: 'content' }
-      .phase-banner
-        <strong class="phase-tag">BETA</strong>
-        Please give us your <a href="https://www.surveymonkey.com/r/9QTDW9P">feedback</a> so we can improve this site
+      %main{ role: 'main', id: 'main-content', class: 'govuk-main-wrapper'}
 
       = render 'shared/alert' if flash[:alert]
 
       = yield
 
-    %footer#footer{ class: 'group', role: 'contentinfo' }
-      .footer-wrapper
-        .footer-meta
-          .footer-meta-inner
-            Copyright statement
-            %h2.visually-hidden
-              Support links
-            %ul{ role: 'navigation'}
-              %li
-                Having problems using this service? Email
-                = mail_to(support_email_address)
-                for support.
-          .copyright
-            %a{ href: 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/' }
-              © Crown copyright
+    = render 'components/footer'

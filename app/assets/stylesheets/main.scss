@@ -1,43 +1,15 @@
-@import 'variables';
-/* From GDS's alphagov/govuk_frontend_toolkit */
+/* GOV.UK Frontend */
+@import "govuk-frontend/settings/all";
+@import "settings";
 
-@import 'font_stack';
-@import 'measurements';
-@import 'conditionals';
-@import 'device-pixels';
-@import 'grid_layout';
-@import 'typography';
-@import 'shims';
-@import 'design-patterns/alpha-beta';
-@import 'design-patterns/buttons';
-@import 'design-patterns/breadcrumbs';
-/* From GDS's alphagov/govuk_elements */
+@import "govuk-frontend/tools/all";
+@import "govuk-frontend/helpers/all";
 
-//@import 'elements/govuk-template-base';
-@import 'elements/helpers';
-@import 'elements/reset';
-@import 'elements/layout';
-@import 'elements/elements-typography';
-@import 'elements/icons';
-@import 'elements/lists';
-@import 'elements/forms';
-@import 'elements/forms/form-multiple-choice';
-@import 'elements/forms/form-validation';
-@import 'elements/breadcrumbs';
-@import 'elements/phase-banner';
-@import 'elements/components';
-@import 'elements/panels';
-@import 'elements/tables';
+@import "govuk-frontend/core/all";
+@import "govuk-frontend/objects/all";
 
-/* GOVUK Template components */
-@import 'components/basic';
-@import 'components/accessibility';
-@import 'components/header';
-@import 'components/footer';
+@import "components/all";
+@import "govuk-frontend/components/skip-link/skip-link";
 
-
-/* Our components */
-@import 'components/phase-banner';
-@import 'components/tasks';
-@import 'components/buttons';
-@import 'components/processing';
+@import "govuk-frontend/utilities/all";
+@import "govuk-frontend/overrides/all";

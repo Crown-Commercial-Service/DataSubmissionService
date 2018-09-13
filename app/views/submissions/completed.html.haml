@@ -1,19 +1,16 @@
-.grid-row
-  .column-two-thirds
-    .govuk-box-highlight
-      %h1.heading-xlarge Submission completed
-.grid-row
-  .column-two-thirds
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    .govuk-panel.govuk-panel--confirmation
+      %h1.govuk-panel__title
+        Management information for
+        = @task.framework.short_name
+        = @task.framework.name
+        submitted to CCS
+
     %p
       If you’ve made a mistake or need to amend the management information
       you've supplied, email
       = mail_to(support_email_address)
       for help.
     %p
-      You'll be sent a reminder to submit next month's management information.
-
-.form-group
-  = link_to t('uploads.review.back'), tasks_path, class: 'button'
-
-.form-group
-  = link_to 'Sign out', sign_out_path, class: 'button'
+      = link_to 'Home', tasks_path, class: 'button'

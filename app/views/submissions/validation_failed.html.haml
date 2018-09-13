@@ -1,0 +1,22 @@
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Errors to correct
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+
+    .govuk-error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
+      %h2.govuk-error-summary__title
+        There are errors in your uploaded file
+
+      %p
+        You need to correct these errors in your spreadsheet and upload it again.
+      %p
+        The errors are listed below.
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    =render 'shared/error_table', errored_entries: @submission.errored_entries
+
+    = link_to 'Upload amended file', new_task_submission_path(@task.id), class: 'govuk-button'

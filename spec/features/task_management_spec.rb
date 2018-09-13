@@ -13,29 +13,29 @@ RSpec.feature 'task management' do
 
     visit '/tasks'
 
-    expect(page).to have_content 'Unstarted task'
+    expect(page).to have_content 'CBOARD5'
 
-    click_on 'Upload submission'
+    click_on 'Report management information'
 
-    expect(page).to have_content 'Upload submission for CBOARD5'
+    expect(page).to have_content 'Upload a file'
 
     attach_file :upload, example_submission_file
 
     expect { click_button 'Upload' }.to change(ActiveStorage::Blob, :count).by(1)
 
-    expect(page).to have_content 'processing'
+    expect(page).to have_content 'Checking file'
 
     force_reload_to_get_updated_submission_status
 
-    expect(page).to have_content 'Upload processed'
+    expect(page).to have_content 'Review & submit'
 
     mock_complete_submission_endpoint!
     mock_submission_completed_with_task_endpoint!
     mock_submission_completed_endpoint!
 
-    click_on 'Complete submission'
+    click_on 'Submit management information'
 
-    expect(page).to have_content 'Submission completed'
+    expect(page).to have_content 'submitted to CCS'
   end
 
   private
