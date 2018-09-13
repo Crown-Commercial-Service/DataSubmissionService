@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-7] - 2018-09-13
+
+- Updated to use new GOV.UK Design System
+- Updated design and content following end-to-end review
+
 ## [release-6] - 2018-08-23
 
 - Tasks are ordered by due date
