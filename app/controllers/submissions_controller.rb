@@ -23,7 +23,7 @@ class SubmissionsController < ApplicationController
   private
 
   def upload_file_submission(task, upload)
-    submission = API::Submission.create(task_id: task.id)
+    submission = API::Submission.create(task_id: task.id, purchase_order_number: params[:purchase_order_number])
     submission_file = API::SubmissionFile.create(submission_id: submission.id)
 
     blob = ActiveStorage::Blob.create_after_upload!(
