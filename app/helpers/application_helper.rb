@@ -7,11 +7,6 @@ module ApplicationHelper
     'dss@crowncommercial.gov.uk'
   end
 
-  def levy_as_string(levy_in_pence)
-    levy_in_pounds = BigDecimal(levy_in_pence) / 100
-    number_to_currency(levy_in_pounds, unit: '£')
-  end
-
   def task_status(task)
     task.status == 'completed' ? 'Task Completed' : "Due by #{task.due_on.to_date}"
   end
