@@ -5,6 +5,8 @@
     "attributes": {
       "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
       "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
+      "invoice_count": 1,
+      "order_count": 0,
       "purchase_order_number": null,
       "status": "processing"
     },

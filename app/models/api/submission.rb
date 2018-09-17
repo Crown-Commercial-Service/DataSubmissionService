@@ -10,14 +10,6 @@ module API
     # POST /submissions/:id/complete
     custom_endpoint :complete, on: :member, request_method: :post
 
-    def orders_count
-      entries.count { |entry| entry.source['sheet'].match?(/order/i) }
-    end
-
-    def invoices_count
-      entries.count { |entry| entry.source['sheet'].match?(/invoice/i) }
-    end
-
     def errored_entries
       @errored_entries ||= entries.select { |entry| entry.status == 'errored' }
     end
