@@ -20,9 +20,9 @@
       %td.govuk-table__cell
         Uploaded file
       %td.govuk-table__cell
-        = @submission.invoices_count
+        = @submission.invoice_count
       %td.govuk-table__cell
-        = @submission.orders_count
+        = @submission.order_count
 
 = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id), method: :post) do
   .form-group
