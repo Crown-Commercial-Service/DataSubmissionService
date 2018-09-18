@@ -1,11 +1,16 @@
-%h1.govuk-heading-xl
-  Review & submit
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Review & submit
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
 %p
   Your file has been checked and is ready to submit.
-
+- if @submission.purchase_order_number
+  %p.govuk-heading-s
+    Purchase order number:
+    = @submission.purchase_order_number
 %table.govuk-table
   %thead.govuk-table__head
     %tr.govuk-table__row
@@ -17,9 +22,9 @@
       %td.govuk-table__cell
         Uploaded file
       %td.govuk-table__cell
-        = @submission.invoices_count
+        = @submission.invoice_count
       %td.govuk-table__cell
-        = @submission.orders_count
+        = @submission.order_count
 
 = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id), method: :post) do
   .form-group

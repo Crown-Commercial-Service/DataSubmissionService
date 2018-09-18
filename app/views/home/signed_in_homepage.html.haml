@@ -1,5 +1,7 @@
-%h1.govuk-heading-xl
-  Report management information to CCS
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Report management information to CCS
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
@@ -16,5 +18,5 @@
       = succeed '.' do
         If you are having problems reporting your management
         information, please contact support at
-        = mail_to('dss@crowncommercial.gov.uk')
+        = mail_to support_email_address
 

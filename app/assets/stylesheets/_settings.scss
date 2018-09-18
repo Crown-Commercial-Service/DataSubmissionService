@@ -6,6 +6,9 @@ $govuk-page-width: 1020px;
 $govuk-assets-path: "/";
 $govuk-images-path: "/images/";
 
+$govuk-font-url-function: 'font-url';
+$govuk-image-url-function: 'image-url';
+
 $govuk-global-styles: true;
 $govuk-compatibility-govukfrontendtoolkit: false;
 $govuk-compatibility-govuktemplate: false;

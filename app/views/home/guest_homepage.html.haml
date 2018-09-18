@@ -1,5 +1,7 @@
-%h1.govuk-heading-xl
-  Report management information to CCS
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Report management information to CCS
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
@@ -22,7 +24,7 @@
     %p
       = succeed '.' do
         If you are unable to sign in or have not received any account details, please contact support at
-        = link_to 'dss@crowncommercial.gov.uk', 'mailto:dss@crowncommercial.gov.uk'
+        = mail_to support_email_address
     %p
       = link_to 'Sign in', '/auth/auth0'
       to get the template for your framework(s) and to report your management information.

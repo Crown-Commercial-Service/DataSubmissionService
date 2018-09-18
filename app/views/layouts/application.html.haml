@@ -21,7 +21,7 @@
     %a{ href: '#main-content', class: 'govuk-skip-link' }
       Skip to main content
 
-    = render 'components/header', no_navigation: false
+    = render 'shared/header', no_navigation: false
 
     .govuk-width-container
       .govuk-phase-banner
@@ -39,4 +39,4 @@
 
       = yield
 
-    = render 'components/footer'
+    = render 'shared/footer'

@@ -1,5 +1,14 @@
 # Change Log
 
+## [release-8] - 2018-09-18
+
+- Updated to allow purchase order number to be set with submissions
+- Removed redundant code relating to early version of the service
+- Improved submission summary page performance by using summary information
+  instead of counting entries
+- Updated frontend toolkit and made markup more consistent
+- Fixed bug in main menu mobile view
+
 ## [release-7] - 2018-09-13
 
 - Updated to use new GOV.UK Design System

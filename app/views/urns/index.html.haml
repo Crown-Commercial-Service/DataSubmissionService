@@ -1,8 +1,9 @@
 .govuk-grid-row
-  .govuk-grid-column-two-thirds
+  .govuk-grid-column-full
     %h1.govuk-heading-xl
       Unique Reference Number (URN) Lookup
-
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     %p
       You will be asked to supply a unique reference number for each of the
       customers in your uploaded files. If you do not know the relevant customer
@@ -20,5 +21,5 @@
 
     %p
       If you have a customer without a URN you will need to
-      = link_to('contact the support team', 'mailto:dss@crowncommercial.gov.uk')
+      = link_to('contact the support team', "mailto:#{support_email_address}")
       to have one created for you.
