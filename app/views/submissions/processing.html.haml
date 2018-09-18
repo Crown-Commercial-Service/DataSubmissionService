@@ -1,10 +1,11 @@
 = content_for(:head, tag.meta('http-equiv': 'refresh', content: 5))
 
 .govuk-grid-row
-  %h1.govuk-heading-l
-    Checking file…
+  .govuk-grid-column-full
+    %h1.govuk-heading-l
+      Checking file…
 
-  = render 'components/progress_indicator'
+  = render 'shared/progress_indicator'
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
