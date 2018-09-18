@@ -1,2 +1,4 @@
-window.GOVUKFrontend.initAll()
+window.onload = function() {
+  window.GOVUKFrontend.initAll()
+};
 
