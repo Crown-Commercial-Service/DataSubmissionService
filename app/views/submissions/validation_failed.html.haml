@@ -15,12 +15,9 @@
         There are errors in your uploaded file
 
       %p
-        You need to correct these errors in your spreadsheet and upload it again.
+        You need to correct the errors in your spreadsheet and upload it again.
       %p
-        The errors are listed below.
+        The first 10 rows with errors are listed below. There may be also be other errors in the uploaded file.
 
-.govuk-grid-row
-  .govuk-grid-column-full
-    =render 'shared/error_table', errored_entries: @submission.errored_entries
-
-    = link_to 'Upload amended file', new_task_submission_path(@task.id), class: 'govuk-button'
+- @submission.sheet_errors.each_pair do |sheet_name, errors|
+  = render('errors_table', errors: errors, sheet_name: sheet_name) if errors.any?

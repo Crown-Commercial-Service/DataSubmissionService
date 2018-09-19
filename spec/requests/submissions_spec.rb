@@ -45,7 +45,8 @@ RSpec.describe 'the submission page' do
 
       expect(response).to be_successful
       expect(response.body).to include 'Errors to correct'
-      expect(response.body).to include 'Some other error'
+      expect(response.body).to include 'You must enter a valid URN'
+      expect(response.body).to include 'Enter value, without commas or pound signs'
     end
 
     it 'shows completed submission page for a "completed" submission' do
