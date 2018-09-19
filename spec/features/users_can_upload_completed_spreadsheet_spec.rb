@@ -4,7 +4,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
   describe 'Signed-in user can upload a completed spreadsheet' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
-      mock_submission_with_entries_pending_endpoint!
+      mock_submission_processing_endpoint!
     end
 
     scenario 'successfully, with a XLSX file' do

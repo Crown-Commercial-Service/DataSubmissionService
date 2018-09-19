@@ -7,8 +7,8 @@
       "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
       "invoice_count": 2,
       "order_count": 1,
-      "purchase_order_number": null,
-      "status": "completed",
+      "purchase_order_number": "123",
+      "status": "in_review",
       "levy": 4500
     }
   }
