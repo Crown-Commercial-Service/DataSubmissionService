@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-9] - 2018-09-19
+
+- Adjusted terraform config for zero-downtime deploys
+- Updated analytics to use Google Tag Manager
+
 ## [release-8] - 2018-09-18
 
 - Updated to allow purchase order number to be set with submissions
