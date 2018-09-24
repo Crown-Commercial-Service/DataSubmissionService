@@ -16,8 +16,9 @@
 
       %p
         You need to correct the errors in your spreadsheet and upload it again.
-      %p
-        The first 10 rows with errors are listed below. There may be also be other errors in the uploaded file.
+      - if potentially_truncated_errors(@submission)
+        %p
+          The first 10 rows with errors are listed below. There may be also be other errors in the uploaded file.
 
 - @submission.sheet_errors.each_pair do |sheet_name, errors|
   = render('errors_table', errors: errors, sheet_name: sheet_name) if errors.any?
