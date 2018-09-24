@@ -38,6 +38,23 @@ RSpec.feature 'task management' do
     expect(page).to have_content 'submitted to CCS'
   end
 
+  scenario 'user can upload an amended file' do
+    mock_tasks_endpoint!
+    mock_task_with_framework_endpoint!
+    mock_submission_errored_endpoint!
+
+    visit '/'
+    click_link 'sign-in'
+
+    visit task_submission_path(task_id: mock_task_id, id: mock_submission_id)
+
+    expect(page).to have_content 'Errors to correct'
+
+    click_on 'Upload amended file'
+
+    expect(page).to have_content 'Choose a file'
+  end
+
   private
 
   def force_reload_to_get_updated_submission_status
