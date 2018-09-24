@@ -22,3 +22,5 @@
 
 - @submission.sheet_errors.each_pair do |sheet_name, errors|
   = render('errors_table', errors: errors, sheet_name: sheet_name) if errors.any?
+
+= link_to 'Upload amended file', new_task_submission_path(@task.id), class: 'govuk-button'
