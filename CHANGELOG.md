@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-10] - 2018-09-25
+
+- Added task and framework signposting
+- Display validation errors using newer API endpoint, which is optimised for
+    larger submissions.
+- Show message to user explaining that at most ten validation errors are
+    displayed, where appropriate.
+
 ## [release-9] - 2018-09-19
 
 - Adjusted terraform config for zero-downtime deploys
