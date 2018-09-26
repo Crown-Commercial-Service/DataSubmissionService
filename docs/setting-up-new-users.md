@@ -29,8 +29,6 @@ require 'csv'
 
 # set this based on the output from the supplier data migration that is run on the API
 SUPPLIER_NAME_TO_ID_MAP = { "Supplier Name" => "UUID_FOR_SUPPLIER",... }
-# CSV file containing: Supplier Name,User Name,Email
-USERS_CSV_PATH = Rails.root.join('tmp', 'users.csv')
 
 auth0_client = Auth0Client.new(
   client_id: ENV['AUTH0_CLIENT_ID'],
@@ -39,16 +37,23 @@ auth0_client = Auth0Client.new(
   api_version: 2
 )
 
-CSV.read(USERS_CSV_PATH, headers: true, header_converters: :symbol).each do |row|
+# copy the csv to the docker container using docker cp. Make sure to cleanup after!
+CSV.read('/tmp/october-users.csv', headers: true, header_converters: :symbol).each do |row|
   user_name = row.fetch(:user_name)
   email = row.fetch(:email)
   supplier_name = row.fetch(:supplier_name)
   supplier_id = SUPPLIER_NAME_TO_ID_MAP.fetch(supplier_name)
 
-  auth0_authenticated_user = Auth0AuthenticatedUser.new(auth0_client, user_name, email, supplier_name, supplier_id)
-  user = auth0_authenticated_user.create!
+  user = if User.exists?(email: email)
+    User.find_by(email: email)
+  else
+    sleep(0.5)
+    auth0_authenticated_user = Auth0AuthenticatedUser.new(auth0_client, user_name, email, supplier_name, supplier_id)
+    auth0_authenticated_user.create!
+  end
 
   puts "Membership.create!(user_id: '#{user.id}', supplier_id: '#{supplier_id}')"
+end
 ```
 
 Note that this script also outputs Rails code that can be run on the API
