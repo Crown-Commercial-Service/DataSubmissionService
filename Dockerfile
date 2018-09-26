@@ -4,7 +4,7 @@ MAINTAINER dxw <rails@dxw.com>
 
 RUN apt-get update && apt-get install -qq -y build-essential libpq-dev nodejs --fix-missing --no-install-recommends
 
-RUN YARN_VERSION=$(curl -sSL --compressed https://yarnpkg.com/latest-version) \
+RUN YARN_VERSION=1.9.4 \
   set -ex \
   && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && mkdir -p /opt/yarn \
