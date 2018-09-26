@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-11] - 2018-09-26
+
+- Made service alerts design clearer
+- Added utility code for setting up new users
+
 ## [release-10] - 2018-09-25
 
 - Added task and framework signposting
