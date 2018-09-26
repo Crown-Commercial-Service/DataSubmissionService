@@ -81,6 +81,14 @@ RSpec.describe 'the tasks list' do
                       text: 'Download template'
       end
     end
+
+    it 'displays the task description when present' do
+      task_with_description_id = 'fc9deeb0-9804-42f7-ad8b-8b9878cce252'
+
+      assert_select "#task-#{task_with_description_id}" do
+        assert_select 'h5', text: 'Some arbitrary task description'
+      end
+    end
   end
 
   context 'when signed-in as a user with no tasks' do
