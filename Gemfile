@@ -51,6 +51,9 @@ gem 'simple_form'
 # Exception tracking
 gem 'rollbar'
 
+# Auth0 client for user setup scripts
+gem 'auth0', require: false
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
