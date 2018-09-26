@@ -1,6 +1,6 @@
 module ApplicationHelper
   def framework_template_path_for(task)
-    "/templates/#{task.framework.short_name.tr('/', '-')} MISO Data Template (August 2018).xls"
+    "/templates/#{task.framework.short_name.tr('/', '-')} MISO Data Template (September 2018).xls"
   end
 
   def support_email_address
