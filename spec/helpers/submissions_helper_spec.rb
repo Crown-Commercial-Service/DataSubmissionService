@@ -34,6 +34,32 @@ RSpec.describe SubmissionsHelper do
     end
   end
 
+  describe '#submission_completed_text' do
+    before { mock_task_with_framework_endpoint! }
+
+    context 'given a task without a description' do
+      let(:task) { API::Task.includes(:framework).find(mock_task_id).first }
+
+      it 'includes the task name and shortname in the message' do
+        expect(helper.submission_completed_text(task))
+          .to eql 'Management information for CBOARD5 Cheese Board 5 submitted to CCS'
+      end
+    end
+
+    context 'given a task with a description' do
+      let(:task) do
+        API::Task.includes(:framework).find(mock_task_id).first.tap do |task|
+          allow(task).to receive(:description).and_return('Company Name')
+        end
+      end
+
+      it 'prefixes the messaage with the description with appropriate capitalisation' do
+        expect(helper.submission_completed_text(task))
+          .to eql 'Company Name management information for CBOARD5 Cheese Board 5 submitted to CCS'
+      end
+    end
+  end
+
   private
 
   def another_error

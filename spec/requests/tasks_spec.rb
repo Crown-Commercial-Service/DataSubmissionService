@@ -76,7 +76,17 @@ RSpec.describe 'the tasks list' do
       cboard5_task_id = '2d98639e-5260-411f-a5ee-61847a2e067c'
 
       assert_select "#task-#{cboard5_task_id}" do
-        assert_select 'a[href=?]', '/templates/CBOARD5 MISO Data Template (August 2018).xls', text: 'Download template'
+        assert_select 'a[href=?]',
+                      '/templates/CBOARD5 MISO Data Template (September 2018).xls',
+                      text: 'Download template'
+      end
+    end
+
+    it 'displays the task description when present' do
+      task_with_description_id = 'fc9deeb0-9804-42f7-ad8b-8b9878cce252'
+
+      assert_select "#task-#{task_with_description_id}" do
+        assert_select 'h5', text: 'Some arbitrary task description'
       end
     end
   end

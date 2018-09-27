@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-12] - 2018-09-27
+
+- Updated Customer URN file for October
+- Added Template files for October frameworks
+- Display supplier name against tasks to support users with multiple suppliers
+
 ## [release-11] - 2018-09-26
 
 - Made service alerts design clearer
