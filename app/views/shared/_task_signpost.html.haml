@@ -1,5 +1,8 @@
 %aside.ccs-task_signpost
-	%h2
-		Report management information for
-		= framework.short_name
-		= framework.name
+  %h2
+    - if task.description.present?
+      = task.description
+      %br
+    Report management information for
+    = task.framework.short_name
+    = task.framework.name

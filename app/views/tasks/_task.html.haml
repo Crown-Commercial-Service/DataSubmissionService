@@ -8,6 +8,9 @@
       - if task.late?
         %strong.govuk-tag.govuk-tag__warning Late
     .ccs-task__body
+      - if task.description.present?
+        %h5.govuk-body
+          = task.description
       %h3.govuk-heading-m
         = task.framework.short_name
         = task.framework.name

@@ -2,6 +2,7 @@
   .govuk-grid-column-two-thirds
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
+        = @task.description
         Management information for
         = @task.framework.short_name
         = @task.framework.name
