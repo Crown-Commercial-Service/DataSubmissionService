@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-13] - 2018-10-01
+
+- Fixed broken link for September URN file
+- Updated home page with October frameworks
+
 ## [release-12] - 2018-09-27
 
 - Updated Customer URN file for October
