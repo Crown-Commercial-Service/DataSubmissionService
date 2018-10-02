@@ -31,10 +31,10 @@
     %h2.govuk-heading-m
       Before you start
     %p
-      You will need your new account details. You should have received these details via email.
+      You should have received instructions on how to sign in for the first time by email.
     %p
       = succeed '.' do
-        If you are unable to sign in or have not received any account details, please contact support at
+        If you are unable to sign in or have not received any email from us, please contact support at
         = mail_to support_email_address
     %p
       = link_to 'Sign in', '/auth/auth0'

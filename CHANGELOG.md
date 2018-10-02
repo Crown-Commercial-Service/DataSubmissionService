@@ -1,5 +1,10 @@
 # Change Log
 
+## [release0-14]
+
+- Fixed typo on submission confirmation page
+- Updated URN file with a stripped down version
+
 ## [release-13] - 2018-10-01
 
 - Fixed broken link for September URN file
@@ -76,3 +81,6 @@
 ## [release-1] - 2018-08-01
 
 Initial release
+
+
+[release-14]: https://github.com/dxw/DataSubmissionService/compare/release-13...release-14
