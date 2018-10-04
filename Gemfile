@@ -51,6 +51,9 @@ gem 'simple_form'
 # Exception tracking
 gem 'rollbar'
 
+# Logging
+gem 'lograge'
+
 # Auth0 client for user setup scripts
 gem 'auth0', require: false
 
