@@ -3,6 +3,6 @@
     - if task.description.present?
       = task.description
       %br
-    Report management information for
+    = local_assigns.fetch(:action, 'Report management information for')
     = task.framework.short_name
     = task.framework.name
