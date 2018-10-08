@@ -1,6 +1,13 @@
 # Change Log
 
-## [release0-14]
+## [release-15]
+
+- Adjusted documentation for onboarding new users
+- Reduce logging in production environments
+- Updated dependency with security fixes
+- Make signposting clearer when making a no-business submission
+
+## [release-14]
 
 - Fixed typo on submission confirmation page
 - Updated URN file with a stripped down version
@@ -83,4 +90,5 @@
 Initial release
 
 
+[release-15]: https://github.com/dxw/DataSubmissionService/compare/release-14...release-15
 [release-14]: https://github.com/dxw/DataSubmissionService/compare/release-13...release-14
