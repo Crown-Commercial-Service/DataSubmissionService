@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def support_email_address
-    'dss@crowncommercial.gov.uk'
+    'report-mi@crowncommercial.gov.uk'
   end
 
   def task_status(task)

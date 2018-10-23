@@ -11,7 +11,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_link 'sign-in'
+      click_link 'start-now'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -28,7 +28,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_link 'sign-in'
+      click_link 'start-now'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -45,7 +45,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_link 'sign-in'
+      click_link 'start-now'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -62,7 +62,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_link 'sign-in'
+      click_link 'start-now'
 
       visit '/tasks'
       click_on 'Report management information'
