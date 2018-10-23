@@ -6,41 +6,58 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %p
-      Use this service to report on the following frameworks:
+      Use this service to:
 
-    %ul.govuk-list.govuk-list--bullet
-      %li RM3756 Rail Legal Services
-      %li RM3786 General Legal Services
-      %li RM3787 Finance & Complex Legal Services
-      %li RM807 Vehicle Hire
-      %li RM849 Laundry and Linen Services
-      %li RM858 Pan Government Vehicle Leasing and Fleet Outsource Solutions
-      %li RM1031 Laundry and Linen Services
-      %li RM1070 Vehicle Purchase
-      %li RM3710 Vehicle Lease and Fleet Management
-      %li RM3754 Vehicle Telematics
-      %li RM3767 Supply and Fit of Tyres
-      %li RM3772 Specialist Laundry Services
-      %li RM3797 Journal Subscriptions
-      %li CM/OSG/05/3565 Laundry Services Wave 2
-
+    %ul{ :class => 'govuk-list govuk-list--bullet' }
+      %li
+        get the template for your framework(s)
+      %li
+        report your management information to CCS for
+        = link_to('certain frameworks', '/support/frameworks')
+      %li
+        report no business to CCS
     %p
-      If you are reporting on any other framework, use the existing MISO service -
-      = link_to 'https://miso.ccs.cabinetoffice.gov.uk/', 'https://miso.ccs.cabinetoffice.gov.uk/'
+      If you didn’t do any business, you still need to sign in and let us know.
+
+    = link_to 'Start now', '/auth/auth0', class: 'govuk-button govuk-button--start', id: 'start-now'
 
     %h2.govuk-heading-m
       Before you start
+
+    %h3.govuk-heading-s
+      Your account
+
     %p
-      You should have received instructions on how to sign in for the first time by email.
+      You’ll need your username and password to sign in to this service.
+
     %p
+      Your username is the email address that Report Management Information sends notifications to.
+
+    %p
+      If you don’t know or have forgotten your password you can reset it by starting the service and choosing ‘Don't remember your password?’ from the sign in screen.
+
+    %p
+      If you are unable to sign in or do not receive a password reset email from the service, contact
       = succeed '.' do
-        If you are unable to sign in or have not received any email from us, please contact support at
-        = mail_to support_email_address
-    %p
-      = link_to 'Sign in', '/auth/auth0'
-      to get the template for your framework(s) and to report your management information.
+        = mail_to(support_email_address, nil)
 
-    = link_to 'Sign in', '/auth/auth0', class: 'govuk-button', id: 'sign-in'
+    %h3.govuk-heading-s
+      Check which service to report to
+    %p
+      Check the lists of frameworks that should be submitted through this service:
 
     %p
-      If you didn’t do any business, you still need to sign in and let us know.
+      = link_to('List of frameworks submitted through this service', '/support/frameworks')
+
+    %p
+      For frameworks not listed, use the existing MISO service:
+
+    %p
+      = link_to('https://miso.ccs.cabinetoffice.gov.uk/', 'https://miso.ccs.cabinetoffice.gov.uk/')
+
+
+    %p
+      If you are unsure about which service to use, contact
+      %br
+      = succeed '.' do
+        = mail_to(support_email_address, nil)

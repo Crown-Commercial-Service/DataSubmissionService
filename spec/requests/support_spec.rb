@@ -6,6 +6,6 @@ RSpec.describe 'the support page' do
 
     expect(response).to be_successful
     expect(response.body).to include('Support')
-    expect(response.body).to include('dss@crowncommercial.gov.uk')
+    expect(response.body).to include('report-mi@crowncommercial.gov.uk')
   end
 end
