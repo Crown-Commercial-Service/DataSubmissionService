@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-16]
+
+- Fixed a character encoding bug affected console access
+- Added support times to support page
+- Separate page to list supported frameworks
+- Updated home page to follow GOVUK start page pattern
+
 ## [release-15]
 
 - Adjusted documentation for onboarding new users
@@ -89,6 +96,6 @@
 
 Initial release
 
-
+[release-16]: https://github.com/dxw/DataSubmissionService/compare/release-15...release-16
 [release-15]: https://github.com/dxw/DataSubmissionService/compare/release-14...release-15
 [release-14]: https://github.com/dxw/DataSubmissionService/compare/release-13...release-14
