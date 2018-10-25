@@ -9,7 +9,7 @@ RSpec.feature 'task management' do
     mock_upload_task_submission_flow_endpoints!
 
     visit '/'
-    click_link 'sign-in'
+    click_link 'start-now'
 
     visit '/tasks'
 
@@ -44,7 +44,7 @@ RSpec.feature 'task management' do
     mock_submission_errored_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_link 'start-now'
 
     visit task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 

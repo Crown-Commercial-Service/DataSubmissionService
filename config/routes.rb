@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/style_guide', to: 'styleguide#index'
   get '/urns', to: 'urns#index'
   get '/support', to: 'support#index'
+  get '/support/frameworks', to: 'support#frameworks'
 end

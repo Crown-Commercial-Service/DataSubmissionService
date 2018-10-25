@@ -11,7 +11,7 @@ RSpec.feature 'Submitting no business' do
     mock_submission_completed_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_link 'start-now'
 
     visit '/tasks'
 

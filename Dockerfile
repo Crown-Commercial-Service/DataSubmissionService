@@ -2,7 +2,9 @@ FROM ruby:2.5.1
 
 MAINTAINER dxw <rails@dxw.com>
 
-RUN apt-get update && apt-get install -qq -y build-essential libpq-dev nodejs --fix-missing --no-install-recommends
+RUN apt-get update && apt-get install -qq -y build-essential libpq-dev nodejs locales --fix-missing --no-install-recommends
+RUN echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen en_GB.UTF-8 UTF-8 && update-locale en_GB.UTF-8 UTF-8
+ENV LANGUAGE=en_GB.UTF-8 LC_ALL=en_GB.UTF-8
 
 RUN YARN_VERSION=1.9.4 \
   set -ex \
