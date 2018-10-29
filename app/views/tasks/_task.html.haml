@@ -16,7 +16,7 @@
         = task.framework.name
       %h4.govuk-heading-s
         Report management information for
-        = task_month(task)
+        = task.period_month_name
       - unless task.complete?
         %p
           Due

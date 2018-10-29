@@ -10,8 +10,4 @@ module ApplicationHelper
   def task_due_date(task)
     task.due_on.to_date
   end
-
-  def task_month(task)
-    Date.new(task.period_year, task.period_month).strftime('%B')
-  end
 end
