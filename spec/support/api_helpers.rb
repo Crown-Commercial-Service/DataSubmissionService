@@ -87,6 +87,13 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
   end
 
+  def mock_task_with_unsafe_short_name_framework_endpoint!
+    json = JSON.parse(File.read(json_fixture_file('task_with_framework.json')))
+    json['included'][0]['attributes']['short_name'] = 'CBOARD/5'
+    stub_request(:get, "https://ccs.api/v1/tasks/#{mock_task_id}?include=framework")
+      .to_return(headers: json_headers, body: json.to_json)
+  end
+
   def mock_task_with_invalid_submission_endpoint!
     stub_request(:get, "https://ccs.api/v1/tasks/#{mock_task_id}?include=latest_submission")
       .to_return(headers: json_headers, body: json_fixture_file('task_with_invalid_submission.json'))
