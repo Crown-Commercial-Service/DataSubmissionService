@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def framework_template_path_for(task)
-    "/templates/#{task.framework.short_name.tr('/', '-')} MISO Data Template (September 2018).xls"
-  end
-
   def support_email_address
     'report-mi@crowncommercial.gov.uk'
   end

@@ -31,4 +31,4 @@
         = link_to 'Report no business (Nil return)', new_task_no_business_path(task_id: task.id), class: 'govuk-button'
     .ccs-task__action--secondary
       %p
-        = link_to 'Download template', framework_template_path_for(task)
+        = link_to 'Download template', task_template_path(task)
