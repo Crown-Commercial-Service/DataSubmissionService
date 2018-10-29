@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       resource :complete, only: :create, controller: 'submission_completion'
     end
+    resource :template, only: %i[show]
 
     resource :no_business, only: %i[new create]
   end

@@ -43,4 +43,10 @@ RSpec.describe API::Task do
       expect(API::Task.new(status: 'completed', due_on: '2018-08-07')).not_to be_late
     end
   end
+
+  describe '#period_month_name' do
+    it 'returns the name of the month' do
+      expect(API::Task.new(period_month: 7).period_month_name).to eq('July')
+    end
+  end
 end
