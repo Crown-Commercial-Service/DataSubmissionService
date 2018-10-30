@@ -35,8 +35,8 @@ RSpec.describe API::Task do
 
   describe '#late?' do
     it 'returns true if the due date has passed' do
-      expect(API::Task.new(due_on: '2018-08-07')).to be_late
-      expect(API::Task.new(due_on: '2030-08-07')).not_to be_late
+      expect(API::Task.new(status: 'in_progress', due_on: '2018-08-07')).to be_late
+      expect(API::Task.new(status: 'in_progress', due_on: '2030-08-07')).not_to be_late
     end
 
     it 'returns false for a completed task' do
