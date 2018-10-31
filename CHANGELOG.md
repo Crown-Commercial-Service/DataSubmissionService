@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-17] - 2018-10-30
+
+- Update Customer URN file for November
+- Automatically update template xls filenames each  month
+- Update RM3797.xls
+- Don't hardcode API_ROOT in tests
+- Bump loofah from 2.2.2 to 2.2.3
+
 ## [release-16]
 
 - Fixed a character encoding bug affected console access
@@ -96,6 +104,7 @@
 
 Initial release
 
+[release-17]: https://github.com/dxw/DataSubmissionService/compare/release-16...release-17
 [release-16]: https://github.com/dxw/DataSubmissionService/compare/release-15...release-16
 [release-15]: https://github.com/dxw/DataSubmissionService/compare/release-14...release-15
 [release-14]: https://github.com/dxw/DataSubmissionService/compare/release-13...release-14
