@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-18] - 2018-10-31
+
+- Updated template for RM3786
+
 ## [release-17] - 2018-10-30
 
 - Update Customer URN file for November
@@ -104,6 +108,7 @@
 
 Initial release
 
+[release-18]: https://github.com/dxw/DataSubmissionService/compare/release-17...release-18
 [release-17]: https://github.com/dxw/DataSubmissionService/compare/release-16...release-17
 [release-16]: https://github.com/dxw/DataSubmissionService/compare/release-15...release-16
 [release-15]: https://github.com/dxw/DataSubmissionService/compare/release-14...release-15
