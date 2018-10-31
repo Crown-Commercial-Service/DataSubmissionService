@@ -16,5 +16,9 @@ module API
     def late?
       !complete? && due_on.to_date < Time.zone.today
     end
+
+    def period_month_name
+      Date::MONTHNAMES[period_month]
+    end
   end
 end
