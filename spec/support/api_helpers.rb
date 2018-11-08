@@ -110,13 +110,13 @@ module ApiHelpers
 
   def mock_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
-      .with(query: hash_including(filter: hash_including('user_id', 'auth_id')))
+      .with(query: hash_including(filter: hash_including('auth_id')))
       .to_return(headers: json_headers, body: json_fixture_file('tasks_with_framework_and_latest_submission.json'))
   end
 
   def mock_empty_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
-      .with(query: hash_including(filter: hash_including('user_id', 'auth_id')))
+      .with(query: hash_including(filter: hash_including('auth_id')))
       .to_return(headers: json_headers, body: '{}')
   end
 

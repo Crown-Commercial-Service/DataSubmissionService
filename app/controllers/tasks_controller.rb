@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     tasks = API::Task
-            .where(user_id: current_user.id, auth_id: current_user.uid)
+            .where(auth_id: current_user_id)
             .includes(:framework, :latest_submission)
             .all
             .sort_by! { |t| Date.parse(t.due_on) }

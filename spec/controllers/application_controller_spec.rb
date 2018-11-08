@@ -11,8 +11,7 @@ RSpec.describe ApplicationController do
     end
 
     it 'allows signed in users to access' do
-      user = FactoryBot.create(:user)
-      session[:user_id] = user.id
+      session[:auth_id] = 'auth0|123456789'
 
       get :index
 
