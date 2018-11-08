@@ -16,7 +16,7 @@
 
 # Stub external HTTP requests
 require 'webmock/rspec'
-WebMock.disable_net_connect!(allow_localhost: true)
+WebMock.disable_net_connect!
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
