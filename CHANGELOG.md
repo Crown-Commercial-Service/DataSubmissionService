@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-20] - 2018-11-13
+
+- Stop using the User model and user id
+
 ## [release-19] - 2018-11-08
 
 - Send User's Auth ID in API requests
@@ -112,7 +116,8 @@
 
 Initial release
 
-[release-18]: https://github.com/dxw/DataSubmissionService/compare/release-18...release-19
+[release-20]: https://github.com/dxw/DataSubmissionService/compare/release-19...release-20
+[release-19]: https://github.com/dxw/DataSubmissionService/compare/release-18...release-19
 [release-18]: https://github.com/dxw/DataSubmissionService/compare/release-17...release-18
 [release-17]: https://github.com/dxw/DataSubmissionService/compare/release-16...release-17
 [release-16]: https://github.com/dxw/DataSubmissionService/compare/release-15...release-16
