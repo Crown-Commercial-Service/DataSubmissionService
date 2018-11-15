@@ -31,11 +31,11 @@ RSpec.feature 'task management' do
 
     mock_complete_submission_endpoint!
     mock_submission_completed_with_task_endpoint!
-    mock_submission_completed_endpoint!
+    mock_submission_completed_report_mi_endpoint!
 
     click_on 'Submit management information'
 
-    expect(page).to have_content 'submitted to CCS'
+    expect(page).to have_content 'Thank you for reporting your management information for'
   end
 
   scenario 'user can upload an amended file' do
