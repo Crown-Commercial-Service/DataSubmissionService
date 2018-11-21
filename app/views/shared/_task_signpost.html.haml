@@ -1,7 +1,7 @@
 %aside.ccs-task_signpost
   %h2
-    - if task.description.present?
-      = task.description
+    - if current_user.multiple_suppliers?
+      = task.supplier_name
       %br
     = local_assigns.fetch(:action, 'Report management information for')
     = task.framework.short_name
