@@ -2,12 +2,23 @@
   .govuk-grid-column-two-thirds
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
-        = @task.description
-        Management information for
-        = @task.framework.short_name
-        = @task.framework.name
-        submitted to CCS
-
+        Task complete
+      .govuk-panel__body
+        - if @submission.report_no_business?
+          Thank you for reporting no business for
+        - else
+          Thank you for reporting your management information for
+        = @task.period_month_name
+        = @task.period_year
+    %h3.govuk-heading-s
+      Framework
+    %p
+      = @task.framework.short_name
+      = @task.framework.name
+    %h2.govuk-heading-m
+      What happens next
+    %p
+      We will contact you if we need more information about what you have told us.
     %p
       If you’ve made a mistake or need to amend the management information
       you've supplied, email
