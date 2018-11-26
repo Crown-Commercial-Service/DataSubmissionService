@@ -10,6 +10,7 @@ RSpec.describe 'the tasks list' do
   context 'when signed-in as a user with tasks' do
     before do
       mock_tasks_endpoint!
+      mock_user_endpoint!
       stub_signed_in_user
       get tasks_path
     end
@@ -79,14 +80,6 @@ RSpec.describe 'the tasks list' do
         assert_select 'a[href=?]',
                       task_template_path(cboard5_task_id),
                       text: 'Download template'
-      end
-    end
-
-    it 'displays the task description when present' do
-      task_with_description_id = 'fc9deeb0-9804-42f7-ad8b-8b9878cce252'
-
-      assert_select "#task-#{task_with_description_id}" do
-        assert_select 'h5', text: 'Some arbitrary task description'
       end
     end
   end

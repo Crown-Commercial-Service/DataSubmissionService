@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'the submission page' do
   before do
     mock_task_with_framework_endpoint!
+    mock_user_endpoint!
   end
 
   it 'refuses users that are not signed in' do
@@ -41,6 +42,7 @@ RSpec.describe 'the submission page' do
 
     it 'shows the errors for an invalid submission' do
       mock_submission_errored_endpoint!
+      mock_user_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
@@ -51,6 +53,7 @@ RSpec.describe 'the submission page' do
 
     it 'shows completed submission page for a "completed" submission' do
       mock_submission_completed_no_business_endpoint!
+      mock_user_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful

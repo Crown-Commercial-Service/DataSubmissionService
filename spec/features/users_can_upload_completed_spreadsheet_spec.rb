@@ -5,6 +5,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
       mock_submission_processing_endpoint!
+      mock_user_endpoint!
     end
 
     scenario 'successfully, with a XLSX file' do
@@ -26,6 +27,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'successfully, with a XLS file' do
       mock_sso_with(email: 'email@example.com')
+      mock_user_endpoint!
 
       visit '/'
       click_link 'start-now'
@@ -43,6 +45,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'throws an error if the file is not one of the expected formats' do
       mock_sso_with(email: 'email@example.com')
+      mock_user_endpoint!
 
       visit '/'
       click_link 'start-now'
@@ -60,6 +63,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
     scenario 'throws an error if no file was selected' do
       mock_sso_with(email: 'email@example.com')
+      mock_user_endpoint!
 
       visit '/'
       click_link 'start-now'

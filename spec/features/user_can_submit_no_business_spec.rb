@@ -9,6 +9,7 @@ RSpec.feature 'Submitting no business' do
     mock_task_with_framework_endpoint!
     mock_no_business_endpoint!
     mock_submission_completed_no_business_endpoint!
+    mock_user_endpoint!
 
     visit '/'
     click_link 'start-now'

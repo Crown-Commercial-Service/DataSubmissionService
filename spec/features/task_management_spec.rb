@@ -7,6 +7,7 @@ RSpec.feature 'task management' do
     mock_sso_with(email: 'email@example.com')
 
     mock_upload_task_submission_flow_endpoints!
+    mock_user_endpoint!
 
     visit '/'
     click_link 'start-now'
@@ -39,6 +40,8 @@ RSpec.feature 'task management' do
   end
 
   scenario 'user can upload an amended file' do
+    mock_sso_with(email: 'email@example.com')
+    mock_user_endpoint!
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_submission_errored_endpoint!
