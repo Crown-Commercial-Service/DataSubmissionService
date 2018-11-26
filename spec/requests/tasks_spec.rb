@@ -36,7 +36,7 @@ RSpec.describe 'the tasks list' do
 
       assert_select "#task-#{unstarted_task_id}" do
         assert_select 'a', text: 'Report management information'
-        assert_select 'a', text: 'Report no business (Nil return)'
+        assert_select 'a', text: 'Report no business'
       end
     end
 
