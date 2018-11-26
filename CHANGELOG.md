@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-21] - 2018-11-26
+
+- Add basic authentication to API
+- Update the the confirmation page
+- [Security] Bump rack from 2.0.5 to 2.0.6
+
 ## [release-20] - 2018-11-13
 
 - Stop using the User model and user id
@@ -116,6 +122,7 @@
 
 Initial release
 
+[release-21]: https://github.com/dxw/DataSubmissionService/compare/release-20...release-21
 [release-20]: https://github.com/dxw/DataSubmissionService/compare/release-19...release-20
 [release-19]: https://github.com/dxw/DataSubmissionService/compare/release-18...release-19
 [release-18]: https://github.com/dxw/DataSubmissionService/compare/release-17...release-18

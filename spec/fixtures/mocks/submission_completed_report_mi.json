@@ -9,7 +9,8 @@
       "order_count": 1,
       "purchase_order_number": null,
       "status": "completed",
-      "levy": 4500
+      "levy": 4500,
+      "report_no_business?": false
     }
   }
 }

@@ -50,11 +50,11 @@ RSpec.describe 'the submission page' do
     end
 
     it 'shows completed submission page for a "completed" submission' do
-      mock_submission_completed_endpoint!
+      mock_submission_completed_no_business_endpoint!
       get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
       expect(response).to be_successful
-      expect(response.body).to include 'submitted to CCS'
+      expect(response.body).to include 'Thank you for reporting no business for'
     end
   end
 end

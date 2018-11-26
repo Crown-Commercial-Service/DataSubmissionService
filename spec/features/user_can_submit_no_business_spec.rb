@@ -8,7 +8,7 @@ RSpec.feature 'Submitting no business' do
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_no_business_endpoint!
-    mock_submission_completed_endpoint!
+    mock_submission_completed_no_business_endpoint!
 
     visit '/'
     click_link 'start-now'
@@ -23,6 +23,6 @@ RSpec.feature 'Submitting no business' do
 
     click_on 'Confirm'
 
-    expect(page).to have_content 'submitted to CCS'
+    expect(page).to have_content 'Thank you for reporting no business for'
   end
 end
