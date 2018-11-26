@@ -15,6 +15,10 @@ module ApiHelpers
     '8d0e4289-5fde-4faa-b78e-922846d8460a'
   end
 
+  def mock_auth_id
+    'auth0|123456'
+  end
+
   def mock_upload_task_submission_flow_endpoints!
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
@@ -175,6 +179,19 @@ module ApiHelpers
     }
     stub_request(:patch, api_url("tasks/#{mock_task_id}"))
       .with(body: task_params.to_json)
+  end
+
+  def mock_user_endpoint!
+    stub_request(:get, api_url("users?filter[auth_id]=#{mock_auth_id}"))
+      .to_return(headers: json_headers, body: json_fixture_file('user.json'))
+  end
+
+  def mock_user_with_multiple_suppliers_endpoint!
+    stub_request(:get, api_url("users?filter[auth_id]=#{mock_auth_id}"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('user_with_multiple_suppliers.json')
+      )
   end
 
   private

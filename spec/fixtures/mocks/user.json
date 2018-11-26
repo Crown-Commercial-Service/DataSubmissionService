@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": "efa8ebb8-de51-4718-b085-a583f8d41e3e",
+      "type": "users",
+      "attributes": {
+        "multiple_suppliers?": false,
+        "name": "User Name",
+        "email": "user@example.com"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

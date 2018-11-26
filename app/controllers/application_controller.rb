@@ -3,11 +3,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_id
   helper_method :ensure_user_signed_in
+  helper_method :current_user
 
   private
 
   def current_user_id
     session[:auth_id]
+  end
+
+  def current_user
+    @current_user ||= API::User.find(auth_id: current_user_id).first
   end
 
   def ensure_user_signed_in
