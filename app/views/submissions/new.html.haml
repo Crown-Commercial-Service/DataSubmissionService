@@ -17,7 +17,9 @@
       You’ll be able to review a summary of the files before you submit.
     = form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
       .govuk-form-group
-        = file_field_tag 'upload', required: true, class: 'govuk-file-upload'
+        %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
+          Choose a file
+        = file_field_tag 'upload', required: true, class: 'govuk-file-upload', id: 'submission_file_upload'
       %h2.govuk-heading-l
         Provide a purchase order number
       %p
