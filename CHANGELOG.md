@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-22] - 2018-11-28
+
+- Remove User model and table
+- Show supplier names or not based on a new multiple_suppliers? property on the user
+- Remove 'nil return' from the frontend supplier app
+- [Security] Bump rails from 5.2.0 to 5.2.1.1
+
 ## [release-21] - 2018-11-26
 
 - Add basic authentication to API
@@ -122,6 +129,7 @@
 
 Initial release
 
+[release-22]: https://github.com/dxw/DataSubmissionService/compare/release-21...release-22
 [release-21]: https://github.com/dxw/DataSubmissionService/compare/release-20...release-21
 [release-20]: https://github.com/dxw/DataSubmissionService/compare/release-19...release-20
 [release-19]: https://github.com/dxw/DataSubmissionService/compare/release-18...release-19

@@ -4,6 +4,7 @@ RSpec.describe 'reporting no business' do
   before do
     mock_task_with_framework_endpoint!
     mock_no_business_endpoint!
+    mock_user_endpoint!
   end
 
   it 'refuses users that are not signed in' do

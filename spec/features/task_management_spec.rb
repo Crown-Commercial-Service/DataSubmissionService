@@ -7,6 +7,7 @@ RSpec.feature 'task management' do
     mock_sso_with(email: 'email@example.com')
 
     mock_upload_task_submission_flow_endpoints!
+    mock_user_endpoint!
 
     visit '/'
     click_link 'start-now'
@@ -39,6 +40,8 @@ RSpec.feature 'task management' do
   end
 
   scenario 'user can upload an amended file' do
+    mock_sso_with(email: 'email@example.com')
+    mock_user_endpoint!
     mock_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_submission_errored_endpoint!
@@ -53,6 +56,24 @@ RSpec.feature 'task management' do
     click_on 'Upload amended file'
 
     expect(page).to have_content 'Choose a file'
+  end
+
+  scenario 'see the current supplier name on a task when linked to multiple suppliers' do
+    travel_to Time.zone.local(2018, 7, 2)
+
+    mock_sso_with(email: 'email@example.com')
+
+    mock_upload_task_submission_flow_endpoints!
+    mock_user_with_multiple_suppliers_endpoint!
+
+    visit '/'
+    click_link 'start-now'
+
+    visit '/tasks'
+
+    expect(page).to have_content 'CBOARD5'
+
+    expect(page).to have_content 'Bobs Cheese Shop'
   end
 
   private

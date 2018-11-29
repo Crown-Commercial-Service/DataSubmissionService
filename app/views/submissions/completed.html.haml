@@ -10,6 +10,11 @@
           Thank you for reporting your management information for
         = @task.period_month_name
         = @task.period_year
+    - if current_user.multiple_suppliers?
+      %h3.govuk-heading-s
+        Supplier
+      %p
+        = @task.supplier_name
     %h3.govuk-heading-s
       Framework
     %p
