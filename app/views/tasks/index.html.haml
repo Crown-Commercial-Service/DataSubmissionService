@@ -2,5 +2,7 @@
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Tasks
-
-= render(collection: @tasks, partial: "task") || render("no_tasks")
+.govuk-grid-row
+  .govuk-grid-column-full
+    %ul.ccs-tasks{'aria-label' => 'Tasks'}
+      = render(collection: @tasks, partial: "task") || render("no_tasks")
