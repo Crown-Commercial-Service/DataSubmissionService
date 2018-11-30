@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-23] - 2018-11-30
+
+- [Accessibility] Add a label to the submission file upload form
+- Update Customer URN file for November
+
 ## [release-22] - 2018-11-28
 
 - Remove User model and table
@@ -129,6 +134,7 @@
 
 Initial release
 
+[release-23]: https://github.com/dxw/DataSubmissionService/compare/release-22...release-23
 [release-22]: https://github.com/dxw/DataSubmissionService/compare/release-21...release-22
 [release-21]: https://github.com/dxw/DataSubmissionService/compare/release-20...release-21
 [release-20]: https://github.com/dxw/DataSubmissionService/compare/release-19...release-20
