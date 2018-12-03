@@ -1,4 +1,4 @@
-%section.ccs-task{id: "task-#{task.id}"}
+%li.ccs-task{id: "task-#{task.id}", 'aria-label' => "Task #{task_counter + 1}"}
   %header.ccs-task__information
     .ccs-task__statuses
       - if task.complete?
@@ -8,27 +8,32 @@
       - if task.late?
         %strong.govuk-tag.govuk-tag__warning Late
     .ccs-task__body
-      - if current_user.multiple_suppliers?
-        %h5.govuk-body
-          = task.supplier_name
-      %h3.govuk-heading-m
-        = task.framework.short_name
-        = task.framework.name
-      %h4.govuk-heading-s
+      %h2.govuk-heading-s
         Report management information for
         = task.period_month_name
+      - if current_user.multiple_suppliers?
+        %h3.govuk-heading-m
+          %span.govuk-visually-hidden
+            Supplier:
+          = task.supplier_name
+      %h3.govuk-heading-m
+        %span.govuk-visually-hidden
+          Framework:
+        = task.framework.short_name
+        = task.framework.name
       - unless task.complete?
         %p
           Due
           = task_due_date(task)
   .ccs-task__action
+    .ccs-task__action--secondary
+      %p
+        = link_to 'Download template', task_template_path(task), {'aria-label' => "Download template for #{task.framework.short_name} #{task.framework.name}"}
     .ccs-task__action--primary
       - case task.status
       - when 'in_progress'
         = render 'submission_buttons', task: task, submission: task.latest_submission
       - when 'unstarted'
-        = link_to 'Report management information', new_task_submission_path(task_id: task.id), class: 'govuk-button'
-        = link_to 'Report no business', new_task_no_business_path(task_id: task.id), class: 'govuk-button'
-    .ccs-task__action--secondary
-      %p
-        = link_to 'Download template', task_template_path(task)
+        = link_to 'Report management information', new_task_submission_path(task_id: task.id),  {class: 'govuk-button', 'aria-label' => "Report management information for #{task.supplier_name} on #{task.framework.short_name}"}
+        = link_to 'Report no business', new_task_no_business_path(task_id: task.id), {class: 'govuk-button', 'aria-label' => "Report no business for #{task.supplier_name} on #{task.framework.short_name}"}
+

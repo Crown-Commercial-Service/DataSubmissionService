@@ -2,8 +2,8 @@
 
 .govuk-tag {
   padding-bottom: 4px;
-  line-height: 1em;
   background-color: govuk-colour("secondary");
+  line-height: 1em;
 }
 
 .govuk-tag__failure {
@@ -11,13 +11,16 @@
 }
 
 .govuk-tag__warning {
+  color: govuk-colour("black");
   background-color: govuk-colour("warning");
 }
 
 .govuk-tag__success {
+  color: govuk-colour("black");
   background-color: govuk-colour("success");
 }
 
 .govuk-tag__notice {
-  background-color: govuk-colour("grey-1");
+  color: govuk-colour("black");
+  background-color: govuk-colour("grey-2");
 }
