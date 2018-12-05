@@ -1,3 +1,8 @@
+- if @submission.report_no_business?
+  - page_title "Task complete: Report no business for #{@task.period_month_name} on #{@task.framework.short_name} "
+- else
+  - page_title "Task complete: Report management information for #{@task.period_month_name} on #{@task.framework.short_name}"
+
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-panel.govuk-panel--confirmation
@@ -26,7 +31,7 @@
       We will contact you if we need more information about what you have told us.
     %p
       If you’ve made a mistake or need to amend the management information
-      you've supplied, email
+      you’ve supplied, email
       = mail_to(support_email_address)
       for help.
     %p
