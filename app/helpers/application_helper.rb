@@ -10,4 +10,8 @@ module ApplicationHelper
   def task_due_date(task)
     task.due_on.to_date
   end
+
+  def page_title(title)
+    content_for :page_title, title
+  end
 end
