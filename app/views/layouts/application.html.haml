@@ -2,7 +2,8 @@
 %html{ lang: 'en-GB', class: 'govuk-template' }
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
-    %title Report management information to CCS
+    %title
+      = yield(:page_title) || 'Report management information to CCS'
 
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }/
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
