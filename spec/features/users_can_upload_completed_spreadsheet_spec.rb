@@ -12,7 +12,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_sso_with(email: 'email@example.com')
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -30,7 +30,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_user_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -52,7 +52,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_user_with_multiple_suppliers_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks'
 
@@ -77,7 +77,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_user_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -95,7 +95,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_user_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks'
       click_on 'Report management information'
@@ -116,7 +116,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_user_with_multiple_suppliers_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks/2d98639e-5260-411f-a5ee-61847a2e067c/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40'
 
@@ -135,7 +135,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_complete_submission_endpoint!
 
       visit '/'
-      click_link 'start-now'
+      click_link 'sign-in'
 
       visit '/tasks/2d98639e-5260-411f-a5ee-61847a2e067c/submissions/9a5ef62c-0781-4f80-8850-5793652b6b40'
 
