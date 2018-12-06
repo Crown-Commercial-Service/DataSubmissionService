@@ -12,7 +12,7 @@ RSpec.feature 'Submitting no business' do
     mock_user_endpoint!
 
     visit '/'
-    click_link 'start-now'
+    click_link 'sign-in'
 
     visit '/tasks'
 
@@ -39,7 +39,7 @@ RSpec.feature 'Submitting no business' do
     mock_user_with_multiple_suppliers_endpoint!
 
     visit '/'
-    click_link 'start-now'
+    click_link 'sign-in'
 
     visit '/tasks'
 

@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-24] - 2018-12-06
+
+- [Accessibility] Update badge colours for legibility
+- [Accessibility] Make task list an actual HTML list
+- [Accessibility] Add aria labels for tasks
+- [Accessibility] Add HTML titles to pages
+- [Accessibility] Adjust start page content for accessibility
+
 ## [release-23] - 2018-11-30
 
 - [Accessibility] Add a label to the submission file upload form
@@ -134,6 +142,7 @@
 
 Initial release
 
+[release-24]: https://github.com/dxw/DataSubmissionService/compare/release-23...release-24
 [release-23]: https://github.com/dxw/DataSubmissionService/compare/release-22...release-23
 [release-22]: https://github.com/dxw/DataSubmissionService/compare/release-21...release-22
 [release-21]: https://github.com/dxw/DataSubmissionService/compare/release-20...release-21
