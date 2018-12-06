@@ -8,7 +8,7 @@ RSpec.feature 'Signing in as a user' do
 
     visit '/tasks'
 
-    click_on 'start-now'
+    click_on 'sign-in'
 
     expect(page).to have_content 'Sign out'
   end
@@ -19,7 +19,7 @@ RSpec.feature 'Signing in as a user' do
     mock_user_endpoint!
 
     visit '/'
-    click_on 'start-now'
+    click_on 'sign-in'
 
     visit '/'
     click_on 'Sign out'
