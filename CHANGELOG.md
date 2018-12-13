@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-25] - 2018-12-12
+
+- Added DOS3 framework template file
+- Removed "MISO" from the filename generated for template downloads
+
 ## [release-24] - 2018-12-06
 
 - [Accessibility] Update badge colours for legibility
@@ -142,6 +147,7 @@
 
 Initial release
 
+[release-25]: https://github.com/dxw/DataSubmissionService/compare/release-24...release-25
 [release-24]: https://github.com/dxw/DataSubmissionService/compare/release-23...release-24
 [release-23]: https://github.com/dxw/DataSubmissionService/compare/release-22...release-23
 [release-22]: https://github.com/dxw/DataSubmissionService/compare/release-21...release-22
