@@ -8,6 +8,6 @@ class TemplatesController < ApplicationController
   private
 
   def template_filename_for_task_period(task)
-    "#{task.framework.safe_short_name} MISO Data Template (#{task.period_month_name} #{task.period_year}).xls"
+    "#{task.framework.safe_short_name} Data Template (#{task.period_month_name} #{task.period_year}).xls"
   end
 end
