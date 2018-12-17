@@ -53,6 +53,7 @@ gem 'rollbar'
 
 # Logging
 gem 'lograge'
+gem 'skylight'
 
 # Auth0 client for user setup scripts
 gem 'auth0', require: false
