@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-27] - 2018-12-19
+
+- RM1043.5 added to list of frameworks supported on RMI
+- Corrected typo on frameworks page
+
 ## [release-26] - 2018-12-17
 
 - Add skylight
@@ -151,6 +156,7 @@
 
 Initial release
 
+[release-27]: https://github.com/dxw/DataSubmissionService/compare/release-26...release-27
 [release-26]: https://github.com/dxw/DataSubmissionService/compare/release-25...release-26
 [release-25]: https://github.com/dxw/DataSubmissionService/compare/release-24...release-25
 [release-24]: https://github.com/dxw/DataSubmissionService/compare/release-23...release-24
