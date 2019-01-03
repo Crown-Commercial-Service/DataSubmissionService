@@ -17,8 +17,8 @@ module API
       !complete? && due_on.to_date < Time.zone.today
     end
 
-    def period_month_name
-      Date::MONTHNAMES[period_month]
+    def reporting_period
+      [Date::MONTHNAMES[period_month], period_year].join(' ')
     end
   end
 end
