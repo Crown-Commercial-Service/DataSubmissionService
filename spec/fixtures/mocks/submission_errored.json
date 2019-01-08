@@ -15,8 +15,7 @@
       "invoice_count": 2,
       "order_count": 1,
       "purchase_order_number": null,
-      "status": "validation_failed",
-      "levy": null
+      "status": "validation_failed"
     }
   }
 }

@@ -212,7 +212,6 @@
         "framework_id": "21e4a516-9852-49fd-9035-8006bdf76657",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "fc9deeb0-9804-42f7-ad8b-8b9878cce252",
-        "levy": null,
         "status": "pending"
       },
       "relationships": {
@@ -253,7 +252,6 @@
         "framework_id": "ec2aed23-7c4f-4de8-b4ad-afc54ecf882d",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "d211060f-e4fa-413a-928e-5928d0083db6",
-        "levy": null,
         "status": "processing"
       },
       "relationships": {
@@ -294,7 +292,6 @@
         "framework_id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "855d1dd2-d9b3-4432-8c17-b63e90e50bcd",
-        "levy": 40.50,
         "status": "in_review"
       },
       "relationships": {
@@ -335,7 +332,6 @@
         "framework_id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "b847e0f7-027e-4b95-afa2-3490b8d05a1c",
-        "levy": null,
         "status": "validation_failed"
       },
       "relationships": {
@@ -376,7 +372,6 @@
         "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
         "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
         "task_id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
-        "levy": null,
         "status": "completed"
       },
       "relationships": {
