@@ -11,6 +11,7 @@ these steps when releasing to production:
   - Create a branch for the release called `release-X` where X is the release
     number
   - Update [CHANGELOG.md](CHANGELOG.md) to document the changes in this release
+  - Create a tag for the release in the format `release-X`
   - Create a pull request for the release
 
 ## 2. Confirm the release candidate and perform any prerequisites
