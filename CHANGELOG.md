@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-28] - 2019-01-08
+
+- Include year when displaying task period
+- Include user aut id with API requests to enable scoping of tasks and submissions
+- Updated rubygems to 3.0.0
+
 ## [release-27] - 2018-12-19
 
 - RM1043.5 added to list of frameworks supported on RMI
@@ -156,6 +162,7 @@
 
 Initial release
 
+[release-28]: https://github.com/dxw/DataSubmissionService/compare/release-27...release-28
 [release-27]: https://github.com/dxw/DataSubmissionService/compare/release-26...release-27
 [release-26]: https://github.com/dxw/DataSubmissionService/compare/release-25...release-26
 [release-25]: https://github.com/dxw/DataSubmissionService/compare/release-24...release-25

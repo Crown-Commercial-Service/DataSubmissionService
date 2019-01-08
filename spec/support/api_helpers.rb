@@ -197,7 +197,10 @@ module ApiHelpers
   private
 
   def json_headers
-    { 'Content-Type': 'application/vnd.api+json; charset=utf-8' }
+    {
+      'Content-Type': 'application/vnd.api+json; charset=utf-8',
+      'X-Auth-Id': '123456'
+    }
   end
 
   def json_fixture_file(filename)
