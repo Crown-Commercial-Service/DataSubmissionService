@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_current_request_details
   before_action :ensure_user_signed_in
 
   helper_method :current_user_id
@@ -19,5 +20,9 @@ class ApplicationController < ActionController::Base
     return if current_user_id.present?
 
     redirect_to root_path
+  end
+
+  def set_current_request_details
+    Current.auth_id = session[:auth_id]
   end
 end
