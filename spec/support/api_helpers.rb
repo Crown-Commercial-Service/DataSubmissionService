@@ -85,8 +85,7 @@ module ApiHelpers
           task_id: mock_task_id,
           framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
           supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff',
-          status: 'completed',
-          levy: nil,
+          status: 'completed'
         }
       }
     }

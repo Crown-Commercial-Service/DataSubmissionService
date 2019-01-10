@@ -8,8 +8,7 @@
       "invoice_count": 2,
       "order_count": 1,
       "purchase_order_number": "123",
-      "status": "in_review",
-      "levy": 4500
+      "status": "in_review"
     }
   }
 }
