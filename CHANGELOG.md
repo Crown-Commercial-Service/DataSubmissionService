@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-29] - 2019-01-31
+
+- Updated template for RM3772
+
 ## [release-28] - 2019-01-08
 
 - Include year when displaying task period
@@ -162,6 +166,7 @@
 
 Initial release
 
+[release-29]: https://github.com/dxw/DataSubmissionService/compare/release-28...release-29
 [release-28]: https://github.com/dxw/DataSubmissionService/compare/release-27...release-28
 [release-27]: https://github.com/dxw/DataSubmissionService/compare/release-26...release-27
 [release-26]: https://github.com/dxw/DataSubmissionService/compare/release-25...release-26
