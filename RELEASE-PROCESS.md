@@ -42,6 +42,8 @@ production deploy can be performed by manually merging `develop` into `master`:
   git checkout master
   git pull
   git merge origin/develop
+  # Edit the commit message to reference the release number
+  # e.g. "Release 43" or "merge origin/develop for release 43"
   git push
 ```
 
