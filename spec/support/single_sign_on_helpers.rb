@@ -9,4 +9,8 @@ module SingleSignOnHelpers
       }
     )
   end
+
+  def mock_sso_failure(message)
+    OmniAuth.config.mock_auth[:auth0] = message
+  end
 end
