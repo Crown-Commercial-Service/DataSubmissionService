@@ -9,7 +9,7 @@ RSpec.describe 'the tasks list' do
 
   context 'when signed-in as a user with tasks' do
     before do
-      mock_tasks_endpoint!
+      mock_incomplete_tasks_endpoint!
       mock_user_endpoint!
       stub_signed_in_user
       get tasks_path
@@ -19,16 +19,10 @@ RSpec.describe 'the tasks list' do
       expect(response).to be_successful
       expect(response.body).to include 'CBOARD5'
       expect(response.body).to include 'cboard11'
-      expect(response.body).to include 'cboard13'
     end
 
     it 'shows the tasks ordered by due date' do
       expect(response.body.index('7 September')).to be > response.body.index('7 August')
-    end
-
-    it 'shows completed tasks after other tasks' do
-      expect(response.body.index('cboard13')).to be > response.body.index('CBOARD5')
-      expect(response.body.index('cboard13')).to be > response.body.index('cboard11')
     end
 
     it 'includes links to start an unstarted task' do
