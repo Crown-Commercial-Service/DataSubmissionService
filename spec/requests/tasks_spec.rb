@@ -89,4 +89,24 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include 'All your tasks are complete.'
     end
   end
+
+  context 'when viewing task history' do
+    before do
+      mock_complete_tasks_endpoint!
+      stub_signed_in_user
+      get history_tasks_path
+    end
+
+    it 'shows the framework name of the completed task' do
+      expect(response.body).to include 'Cheese Board 13'
+    end
+
+    it 'shows the month of period for the completed task' do
+      expect(response.body).to include 'July 2018'
+    end
+
+    it 'shows the completed date for the completed task' do
+      expect(response.body).to include '14 February 2019 15:39 UTC'
+    end
+  end
 end

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
   resources :tasks, only: %i[index] do
+    collection do
+      get :history
+    end
     resources :submissions, only: %i[new create show] do
       resource :complete, only: :create, controller: 'submission_completion'
     end

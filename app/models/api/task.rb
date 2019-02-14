@@ -20,5 +20,11 @@ module API
     def reporting_period
       [Date::MONTHNAMES[period_month], period_year].join(' ')
     end
+
+    def completed_at
+      return unless latest_submission.submitted_at
+
+      Time.zone.parse(latest_submission.submitted_at).to_s(:date_with_utc_time)
+    end
   end
 end

@@ -8,4 +8,12 @@ class TasksController < ApplicationController
   end
 
   def complete; end
+
+  def history
+    @tasks = API::Task
+             .where(auth_id: current_user_id, status: 'completed')
+             .includes(:framework, :latest_submission)
+             .all
+             .sort_by! { |t| Date.parse(t.due_on) }
+  end
 end

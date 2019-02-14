@@ -125,6 +125,15 @@ module ApiHelpers
       )
   end
 
+  def mock_complete_tasks_endpoint!
+    stub_request(:get, api_url('tasks'))
+      .with(query: hash_including(filter: hash_including('auth_id', 'status' => 'completed')))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('complete_tasks_with_framework_and_latest_submission.json')
+      )
+  end
+
   def mock_empty_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
       .with(query: hash_including(filter: hash_including('auth_id')))
