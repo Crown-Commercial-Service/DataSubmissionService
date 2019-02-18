@@ -85,7 +85,7 @@ RSpec.describe 'the tasks list' do
       get tasks_path
     end
 
-    it 'tells the user they have no tasks_path' do
+    it 'tells the user they have no tasks' do
       expect(response.body).to include 'All your tasks are complete.'
     end
   end
