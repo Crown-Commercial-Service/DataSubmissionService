@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   get '/style_guide', to: 'styleguide#index'
   get '/urns', to: 'urns#index'
