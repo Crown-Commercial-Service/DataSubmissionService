@@ -1,0 +1,83 @@
+{
+  "data": [
+    {
+      "id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+      "type": "tasks",
+      "attributes": {
+        "status": "completed",
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "supplier_name": "Bobs Cheese Shop",
+        "description": null,
+        "due_on": "2018-08-07",
+        "period_year": 2018,
+        "period_month": 7
+      },
+      "relationships": {
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "663f8bf9-464b-4d2f-8532-7404ae76063c"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc"
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+        "status": "completed",
+        "submitted_at": "2019-02-14T15:39:38.151Z"
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "cboard13",
+        "name": "Cheese Board 13"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

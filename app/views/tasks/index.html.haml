@@ -8,3 +8,7 @@
   .govuk-grid-column-full
     %ul.ccs-tasks{'aria-label' => 'Tasks'}
       = render(collection: @tasks, partial: "task") || render("no_tasks")
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %p{'class' => 'govuk-!-margin-top-7'}= link_to "View History", history_tasks_path
