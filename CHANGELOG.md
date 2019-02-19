@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-30] - 2019-02-19
+
+- Provide friendly message when authentication fails
+
 ## [release-29] - 2019-01-31
 
 - Updated template for RM3772
@@ -166,6 +170,7 @@
 
 Initial release
 
+[release-30]: https://github.com/dxw/DataSubmissionService/compare/release-29...release-30
 [release-29]: https://github.com/dxw/DataSubmissionService/compare/release-28...release-29
 [release-28]: https://github.com/dxw/DataSubmissionService/compare/release-27...release-28
 [release-27]: https://github.com/dxw/DataSubmissionService/compare/release-26...release-27

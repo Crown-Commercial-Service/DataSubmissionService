@@ -1,0 +1,20 @@
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Report management information to CCS
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %p
+      We were unable to sign you in with the provided credentials. Please try again.
+
+    %p
+      %br
+      = link_to 'Sign in', '/auth/auth0', class: 'govuk-button govuk-button--start', id: 'sign-in', 'aria-label' => "Sign in to the service"
+
+    %p
+      If you are unable to sign in or do not receive a password reset email from the service contact
+      = support_email_address
+      %br
+      = succeed '.' do
+        = mail_to(support_email_address, 'Email sign in support')

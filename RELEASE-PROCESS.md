@@ -8,13 +8,23 @@ these steps when releasing to production:
 
 ## 1. Create a release branch and make a pull request
 
-  - Create a branch for the release called `release-X` where X is the release
+  - Create a branch from `develop` for the release called `release-X` where X is the release
     number
-  - Update [CHANGELOG.md](CHANGELOG.md) to document the changes in this release
+  - Update [CHANGELOG.md](CHANGELOG.md) to:
+     - document the changes in this release in a bullet point form
+     - add a link to the diff at the bottom of the file
+  - `git push <your-branch-name>`, e.g. `git push release-45`
   - Create a tag for the release in the format `release-X`
-  - Create a pull request for the release
+  - Create a pull request for the release with content from the `CHANGELOG.md`
+  - Get that pull request reviewed and approved
 
-## 2. Confirm the release candidate and perform any prerequisites
+## 2. Review and merge the release pull request
+
+The pull request should be reviewed to confirm that the changes in the release
+are safe to ship and that CHANGELOG.md accurately reflects the changes
+included in the release.
+
+## 3. Confirm the release candidate and perform any prerequisites
 
   - Confirm the release with any relevant people (product owner, delivery
     manager, etc)
@@ -22,15 +32,14 @@ these steps when releasing to production:
     of the service that also need updating; environment variables that need
     changing/adding; third-party services that need to be set up/updated
 
-## 3. Review and merge the release pull request
-
-The pull request should be reviewed to confirm that the changes in the release
-are safe to ship and that CHANGELOG.md accurately reflects the changes
-included in the release.
-
 ## 4. Announce the release
 
-Let the team know about the release.
+Let the team know about the release. This is posted in Slack under `#ccs-data-submission`.
+Typical form is:
+
+`@here :badger: Release N of <API/Service> going to production :badger:`
+
+Acknowledgement is usually made by [`:mushroom:`](https://www.youtube.com/watch?v=6joOVjEemh4)
 
 ## 5. Manually merge to master to release
 
@@ -42,6 +51,8 @@ production deploy can be performed by manually merging `develop` into `master`:
   git checkout master
   git pull
   git merge origin/develop
+  # Edit the commit message to reference the release number
+  # e.g. "Release 43" or "merge origin/develop for release 43"
   git push
 ```
 

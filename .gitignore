@@ -29,6 +29,7 @@
 .env
 .env.*
 docker-compose.env
+!.env.*.example
 
 # Test artifacts
 spec/examples.txt

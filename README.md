@@ -1,47 +1,56 @@
 # Data Submission Service Supplier Frontend
 
+This project can be run locally in two ways - with Docker or without. For speed, we recommend running _without_ Docker.
+
+## Running with Docker
+
+See [Running with Docker](docs/running-with-docker.md)
+
+## Without Docker
+
 ### Prerequisites
- - [Docker](https://docs.docker.com/docker-for-mac) greater than or equal to `18.03.1-ce-mac64 (24245)`
+
+#### DataSubmissionServiceAPI
+
+The [DataSubmissionServiceAPI](https://github.com/dxw/DataSubmissionServiceAPI/) project _must_ be set up and running before attempting to set up this project.
+
+This project uses Postgres, Bundler and Yarn, which will have been installed with DataSubmissionServiceAPI.
 
 ### Setting up the project
 
-Copy the docker environment variables and fill in any missing secrets:
+Copy `.env.development.example` to `.env.development`. This file contains secrets which are not currently available in 1Password - liaise with team members to get the required values.
 
-```
-$ cp docker-compose.env.example docker-compose.env
-```
+Once this is done, use Bundler to set up the project:
 
-Build the docker container and set up the database
+`$ bundle install`
 
-`bin/drebuild`
+Create & set up the database:
 
-Start the application
+`$ bundle exec rake db:setup`
 
-`bin/dstart`
+Next, copy `.env.test.example` to `.env.test`. This file needs a `SECRET_KEY_BASE` parameter which you can generate with Rake:
 
-The supplier front-end application is available on port 3100 by default.
+`$ rake secret`
+
+Install front-end dependencies:
+
+`$ yarn install`
 
 ## Running the tests
 
-There are two ways that you can run the tests.
+To run the rspec tests:
 
-### In development
+`$ bundle exec rspec`
 
-Because the setup and teardown introduces quite some latency, we use the spring service to
-start up all dependencies in a docker container. This makes the test run faster.
+To run the full test suite - Rubocop, Brakeman and Rspec - before pushing to Github:
 
-Get the test server up and running
-`bin/dtest-server`
+`$ bundle exec rake` (the default Rake task)
 
-Run the specs. When no arguments are specified, the default rake task is executed.
-`bin/dspec <args>`
+## Running the application
 
-### Full run (before you push to github)
+`$ bundle exec rails s`
 
-Rebuilds the test server, runs rubocop checks, runs the test suite and cleans up.
-
-`bin/dtests`
-
+The application will run on port 3100 by default
 
 ## Release process
 
