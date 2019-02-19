@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-30] - 2019-02-19
+
+- Provide friendly message when authentication fails
+
 ## [release-29] - 2019-01-31
 
 - Updated template for RM3772
