@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-31] - 2019-02-20
+
+- Add analytics.txt for Google Analytics
+
 ## [release-30] - 2019-02-19
 
 - Provide friendly message when authentication fails
@@ -170,6 +174,7 @@
 
 Initial release
 
+[release-31]: https://github.com/dxw/DataSubmissionService/compare/release-30...release-31
 [release-30]: https://github.com/dxw/DataSubmissionService/compare/release-29...release-30
 [release-29]: https://github.com/dxw/DataSubmissionService/compare/release-28...release-29
 [release-28]: https://github.com/dxw/DataSubmissionService/compare/release-27...release-28
