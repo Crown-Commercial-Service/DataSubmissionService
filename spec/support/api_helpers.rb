@@ -20,7 +20,7 @@ module ApiHelpers
   end
 
   def mock_upload_task_submission_flow_endpoints!
-    mock_tasks_endpoint!
+    mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_create_submission_endpoint!
     mock_create_submission_file_endpoint!
@@ -116,15 +116,27 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('task_with_valid_submission.json'))
   end
 
-  def mock_tasks_endpoint!
+  def mock_incomplete_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
-      .with(query: hash_including(filter: hash_including('auth_id')))
-      .to_return(headers: json_headers, body: json_fixture_file('tasks_with_framework_and_latest_submission.json'))
+      .with(query: hash_including(filter: hash_including('status' => ['unstarted', 'in_progress'])))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('incomplete_tasks_with_framework_and_latest_submission.json')
+      )
+  end
+
+  def mock_complete_tasks_endpoint!
+    stub_request(:get, api_url('tasks'))
+      .with(query: hash_including(filter: hash_including('status' => 'completed')))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('complete_tasks_with_framework_and_latest_submission.json')
+      )
   end
 
   def mock_empty_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
-      .with(query: hash_including(filter: hash_including('auth_id')))
+      .with(query: hash_including(filter: hash_including('status')))
       .to_return(headers: json_headers, body: '{}')
   end
 

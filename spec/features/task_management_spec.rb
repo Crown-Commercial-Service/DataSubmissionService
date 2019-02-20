@@ -42,7 +42,7 @@ RSpec.feature 'task management' do
   scenario 'user can upload an amended file' do
     mock_sso_with(email: 'email@example.com')
     mock_user_endpoint!
-    mock_tasks_endpoint!
+    mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_submission_errored_endpoint!
 
