@@ -24,11 +24,13 @@ RSpec.feature 'Submitting no business' do
 
     click_on 'Report no business'
 
+    expect(page).to_not have_content 'This is a correction'
     expect(page).to have_content 'Report no business for CBOARD5 Cheese Board 5'
     expect(page).to_not have_content 'Bobs Cheese Shop'
 
     click_on 'Confirm no business'
 
+    expect(page).to_not have_content 'This is a correction'
     expect(page).to have_content 'Thank you for reporting no business for'
     expect(page).to_not have_content 'Bobs Cheese Shop'
   end

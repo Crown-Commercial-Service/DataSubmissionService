@@ -21,7 +21,7 @@
           = @task.reporting_period
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
-          Completed
+          Reported
         %dd.govuk-summary-list__value
           = @task.completed_at
 
@@ -61,6 +61,18 @@
             %td.govuk-table__cell.govuk-table__cell--numeric
               = number_to_currency(@submission.order_total_value, unit: '£')
 
+
+    %h2.govuk-heading-m
+      If this looks incorrect
+    %p
+      - if @submission.report_no_business?
+        You can replace this return with a corrected one.
+      - else
+        You can replace this return with a corrected one or report no business.
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = link_to 'Correct this return', correct_task_path(@task), { class: 'govuk-button' }
 
 .govuk-grid-row
   .govuk-grid-column-full
