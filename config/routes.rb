@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     collection do
       get :history
     end
+    member do
+      get :correct
+    end
     resources :submissions, only: %i[new create show] do
       resource :complete, only: :create, controller: 'submission_completion'
     end
