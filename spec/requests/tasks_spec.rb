@@ -123,4 +123,18 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include '42 rows'
     end
   end
+
+  context 'when viewing a completed task that reported no business' do
+    before do
+      stub_signed_in_user
+      mock_completed_task_with_no_business_endpoint!
+
+      get task_path(mock_task_id)
+    end
+
+    it 'shows details of the task and no business submission' do
+      expect(response.body).to include 'Submitted management information'
+      expect(response.body).to include 'You reported no business'
+    end
+  end
 end

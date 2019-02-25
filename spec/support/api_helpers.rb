@@ -145,6 +145,11 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
   end
 
+  def mock_completed_task_with_no_business_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission"))
+      .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
+  end
+
   def mock_create_submission_endpoint!
     task_submission = {
       data: {
