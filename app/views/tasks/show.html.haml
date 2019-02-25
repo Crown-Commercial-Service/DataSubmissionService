@@ -1,0 +1,55 @@
+.govuk-grid-row
+  .govuk-grid-column-full
+    = link_to 'Back', history_tasks_path, { class: 'govuk-back-link', title: 'Back to your task history' }
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Task
+
+    %dl.govuk-summary-list.govuk-summary-list--no-border
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Framework
+        %dd.govuk-summary-list__value
+          = @task.framework.short_name
+          = @task.framework.name
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Month
+        %dd.govuk-summary-list__value
+          = @task.reporting_period
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Completed
+        %dd.govuk-summary-list__value
+          = @task.completed_at
+
+    %h2.govuk-heading-m
+      Submitted management information
+
+    %dl.govuk-summary-list.govuk-summary-list--no-border
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Purchase order number
+        %dd.govuk-summary-list__value
+          = @submission.purchase_order_number
+
+    %table.govuk-table
+      %thead.govuk-table__head
+        %tr.govuk-table__row
+          %th.govuk-table__header{ scope: 'col' } Filename
+          %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Invoices
+          %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Contracts
+      %tbody.govuk-table__body
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            Uploaded file
+          %td.govuk-table__cell.govuk-table__cell--numeric
+            = pluralize(@submission.invoice_count, 'row')
+          %td.govuk-table__cell.govuk-table__cell--numeric
+            = pluralize(@submission.order_count, 'row')
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = link_to 'Back', history_tasks_path, { class: 'govuk-back-link', title: 'Back to your task history' }

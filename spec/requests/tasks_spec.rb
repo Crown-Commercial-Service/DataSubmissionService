@@ -109,4 +109,18 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include '14 February 2019 15:39 UTC'
     end
   end
+
+  context 'when viewing a completed task that reported business' do
+    before do
+      stub_signed_in_user
+      mock_completed_task_endpoint!
+
+      get task_path(mock_task_id)
+    end
+
+    it 'shows details of the task and submission' do
+      expect(response.body).to include 'Submitted management information'
+      expect(response.body).to include '42 rows'
+    end
+  end
 end
