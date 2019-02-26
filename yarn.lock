@@ -3,5 +3,5 @@
 
 
 govuk-frontend@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-2.0.0.tgz#daf69eeffc60d013ad5fd14b59e5e488ac63a132"
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-2.7.0.tgz#6a12baf514426653220dd3cdef55b1e1d97f52a6"
