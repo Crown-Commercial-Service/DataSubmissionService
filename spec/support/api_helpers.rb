@@ -141,12 +141,12 @@ module ApiHelpers
   end
 
   def mock_completed_task_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
   end
 
   def mock_completed_task_with_no_business_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
   end
 
