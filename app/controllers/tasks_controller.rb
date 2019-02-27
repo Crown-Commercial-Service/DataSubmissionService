@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
     @tasks = API::Task
+             .select(submissions: %i[status submitted_at])
              .where(status: ['unstarted', 'in_progress'])
              .includes(:framework, :latest_submission)
              .all
@@ -16,6 +17,7 @@ class TasksController < ApplicationController
 
   def history
     @tasks = API::Task
+             .select(submissions: %i[status submitted_at])
              .where(status: 'completed')
              .includes(:framework, :latest_submission)
              .all
