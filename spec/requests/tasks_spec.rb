@@ -109,4 +109,34 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include '14 February 2019 15:39 UTC'
     end
   end
+
+  context 'when viewing a completed task that reported business' do
+    before do
+      stub_signed_in_user
+      mock_completed_task_endpoint!
+
+      get task_path(mock_task_id)
+    end
+
+    it 'shows details of the task and submission' do
+      expect(response.body).to include 'Submitted management information'
+      expect(response.body).to include '42 rows'
+      expect(response.body).to include '£12,345.67'
+      expect(response.body).to include 'RM3786 MISO Data Template (August 2018).xls'
+    end
+  end
+
+  context 'when viewing a completed task that reported no business' do
+    before do
+      stub_signed_in_user
+      mock_completed_task_with_no_business_endpoint!
+
+      get task_path(mock_task_id)
+    end
+
+    it 'shows details of the task and no business submission' do
+      expect(response.body).to include 'Submitted management information'
+      expect(response.body).to include 'You reported no business'
+    end
+  end
 end

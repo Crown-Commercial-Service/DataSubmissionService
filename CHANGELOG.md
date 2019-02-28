@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-32] - 2019-02-28
+
+- Added RM6060 framework template file
+- Added a task page to view an historic task (where replacements will start)
+
 ## [release-31] - 2019-02-20
 
 - Add analytics.txt for Google Analytics
@@ -174,6 +179,7 @@
 
 Initial release
 
+[release-32]: https://github.com/dxw/DataSubmissionService/compare/release-31...release-32
 [release-31]: https://github.com/dxw/DataSubmissionService/compare/release-30...release-31
 [release-30]: https://github.com/dxw/DataSubmissionService/compare/release-29...release-30
 [release-29]: https://github.com/dxw/DataSubmissionService/compare/release-28...release-29

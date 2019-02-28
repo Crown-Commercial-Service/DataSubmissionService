@@ -1,0 +1,60 @@
+{
+  "data": {
+    "id": "2d98639e-5260-411f-a5ee-61847a2e067c",
+    "type": "tasks",
+    "attributes": {
+      "description": null,
+      "due_on": "2030-01-01",
+      "period_month": 7,
+      "period_year": 2018,
+      "status": "completed",
+      "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
+      "supplier_name": "Bobs Cheese Shop"
+    },
+    "relationships": {
+      "framework": {
+        "data": {
+          "type": "frameworks",
+          "id": "f87717d4-874a-43d9-b99f-c8cf2897b526"
+        }
+      },
+      "latest_submission": {
+        "data": {
+          "type": "submissions",
+          "id": "663f8bf9-464b-4d2f-8532-7404ae76063c"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "CBOARD5",
+        "name": "Cheese Board 5"
+      }
+    },
+    {
+      "id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+        "report_no_business?": true,
+        "status": "completed",
+        "submitted_at": "2019-02-14T15:39:38.151Z",
+        "purchase_order_number": null,
+        "invoice_count": 0,
+        "order_count": 0
+      },
+      "relationships": {
+        "files": {
+          "data": []
+        }
+      }
+    }
+  ]
+}
