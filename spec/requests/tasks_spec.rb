@@ -121,6 +121,8 @@ RSpec.describe 'the tasks list' do
     it 'shows details of the task and submission' do
       expect(response.body).to include 'Submitted management information'
       expect(response.body).to include '42 rows'
+      expect(response.body).to include '£12,345.67'
+      expect(response.body).to include 'RM3786 MISO Data Template (August 2018).xls'
     end
   end
 

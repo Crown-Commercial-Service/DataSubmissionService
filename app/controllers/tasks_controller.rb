@@ -9,8 +9,9 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = API::Task.includes(:framework, :latest_submission).find(params[:id]).first
+    @task = API::Task.includes(:framework, latest_submission: :files).find(params[:id]).first
     @submission = @task.latest_submission
+    @file = @submission.files&.first
   end
 
   def complete; end

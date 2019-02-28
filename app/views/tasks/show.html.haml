@@ -33,11 +33,12 @@
         You reported no business
     - else
       %dl.govuk-summary-list.govuk-summary-list--no-border
-        .govuk-summary-list__row
-          %dt.govuk-summary-list__key
-            Purchase order number
-          %dd.govuk-summary-list__value
-            = @submission.purchase_order_number
+        - if @submission.purchase_order_number.present?
+          .govuk-summary-list__row
+            %dt.govuk-summary-list__key
+              Purchase order number
+            %dd.govuk-summary-list__value
+              = @submission.purchase_order_number
 
       %table.govuk-table
         %thead.govuk-table__head
@@ -48,11 +49,18 @@
         %tbody.govuk-table__body
           %tr.govuk-table__row
             %td.govuk-table__cell
-              Uploaded file
+              = @file.filename
             %td.govuk-table__cell.govuk-table__cell--numeric
               = pluralize(@submission.invoice_count, 'row')
             %td.govuk-table__cell.govuk-table__cell--numeric
               = pluralize(@submission.order_count, 'row')
+          %tr.govuk-table__row
+            %td.govuk-table__cell
+            %td.govuk-table__cell.govuk-table__cell--numeric
+              = number_to_currency(@submission.invoice_total_value, unit: '£')
+            %td.govuk-table__cell.govuk-table__cell--numeric
+              = number_to_currency(@submission.order_total_value, unit: '£')
+
 
 .govuk-grid-row
   .govuk-grid-column-full
