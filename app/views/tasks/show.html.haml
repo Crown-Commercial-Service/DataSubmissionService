@@ -14,16 +14,25 @@
         %dd.govuk-summary-list__value
           = @task.framework.short_name
           = @task.framework.name
+
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
           Month
         %dd.govuk-summary-list__value
           = @task.reporting_period
+
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
           Reported
         %dd.govuk-summary-list__value
           = @task.completed_at
+
+      - if current_user.multiple_suppliers?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Supplier
+          %dd.govuk-summary-list__value
+            = @task.supplier_name
 
     %h2.govuk-heading-m
       Submitted management information
@@ -60,7 +69,6 @@
               = number_to_currency(@submission.invoice_total_value, unit: '£')
             %td.govuk-table__cell.govuk-table__cell--numeric
               = number_to_currency(@submission.order_total_value, unit: '£')
-
 
     %h2.govuk-heading-m
       If this looks incorrect
