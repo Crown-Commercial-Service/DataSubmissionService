@@ -58,7 +58,7 @@
         %tbody.govuk-table__body
           %tr.govuk-table__row
             %td.govuk-table__cell
-              = @file.filename
+              = link_to(@file.filename, download_task_submission_path(@task, @submission))
             %td.govuk-table__cell.govuk-table__cell--numeric
               = pluralize(@submission.invoice_count, 'row')
             %td.govuk-table__cell.govuk-table__cell--numeric

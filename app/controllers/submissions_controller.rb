@@ -20,6 +20,16 @@ class SubmissionsController < ApplicationController
     render template_for_submission(@submission)
   end
 
+  def download
+    submission = API::Submission
+                 .includes(:files)
+                 .find(params[:id]).first
+
+    file = submission.files.first
+
+    redirect_to file.temporary_download_url, status: :temporary_redirect
+  end
+
   private
 
   def upload_file_submission(task, upload)

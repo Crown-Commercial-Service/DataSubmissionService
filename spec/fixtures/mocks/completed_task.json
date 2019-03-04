@@ -22,7 +22,7 @@
       "latest_submission": {
         "data": {
           "type": "submissions",
-          "id": "663f8bf9-464b-4d2f-8532-7404ae76063c"
+          "id": "9a5ef62c-0781-4f80-8850-5793652b6b40"
         }
       }
     }
@@ -37,7 +37,7 @@
       }
     },
     {
-      "id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
+      "id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
       "type": "submissions",
       "attributes": {
         "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
@@ -65,9 +65,10 @@
       "id": "8f62dc3a-4765-48d0-9544-e850ff8c3b80",
       "type": "submission_files",
       "attributes": {
-        "submission_id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
+        "submission_id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
         "rows": 6,
-        "filename": "RM3786 MISO Data Template (August 2018).xls"
+        "filename": "RM3786 MISO Data Template (August 2018).xls",
+        "temporary_download_url": "https://s3.example.com/example.xls"
       }
     }
   ]
