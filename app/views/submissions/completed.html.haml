@@ -3,6 +3,10 @@
 - else
   - page_title "Task complete: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
+- if params[:correction]
+  .ccs-in_service_alert.ccs-in_service_alert--notice{role: "alert"}
+    %h2.govuk-heading-s This is a correction.
+
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-panel.govuk-panel--confirmation
