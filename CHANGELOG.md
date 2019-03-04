@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-33] - 2019-03-04
+
+- Added RM6060 to framework list support page
+- Updated RM6060 framework template file
+- Updated URN list
+
 ## [release-32] - 2019-02-28
 
 - Added RM6060 framework template file
@@ -179,6 +185,7 @@
 
 Initial release
 
+[release-33]: https://github.com/dxw/DataSubmissionService/compare/release-32...release-33
 [release-32]: https://github.com/dxw/DataSubmissionService/compare/release-31...release-32
 [release-31]: https://github.com/dxw/DataSubmissionService/compare/release-30...release-31
 [release-30]: https://github.com/dxw/DataSubmissionService/compare/release-29...release-30
