@@ -76,6 +76,13 @@ module ApiHelpers
       .to_return(status: 204, body: '', headers: json_headers)
   end
 
+  def mock_submission_with_file_endpoint!
+    stub_request(
+      :get,
+      api_url("submissions/#{mock_submission_id}?include=files")
+    ).to_return(headers: json_headers, body: json_fixture_file('submission_with_file.json'))
+  end
+
   def mock_no_business_endpoint!
     no_business_submission = {
       data: {

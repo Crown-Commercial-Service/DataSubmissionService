@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       get :correct
     end
     resources :submissions, only: %i[new create show] do
+      member do
+        get :download
+      end
+
       resource :complete, only: :create, controller: 'submission_completion'
     end
     resource :template, only: %i[show]
