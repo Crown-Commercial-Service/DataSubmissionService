@@ -79,6 +79,7 @@ end
 
 group :test do
   gem 'capybara', require: false
+  gem 'climate_control'
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'webmock'

@@ -76,6 +76,13 @@ module ApiHelpers
       .to_return(status: 204, body: '', headers: json_headers)
   end
 
+  def mock_submission_with_file_endpoint!
+    stub_request(
+      :get,
+      api_url("submissions/#{mock_submission_id}?include=files")
+    ).to_return(headers: json_headers, body: json_fixture_file('submission_with_file.json'))
+  end
+
   def mock_no_business_endpoint!
     no_business_submission = {
       data: {
@@ -91,6 +98,26 @@ module ApiHelpers
     }
 
     stub_request(:post, api_url("tasks/#{mock_task_id}/no_business"))
+      .with(body: {}.to_json)
+      .to_return(status: 201, headers: json_headers, body: no_business_submission.to_json)
+  end
+
+  def mock_no_business_correction_endpoint!
+    no_business_submission = {
+      data: {
+        id: mock_submission_id,
+        type: 'submissions',
+        attributes: {
+          task_id: mock_task_id,
+          framework_id: 'f87717d4-874a-43d9-b99f-c8cf2897b526',
+          supplier_id: 'cd40ead8-67b5-4918-abf0-ab8937cd04ff',
+          status: 'completed'
+        }
+      }
+    }
+
+    stub_request(:post, api_url("tasks/#{mock_task_id}/no_business"))
+      .with(body: { correction: 'true' }.to_json)
       .to_return(status: 201, headers: json_headers, body: no_business_submission.to_json)
   end
 

@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-34] - 2019-03-05
+
+- Users can download their submission files
+- Users can replace their submissions with no business
+
 ## [release-33] - 2019-03-04
 
 - Added RM6060 to framework list support page
@@ -185,6 +190,7 @@
 
 Initial release
 
+[release-34]: https://github.com/dxw/DataSubmissionService/compare/release-33...release-34
 [release-33]: https://github.com/dxw/DataSubmissionService/compare/release-32...release-33
 [release-32]: https://github.com/dxw/DataSubmissionService/compare/release-31...release-32
 [release-31]: https://github.com/dxw/DataSubmissionService/compare/release-30...release-31

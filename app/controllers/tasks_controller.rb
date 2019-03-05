@@ -16,6 +16,12 @@ class TasksController < ApplicationController
 
   def complete; end
 
+  def correct
+    @task = API::Task.includes(:framework, latest_submission: :files).find(params[:id]).first
+    @submission = @task.latest_submission
+    @file = @submission.files&.first
+  end
+
   def history
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])

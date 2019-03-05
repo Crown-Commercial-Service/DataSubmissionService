@@ -112,8 +112,9 @@ RSpec.describe 'the tasks list' do
 
   context 'when viewing a completed task that reported business' do
     before do
-      stub_signed_in_user
       mock_completed_task_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
 
       get task_path(mock_task_id)
     end
@@ -128,8 +129,9 @@ RSpec.describe 'the tasks list' do
 
   context 'when viewing a completed task that reported no business' do
     before do
-      stub_signed_in_user
       mock_completed_task_with_no_business_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
 
       get task_path(mock_task_id)
     end

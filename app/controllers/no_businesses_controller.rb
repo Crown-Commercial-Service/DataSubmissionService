@@ -4,8 +4,13 @@ class NoBusinessesController < ApplicationController
   def new; end
 
   def create
-    submission = @task.no_business.first
-    redirect_to task_submission_path(task_id: @task.id, id: submission.id)
+    if params[:correction]
+      submission = @task.no_business(correction: 'true').first
+      redirect_to task_submission_path(task_id: @task.id, id: submission.id, correction: true)
+    else
+      submission = @task.no_business.first
+      redirect_to task_submission_path(task_id: @task.id, id: submission.id)
+    end
   end
 
   private

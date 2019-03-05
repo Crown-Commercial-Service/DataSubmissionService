@@ -5,7 +5,7 @@
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
-      Task
+      Correction
 
     %dl.govuk-summary-list.govuk-summary-list--no-border
       .govuk-summary-list__row
@@ -34,8 +34,16 @@
           %dd.govuk-summary-list__value
             = @task.supplier_name
 
+    %p
+      You will need to pay the management charge from the incorrect return unless a successful corrected return is made.
+
+    - unless @submission.report_no_business?
+      .govuk-grid-row
+        .govuk-grid-column-full
+          = link_to 'Report no business', new_task_no_business_path(@task, correction: true), class: 'govuk-button'
+
     %h2.govuk-heading-m
-      Submitted management information
+      Incorrect return
 
     - if @submission.report_no_business?
       %p
@@ -55,10 +63,11 @@
             %th.govuk-table__header{ scope: 'col' } Filename
             %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Invoices
             %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Contracts
+
         %tbody.govuk-table__body
           %tr.govuk-table__row
             %td.govuk-table__cell
-              = link_to(@file.filename, download_task_submission_path(@task, @submission))
+              = @file.filename
             %td.govuk-table__cell.govuk-table__cell--numeric
               = pluralize(@submission.invoice_count, 'row')
             %td.govuk-table__cell.govuk-table__cell--numeric
@@ -69,19 +78,6 @@
               = number_to_currency(@submission.invoice_total_value, unit: '£')
             %td.govuk-table__cell.govuk-table__cell--numeric
               = number_to_currency(@submission.order_total_value, unit: '£')
-
-    - if correction_returns_enabled?
-      %h2.govuk-heading-m
-        If this looks incorrect
-      %p
-        - if @submission.report_no_business?
-          You can replace this return with a corrected one.
-        - else
-          You can replace this return with a corrected one or report no business.
-
-      .govuk-grid-row
-        .govuk-grid-column-full
-          = link_to 'Correct this return', correct_task_path(@task), { class: 'govuk-button' }
 
 .govuk-grid-row
   .govuk-grid-column-full
