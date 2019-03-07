@@ -13,7 +13,7 @@
       "supplier_name": "Bobs Cheese Shop"
     },
     "relationships": {
-      "latest_submission": {
+      "active_submission": {
         "data": {
           "type": "submissions",
           "id": "63996088-5c20-4e65-b722-287fafeedc97"
