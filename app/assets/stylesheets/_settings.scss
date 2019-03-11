@@ -1,10 +1,8 @@
-/*
-  CCS Settings that override GOV.UK ones
-*/
+// CCS Settings that override GOV.UK ones
 $govuk-page-width: 1020px;
 
-$govuk-assets-path: "/";
-$govuk-images-path: "/images/";
+$govuk-assets-path: "";
+$govuk-images-path: "";
 
 $govuk-font-url-function: 'font-url';
 $govuk-image-url-function: 'image-url';
@@ -30,26 +28,30 @@ $govuk-colours: (
   "turquoise": #28a197,
   "light-blue": #2b8cc4,
   "blue": #005ea5,
-  "primary": #9B1A47,
+
+  "primary": #9b1a47,
   "secondary": #016065,
+
   "black": #0b0c0c,
   "grey-1": #6f777b,
   "grey-2": #bfc1c3,
   "grey-3": #dee0e2,
   "grey-4": #f8f8f8,
   "white": #ffffff,
-  "link": #005EA5,
-  "link-hover": #2B8CC4,
-  "link-visited": #4C2C92,
-  "failure": #B10E1E,
-  "warning": #DE8F1A,
-  "success": #0EB163
+
+  "link": #005ea5,
+  "link-hover": #2b8cc4,
+  "link-visited": #4c2c92,
+
+  "failure": #b10e1e,
+  "warning": #de8f1a,
+  "success": #0eb163
 );
 
-$govuk-font-family-nta: "Source Sans Pro", Arial, sans-serif;
-$govuk-font-family-nta-tabular: "Source Sans Pro", $govuk-font-family-nta;
-$govuk-font-family: "Source Sans Pro", Arial, sans-serif;
-$govuk-font-family-tabular: $govuk-font-family;
+// Typography
+$govuk-font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 $govuk-font-family-print: sans-serif;
+
 $govuk-font-weight-regular: 400;
 $govuk-font-weight-bold: 600;
+

@@ -8,6 +8,9 @@
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
     %meta{ name: 'format-detection', content: 'telephone=no' }/
 
+    = favicon_link_tag('govuk-frontend/assets/images/favicon.ico')
+    = favicon_link_tag('govuk-frontend/assets/images/govuk-apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png')
+
     = content_for(:head)
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'

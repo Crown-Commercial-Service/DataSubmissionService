@@ -1,0 +1,14 @@
+.ccs-report-table__cell {
+  vertical-align: top;
+
+  h2 {
+    margin: 0;
+    @include govuk-font(19, regular);
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: govuk-spacing(3);
+    @include govuk-font(19, regular);
+  }
+}
