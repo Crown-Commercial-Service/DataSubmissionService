@@ -19,6 +19,14 @@ module ApiHelpers
     'auth0|123456'
   end
 
+  def hash_including_correction
+    {
+      body: {
+        "data": hash_including('attributes' => hash_including('correction' => 'true'))
+      }
+    }
+  end
+
   def mock_upload_task_submission_flow_endpoints!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
