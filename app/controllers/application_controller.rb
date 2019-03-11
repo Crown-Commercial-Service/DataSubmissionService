@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_id
   helper_method :ensure_user_signed_in
   helper_method :current_user
+  helper_method :correction?
 
   private
 
@@ -24,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def set_current_request_details
     Current.auth_id = session[:auth_id]
+  end
+
+  def correction?
+    params[:correction] == 'true'
   end
 end
