@@ -14,7 +14,7 @@
         "period_month": 7
       },
       "relationships": {
-        "latest_submission": {
+        "active_submission": {
           "data": null
         },
         "submissions": {
@@ -44,7 +44,7 @@
         "period_month": 7
       },
       "relationships": {
-        "latest_submission": {
+        "active_submission": {
           "data": {
             "type": "submissions",
             "id": "63996088-5c20-4e65-b722-287fafeedc97"
@@ -77,7 +77,7 @@
         "period_month": 7
       },
       "relationships": {
-        "latest_submission": {
+        "active_submission": {
           "data": {
             "type": "submissions",
             "id": "65b11138-8c7e-4427-93a2-c5da3a7c3f9d"
@@ -110,7 +110,7 @@
         "period_month": 8
       },
       "relationships": {
-        "latest_submission": {
+        "active_submission": {
           "data": {
             "type": "submissions",
             "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
@@ -143,7 +143,7 @@
         "period_month": 7
       },
       "relationships": {
-        "latest_submission": {
+        "active_submission": {
           "data": {
             "type": "submissions",
             "id": "43dfbd10-1c17-4f3c-8665-be8c2776249b"

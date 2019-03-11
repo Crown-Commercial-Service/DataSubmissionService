@@ -134,12 +134,12 @@ module ApiHelpers
   end
 
   def mock_task_with_invalid_submission_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=latest_submission"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_invalid_submission.json'))
   end
 
   def mock_task_with_valid_submission_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=latest_submission"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_valid_submission.json'))
   end
 
@@ -148,7 +148,7 @@ module ApiHelpers
       .with(query: hash_including(filter: hash_including('status' => ['unstarted', 'in_progress'])))
       .to_return(
         headers: json_headers,
-        body: json_fixture_file('incomplete_tasks_with_framework_and_latest_submission.json')
+        body: json_fixture_file('incomplete_tasks_with_framework_and_active_submission.json')
       )
   end
 
@@ -157,7 +157,7 @@ module ApiHelpers
       .with(query: hash_including(filter: hash_including('status' => 'completed')))
       .to_return(
         headers: json_headers,
-        body: json_fixture_file('complete_tasks_with_framework_and_latest_submission.json')
+        body: json_fixture_file('complete_tasks_with_framework_and_active_submission.json')
       )
   end
 
@@ -168,12 +168,12 @@ module ApiHelpers
   end
 
   def mock_completed_task_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
   end
 
   def mock_completed_task_with_no_business_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,latest_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
   end
 
