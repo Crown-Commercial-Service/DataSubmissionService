@@ -1,7 +1,7 @@
 module API
   class Task < Base
     has_one :framework
-    has_one :latest_submission, class_name: 'API::Submission'
+    has_one :active_submission, class_name: 'API::Submission'
 
     custom_endpoint :no_business, on: :member, request_method: :post
 
@@ -10,7 +10,7 @@ module API
     end
 
     def errors?
-      (latest_submission.try(:status) == 'validation_failed') || false
+      (active_submission.try(:status) == 'validation_failed') || false
     end
 
     def late?
@@ -22,9 +22,9 @@ module API
     end
 
     def completed_at
-      return unless latest_submission.submitted_at
+      return unless active_submission.submitted_at
 
-      Time.zone.parse(latest_submission.submitted_at).to_s(:date_with_utc_time)
+      Time.zone.parse(active_submission.submitted_at).to_s(:date_with_utc_time)
     end
   end
 end

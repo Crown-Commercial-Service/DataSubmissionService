@@ -13,14 +13,14 @@ RSpec.describe API::Task do
   describe '#errors?' do
     it 'returns true if the latest submission is errored' do
       mock_task_with_invalid_submission_endpoint!
-      task_with_invalid_submission = API::Task.includes(:latest_submission).find(mock_task_id).first
+      task_with_invalid_submission = API::Task.includes(:active_submission).find(mock_task_id).first
 
       expect(task_with_invalid_submission.errors?).to be_truthy
     end
 
     it 'returns false if the latest submission is not errored' do
       mock_task_with_valid_submission_endpoint!
-      task_with_valid_submission = API::Task.includes(:latest_submission).find(mock_task_id).first
+      task_with_valid_submission = API::Task.includes(:active_submission).find(mock_task_id).first
 
       expect(task_with_valid_submission.errors?).to be_falsy
     end
