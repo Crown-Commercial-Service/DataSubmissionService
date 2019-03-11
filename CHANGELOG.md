@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-35] - 2019-03-11
+
+- Use active_submission instead of latest_submission
+
 ## [release-34] - 2019-03-05
 
 - Users can download their submission files
@@ -190,6 +194,7 @@
 
 Initial release
 
+[release-35]: https://github.com/dxw/DataSubmissionService/compare/release-34...release-35
 [release-34]: https://github.com/dxw/DataSubmissionService/compare/release-33...release-34
 [release-33]: https://github.com/dxw/DataSubmissionService/compare/release-32...release-33
 [release-32]: https://github.com/dxw/DataSubmissionService/compare/release-31...release-32
