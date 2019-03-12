@@ -17,6 +17,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       visit '/tasks'
       click_on 'Report management information'
 
+      expect(page).to_not have_content 'This is a correction'
       expect do
         attach_file 'upload', Rails.root.join('spec', 'fixtures', 'uploads', 'empty.xlsx')
         click_button 'Upload'
