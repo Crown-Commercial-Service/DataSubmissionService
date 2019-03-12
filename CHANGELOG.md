@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-36] - 2019-03-12
+
+- Supplier can correct a submission by uploading an MI return
+- Set the class of the show task report no business
+- Refactor/switch to `reportmi` frontend
+
 ## [release-35] - 2019-03-11
 
 - Use active_submission instead of latest_submission
@@ -194,6 +200,7 @@
 
 Initial release
 
+[release-36]: https://github.com/dxw/DataSubmissionService/compare/release-35...release-36
 [release-35]: https://github.com/dxw/DataSubmissionService/compare/release-34...release-35
 [release-34]: https://github.com/dxw/DataSubmissionService/compare/release-33...release-34
 [release-33]: https://github.com/dxw/DataSubmissionService/compare/release-32...release-33
