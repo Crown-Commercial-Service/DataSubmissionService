@@ -1,7 +1,5 @@
 - page_title "Review & submit: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= render partial: 'shared/this_is_a_correction' if correction?
-
 .govuk-grid-row
   .govuk-grid-column-full
     = render 'shared/task_signpost', task: @task
@@ -10,6 +8,8 @@
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Review & submit
+
+    = render partial: 'shared/this_is_a_correction' if correction?
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds

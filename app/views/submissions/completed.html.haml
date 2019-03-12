@@ -3,13 +3,14 @@
 - else
   - page_title "Task complete: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= render partial: 'shared/this_is_a_correction' if correction?
-
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
         Task complete
+
+      = render partial: 'shared/this_is_a_correction' if correction?
+
       .govuk-panel__body
         - if @submission.report_no_business?
           Thank you for reporting no business for
