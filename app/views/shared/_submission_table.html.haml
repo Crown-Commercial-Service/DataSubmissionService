@@ -1,0 +1,24 @@
+%table.govuk-table
+  %caption.govuk-table__caption.govuk-visually-hidden
+    Submission
+  %thead.govuk-table__head
+    %tr.govuk-table__row
+      %th.govuk-table__header{ scope: 'col' } Submitted
+      %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Rows
+      %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Total
+
+  %tbody.govuk-table__body
+    %tr.govuk-table__row
+      %th.govuk-table__header{ scope: 'row' }
+        Contracts
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = @submission.order_count
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = number_to_currency(@submission.order_total_value, unit: '£')
+    %tr.govuk-table__row
+      %th.govuk-table__header{ scope: 'row' }
+        Invoices
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = submission.invoice_count
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = number_to_currency(@submission.invoice_total_value, unit: '£')
