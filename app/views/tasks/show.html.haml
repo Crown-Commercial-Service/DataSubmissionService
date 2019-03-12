@@ -1,3 +1,5 @@
+- page_title "#{@task.framework.short_name} #{@task.framework.name} for #{@task.reporting_period}"
+
 .govuk-grid-row
   .govuk-grid-column-full
     = link_to 'Back', history_tasks_path, { class: 'govuk-back-link', title: 'Back to your task history' }
@@ -36,45 +38,35 @@
           %dd.govuk-summary-list__value
             = @task.supplier_name
 
+      - if @submission.purchase_order_number.present?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Purchase order number
+          %dd.govuk-summary-list__value
+            = @submission.purchase_order_number
+
+      - if !@submission.report_no_business?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Filename
+          %dd.govuk-summary-list__value
+            = link_to(@file.filename, download_task_submission_path(@task, @submission))
+
 .govuk-grid-row
   .govuk-grid-column-full
-    %h2.govuk-heading-m
-      Submitted management information
-
     - if @submission.report_no_business?
       %p.ccs-return.ccs-return--no-business
         You reported no business
     - else
-      %dl.govuk-summary-list.govuk-summary-list--no-border
-        - if @submission.purchase_order_number.present?
-          .govuk-summary-list__row
-            %dt.govuk-summary-list__key
-              Purchase order number
-            %dd.govuk-summary-list__value
-              = @submission.purchase_order_number
+      = render(partial: 'shared/submission_table', object: @submission, as: 'submission')
 
-      %table.govuk-table
-        %thead.govuk-table__head
-          %tr.govuk-table__row
-            %th.govuk-table__header{ scope: 'col' } Filename
-            %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Invoices
-            %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Contracts
-        %tbody.govuk-table__body
-          %tr.govuk-table__row
-            %td.govuk-table__cell
-              = link_to(@file.filename, download_task_submission_path(@task, @submission))
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = pluralize(@submission.invoice_count, 'row')
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = pluralize(@submission.order_count, 'row')
-          %tr.govuk-table__row
-            %td.govuk-table__cell
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = number_to_currency(@submission.invoice_total_value, unit: '£')
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = number_to_currency(@submission.order_total_value, unit: '£')
+- if correction_returns_enabled?
+  .govuk-grid-row
+    .govuk-grid-column-full
+      %hr.govuk-section-break.govuk-section-break--l
 
-    - if correction_returns_enabled?
+  .govuk-grid-row
+    .govuk-grid-column-two-thirds
       %h2.govuk-heading-m
         If this looks incorrect
       %p
@@ -83,9 +75,7 @@
         - else
           You can replace this return with a corrected one or report no business.
 
-      .govuk-grid-row
-        .govuk-grid-column-full
-          = link_to 'Correct this return', correct_task_path(@task), { class: 'govuk-button' }
+      = link_to 'Correct this return', correct_task_path(@task), { class: 'govuk-button' }
 
 .govuk-grid-row
   .govuk-grid-column-full
