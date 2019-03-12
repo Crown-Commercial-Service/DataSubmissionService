@@ -1,3 +1,5 @@
+- page_title "#{@task.framework.short_name} #{@task.framework.name} for #{@task.reporting_period} Correction "
+
 .govuk-grid-row
   .govuk-grid-column-full
     = link_to 'Back', history_tasks_path, { class: 'govuk-back-link', title: 'Back to your task history' }
@@ -6,7 +8,8 @@
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Correction
-
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     %dl.govuk-summary-list.govuk-summary-list--no-border
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
@@ -21,12 +24,6 @@
         %dd.govuk-summary-list__value
           = @task.reporting_period
 
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Reported
-        %dd.govuk-summary-list__value
-          = @task.completed_at
-
       - if current_user.multiple_suppliers?
         .govuk-summary-list__row
           %dt.govuk-summary-list__key
@@ -37,50 +34,52 @@
     %p
       You will need to pay the management charge from the incorrect return unless a successful corrected return is made.
 
-    - unless @submission.report_no_business?
-      .govuk-grid-row
-        .govuk-grid-column-full
-          = link_to 'Report no business', new_task_no_business_path(@task, correction: true), class: 'govuk-button'
-    .govuk-grid-row
-      .govuk-grid-column-full
-        = link_to 'Correct this return', new_task_submission_path(@task, correction: true), class: 'govuk-button'
+.govuk-grid-row
+  .govuk-grid-column-full
 
-    %h2.govuk-heading-m
+    %hr.govuk-section-break.govuk-section-break--l
+
+    = link_to 'Correct this return', new_task_submission_path(@task, correction: true), class: ['govuk-button', 'govuk-!-margin-right-6']
+    - unless @submission.report_no_business?
+      = link_to 'Report no business', new_task_no_business_path(@task, correction: true), class: 'govuk-button'
+.govuk-grid-row
+  .govuk-grid-column-full
+    %hr.govuk-section-break.govuk-section-break--l.govuk-section-break--visible
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h2.govuk-heading-l
       Incorrect return
 
-    - if @submission.report_no_business?
-      %p
+- if @submission.report_no_business?
+  .govuk-grid-row
+    .govuk-grid-column-full
+      %p.ccs-return.ccs-return--no-business
         You reported no business
-    - else
+- else
+  .govuk-grid-row
+    .govuk-grid-column-three-quarters
       %dl.govuk-summary-list.govuk-summary-list--no-border
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Reported
+          %dd.govuk-summary-list__value
+            = @task.completed_at
         - if @submission.purchase_order_number.present?
           .govuk-summary-list__row
             %dt.govuk-summary-list__key
               Purchase order number
             %dd.govuk-summary-list__value
               = @submission.purchase_order_number
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Filename
+          %dd.govuk-summary-list__value
+            = link_to(@file.filename, download_task_submission_path(@task, @submission))
 
-      %table.govuk-table
-        %thead.govuk-table__head
-          %tr.govuk-table__row
-            %th.govuk-table__header{ scope: 'col' } Filename
-            %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Invoices
-            %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Contracts
 
-        %tbody.govuk-table__body
-          %tr.govuk-table__row
-            %td.govuk-table__cell
-              = @file.filename
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = pluralize(@submission.invoice_count, 'row')
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = pluralize(@submission.order_count, 'row')
-          %tr.govuk-table__row
-            %td.govuk-table__cell
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = number_to_currency(@submission.invoice_total_value, unit: '£')
-            %td.govuk-table__cell.govuk-table__cell--numeric
-              = number_to_currency(@submission.order_total_value, unit: '£')
+  .govuk-grid-row
+    .govuk-grid-column-full
+      = render(partial: 'shared/submission_table', object: @submission, as: 'submission')
 
 .govuk-grid-row
   .govuk-grid-column-full
