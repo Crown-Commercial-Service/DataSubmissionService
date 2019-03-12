@@ -93,6 +93,7 @@ RSpec.describe 'the tasks list' do
   context 'when viewing task history' do
     before do
       mock_complete_tasks_endpoint!
+      mock_user_endpoint!
       stub_signed_in_user
       get history_tasks_path
     end
