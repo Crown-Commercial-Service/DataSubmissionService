@@ -10,7 +10,7 @@ class SubmissionsController < ApplicationController
 
     submission = upload_file_submission(task, params[:upload])
 
-    redirect_to task_submission_path(task_id: task.id, id: submission.id)
+    redirect_to task_submission_path(task_id: task.id, id: submission.id, correction: params[:correction])
   end
 
   def show
@@ -33,7 +33,11 @@ class SubmissionsController < ApplicationController
   private
 
   def upload_file_submission(task, upload)
-    submission = API::Submission.create(task_id: task.id, purchase_order_number: params[:purchase_order_number])
+    submission = API::Submission.create(
+      task_id: task.id,
+      purchase_order_number: params[:purchase_order_number],
+      correction: params[:correction]
+    )
     submission_file = API::SubmissionFile.create(submission_id: submission.id)
 
     blob = ActiveStorage::Blob.create_after_upload!(
@@ -52,7 +56,7 @@ class SubmissionsController < ApplicationController
                       .merge(file_id: submission_file.id)
 
     API::SubmissionFileBlob.create(blob_attributes)
-    task.update(status: 'in_progress')
+    task.update(status: 'in_progress') unless correction?
 
     submission
   end

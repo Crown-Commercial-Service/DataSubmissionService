@@ -1,5 +1,7 @@
 - page_title "Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
+= render partial: 'shared/this_is_a_correction' if correction?
+
 .govuk-grid-row
   .govuk-grid-column-full
     = render 'shared/task_signpost', task: @task
@@ -17,7 +19,7 @@
       Accepted file types are Microsoft Excel (.xls or .xlsx).
     %p
       You’ll be able to review a summary of the files before you submit.
-    = form_tag(task_submissions_path(task_id: params[:task_id]), multipart: true) do
+    = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
       .govuk-form-group
         %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
           Choose a file
