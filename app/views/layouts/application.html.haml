@@ -36,10 +36,11 @@
             %a.govuk-link{:href => "https://www.surveymonkey.com/r/9QTDW9P"} feedback
             will help us to improve it.
 
+    .govuk-width-container
       %main{ role: 'main', id: 'main-content', class: 'govuk-main-wrapper'}
 
-      = render 'shared/alert' if flash[:alert]
+        = render 'shared/alert' if flash[:alert]
 
-      = yield
+        = yield
 
     = render 'shared/footer'
