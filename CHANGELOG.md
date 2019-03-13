@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-37] - 2019-03-13
+
+- Update history page based on user research learnings
+- Update replacement returns flow based on user research learnings
+
 ## [release-36] - 2019-03-12
 
 - Supplier can correct a submission by uploading an MI return
@@ -200,6 +205,7 @@
 
 Initial release
 
+[release-37]: https://github.com/dxw/DataSubmissionService/compare/release-36...release-37
 [release-36]: https://github.com/dxw/DataSubmissionService/compare/release-35...release-36
 [release-35]: https://github.com/dxw/DataSubmissionService/compare/release-34...release-35
 [release-34]: https://github.com/dxw/DataSubmissionService/compare/release-33...release-34
