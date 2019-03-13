@@ -28,7 +28,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       expect(page).to have_content 'July 2018'
       expect(page).to_not have_content 'Bobs Cheese Shop'
 
-      click_on 'Report management information', exact: true
+      click_on 'Correct this return', exact: true
       expect(page).to have_content 'This is a correction'
 
       mock_create_submission = mock_create_submission_endpoint!

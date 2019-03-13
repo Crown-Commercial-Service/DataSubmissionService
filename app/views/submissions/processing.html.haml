@@ -1,7 +1,5 @@
 - page_title "Checking file: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= render partial: 'shared/this_is_a_correction' if correction?
-
 = content_for(:head, tag.meta('http-equiv': 'refresh', content: 5))
 
 .govuk-grid-row
@@ -12,6 +10,8 @@
   .govuk-grid-column-full
     %h1.govuk-heading-l
       Checking file…
+
+      = render partial: 'shared/this_is_a_correction' if correction?
 
   = render 'shared/progress_indicator'
 

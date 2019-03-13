@@ -29,5 +29,6 @@ class TasksController < ApplicationController
              .includes(:framework, :active_submission)
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
+             .reverse!
   end
 end

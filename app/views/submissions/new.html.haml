@@ -1,6 +1,6 @@
 - page_title "Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= render partial: 'shared/this_is_a_correction' if correction?
+
 
 .govuk-grid-row
   .govuk-grid-column-full
@@ -10,6 +10,8 @@
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Report management information
+
+    = render partial: 'shared/this_is_a_correction' if correction?
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
