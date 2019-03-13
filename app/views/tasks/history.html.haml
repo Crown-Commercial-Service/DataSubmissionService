@@ -1,25 +1,37 @@
 - page_title 'History'
-.govuk-grid-row
-  .govuk-grid-column-full
-    %h1.govuk-heading-xl
-      History
 
 - if @tasks.blank?
-  %p You have no completed tasks yet.
+  .govuk-grid-row
+    .govuk-grid-column-full
+      %h1.govuk-heading-xl
+        History
+      %p You have no completed tasks yet.
+
 - else
   .govuk-grid-row
     .govuk-grid-column-full
-      %table.govuk-table{:class => 'govuk-!-margin-top-7'}
+      %table.govuk-table
+        %caption.govuk-table__caption.govuk-heading-xl
+          History
         %thead.govuk-table__head
           %tr.govuk-table__row
             %th.govuk-table__header Framework
+            - if current_user.multiple_suppliers?
+              %th.govuk-table__header
+                Supplier
             %th.govuk-table__header Month
-            %th.govuk-table__header Reported
             %th.govuk-table__header Actions
         %tbody.govuk-table__body
           - @tasks.each do |task|
             %tr.govuk-table__row
-              %td.govuk-table__cell= task.framework.name
-              %td.govuk-table__cell= task.reporting_period
-              %td.govuk-table__cell= task.completed_at
-              %td.govuk-table__cell= link_to 'View', task_path(task)
+              %td.govuk-table__cell.ccs-report-table__cell
+                %h2= task.framework.name
+                %p.govuk-body-s
+                  = task.completed_at
+              - if current_user.multiple_suppliers?
+                %td.govuk-table__cell.ccs-report-table__cell
+                  = task.supplier_name
+              %td.govuk-table__cell.ccs-report-table__cell
+                = task.reporting_period
+              %td.govuk-table__cell.ccs-report-table__cell
+                = link_to 'View', task_path(task)
