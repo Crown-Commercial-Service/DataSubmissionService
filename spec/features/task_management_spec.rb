@@ -30,6 +30,11 @@ RSpec.feature 'task management' do
 
     expect(page).to have_content 'Review & submit'
 
+    expect(page).to have_link(
+      'example.xls',
+      href: download_task_submission_path(mock_task_id, mock_submission_id)
+    )
+
     mock_complete_submission_endpoint!
     mock_submission_completed_with_task_endpoint!
     mock_submission_completed_report_mi_endpoint!
