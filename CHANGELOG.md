@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-38] - 2019-03-14
+
+- Don't specify explicit platform for mini_racer gem
+- [Security] Bump rails from 5.2.1.1 to 5.2.2.1
+
 ## [release-37] - 2019-03-13
 
 - Update history page based on user research learnings
@@ -205,6 +210,7 @@
 
 Initial release
 
+[release-38]: https://github.com/dxw/DataSubmissionService/compare/release-37...release-38
 [release-37]: https://github.com/dxw/DataSubmissionService/compare/release-36...release-37
 [release-36]: https://github.com/dxw/DataSubmissionService/compare/release-35...release-36
 [release-35]: https://github.com/dxw/DataSubmissionService/compare/release-34...release-35
