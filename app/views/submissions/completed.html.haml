@@ -17,16 +17,32 @@
         - else
           Thank you for reporting your management information for
         = @task.reporting_period
-    - if current_user.multiple_suppliers?
-      %h3.govuk-heading-s
-        Supplier
-      %p
-        = @task.supplier_name
-    %h3.govuk-heading-s
-      Framework
-    %p
-      = @task.framework.short_name
-      = @task.framework.name
+
+.govuk-grid-row
+  .govuk-grid-column-three-quarters
+    %dl.govuk-summary-list.govuk-summary-list--no-border
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Framework
+        %dd.govuk-summary-list__value
+          = @task.framework.short_name
+          = @task.framework.name
+
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          Month
+        %dd.govuk-summary-list__value
+          = @task.reporting_period
+
+      - if current_user.multiple_suppliers?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Supplier
+          %dd.govuk-summary-list__value
+            = @task.supplier_name
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     %h2.govuk-heading-m
       What happens next
     %p
@@ -34,7 +50,7 @@
     %p
       If you’ve made a mistake or need to amend the management information
       you’ve supplied, email
-      = mail_to(support_email_address)
+      = mail_to support_email_address
       for help.
     %p
-      = link_to 'Home', tasks_path, class: 'button'
+      = link_to 'Home', tasks_path
