@@ -1,7 +1,9 @@
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
-      Report management information to CCS
+      Report management information to
+      %br
+        Crown Commercial Service
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
@@ -12,7 +14,7 @@
       If you didn’t do any business, you still need to let us know.
 
     %p
-      = link_to 'Go to tasks', tasks_path, class: 'button'
+      = link_to 'Go to tasks', tasks_path
 
     %p
       = succeed '.' do
