@@ -13,6 +13,7 @@ these steps when releasing to production:
   - Update [CHANGELOG.md](CHANGELOG.md) to:
      - document the changes in this release in a bullet point form
      - add a link to the diff at the bottom of the file
+  - Document the changes in the commit message as well
   - `git push <your-branch-name>`, e.g. `git push release-45`
   - Create a tag for the release in the format `release-X`
   - Create a pull request for the release with content from the `CHANGELOG.md`

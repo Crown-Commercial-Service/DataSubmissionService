@@ -5,10 +5,35 @@
     "attributes": {
       "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
       "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
+      "task_id": "2d98639e-5260-411f-a5ee-61847a2e067c",
       "invoice_count": 2,
       "order_count": 1,
+      "order_total_value": "1000.00",
+      "invoice_total_value": "2000.00",
       "purchase_order_number": "123",
       "status": "in_review"
+    },
+    "relationships": {
+      "files": {
+        "data": [
+          {
+            "type": "submission_files",
+            "id": "8d0e4289-5fde-4faa-b78e-922846d8460a"
+          }
+        ]
+      }
     }
-  }
+  },
+  "included": [
+    {
+      "id": "8d0e4289-5fde-4faa-b78e-922846d8460a",
+      "type": "submission_files",
+      "attributes": {
+        "submission_id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
+        "temporary_download_url": "http://s3.example.com/example.xls",
+        "filename": "example.xls",
+        "rows": 3
+      }
+    }
+  ]
 }

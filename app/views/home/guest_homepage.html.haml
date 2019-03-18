@@ -1,7 +1,9 @@
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
-      Report management information to CCS
+      Report management information to
+      %br
+        Crown Commercial Service
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
@@ -12,59 +14,39 @@
       %li
         get the template for your framework(s)
       %li
-        report your management information to CCS for a
-        = link_to('selection of frameworks', '/support/frameworks', 'aria-label' => "List of frameworks reporting management information to CCS")
-
+        report your management information to CCS for a selection of frameworks
       %li
         report no business to CCS
     %p
       If you didn’t do any business, you still need to sign in and let us know.
 
-    %h2.govuk-heading-m
-      Before you sign in
-
-    %h3.govuk-heading-s
-      Your account
-
-    %p
-      You’ll need your username and password to sign in to this service.
-
-    %p
-      Your username is the email address that Report Management Information sends notifications to.
-
-    %p
-      If you don’t know or have forgotten your password you can reset it by starting the service and choosing ‘Don't remember your password?’ from the sign in screen.
-
-    %p
-      If you are unable to sign in or do not receive a password reset email from the service contact
-      = support_email_address
-      %br
-      = succeed '.' do
-        = mail_to(support_email_address, 'Email sign in support')
-
-    %h3.govuk-heading-s
-      Check which service to report to
-    %p
-      Check the lists of frameworks that should be submitted through this service:
-      %br
-      = succeed '.' do
-        = link_to('List of frameworks submitted through this service', '/support/frameworks')
-
-    %p
-      For frameworks not listed, use the existing MISO service:
-      %br
-      = succeed '.' do
-        = link_to('MISO service for frameworks not listed', 'https://miso.ccs.cabinetoffice.gov.uk/')
-
-
-    %p
-      If you are unsure about which service to use email
-      %br
-      = support_email_address
-      %br
-      = succeed '.' do
-        = mail_to(support_email_address, 'Email service support')
-
-    %p
-      %br
+    %p{class: 'govuk-!-margin-top-9'}
       = link_to 'Sign in', '/auth/auth0', class: 'govuk-button govuk-button--start', id: 'sign-in', 'aria-label' => "Sign in to the service"
+
+    %h2.govuk-heading-m
+      If you’re having trouble signing in
+
+    %p
+      You’ll need a username and password to sign in to this service. Your username is the email address that gets the notifications.
+
+    %p
+      If you are not able to sign in or do not receive a password reset email, contact
+      = mail_to support_email_address
+      for help.
+
+    %h2.govuk-heading-m
+      Check which frameworks report here
+    %p
+      Check the
+      = link_to 'list of frameworks', '/support/frameworks'
+      that should be reported through this service.
+
+    %p
+      Use the
+      = link_to 'MISO service', 'https://miso.ccs.cabinetoffice.gov.uk/'
+      for all other commercial agreements.
+
+    %p
+      If you are unsure which service to use, you can email
+      = mail_to support_email_address
+      for help.

@@ -1,7 +1,5 @@
 - page_title "Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-
-
 .govuk-grid-row
   .govuk-grid-column-full
     = render 'shared/task_signpost', task: @task
@@ -16,7 +14,9 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %h2.govuk-heading-l
-      Choose a file
+      Upload a file
+    %p
+      Choose a file to upload
     %p
       Accepted file types are Microsoft Excel (.xls or .xlsx).
     %p
@@ -27,10 +27,9 @@
           Choose a file
         = file_field_tag 'upload', required: true, class: 'govuk-file-upload', id: 'submission_file_upload'
       %h2.govuk-heading-l
-        Provide a purchase order number
+        Add a purchase order number
       %p
-        You can optionally attach your own purchase order number to this submission
-        that will appear on your invoice.
+        You have the option of adding a purchase order number to this return, which will appear on your invoice.
       .govuk-form-group
         %label.govuk-label{ :for => 'purchase_order_number' }
           Purchase order number
@@ -38,4 +37,4 @@
           This field is optional.
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
       .govuk-form-group
-        = submit_tag 'Upload and check file', class: 'govuk-button'
+        = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'

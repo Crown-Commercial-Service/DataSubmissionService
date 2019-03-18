@@ -8,8 +8,9 @@
       The following frameworks are submitted through this service.
     %p
       If you are reporting on any other framework, use the existing
-      %a{ :href => 'https://miso.ccs.cabinetoffice.gov.uk/', :title => 'Link to MISO Service' }
-        MISO service
+      = succeed '.' do
+        = link_to 'MISO service', 'https://miso.ccs.cabinetoffice.gov.uk/', :title => 'Link to MISO Service'
+
 .govuk-grid-row
   .govuk-grid-column-full
     = link_to('Back', '/',{ :class => 'govuk-back-link', :title => 'Link to start page'})
