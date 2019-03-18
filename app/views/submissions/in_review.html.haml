@@ -44,4 +44,4 @@
     %p
       If any of this management information looks incorrect, check the data in your spreadsheet and
       = succeed "." do
-        = link_to 'start again', new_task_submission_path(@task.id)
+        = link_to 'start again', new_task_submission_path(@task.id, correction: params[:correction])
