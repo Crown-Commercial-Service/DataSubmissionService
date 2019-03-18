@@ -31,4 +31,13 @@ class TasksController < ApplicationController
              .sort_by! { |t| Date.parse(t.due_on) }
              .reverse!
   end
+
+  def cancel_correction
+    @task = API::Task.find(params[:id]).first
+    @task.cancel_correction
+    redirect_to(
+      task_path(@task),
+      flash: { notice: 'You have successfully cancelled the correction.' }
+    )
+  end
 end

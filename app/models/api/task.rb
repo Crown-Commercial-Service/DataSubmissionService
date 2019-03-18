@@ -5,6 +5,7 @@ module API
     has_one :latest_submission, class_name: 'API::Submission'
 
     custom_endpoint :no_business, on: :member, request_method: :post
+    custom_endpoint :cancel_correction, on: :member, request_method: :patch
 
     def complete?
       status == 'completed'

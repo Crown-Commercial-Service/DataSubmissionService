@@ -41,6 +41,8 @@
 
         = render 'shared/alert' if flash[:alert]
 
+        = render 'shared/notice' if flash[:notice]
+
         = yield
 
     = render 'shared/footer'
