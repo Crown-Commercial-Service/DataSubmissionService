@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-39] - 2019-03-18
+
+- Service copy review implementation
+- Display the submission file name and link to it in review view
+- Page title displays default value
+- Send correction param everywhere and prevent double-clicking buttons
+
 ## [release-38] - 2019-03-14
 
 - Don't specify explicit platform for mini_racer gem
@@ -210,6 +217,7 @@
 
 Initial release
 
+[release-39]: https://github.com/dxw/DataSubmissionService/compare/release-38...release-39
 [release-38]: https://github.com/dxw/DataSubmissionService/compare/release-37...release-38
 [release-37]: https://github.com/dxw/DataSubmissionService/compare/release-36...release-37
 [release-36]: https://github.com/dxw/DataSubmissionService/compare/release-35...release-36
