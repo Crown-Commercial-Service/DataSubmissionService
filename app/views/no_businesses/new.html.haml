@@ -18,4 +18,5 @@
       to report on this framework.
 
     .govuk-form-group
-      = button_to 'Confirm no business', task_no_business_path(task_id: @task, correction: params[:correction]), class: 'govuk-button'
+      = form_tag(task_no_business_path(task_id: @task, correction: params[:correction])) do
+        = submit_tag 'Confirm no business', data: { 'prevent-double-click': true }, class: 'govuk-button'

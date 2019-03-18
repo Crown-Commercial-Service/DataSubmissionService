@@ -37,11 +37,11 @@
   .govuk-grid-column-full
     = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id, correction: params[:correction]), method: :post) do
       .form-group
-        = submit_tag 'Submit management information', class: 'govuk-button'
+        = submit_tag 'Submit management information', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %p
       If any of this management information looks incorrect, check the data in your spreadsheet and
       = succeed "." do
-        = link_to 'start again', new_task_submission_path(@task.id)
+        = link_to 'start again', new_task_submission_path(@task.id, correction: params[:correction])
