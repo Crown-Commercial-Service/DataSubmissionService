@@ -18,7 +18,7 @@ This project uses Postgres, Bundler and Yarn, which will have been installed wit
 
 ### Setting up the project
 
-Copy `.env.development.example` to `.env.development`. This file contains secrets which are not currently available in 1Password - liaise with team members to get the required values.
+Copy `.env.development.example` to `.env.development`. This file contains secrets which are not currently available in 1Password - liaise with team members to get the required values. See [environment-variables.md](/docs/environment-variables.md) for a description of all these environment variables.
 
 Once this is done, use Bundler to set up the project:
 
