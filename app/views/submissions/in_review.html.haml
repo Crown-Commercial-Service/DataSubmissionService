@@ -12,31 +12,33 @@
     = render partial: 'shared/this_is_a_correction' if correction?
 
 .govuk-grid-row
-  .govuk-grid-column-two-thirds
-%p
-  Your file has been checked and is ready to submit.
-- if @submission.purchase_order_number
-  %p.govuk-heading-s
-    Purchase order number:
-    = @submission.purchase_order_number
-%table.govuk-table
-  %thead.govuk-table__head
-    %tr.govuk-table__row
-      %th.govuk-table__cell Filename
-      %th.govuk-table__cell Invoices
-      %th.govuk-table__cell Orders
-  %tbody.govuk-table__body
-    %tr.govuk-table__row
-      %td.govuk-table__cell
-        Uploaded file
-      %td.govuk-table__cell
-        = @submission.invoice_count
-      %td.govuk-table__cell
-        = @submission.order_count
+  .govuk-grid-column-three-quarters
+    %p
+      Your file has been checked and is ready to submit.
 
-= form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id, correction: params[:correction]), method: :post) do
-  .form-group
-    = submit_tag 'Submit management information', class: 'govuk-button'
+    %dl.govuk-summary-list.govuk-summary-list--no-border
+      - if @submission.purchase_order_number.present?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Purchase order number
+          %dd.govuk-summary-list__value
+            = @submission.purchase_order_number
+      .govuk-summary-list__row
+        %dt.govuk-summary-list__key
+          File
+        %dd.govuk-summary-list__value
+          = link_to(@file.filename, download_task_submission_path(@task, @submission))
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = render(partial: 'shared/submission_table', object: @submission, as: 'submission')
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = form_tag(task_submission_complete_path(task_id: @task.id, submission_id: @submission.id, correction: params[:correction]), method: :post) do
+      .form-group
+        = submit_tag 'Submit management information', class: 'govuk-button'
+
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %p

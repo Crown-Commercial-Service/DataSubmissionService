@@ -15,7 +15,8 @@ class SubmissionsController < ApplicationController
 
   def show
     @task = API::Task.includes(:framework).find(params[:task_id]).first
-    @submission = API::Submission.find(params[:id]).first
+    @submission = API::Submission.includes(:files).find(params[:id]).first
+    @file = @submission.files&.first
 
     render template_for_submission(@submission)
   end

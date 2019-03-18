@@ -38,32 +38,32 @@ module ApiHelpers
   end
 
   def mock_submission_pending_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_pending.json'))
   end
 
   def mock_submission_processing_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_processing.json'))
   end
 
   def mock_submission_validated_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_validated.json'))
   end
 
   def mock_submission_errored_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_errored.json'))
   end
 
   def mock_submission_completed_no_business_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed_no_business.json'))
   end
 
   def mock_submission_completed_report_mi_endpoint!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed_report_mi.json'))
   end
 
@@ -73,7 +73,7 @@ module ApiHelpers
   end
 
   def mock_submission_transitioning_to_in_review!
-    stub_request(:get, api_url("submissions/#{mock_submission_id}"))
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_pending.json'))
       .then
       .to_return(headers: json_headers, body: json_fixture_file('submission_validated.json'))
@@ -202,7 +202,7 @@ module ApiHelpers
 
   def mock_create_submission_file_endpoint!
     submission_file = {
-      data:  {
+      data: {
         id: mock_submission_file_id,
         type: 'submission_files',
         attributes: {
