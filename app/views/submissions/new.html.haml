@@ -37,4 +37,4 @@
           This field is optional.
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
       .govuk-form-group
-        = submit_tag 'Upload and check file', class: 'govuk-button'
+        = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
