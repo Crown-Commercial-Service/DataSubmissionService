@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   def index
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
-             .where(status: ['unstarted', 'in_progress'])
-             .includes(:framework, :active_submission)
+             .where(status: ['unstarted', 'in_progress', 'correcting'])
+             .includes(:framework, :active_submission, :latest_submission)
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
   end

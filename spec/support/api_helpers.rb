@@ -153,7 +153,7 @@ module ApiHelpers
 
   def mock_incomplete_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
-      .with(query: hash_including(filter: hash_including('status' => ['unstarted', 'in_progress'])))
+      .with(query: hash_including(filter: hash_including('status' => ['unstarted', 'in_progress', 'correcting'])))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('incomplete_tasks_with_framework_and_active_submission.json')

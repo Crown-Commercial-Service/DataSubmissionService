@@ -76,6 +76,13 @@ RSpec.describe 'the tasks list' do
                       text: 'Download template'
       end
     end
+
+    it 'lists a task with an incomplete correction' do
+      correcting_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1d'
+      assert_select "#task-#{correcting_task_id}" do
+        assert_select '.govuk-tag__notice', text: 'Correction'
+      end
+    end
   end
 
   context 'when signed-in as a user with no tasks' do
