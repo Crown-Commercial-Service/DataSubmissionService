@@ -223,13 +223,13 @@ module ApiHelpers
       .to_return(headers: json_headers, body: submission_file_blob.to_json)
   end
 
-  def mock_update_task_endpoint!
+  def mock_update_task_endpoint!(status: 'in_progress')
     task_params = {
       data: {
         id: mock_task_id,
         type: 'tasks',
         attributes: {
-          status: 'in_progress'
+          status: status
         }
       }
     }

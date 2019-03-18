@@ -57,7 +57,11 @@ class SubmissionsController < ApplicationController
                       .merge(file_id: submission_file.id)
 
     API::SubmissionFileBlob.create(blob_attributes)
-    task.update(status: 'in_progress') unless correction?
+    if correction?
+      task.update(status: 'correcting')
+    else
+      task.update(status: 'in_progress')
+    end
 
     submission
   end
