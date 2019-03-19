@@ -32,8 +32,16 @@ class TasksController < ApplicationController
              .reverse!
   end
 
+  def cancel_correction_confirmation
+    @task = API::Task.includes(:framework).find(params[:id]).first
+
+    redirect_to root_path unless @task.correcting?
+  end
+
   def cancel_correction
     @task = API::Task.find(params[:id]).first
+    redirect_to root_path unless @task.correcting?
+
     @task.cancel_correction
     redirect_to(
       task_path(@task),

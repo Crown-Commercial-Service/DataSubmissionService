@@ -31,7 +31,7 @@
     .ccs-task__action--secondary
       %p
         - if task.correcting?
-          = link_to 'Cancel correction', cancel_correction_task_path(task), method: :patch
+          = link_to 'Cancel correction', cancel_correction_confirmation_task_path(task)
         - else
           = link_to 'Download template', task_template_path(task), {'aria-label' => "Download template for #{task.framework.short_name} #{task.framework.name}"}
     .ccs-task__action--primary

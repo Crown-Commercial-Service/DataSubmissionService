@@ -7,6 +7,10 @@ module ApiHelpers
     '2d98639e-5260-411f-a5ee-61847a2e067c'
   end
 
+  def mock_correcting_task_id
+    'b847e0f7-027e-4b95-afa2-3490b8d05a1d'
+  end
+
   def mock_submission_id
     '9a5ef62c-0781-4f80-8850-5793652b6b40'
   end
@@ -134,6 +138,19 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
   end
 
+  def mock_correcting_task_with_framework_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework"))
+      .to_return(headers: json_headers, body: json_fixture_file('correcting_task_with_framework.json'))
+  end
+
+  def mock_correcting_task_with_framework_and_active_submission_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,active_submission.files"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('correcting_task_with_framework_and_active_submission.json')
+      )
+  end
+
   def mock_task_with_unsafe_short_name_framework_endpoint!
     json = JSON.parse(File.read(json_fixture_file('task_with_framework.json')))
     json['included'][0]['attributes']['short_name'] = 'CBOARD/5'
@@ -178,6 +195,20 @@ module ApiHelpers
   def mock_completed_task_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
+  end
+
+  def mock_task_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}"))
+      .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
+  end
+
+  def mock_correcting_task_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}"))
+      .to_return(headers: json_headers, body: json_fixture_file('correcting_task.json'))
+  end
+
+  def mock_correction_cancellation_endpoint!
+    stub_request(:patch, api_url("tasks/#{mock_correcting_task_id}/cancel_correction"))
   end
 
   def mock_completed_task_with_no_business_endpoint!
