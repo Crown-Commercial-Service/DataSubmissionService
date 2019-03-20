@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery
 //= require activestorage
 //= require govuk-frontend/all.js
 //= require_tree .
