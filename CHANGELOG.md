@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-40] - 2019-03-20
+
+- Removal of JQuery/CoffeeScript dependencies
+
 ## [release-39] - 2019-03-18
 
 - Service copy review implementation
@@ -217,6 +221,7 @@
 
 Initial release
 
+[release-40]: https://github.com/dxw/DataSubmissionService/compare/release-39...release-40
 [release-39]: https://github.com/dxw/DataSubmissionService/compare/release-38...release-39
 [release-38]: https://github.com/dxw/DataSubmissionService/compare/release-37...release-38
 [release-37]: https://github.com/dxw/DataSubmissionService/compare/release-36...release-37
