@@ -79,8 +79,12 @@ RSpec.describe 'the tasks list' do
 
     it 'lists a task with an incomplete correction' do
       correcting_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1d'
+      correcting_submission_id = '43dfbd10-1c17-4f3c-8665-be8c27762923'
       assert_select "#task-#{correcting_task_id}" do
         assert_select '.govuk-tag__notice', text: 'Correction'
+        assert_select 'a[href=?]',
+                      task_submission_path(task_id: correcting_task_id, id: correcting_submission_id),
+                      text: 'View errors'
       end
     end
   end
