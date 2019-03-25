@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
     member do
       get :correct
+      get :cancel_correction_confirmation
+      patch :cancel_correction
     end
     resources :submissions, only: %i[new create show] do
       member do

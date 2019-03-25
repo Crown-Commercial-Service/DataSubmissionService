@@ -1,0 +1,23 @@
+- page_title "#{@task.framework.short_name} #{@task.framework.name} for #{@task.reporting_period} Correction "
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Confirm correction cancellation
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %p
+      By cancelling this correction you will still be required to pay the management charge from the existing submission you made.
+    %p
+      Any correction files uploaded will be deleted.
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    = form_tag cancel_correction_task_path(task_id: @task.id), method: :patch do
+      .form-group
+        = submit_tag 'Cancel correction', data: { 'prevent-double-click': true }, class: 'govuk-button'
