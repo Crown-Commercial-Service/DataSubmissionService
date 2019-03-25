@@ -1,0 +1,75 @@
+{
+  "data": {
+    "id": "b847e0f7-027e-4b95-afa2-3490b8d05a1d",
+    "type": "tasks",
+    "attributes": {
+      "description": null,
+      "due_on": "2030-01-01",
+      "period_month": 7,
+      "period_year": 2018,
+      "status": "correcting",
+      "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
+      "supplier_name": "Bobs Cheese Shop"
+    },
+    "relationships": {
+      "active_submission": {
+        "data": {
+          "type": "submissions",
+          "id": "9a5ef62c-0781-4f80-8850-5793652b6b40"
+        }
+      },
+      "framework": {
+        "data": {
+          "type": "frameworks",
+          "id": "f87717d4-874a-43d9-b99f-c8cf2897b526"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "CBOARD5",
+        "name": "Cheese Board 5"
+      }
+    },
+    {
+      "id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
+      "type": "submissions",
+      "attributes": {
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "task_id": "141ccb6c-b5cb-4b05-9931-bd71d9ec3d96",
+        "report_no_business?": false,
+        "status": "completed",
+        "submitted_at": "2019-02-14T15:39:38.151Z",
+        "purchase_order_number": "PO123",
+        "invoice_count": 42,
+        "order_count": 99,
+        "invoice_total_value": 12345.67,
+        "order_total_value": 987.65
+      },
+      "relationships": {
+        "files": {
+          "data": {
+            "type": "submission_files",
+            "id": "8f62dc3a-4765-48d0-9544-e850ff8c3b80"
+          }
+        }
+      }
+    },
+    {
+      "id": "8f62dc3a-4765-48d0-9544-e850ff8c3b80",
+      "type": "submission_files",
+      "attributes": {
+        "submission_id": "9a5ef62c-0781-4f80-8850-5793652b6b40",
+        "rows": 6,
+        "filename": "RM3786 MISO Data Template (August 2018).xls",
+        "temporary_download_url": "https://s3.example.com/example.xls"
+      }
+    }
+  ]
+}

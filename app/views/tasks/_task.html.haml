@@ -7,6 +7,8 @@
         %strong.govuk-tag.govuk-tag__failure Errors
       - if task.late?
         %strong.govuk-tag.govuk-tag__warning Late
+      - if task.correcting?
+        %strong.govuk-tag.govuk-tag__notice Correction
     .ccs-task__body
       %h2.govuk-heading-s
         Report management information for
@@ -28,11 +30,16 @@
   .ccs-task__action
     .ccs-task__action--secondary
       %p
-        = link_to 'Download template', task_template_path(task), {'aria-label' => "Download template for #{task.framework.short_name} #{task.framework.name}"}
+        - if task.correcting?
+          = link_to 'Cancel correction', cancel_correction_confirmation_task_path(task)
+        - else
+          = link_to 'Download template', task_template_path(task), {'aria-label' => "Download template for #{task.framework.short_name} #{task.framework.name}"}
     .ccs-task__action--primary
       - case task.status
       - when 'in_progress'
         = render 'submission_buttons', task: task, submission: task.active_submission
+      - when 'correcting'
+        = render 'submission_buttons', task: task, submission: task.latest_submission
       - when 'unstarted'
         = link_to 'Report management information', new_task_submission_path(task_id: task.id),  {class: 'govuk-button', 'aria-label' => "Report management information for #{task.supplier_name} on #{task.framework.short_name}"}
         = link_to 'Report no business', new_task_no_business_path(task_id: task.id), {class: 'govuk-button', 'aria-label' => "Report no business for #{task.supplier_name} on #{task.framework.short_name}"}

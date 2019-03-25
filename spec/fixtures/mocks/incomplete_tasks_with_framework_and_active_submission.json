@@ -17,6 +17,9 @@
         "active_submission": {
           "data": null
         },
+        "latest_submission": {
+          "data": null
+        },
         "submissions": {
           "meta": {
             "included": false
@@ -45,6 +48,12 @@
       },
       "relationships": {
         "active_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "63996088-5c20-4e65-b722-287fafeedc97"
+          }
+        },
+        "latest_submission": {
           "data": {
             "type": "submissions",
             "id": "63996088-5c20-4e65-b722-287fafeedc97"
@@ -83,6 +92,12 @@
             "id": "65b11138-8c7e-4427-93a2-c5da3a7c3f9d"
           }
         },
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "65b11138-8c7e-4427-93a2-c5da3a7c3f9d"
+          }
+        },
         "submissions": {
           "meta": {
             "included": false
@@ -111,6 +126,12 @@
       },
       "relationships": {
         "active_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
+          }
+        },
+        "latest_submission": {
           "data": {
             "type": "submissions",
             "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
@@ -147,6 +168,51 @@
           "data": {
             "type": "submissions",
             "id": "43dfbd10-1c17-4f3c-8665-be8c2776249b"
+          }
+        },
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "43dfbd10-1c17-4f3c-8665-be8c2776249b"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1"
+          }
+        }
+      }
+    },
+    {
+      "id": "b847e0f7-027e-4b95-afa2-3490b8d05a1d",
+      "type": "tasks",
+      "attributes": {
+        "status": "correcting",
+        "framework_id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "supplier_name": "Bobs Cheese Shop",
+        "description": null,
+        "due_on": "2017-08-07",
+        "period_year": 2017,
+        "period_month": 7
+      },
+      "relationships": {
+        "active_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "43dfbd10-1c17-4f3c-8665-be8c27762999"
+          }
+        },
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "43dfbd10-1c17-4f3c-8665-be8c27762923"
           }
         },
         "submissions": {
@@ -291,6 +357,66 @@
       "type": "submissions",
       "attributes": {
         "status": "validation_failed",
+        "submitted_at": null
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "43dfbd10-1c17-4f3c-8665-be8c27762923",
+      "type": "submissions",
+      "attributes": {
+        "status": "validation_failed",
+        "submitted_at": null
+      },
+      "relationships": {
+        "framework": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "entries": {
+          "meta": {
+            "included": false
+          }
+        },
+        "files": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "43dfbd10-1c17-4f3c-8665-be8c27762999",
+      "type": "submissions",
+      "attributes": {
+        "status": "completed",
         "submitted_at": null
       },
       "relationships": {

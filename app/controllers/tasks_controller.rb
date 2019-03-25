@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   def index
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
-             .where(status: ['unstarted', 'in_progress'])
-             .includes(:framework, :active_submission)
+             .where(status: ['unstarted', 'in_progress', 'correcting'])
+             .includes(:framework, :active_submission, :latest_submission)
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
   end
@@ -30,5 +30,22 @@ class TasksController < ApplicationController
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
              .reverse!
+  end
+
+  def cancel_correction_confirmation
+    @task = API::Task.includes(:framework).find(params[:id]).first
+
+    redirect_to root_path unless @task.correcting?
+  end
+
+  def cancel_correction
+    @task = API::Task.find(params[:id]).first
+    redirect_to root_path unless @task.correcting?
+
+    @task.cancel_correction
+    redirect_to(
+      task_path(@task),
+      flash: { notice: 'You have successfully cancelled the correction.' }
+    )
   end
 end
