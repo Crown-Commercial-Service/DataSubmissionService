@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-41] - 2019-03-25
+
+- Show incomplete correction submissions
+- Allow cancellation of incomplete correction submissions
+
 ## [release-40] - 2019-03-20
 
 - Removal of JQuery/CoffeeScript dependencies
@@ -221,6 +226,7 @@
 
 Initial release
 
+[release-41]: https://github.com/dxw/DataSubmissionService/compare/release-40...release-41
 [release-40]: https://github.com/dxw/DataSubmissionService/compare/release-39...release-40
 [release-39]: https://github.com/dxw/DataSubmissionService/compare/release-38...release-39
 [release-38]: https://github.com/dxw/DataSubmissionService/compare/release-37...release-38
