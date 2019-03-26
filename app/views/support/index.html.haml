@@ -28,13 +28,24 @@
       %li
         screenshots of any error screens or messages
     %p
-      = succeed '.' do
-        If you’ve made a mistake or need to amend the management information you’ve supplied, email
-        = mail_to support_email_address
-    %p
       If you have a general question about the service, please contact the team at the same address, including ‘general question’ in the subject line of your email.
     %p
       To tell us about your experience of the service you can complete our <a href="https://www.surveymonkey.com/r/9QTDW9P">short feedback survey</a>. Alternatively contact the team on
       = mail_to support_email_address
       with ‘feedback’ in the subject line of your email.
+
+    %h2.govuk-heading-l
+      Correcting management information
+
+    %p
+      You can replace management information if it is incorrect.
+
+    %p
+      Find the return in your
+      = link_to 'history', history_tasks_path
+      and follow the steps to correct the return.
+
+    %p
+      Please note: you will need to pay the management charge from the incorrect return unless a corrected return is made. Once your management information has been corrected you will be issued a credit note.
+
 
