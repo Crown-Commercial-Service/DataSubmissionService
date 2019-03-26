@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-42] - 2019-03-26
+
+- Updated content for support page with correction returns
+
 ## [release-41] - 2019-03-25
 
 - Show incomplete correction submissions
@@ -226,6 +230,7 @@
 
 Initial release
 
+[release-42]: https://github.com/dxw/DataSubmissionService/compare/release-41...release-42
 [release-41]: https://github.com/dxw/DataSubmissionService/compare/release-40...release-41
 [release-40]: https://github.com/dxw/DataSubmissionService/compare/release-39...release-40
 [release-39]: https://github.com/dxw/DataSubmissionService/compare/release-38...release-39
