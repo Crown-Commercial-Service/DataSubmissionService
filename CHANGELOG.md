@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-43] - 2019-03-28
+
+- Update URN list to 27/03/2019 version
+- Add April frameworks and templates
+
 ## [release-42] - 2019-03-26
 
 - Updated content for support page with correction returns
@@ -230,6 +235,7 @@
 
 Initial release
 
+[release-43]: https://github.com/dxw/DataSubmissionService/compare/release-42...release-43
 [release-42]: https://github.com/dxw/DataSubmissionService/compare/release-41...release-42
 [release-41]: https://github.com/dxw/DataSubmissionService/compare/release-40...release-41
 [release-40]: https://github.com/dxw/DataSubmissionService/compare/release-39...release-40
