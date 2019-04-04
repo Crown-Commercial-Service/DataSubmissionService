@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-44] - 2019-04-04
+
+- Update RM3788 Excel template to 3/4/2019 version
+
 ## [release-43] - 2019-03-28
 
 - Update URN list to 27/03/2019 version
@@ -235,6 +239,7 @@
 
 Initial release
 
+[release-44]: https://github.com/dxw/DataSubmissionService/compare/release-43...release-44
 [release-43]: https://github.com/dxw/DataSubmissionService/compare/release-42...release-43
 [release-42]: https://github.com/dxw/DataSubmissionService/compare/release-41...release-42
 [release-41]: https://github.com/dxw/DataSubmissionService/compare/release-40...release-41
