@@ -38,3 +38,6 @@
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
+    %p
+      Have no business to report?
+      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
