@@ -1,0 +1,12 @@
+---
+applications:
+  - name: ccs-rmi-app-bobtest
+    services:
+      - ccs-rmi-app-bobtest
+      - AUTH0
+      - SKYLIGHT
+      - ROLLBAR
+      - DSSAPI
+      - APP_SECRETBASE  
+
+
