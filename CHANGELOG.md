@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-45] - 2019-04-09
+
+- Allow users to replace return in errors with no business
+
 ## [release-44] - 2019-04-04
 
 - Update RM3788 Excel template to 3/4/2019 version
@@ -239,6 +243,7 @@
 
 Initial release
 
+[release-45]: https://github.com/dxw/DataSubmissionService/compare/release-44...release-45
 [release-44]: https://github.com/dxw/DataSubmissionService/compare/release-43...release-44
 [release-43]: https://github.com/dxw/DataSubmissionService/compare/release-42...release-43
 [release-42]: https://github.com/dxw/DataSubmissionService/compare/release-41...release-42
