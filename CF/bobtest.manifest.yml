@@ -3,10 +3,11 @@ applications:
   - name: ccs-rmi-app-bobtest
     services:
       - ccs-rmi-app-bobtest
+      - ingest-bucket-bobtest
       - AUTH0
       - SKYLIGHT
       - ROLLBAR
       - DSSAPI
-      - APP_SECRETBASE  
+      - APP_SECRETBASE
 
 
