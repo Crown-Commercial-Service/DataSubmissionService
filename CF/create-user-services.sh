@@ -1,88 +1,81 @@
 #!/bin/bash
 # script to create user services.
 
+# exit on failures
+set -e
+set -o pipefail
+
+usage() {
+  echo "Usage: $(basename "$0") [OPTIONS]" 1>&2
+  echo "  -h                    - help"
+  echo "  -u <CF_USER>          - CloudFoundry user             (required)"
+  echo "  -p <CF_PASS>          - CloudFoundry password         (required)"
+  echo "  -o <CF_ORG>           - CloudFoundry org              (required)"
+  echo "  -s <CF_SPACE>         - CloudFoundry space to create  (required)"
+  echo "  -a <CF_API_ENDPOINT>  - CloudFoundry API endpoint     (default: https://api.london.cloud.service.gov.uk)"
+  exit 1
+}
+
+CF_API_ENDPOINT="https://api.london.cloud.service.gov.uk"
+
+while getopts "a:u:p:o:s:h" opt; do
+  case $opt in
+    u)
+      CF_USER=$OPTARG
+      ;;
+    p)
+      CF_PASS=$OPTARG
+      ;;
+    o)
+      CF_ORG=$OPTARG
+      ;;
+    s)
+      CF_SPACE=$OPTARG
+      ;;
+    a)
+      CF_API_ENDPOINT=$OPTARG
+      ;;
+    h)
+      usage
+      exit;;
+    *)
+      usage
+      exit;;
+  esac
+done
+
+if [[ -z "$CF_USER" || -z "$CF_PASS" || -z "$CF_ORG" || -z "$CF_SPACE" ]]; then
+  usage
+fi
 
 # login
-cf login -u $CF_USER -p $CF_PASS -o ccs-report-management-info -s bobtest
+cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -s "$CF_SPACE" -a "$CF_API_ENDPOINT"
 
 # source environment variables
-pwd
-source .env.cf.bobtest
-#create user service for skylight
-echo "{\"SKYLIGHT_ENV\":\"$SKYLIGHT_ENV\",\"SKYLIGHT_AUTHENTICATION\":\"$SKYLIGHT_AUTHENTICATION\"}" > /tmp/skylight.json
-if ! cf services | grep -q SKYLIGHT
-then
-  cf create-user-provided-service SKYLIGHT -p /tmp/skylight.json
-else
+source .env.cf."$CF_SPACE"
 
-cf update-user-provided-service SKYLIGHT -p /tmp/skylight.json
-fi
-rm /tmp/skylight.json
+# create user services from user-services.json
+USER_SERVICES=$(cat user-services.json)
+USER_SERVICES_LENGTH=$(echo $USER_SERVICES | jq -r 'length')
 
-#create user service for Rollbar
-echo "{\"ROLLBAR_ENV\":\"$ROLLBAR_ENV\",\"ROLLBAR_ACCESS_TOKEN\":\"$ROLLBAR_ACCESS_TOKEN\"}" > /tmp/rollbar.json
-if ! cf services | grep -q ROLLBAR
-then
-  cf create-user-provided-service ROLLBAR -p /tmp/rollbar.json
-else
-  cf update-user-provided-service ROLLBAR -p /tmp/rollbar.json
-fi
-rm /tmp/rollbar.json
-#create user service for AUTH0
-echo "{\"AUTH0_DOMAIN\":\"$AUTH0_DOMAIN\",\"AUTH0_CLIENT_ID\":\"$AUTH0_CLIENT_ID\",\"AUTH0_CLIENT_SECRET\":\"$AUTH0_CLIENT_SECRET\"}" >/tmp/AUTH0.json
-if ! cf services | grep -q AUTH0
-then
-  cf create-user-provided-service AUTH0 -p /tmp/AUTH0.json
-else
-  cf update-user-provided-service AUTH0 -p /tmp/AUTH0.json
-fi
-rm /tmp/AUTH0.json
-#create user service for API
-echo "{\"API_ROOT\":\"$API_ROOT\",\"API_PASSWORD\":\"$API_PASSWORD\"}" > /tmp/api.json
-if ! cf services | grep -q DSSAPI
-then
-  cf create-user-provided-service DSSAPI -p /tmp/api.json
-else
-cf update-user-provided-service DSSAPI -p /tmp/api.json
+for i in `seq 0 $(($USER_SERVICES_LENGTH - 1))`; do
+  SERVICE_NAME=$(echo $USER_SERVICES | jq -r --argjson i "$i" '.[$i].service_name')
+  SERVICE_ENV=$(echo $USER_SERVICES | jq -r --argjson i "$i" '.[$i].env')
+  SERVICE_ENV_LENGTH=$(echo $SERVICE_ENV | jq -r 'length')
+  LINE="{"
+  for j in `seq 0 $(($SERVICE_ENV_LENGTH - 1))`; do
+    SE=$(echo $SERVICE_ENV | jq -r --argjson j "$j" '.[$j]')
+    LINE+="\"$SE\":\"${!SE}\""
+    if [[ $j == $(($SERVICE_ENV_LENGTH - 1)) ]]; then
+      LINE+="}"
+    else
+      LINE+=","
+    fi
+  done
+  echo "$LINE" > /tmp/$SERVICE_NAME.json
+  if ! cf services $SERVICE_NAME > /dev/null; then
+    cf create-user-provided-service $SERVICE_NAME -p /tmp/$SERVICE_NAME.json
+  else
+    cf update-user-provided-service $SERVICE_NAME -p /tmp/$SERVICE_NAME.json
   fi
-rm /tmp/api.json 
-
-#create user service for APP_SECRETBASE
-echo "{\"SECRET_KEY_BASE\":\"$SECRET_KEY_BASE\"}" > /tmp/appsecretbase.json
-if ! cf services | grep -q APP_SECRETBASE
-then
-  cf create-user-provided-service APP_SECRETBASE -p /tmp/appsecretbase.json
-else
-cf update-user-provided-service APP_SECRETBASE -p /tmp/appsecretbase.json
-fi
-rm /tmp/appsecretbase.json
-# create google auth service
-echo "{\"GOOGLE_CLIENT_ID\":\"$GOOGLE_CLIENT_ID\",\"GOOGLE_CLIENT_SECRET\":\"$GOOGLE_CLIENT_SECRET\"}" > /tmp/googleclient.json
-
-if ! cf services | grep -q GOOGLE_CLIENT
-then
-  cf create-user-provided-service GOOGLE_CLIENT -p /tmp/googleclient.json
-else
-cf update-user-provided-service GOOGLE_CLIENT -p /tmp/googleclient.json
-fi
-rm /tmp/googleclient.json
-# create workday service
-echo "{\"WORKDAY_API_USERNAME\":\"$WORKDAY_API_USERNAME\",\"WORKDAY_API_PASSWORD\":\"$WORKDAY_API_PASSWORD\"}" > /tmp/workday.json
-
-if ! cf services | grep -q WORKDAY_API
-then
-  cf create-user-provided-service WORKDAY_API -p /tmp/workday.json
-else
-cf update-user-provided-service WORKDAY_API -p /tmp/workday.json
-fi
-rm /tmp/workday.json
-# create sidekiq service
-echo "{\"SIDEKIQ_USERNAME\":\"$SIDEKIQ_USERNAME\",\"SIDEKIQ_PASSWORD\":\"$SIDEKIQ_PASSWORD\"}" > /tmp/sidekiq.json
-
-if ! cf services | grep -q SIDEKIQ
-then
-  cf create-user-provided-service SIDEKIQ -p /tmp/sidekiq.json
-else
-cf update-user-provided-service SIDEKIQ -p /tmp/sidekiq.json
-fi
-rm /tmp/sidekiq.json
+done

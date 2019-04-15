@@ -1,0 +1,57 @@
+[
+  {
+    "service_name": "SKYLIGHT",
+    "env": [
+      "SKYLIGHT_ENV",
+      "SKYLIGHT_AUTHENTICATION"
+    ]
+  },
+  {
+    "service_name": "ROLLBAR",
+    "env": [
+      "ROLLBAR_ENV",
+      "ROLLBAR_ACCESS_TOKEN"
+    ]
+  },
+  {
+    "service_name": "AUTH0",
+    "env": [
+      "AUTH0_DOMAIN",
+      "AUTH0_CLIENT_ID"
+    ]
+  },
+  {
+    "service_name": "DSSAPI",
+    "env": [
+      "API_ROOT",
+      "API_PASSWORD"
+    ]
+  },
+  {
+    "service_name": "APP_SECRETBASE",
+    "env": [
+      "SECRET_KEY_BASE"
+    ]
+  },
+  {
+    "service_name": "GOOGLE_CLIENT",
+    "env": [
+      "GOOGLE_CLIENT_ID",
+      "GOOGLE_CLIENT_SECRET"
+    ]
+  },
+  {
+    "service_name": "WORKDAY_API",
+    "env": [
+      "WORKDAY_API_USERNAME",
+      "WORKDAY_API_PASSWORD"
+    ]
+  },
+  {
+    "service_name": "SIDEKIQ",
+    "env": [
+      "SIDEKIQ_USERNAME",
+      "SIDEKIQ_PASSWORD"
+    ]
+  }
+]
