@@ -1,0 +1,13 @@
+---
+applications:
+  - name: ccs-rmi-app-CF_SPACE
+    services:
+      - ccs-rmi-app-CF_SPACE
+      - ingest-bucket-CF_SPACE
+      - AUTH0
+      - SKYLIGHT
+      - ROLLBAR
+      - DSSAPI
+      - APP_SECRETBASE
+
+
