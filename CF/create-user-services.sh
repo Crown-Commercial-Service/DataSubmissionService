@@ -56,3 +56,33 @@ else
 cf update-user-provided-service APP_SECRETBASE -p /tmp/appsecretbase.json
 fi
 rm /tmp/appsecretbase.json
+# create google auth service
+echo "{\"GOOGLE_CLIENT_ID\":\"$GOOGLE_CLIENT_ID\",\"GOOGLE_CLIENT_SECRET\":\"$GOOGLE_CLIENT_SECRET\"}" > /tmp/googleclient.json
+
+if ! cf services | grep -q GOOGLE_CLIENT
+then
+  cf create-user-provided-service GOOGLE_CLIENT -p /tmp/googleclient.json
+else
+cf update-user-provided-service GOOGLE_CLIENT -p /tmp/googleclient.json
+fi
+rm /tmp/googleclient.json
+# create workday service
+echo "{\"WORKDAY_API_USERNAME\":\"$WORKDAY_API_USERNAME\",\"WORKDAY_API_PASSWORD\":\"$WORKDAY_API_PASSWORD\"}" > /tmp/workday.json
+
+if ! cf services | grep -q WORKDAY_API
+then
+  cf create-user-provided-service WORKDAY_API -p /tmp/workday.json
+else
+cf update-user-provided-service WORKDAY_API -p /tmp/workday.json
+fi
+rm /tmp/workday.json
+# create sidekiq service
+echo "{\"SIDEKIQ_USERNAME\":\"$SIDEKIQ_USERNAME\",\"SIDEKIQ_PASSWORD\":\"$SIDEKIQ_PASSWORD\"}" > /tmp/sidekiq.json
+
+if ! cf services | grep -q SIDEKIQ
+then
+  cf create-user-provided-service SIDEKIQ -p /tmp/sidekiq.json
+else
+cf update-user-provided-service SIDEKIQ -p /tmp/sidekiq.json
+fi
+rm /tmp/sidekiq.json
