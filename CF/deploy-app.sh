@@ -66,7 +66,7 @@ sed "s/CF_SPACE/$CF_SPACE/g" manifest-template.yml > "$CF_SPACE.manifest.yml"
 
 # push
 cd .. || exit
-if cf apps | grep -q ccs-rmi-app-"$CF_SPACE"; then
+if cf app ccs-rmi-app-"$CF_SPACE"; then
   cf blue-green-deploy ccs-rmi-app-"$CF_SPACE" -f cf/"$CF_SPACE".manifest.yml
 else
   cf push -f cf/"$CF_SPACE".manifest.yml
