@@ -79,3 +79,10 @@ for i in `seq 0 $(($USER_SERVICES_LENGTH - 1))`; do
     cf create-user-provided-service $SERVICE_NAME -p /tmp/$SERVICE_NAME.json
   fi
 done
+
+# create route to api admin via router
+if cf service ccs-rmi-api-admin-route-$CF_SPACE > /dev/null; then
+  cf update-user-provided-service ccs-rmi-api-admin-route-$CF_SPACE -r https://ccs-rmi-api-admin-router-$CF_SPACE.london.cloudapps.digital
+else
+  cf create-user-provided-service ccs-rmi-api-admin-route-$CF_SPACE -r https://ccs-rmi-api-admin-router-$CF_SPACE.london.cloudapps.digital
+fi
