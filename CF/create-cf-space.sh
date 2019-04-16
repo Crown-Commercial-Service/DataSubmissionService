@@ -15,12 +15,6 @@ usage() {
   exit 1
 }
 
-# if there are no arguments passed exit with usage
-if [ $# -lt 0 ];
-then
- usage
-fi
-
 CF_API_ENDPOINT="https://api.london.cloud.service.gov.uk"
 
 while getopts "a:u:p:o:s:h" opt; do
