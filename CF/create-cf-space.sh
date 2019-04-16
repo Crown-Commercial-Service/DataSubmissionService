@@ -47,6 +47,22 @@ if [[ -z "$CF_USER" || -z "$CF_PASS" || -z "$CF_ORG" || -z "$CF_SPACE" ]]; then
   usage
 fi
 
+POSTGRES_SIZE="tiny-unencrypted-10"
+REDIS_SIZE="tiny-3.2"
+
+if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
+  echo " *********************************************"
+  echo "    The '$CF_SPACE' space will be selected"
+  echo "     This deploys the apps as HA with"
+  echo "      production like resource sizes"
+  echo " For feature testing, choose a space with a"
+  echo "      name other than staging / prod"
+  echo " *********************************************"
+
+  POSTGRES_SIZE="small-ha-10"
+  REDIS_SIZE="medium-ha-3.2"
+fi
+
 # login (all users should have access to the sandbox)
 cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -a "$CF_API_ENDPOINT" -s sandbox
 
@@ -62,8 +78,8 @@ cf install-plugin blue-green-deploy -r CF-Community
 cf create-service aws-s3-bucket default ingest-bucket-"$CF_SPACE"
 
 # create postgres services for app/api
-cf create-service postgres tiny-unencrypted-10 ccs-rmi-app-"$CF_SPACE"
-cf create-service postgres tiny-unencrypted-10 ccs-rmi-api-"$CF_SPACE"
+cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-app-"$CF_SPACE"
+cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-api-"$CF_SPACE"
 
 # create redit service
-cf create-service redis tiny-3.2 ccs-rmi-redis-"$CF_SPACE"
+cf create-service redis "$REDIS_SIZE" ccs-rmi-redis-"$CF_SPACE"
