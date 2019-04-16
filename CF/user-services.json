@@ -30,7 +30,13 @@
   {
     "service_name": "APP_SECRETBASE",
     "env": [
-      "SECRET_KEY_BASE"
+      "APP_SECRET_KEY_BASE"
+    ]
+  },
+  {
+    "service_name": "API_SECRETBASE",
+    "env": [
+      "API_SECRET_KEY_BASE"
     ]
   },
   {
