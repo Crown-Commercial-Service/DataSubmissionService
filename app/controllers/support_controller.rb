@@ -4,6 +4,7 @@ class SupportController < ApplicationController
   def index; end
 
   def frameworks
-    render :frameworks
+    # API::Framework.all returns only published frameworks
+    @frameworks = API::Framework.all
   end
 end
