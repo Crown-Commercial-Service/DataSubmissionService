@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ModuleLength just mocks; don't care
 module ApiHelpers
   def api_url(path)
     "#{ENV['API_ROOT']}v1/#{path}"
@@ -131,6 +132,11 @@ module ApiHelpers
     stub_request(:post, api_url("tasks/#{mock_task_id}/no_business"))
       .with(body: { correction: 'true' }.to_json)
       .to_return(status: 201, headers: json_headers, body: no_business_submission.to_json)
+  end
+
+  def mock_frameworks_endpoint!
+    stub_request(:get, api_url('frameworks'))
+      .to_return(headers: json_headers, body: json_fixture_file('frameworks.json'))
   end
 
   def mock_task_with_framework_endpoint!
@@ -294,3 +300,4 @@ module ApiHelpers
     Rails.root.join('spec', 'fixtures', 'mocks', filename)
   end
 end
+# rubocop:enable Metrics/ModuleLength

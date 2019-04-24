@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "c36f3afa-5ddd-4d94-b6fc-8a310b64d5e0",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "FM1001",
+        "name": "G Cloud 1"
+      }
+    },
+    {
+      "id": "45f471c6-33b4-423a-afa3-d5713fcd1391",
+      "type": "frameworks",
+      "attributes": {
+        "short_name": "FM1002",
+        "name": "G Cloud 2"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  }
+}
