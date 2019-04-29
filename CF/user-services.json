@@ -51,7 +51,8 @@
     "service_name": "WORKDAY_API",
     "env": [
       "WORKDAY_API_USERNAME",
-      "WORKDAY_API_PASSWORD"
+      "WORKDAY_API_PASSWORD",
+      "WORKDAY_TENANT"
     ]
   },
   {
@@ -59,6 +60,14 @@
     "env": [
       "SIDEKIQ_USERNAME",
       "SIDEKIQ_PASSWORD"
+    ]
+  },
+  {
+    "service_name": "AZURE",
+    "env": [
+      "AZURE_ACCOUNT_NAME",
+      "AZURE_ACCOUNT_KEY",
+      "AZURE_CONTAINER_NAME"
     ]
   }
 ]
