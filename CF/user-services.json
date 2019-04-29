@@ -51,7 +51,8 @@
     "service_name": "WORKDAY_API",
     "env": [
       "WORKDAY_API_USERNAME",
-      "WORKDAY_API_PASSWORD"
+      "WORKDAY_API_PASSWORD",
+      "WORKDAY_TENANT"
     ]
   },
   {
