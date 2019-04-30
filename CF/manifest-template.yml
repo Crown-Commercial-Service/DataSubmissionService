@@ -1,0 +1,15 @@
+---
+applications:
+  - name: ccs-rmi-app-CF_SPACE
+    memory: MEMORY_LIMIT
+    instances: INSTANCE_COUNT
+    services:
+      - ccs-rmi-app-CF_SPACE
+      - ingest-bucket-CF_SPACE
+      - AUTH0
+      - SKYLIGHT
+      - ROLLBAR
+      - DSSAPI
+      - APP_SECRETBASE
+
+

@@ -174,7 +174,7 @@ GEM
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -376,7 +376,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.5.5p157
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
