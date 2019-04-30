@@ -83,3 +83,29 @@ cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-api-"$CF_SPACE"
 
 # create redit service
 cf create-service redis "$REDIS_SIZE" ccs-rmi-redis-"$CF_SPACE"
+
+# create external domains for org
+set +o pipefail
+if [[ $CF_SPACE == 'staging' || $CF_SPACE == 'prod' ]]
+then
+  if cf domains | grep -q ${CF_SPACE}.rmi-paas.dxw.net
+  then
+    echo "domain ${CF_SPACE}.rmi-paas.dxw.net already exists"
+  else
+    cf create-domain ccs-report-management-info "$CF_SPACE".rmi-paas.dxw.net
+  fi
+
+# create cdn route for space
+  if cf service ccs-rmi-cdn-"$CF_SPACE" > /dev/null
+  then
+    echo "ccs-rmi-cdn-$CF_SPACE already exists"
+  else
+    cf create-service cdn-route cdn-route ccs-rmi-cdn-"$CF_SPACE" -c ccs-rmi-cdn-"$CF_SPACE".json
+    sleep 10
+    cf service ccs-rmi-cdn-"$CF_SPACE"
+    echo "!!! create DNS records for CDN routes !!!"
+  fi
+
+fi
+
+set -o pipefail
