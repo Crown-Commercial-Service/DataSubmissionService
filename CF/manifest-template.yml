@@ -11,5 +11,6 @@ applications:
       - ROLLBAR
       - DSSAPI
       - APP_SECRETBASE
+      - GOOGLE_IDS
 
 

@@ -69,5 +69,17 @@
       "AZURE_ACCOUNT_KEY",
       "AZURE_CONTAINER_NAME"
     ]
+  },
+    "service_name": "ADMIN_EMAILS",
+    "env": [
+      "ADMIN_EMAILS"
+    ]
+  },
+  {
+    "service_name": "GOOGLE_IDS",
+    "env": [
+      "GOOGLE_TAG_MANAGER_ID",
+      "GOOGLE_ANALYTICS_ID"
+    ]
   }
 ]
