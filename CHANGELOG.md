@@ -1,5 +1,15 @@
 # Change Log
 
+## [release-46] - 2019-04-29
+
+- Configure Service Connection Environment variables
+- Upgrade ruby to 2.5.5
+- Update bundler to 2.0.1
+- List of RMI frameworks is dynamic
+- [Security] Bump nokogiri from 1.10.1 to 1.10.3
+- Add scripts to set up and deploy to GPaaS
+- Add Travis
+
 ## [release-45] - 2019-04-09
 
 - Allow users to replace return in errors with no business
@@ -243,6 +253,7 @@
 
 Initial release
 
+[release-46]: https://github.com/dxw/DataSubmissionService/compare/release-45...release-46
 [release-45]: https://github.com/dxw/DataSubmissionService/compare/release-44...release-45
 [release-44]: https://github.com/dxw/DataSubmissionService/compare/release-43...release-44
 [release-43]: https://github.com/dxw/DataSubmissionService/compare/release-42...release-43
