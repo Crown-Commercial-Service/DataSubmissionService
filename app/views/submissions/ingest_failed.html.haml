@@ -1,0 +1,32 @@
+.govuk-grid-row
+  .govuk-grid-column-full
+    = render 'shared/task_signpost', task: @task
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      We were unable to process your file
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    .govuk-error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
+
+      %p
+        Please upload a file that is:
+
+      %ul.govuk-list.govuk-list--bullet
+        %li
+          in Excel format (.xls or .xlsx)
+        %li
+          based on the
+          = link_to "Excel template", task_template_path(@task), {'aria-label' => "Download template for #{@task.framework.short_name} #{@task.framework.name}"}
+          for
+          = @task.framework.short_name
+
+    = link_to 'Upload file', new_task_submission_path(@task.id), class: 'govuk-button'
+
+    %p
+      If your file is in the correct format but it is not being accepted please contact
+      = mail_to support_email_address
+      for help.
+

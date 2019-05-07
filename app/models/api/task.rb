@@ -12,7 +12,7 @@ module API
     end
 
     def errors?
-      (active_submission.try(:status) == 'validation_failed') || false
+      %w[validation_failed ingest_failed].include?(active_submission&.status) || false
     end
 
     def late?
