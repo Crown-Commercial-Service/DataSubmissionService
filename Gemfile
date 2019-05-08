@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'aws-sdk-s3', require: false
+gem 'aws-sdk-s3'
 gem 'haml-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
