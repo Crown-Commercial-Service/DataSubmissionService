@@ -139,9 +139,14 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('frameworks.json'))
   end
 
-  def mock_task_with_framework_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework"))
+  def mock_task_with_framework_endpoint!(include_file: false)
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework#{'&include_file=true' if include_file}"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
+  end
+
+  def mock_task_with_framework_and_file_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework&include_file=true"))
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_framework_and_file.json'))
   end
 
   def mock_correcting_task_with_framework_endpoint!
@@ -157,10 +162,10 @@ module ApiHelpers
       )
   end
 
-  def mock_task_with_unsafe_short_name_framework_endpoint!
+  def mock_task_with_unsafe_short_name_framework_endpoint!(include_file: false)
     json = JSON.parse(File.read(json_fixture_file('task_with_framework.json')))
     json['included'][0]['attributes']['short_name'] = 'CBOARD/5'
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework#{'&include_file=true' if include_file}"))
       .to_return(headers: json_headers, body: json.to_json)
   end
 
