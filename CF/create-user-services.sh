@@ -86,3 +86,9 @@ if cf service ccs-rmi-api-admin-route-$CF_SPACE > /dev/null; then
 else
   cf create-user-provided-service ccs-rmi-api-admin-route-$CF_SPACE -r https://ccs-rmi-api-admin-router-$CF_SPACE.london.cloudapps.digital
 fi
+# create route to api admin via router
+if cf service ccs-rmi-logging-$CF_SPACE > /dev/null; then
+  cf update-user-provided-service ccs-rmi-logging-$CF_SPACE -l syslog-tls://$LOGS_ENDPOINT
+else
+  cf create-user-provided-service ccs-rmi-logging-$CF_SPACE -l syslog-tls://$LOGS_ENDPOINT
+fi
