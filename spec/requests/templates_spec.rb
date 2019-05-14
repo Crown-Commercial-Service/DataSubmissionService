@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the template for a task' do
   around(:each) do |example|
-    ClimateControl.modify AWS_S3_BUCKET: 'bucket-name' do
+    ClimateControl.modify AWS_S3_BUCKET: 'bucket-name', AWS_S3_REGION: 'zz-north-1' do
       example.run
     end
   end
