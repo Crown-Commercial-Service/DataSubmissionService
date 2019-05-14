@@ -11,5 +11,11 @@ applications:
       - ROLLBAR
       - DSSAPI
       - APP_SECRETBASE
+      - GOOGLE_IDS
+    env:
+      RAILS_ENV: production
+      RACK_ENV: production
+      RAILS_SERVE_STATIC_FILES: enabled
+      CORRECTION_RETURNS_ENABLED: true
 
 

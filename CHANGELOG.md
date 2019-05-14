@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-47] - 2019-05-14
+
+- Allow downloading of framework templates from API
+
 ## [release-46] - 2019-04-29
 
 - Configure Service Connection Environment variables
@@ -253,6 +257,7 @@
 
 Initial release
 
+[release-47]: https://github.com/dxw/DataSubmissionService/compare/release-46...release-47
 [release-46]: https://github.com/dxw/DataSubmissionService/compare/release-45...release-46
 [release-45]: https://github.com/dxw/DataSubmissionService/compare/release-44...release-45
 [release-44]: https://github.com/dxw/DataSubmissionService/compare/release-43...release-44
