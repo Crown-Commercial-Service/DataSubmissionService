@@ -6,6 +6,7 @@ applications:
     services:
       - ccs-rmi-app-CF_SPACE
       - ingest-bucket-CF_SPACE
+      - ccs-rmi-logging-CF_SPACE
       - AUTH0
       - SKYLIGHT
       - ROLLBAR
