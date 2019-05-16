@@ -25,11 +25,16 @@ Rails.application.routes.draw do
     resource :no_business, only: %i[new create]
   end
 
+  resource :urns, only: :show do
+    member do
+      get :download
+    end
+  end
+
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   get '/style_guide', to: 'styleguide#index'
-  get '/urns', to: 'urns#index'
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
 end
