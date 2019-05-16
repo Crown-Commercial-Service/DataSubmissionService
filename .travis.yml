@@ -22,7 +22,12 @@ env:
 before_script:
   - bundle exec bin/rails db:migrate RAILS_ENV=test
   - bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
-before_deploy: echo "install cloudfoundry cli"
+before_deploy:
+  - echo "install cloudfoundry cli"
+  - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+  - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  - sudo apt-get update -qq
+  - sudo apt-get install cf-cli
 deploy:
   provider: script
   script: bash CF/deploy-app.sh -u $CF_USER -o $CF_ORG -p $CF_PASS -s heroku-test
