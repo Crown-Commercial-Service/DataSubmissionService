@@ -3,6 +3,7 @@
 # exit on failures
 set -e
 set -o pipefail
+set -x 
 
 usage() {
   echo "Usage: $(basename "$0") [OPTIONS]" 1>&2
