@@ -18,7 +18,7 @@ env:
   global:
     - CF_USER=systems-gpass@dxw.com
     - CF_ORG=ccs-report-management-info
-    - secure: "f56M3wNsUuUH3tWzTyAsUoUKGhjYMWLAukDKuBn2n75foheWnMeJWUwOKpfEPLa64oOX5mx5oOvCuocaYkK/wvfrRQT4Xi8k370CSGNacVtZCrBYKpjRpuIpgRMSJJW6zFiqoT96V2GsZ1sAcsUn4GWDcvBDUTN7oRzkvu/R8pjMupohlBsAFgqm9tkgfMafn/DyWxAr2meUWu8P5p/6fxa5MOtE27Dj/E98NxAUBK3m41t96x9MRFUeaEAYPx6TzWFHpCDrJoHY20h5jQXeefb/jtaE2iJtT0Yhr/Jyven6ReAxNClzwD5OhPs9LOuslgRFIoNWActgDXSl9rgPtBSkCfbLJLZv0F009TO4y1/KFA10dykYxA3oJqnexlelRQTESzzYme86ixxjT1S5E8gpNNWWVN3JdlwjZA2C45GyV3sIO/mY91JyeyOFWytTOUhi4BEooEcsePvm9a/ixtGTtKQdtlK/tpiv5ILP0srFe6Cm1WVhYkHfPAQ11Ua+1CeKJhLSfSg57XFNl4Mv9M8kPeA3/0lhA0AiILh35XzDdqRoqzPLmLqIhI07HFWc/A5FkBJ+NyVIFaOyWl98ejTgl27fU7/qZS6OjxmYCIF1wNuKMMdYCsMSGkMN242yLJpnpqXWOl8EGZzfkD8VvrBxwQRXC5PO3e2jYnQHaVU="
+    - secure: "aYw/Bw+oshNQK8GbApITzHP8sijvCt6WlZit2ZKtGTslGXftfkHD8C6jAfF2mHdFzLcffo46PV3vQHAKxp8GFE3qptyoLyQYOuw9FPORpfpUGaCrTiBfI+qA+pqNBLttI4muZWe+doJDX6zNEXKjjhwdjN8y8ZULxZG+xcVuH7mVnqHEEl9mb3QAYwglN9DrEeqf00pcx5EP846NOd9s4MKVGe/V3zhHUF/S7+yMS+CKuHKAcrq3r7yvOeGoZPF9okb7Sy0e3xOhIN0V6Wq6IZPLk/d8WwV8w0Gtdzu3V58i8Fr5DWLj5ok49XUhyctBH5EehhN8JNtYPNJB01+lMd4FO0CQv6E+mDyspvPyHBemol8oPTwZmkNlO9nHMmoe3bW38PapktNzvFw5QkONIUuUzh7dY7++0jia9VfbyYjgTjMCXNzN9pMzH6T6hmAVSPsb3OZRn72WogBTUlna9tHU69ieiatLlEK7NV6QitF2Z8IRhF9iW+kKYjkKEJuUo6rHwTmXhbQkdyDMTFSKpmA5V2mypqkT5jUcMN9AY6A8k+AwjlP8GIOURxaEVOiqVYS5HkneZb9Df0Js7p35mG9UkvXNbOdCylWt2/PA9xKmzCy3QeZf51cMd1rrUTRsG6RfMsao+/SN/jxO3sI0lZOaftvBrUYcQj9g5cS+2dY="
 before_script:
   - bundle exec bin/rails db:migrate RAILS_ENV=test
   - bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
@@ -28,6 +28,8 @@ before_deploy:
   - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
   - sudo apt-get update -qq
   - sudo apt-get install cf-cli
+  - cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
+  - cf install-plugin blue-green-deploy -f -r CF-Community
 deploy:
   provider: script
   script: bash CF/deploy-app.sh -u $CF_USER -o $CF_ORG -p $CF_PASS -s heroku-test
