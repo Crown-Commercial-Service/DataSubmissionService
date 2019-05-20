@@ -64,6 +64,10 @@ if [[ -z "$CF_USER" || -z "$CF_PASS" || -z "$CF_ORG" || -z "$CF_SPACE" ]]; then
   usage
 fi
 
+if [ ! -z ${TRAVIS_BRANCH+x} ]
+then
+ git checkout $TRAVIS_BRANCH
+fi
 BRANCH=$(git symbolic-ref --short HEAD)
 echo "INFO: deploying $BRANCH to $CF_SPACE"
 if [[ ! "$FORCE" == "yes" ]]
@@ -117,7 +121,7 @@ sed "s/CF_SPACE/$CF_SPACE/g" manifest-template.yml | sed "s/MEMORY_LIMIT/$MEMORY
 # push
 cd .. || exit
 if cf app ccs-rmi-app-"$CF_SPACE"; then
-  cf blue-green-deploy ccs-rmi-app-"$CF_SPACE" -f cf/"$CF_SPACE".manifest.yml
+  cf blue-green-deploy ccs-rmi-app-"$CF_SPACE" -f CF/"$CF_SPACE".manifest.yml
 else
-  cf push -f cf/"$CF_SPACE".manifest.yml
+  cf push -f CF/"$CF_SPACE".manifest.yml
 fi
