@@ -12,9 +12,14 @@
       URN, you can look it up in this Excel file:
 
     %p
-      = link_to 'Download CCS URN List (27 March 2019).xls',
-        '/urn/CCS-URN-List-(27-March-2019).xls'
-      (12MB)
+      - if @urn_list.present?
+        = link_to "Download #{@urn_list.filename}", download_urns_path
+        = surround '(', ')' do
+          = number_to_human_size(@urn_list.byte_size)
+      - else
+        = link_to 'Download CCS URN List (27 March 2019).xls',
+          '/urn/CCS-URN-List-(27-March-2019).xls'
+        (12MB)
 
     %p
       Open this file in Microsoft Excel and use the 'find' tool within Excel to
