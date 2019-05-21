@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-48] - 2019-05-21
+
+- Allow downloading of URN list from API
+
 ## [release-47] - 2019-05-14
 
 - Allow downloading of framework templates from API
@@ -257,6 +261,7 @@
 
 Initial release
 
+[release-48]: https://github.com/dxw/DataSubmissionService/compare/release-47...release-48
 [release-47]: https://github.com/dxw/DataSubmissionService/compare/release-46...release-47
 [release-46]: https://github.com/dxw/DataSubmissionService/compare/release-45...release-46
 [release-45]: https://github.com/dxw/DataSubmissionService/compare/release-44...release-45

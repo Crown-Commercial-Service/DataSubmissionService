@@ -70,6 +70,7 @@
       "AZURE_CONTAINER_NAME"
     ]
   },
+  {
     "service_name": "ADMIN_EMAILS",
     "env": [
       "ADMIN_EMAILS"
