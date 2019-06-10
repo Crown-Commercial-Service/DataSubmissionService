@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-49] - 2019-06-10
+
+ - Add additional page for a submission in the 'ingest_failed' state
+
 ## [release-48] - 2019-05-21
 
 - Allow downloading of URN list from API
@@ -261,6 +265,7 @@
 
 Initial release
 
+[release-49]: https://github.com/dxw/DataSubmissionService/compare/release-48...release-49
 [release-48]: https://github.com/dxw/DataSubmissionService/compare/release-47...release-48
 [release-47]: https://github.com/dxw/DataSubmissionService/compare/release-46...release-47
 [release-46]: https://github.com/dxw/DataSubmissionService/compare/release-45...release-46
