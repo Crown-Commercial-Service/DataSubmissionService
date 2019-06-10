@@ -174,6 +174,11 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('task_with_invalid_submission.json'))
   end
 
+  def mock_task_with_submission_that_failed_ingest_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_submission_that_failed_ingest.json'))
+  end
+
   def mock_task_with_valid_submission_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_valid_submission.json'))

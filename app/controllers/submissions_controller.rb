@@ -71,6 +71,7 @@ class SubmissionsController < ApplicationController
     when 'pending', 'processing' then :processing
     when 'in_review' then :in_review
     when 'validation_failed' then :validation_failed
+    when 'ingest_failed' then :ingest_failed
     when 'completed' then :completed
     end
   end

@@ -11,8 +11,15 @@ RSpec.describe API::Task do
   end
 
   describe '#errors?' do
-    it 'returns true if the latest submission is errored' do
+    it 'returns true if the latest submission has validation errors' do
       mock_task_with_invalid_submission_endpoint!
+      task_with_invalid_submission = API::Task.includes(:active_submission).find(mock_task_id).first
+
+      expect(task_with_invalid_submission.errors?).to be_truthy
+    end
+
+    it 'returns true if the latest submission failed to be ingested' do
+      mock_task_with_submission_that_failed_ingest_endpoint!
       task_with_invalid_submission = API::Task.includes(:active_submission).find(mock_task_id).first
 
       expect(task_with_invalid_submission.errors?).to be_truthy
