@@ -23,10 +23,9 @@
           for
           = @task.framework.short_name
 
-    = link_to 'Upload file', new_task_submission_path(@task.id), class: 'govuk-button'
+    = link_to 'Upload file', new_task_submission_path(@task.id, correction: params[:correction]), class: 'govuk-button'
 
     %p
       If your file is in the correct format but it is not being accepted please contact
       = mail_to support_email_address
       for help.
-
