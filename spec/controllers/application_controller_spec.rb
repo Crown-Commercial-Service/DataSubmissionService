@@ -23,6 +23,16 @@ RSpec.describe ApplicationController do
 
       expect(response).to redirect_to(root_path)
     end
+
+    it 'redirects users with expired tokens back to Auth0' do
+      session[:jwt] = fake_json_web_token
+
+      travel_to 1.day.from_now do
+        get :index
+
+        expect(response).to redirect_to '/auth/auth0?prompt=none'
+      end
+    end
   end
 
   private

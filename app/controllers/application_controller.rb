@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
   def current_user_id
     return nil if session[:jwt].blank?
 
-    payload = JWT.decode(session[:jwt], public_key, true, algorithm: 'RS256')
-    payload[0]['sub'] # auth_id
+    begin
+      payload = JWT.decode(session[:jwt], public_key, true, algorithm: 'RS256')
+      payload[0]['sub'] # auth_id
+    rescue JWT::ExpiredSignature
+      redirect_to '/auth/auth0?prompt=none'
+    end
   end
 
   def current_user
