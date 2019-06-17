@@ -356,6 +356,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.5)
   jsonapi-consumer (~> 1.0)
+  jwt
   listen (>= 3.0.5, < 3.2)
   lograge
   mini_racer
