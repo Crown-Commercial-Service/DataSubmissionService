@@ -11,7 +11,6 @@ module API
 
     connection do |conn|
       conn.use IncludeJWT
-      conn.use Faraday::Request::BasicAuthentication, 'dxw', ENV['API_PASSWORD'] if ENV['API_PASSWORD']
     end
   end
 end

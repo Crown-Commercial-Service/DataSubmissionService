@@ -24,8 +24,7 @@
   {
     "service_name": "DSSAPI",
     "env": [
-      "API_ROOT",
-      "API_PASSWORD"
+      "API_ROOT"
     ]
   },
   {
