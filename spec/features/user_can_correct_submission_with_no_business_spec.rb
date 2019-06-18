@@ -26,7 +26,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         mock_user_endpoint!
 
         visit '/'
-        click_link 'sign-in'
+        click_button 'sign-in'
 
         click_link 'History'
         click_link 'View'
@@ -56,7 +56,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         mock_user_with_multiple_suppliers_endpoint!
 
         visit '/'
-        click_link 'sign-in'
+        click_button 'sign-in'
 
         click_link 'History'
         click_link 'View'
@@ -91,7 +91,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         mock_user_endpoint!
 
         visit '/'
-        click_link 'sign-in'
+        click_button 'sign-in'
 
         click_link 'History'
         click_link 'View'
@@ -117,7 +117,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
       mock_user_endpoint!
 
       visit '/'
-      click_link 'sign-in'
+      click_button 'sign-in'
 
       click_link 'History'
       click_link 'View'

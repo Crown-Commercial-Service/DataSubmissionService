@@ -9,7 +9,7 @@ RSpec.feature 'downloading a submission' do
     mock_completed_task_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_button 'sign-in'
 
     visit "/tasks/#{mock_task_id}"
 
