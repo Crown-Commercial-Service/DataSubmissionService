@@ -14,7 +14,7 @@ RSpec.feature 'Cancelling a correction submission' do
       mock_user_endpoint!
       mock_sso_with(email: 'email@example.com')
       mock_incomplete_tasks_endpoint!
-      click_link 'sign-in'
+      click_button 'sign-in'
 
       mock_correcting_task_with_framework_endpoint!
       click_link 'Cancel correction'

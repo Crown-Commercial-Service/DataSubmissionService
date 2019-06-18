@@ -15,7 +15,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       mock_sso_with(email: 'email@example.com')
       mock_task_with_framework_endpoint!
       mock_incomplete_tasks_endpoint!
-      click_link 'sign-in'
+      click_button 'sign-in'
 
       mock_complete_tasks_endpoint!
       click_link 'History'
