@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-50] - 2019-06-19
+
+- Don't forget if submission is a replacement on ingest failed
+- Address CVE-2015-9284
+- Use JWT for API authentication
+
 ## [release-49] - 2019-06-10
 
  - Add additional page for a submission in the 'ingest_failed' state
@@ -265,6 +271,7 @@
 
 Initial release
 
+[release-50]: https://github.com/dxw/DataSubmissionService/compare/release-49...release-50
 [release-49]: https://github.com/dxw/DataSubmissionService/compare/release-48...release-49
 [release-48]: https://github.com/dxw/DataSubmissionService/compare/release-47...release-48
 [release-47]: https://github.com/dxw/DataSubmissionService/compare/release-46...release-47
