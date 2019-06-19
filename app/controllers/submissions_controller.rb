@@ -78,14 +78,14 @@ class SubmissionsController < ApplicationController
 
   def handle_file_extension_validation
     redirect_to(
-      new_task_submission_path(task_id: params[:task_id]),
+      new_task_submission_path(task_id: params[:task_id], correction: params[:correction]),
       flash: { alert: 'Uploaded file must be in Microsoft Excel format (either .xlsx or .xls)' }
     )
   end
 
   def handle_file_presence_validation
     redirect_to(
-      new_task_submission_path(task_id: params[:task_id]),
+      new_task_submission_path(task_id: params[:task_id], correction: params[:correction]),
       flash: { alert: 'Please select a file' }
     )
   end

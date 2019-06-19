@@ -10,7 +10,7 @@ RSpec.feature 'task management' do
     mock_user_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_button 'sign-in'
 
     visit '/tasks'
 
@@ -52,7 +52,7 @@ RSpec.feature 'task management' do
     mock_submission_errored_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_button 'sign-in'
 
     visit task_submission_path(task_id: mock_task_id, id: mock_submission_id)
 
@@ -72,7 +72,7 @@ RSpec.feature 'task management' do
     mock_user_with_multiple_suppliers_endpoint!
 
     visit '/'
-    click_link 'sign-in'
+    click_button 'sign-in'
 
     visit '/tasks'
 

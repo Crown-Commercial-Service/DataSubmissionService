@@ -2,16 +2,15 @@ module API
   class Base < JSONAPI::Consumer::Resource
     self.site = ENV['API_ROOT'] + 'v1/'
 
-    class IncludeAuthId < Faraday::Middleware
+    class IncludeJWT < Faraday::Middleware
       def call(env)
-        env[:request_headers]['X-Auth-Id'] = Current.auth_id
+        env[:request_headers]['Authorization'] = 'Bearer ' + Current.jwt if Current.jwt
         @app.call(env)
       end
     end
 
     connection do |conn|
-      conn.use IncludeAuthId
-      conn.use Faraday::Request::BasicAuthentication, 'dxw', ENV['API_PASSWORD'] if ENV['API_PASSWORD']
+      conn.use IncludeJWT
     end
   end
 end
