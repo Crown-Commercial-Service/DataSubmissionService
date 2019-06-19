@@ -10,7 +10,14 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user_id
-    session[:auth_id]
+    return nil if session[:jwt].blank?
+
+    begin
+      payload = JWT.decode(session[:jwt], public_key, true, algorithm: 'RS256')
+      payload[0]['sub'] # auth_id
+    rescue JWT::ExpiredSignature
+      redirect_to '/auth/auth0?prompt=none'
+    end
   end
 
   def current_user
@@ -24,10 +31,17 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_request_details
-    Current.auth_id = session[:auth_id]
+    Current.jwt = session[:jwt]
   end
 
   def correction?
     params[:correction] == 'true'
+  end
+
+  def public_key
+    @public_key ||= begin
+                      pubkey = ENV['AUTH0_JWT_PUBLIC_KEY']
+                      OpenSSL::PKey.read(pubkey)
+                    end
   end
 end
