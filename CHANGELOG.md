@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-51] - 2019-06-20
+
+- Revert JWT for API authentication. Fixes infinite redirect.
+
 ## [release-50] - 2019-06-19
 
 - Don't forget if submission is a replacement on ingest failed
@@ -271,6 +275,7 @@
 
 Initial release
 
+[release-51]: https://github.com/dxw/DataSubmissionService/compare/release-50...release-51
 [release-50]: https://github.com/dxw/DataSubmissionService/compare/release-49...release-50
 [release-49]: https://github.com/dxw/DataSubmissionService/compare/release-48...release-49
 [release-48]: https://github.com/dxw/DataSubmissionService/compare/release-47...release-48
