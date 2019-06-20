@@ -11,7 +11,7 @@ RSpec.describe ApplicationController do
     end
 
     it 'allows signed in users to access' do
-      session[:jwt] = fake_json_web_token
+      session[:auth_id] = 'auth0|123456789'
 
       get :index
 
@@ -23,30 +23,5 @@ RSpec.describe ApplicationController do
 
       expect(response).to redirect_to(root_path)
     end
-
-    it 'redirects users with expired tokens back to Auth0' do
-      session[:jwt] = fake_json_web_token
-
-      travel_to 1.day.from_now do
-        get :index
-
-        expect(response).to redirect_to '/auth/auth0?prompt=none'
-      end
-    end
-  end
-
-  private
-
-  def fake_json_web_token
-    payload = {
-      name: 'test@example.com',
-      iss: 'https://auth0.fake',
-      sub: 'auth0|123456789',
-      iat: Time.zone.now.to_i,
-      exp: 10.hours.from_now.to_i
-    }
-
-    private_key = OpenSSL::PKey.read(File.read(Rails.root.join('spec', 'fixtures', 'jwtRS256.key')))
-    JWT.encode(payload, private_key, 'RS256')
   end
 end
