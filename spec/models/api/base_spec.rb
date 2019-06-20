@@ -11,7 +11,7 @@ RSpec.describe API::Base do
   end
 
   it 'includes the X-Auth-Id header in every request' do
-    allow(Current).to receive(:jwt).and_return('fake-jwt')
+    allow(Current).to receive(:auth_id).and_return('fake-auth-id')
 
     stub_request(:get, api_url('dummies/1234'))
 
@@ -19,7 +19,7 @@ RSpec.describe API::Base do
 
     expect(
       a_request(:get, api_url('dummies/1234'))
-      .with(headers: { 'Authorization': 'Bearer fake-jwt' })
+      .with(headers: { 'X-Auth-Id': 'fake-auth-id' })
     ).to have_been_made
   end
 end

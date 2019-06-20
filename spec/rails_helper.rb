@@ -66,12 +66,4 @@ RSpec.configure do |config|
     # Stub audit requests
     stub_request(:any, %r{/v1/events/}).and_return(status: 201)
   end
-
-  config.around(:each) do |example|
-    pubkey = File.read(Rails.root.join('spec', 'fixtures', 'jwtRS256.key.pub'))
-
-    ClimateControl.modify AUTH0_JWT_PUBLIC_KEY: pubkey do
-      example.run
-    end
-  end
 end
