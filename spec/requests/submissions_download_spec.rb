@@ -8,7 +8,7 @@ RSpec.describe 'downloading a submission' do
 
     get download_task_submission_path(mock_task_id, mock_submission_id)
 
-    expect(response.status).to eql 307
-    expect(response).to redirect_to('http://s3.example.com/example.xls')
+    expect(response.body).to eq('')
+    expect(response.header['Content-Type']).to eql('application/octet-stream')
   end
 end
