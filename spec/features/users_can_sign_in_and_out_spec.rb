@@ -34,6 +34,6 @@ RSpec.feature 'Signing in and out as a user' do
     visit '/'
     click_on 'Sign out'
 
-    expect(page).to have_content 'Sign in'
+    expect(page).to_not have_content 'Sign out'
   end
 end
