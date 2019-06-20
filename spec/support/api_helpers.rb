@@ -92,7 +92,7 @@ module ApiHelpers
   def mock_submission_with_file_endpoint!
     stub_request(
       :get,
-      api_url("submissions/#{mock_submission_id}?include=files")
+      api_url("submissions/#{mock_submission_id}")
     ).to_return(headers: json_headers, body: json_fixture_file('submission_with_file.json'))
   end
 
