@@ -99,6 +99,6 @@ class SubmissionsController < ApplicationController
   end
 
   def s3_client
-    @s3_client ||= Aws::S3::Client.new(region: ENV['AWS_S3_REGION'], stub_responses: Rails.env.test?)
+    @s3_client ||= Aws::S3::Client.new(region: ENV['AWS_S3_REGION'])
   end
 end
