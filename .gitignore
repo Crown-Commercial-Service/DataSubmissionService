@@ -28,7 +28,6 @@
 # Environment variables
 .env
 .env.*
-docker-compose.env
 !.env.*.example
 
 # Test artifacts

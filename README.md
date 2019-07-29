@@ -1,13 +1,5 @@
 # Data Submission Service Supplier Frontend
 
-This project can be run locally in two ways - with Docker or without. For speed, we recommend running _without_ Docker.
-
-## Running with Docker
-
-See [Running with Docker](docs/running-with-docker.md)
-
-## Without Docker
-
 ### Prerequisites
 
 #### DataSubmissionServiceAPI
