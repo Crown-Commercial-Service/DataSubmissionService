@@ -20,13 +20,22 @@ services:
       - .:/srv/dss:cached
     command: bash -c "rm -f tmp/pids/server.pid && rails s"
     container_name: "data-submission-service_web"
-
+    networks:
+      private:
+      datasubmissionserviceapi_public:
   db:
     image: postgres
     volumes:
       - pg_data:/var/lib/postgresql/data/:cached
     restart: on-failure
     container_name: "data-submission-service_db"
-
+    networks:
+      private:
 volumes:
   pg_data: {}
+
+networks:
+  public:
+  private:
+  datasubmissionserviceapi_public:
+    external: true
