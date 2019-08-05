@@ -14,11 +14,21 @@
     ]
   },
   {
-    "service_name": "AUTH0",
+    "service_name": "APP_AUTH0",
     "env": [
-      "AUTH0_DOMAIN",
-      "AUTH0_CLIENT_ID",
-      "AUTH0_CLIENT_SECRET"
+      "CCSRMIAPP_AUTH0_DOMAIN",
+      "CCSRMIAPP_AUTH0_CLIENT_ID",
+      "CCSRMIAPP_AUTH0_CLIENT_SECRET",
+      "CCSRMIAPP_AUTH0_JWT_PUBLIC_KEY"
+    ]
+  },
+  {
+    "service_name": "API_AUTH0",
+    "env": [
+      "CCSRMIAPI_AUTH0_DOMAIN",
+      "CCSRMIAPI_AUTH0_CLIENT_ID",
+      "CCSRMIAPI_AUTH0_CLIENT_SECRET",
+      "CCSRMIAPI_AUTH0_JWT_PUBLIC_KEY"
     ]
   },
   {
