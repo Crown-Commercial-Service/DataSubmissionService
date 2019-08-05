@@ -75,8 +75,10 @@ for i in `seq 0 $(($USER_SERVICES_LENGTH - 1))`; do
   echo "$LINE" > /tmp/$CF_SPACE.$SERVICE_NAME.json
   if cf service $SERVICE_NAME > /dev/null; then
     cf update-user-provided-service $SERVICE_NAME -p /tmp/$CF_SPACE.$SERVICE_NAME.json
+    rm /tmp/$CF_SPACE.$SERVICE_NAME.json
   else
     cf create-user-provided-service $SERVICE_NAME -p /tmp/$CF_SPACE.$SERVICE_NAME.json
+    rm /tmp/$CF_SPACE.$SERVICE_NAME.json
   fi
 done
 
