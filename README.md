@@ -1,5 +1,9 @@
 # Data Submission Service Supplier Frontend
 
+A Rails frontend that allows suppliers to sign-in and make submissions for their outstanding tasks for frameworks they are apart of.
+
+[Data is retrieved from an API](https://github.com/dxw/DataSubmissionServiceAPI/).
+
 ---
 
 ### Prerequisites
