@@ -18,15 +18,25 @@ services:
     restart: on-failure
     volumes:
       - .:/srv/dss:cached
+      - node_modules:/srv/dss/node_modules
     command: bash -c "rm -f tmp/pids/server.pid && rails s"
     container_name: "data-submission-service_web"
-
+    networks:
+      private:
+      datasubmissionserviceapi_public:
   db:
     image: postgres
     volumes:
       - pg_data:/var/lib/postgresql/data/:cached
     restart: on-failure
     container_name: "data-submission-service_db"
-
+    networks:
+      private:
 volumes:
   pg_data: {}
+  node_modules:
+networks:
+  public:
+  private:
+  datasubmissionserviceapi_public:
+    external: true

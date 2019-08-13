@@ -22,13 +22,10 @@ class SubmissionsController < ApplicationController
   end
 
   def download
-    submission = API::Submission
-                 .includes(:files)
-                 .find(params[:id]).first
+    submission = API::Submission.find(params[:id]).first
 
-    file = submission.files.first
-
-    redirect_to file.temporary_download_url, status: :temporary_redirect
+    submission_file = s3_client.get_object(bucket: ENV['AWS_S3_BUCKET'], key: submission.file_key)
+    send_data submission_file.body.read, filename: submission.filename
   end
 
   private
@@ -99,5 +96,9 @@ class SubmissionsController < ApplicationController
     handle_file_presence_validation && return if params[:upload].nil?
 
     handle_file_extension_validation unless acceptable_file_extension?
+  end
+
+  def s3_client
+    @s3_client ||= Aws::S3::Client.new(region: ENV['AWS_S3_REGION'])
   end
 end
