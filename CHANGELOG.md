@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-52] - 2019-08-13
+
+- Allow suppliers to download submissions from S3
+- Remove 'Sign in' link in header
+- Fix up the Docker-based development environment
+
 ## [release-51] - 2019-06-20
 
 - Revert JWT for API authentication. Fixes infinite redirect.
@@ -275,6 +281,7 @@
 
 Initial release
 
+[release-52]: https://github.com/dxw/DataSubmissionService/compare/release-51...release-52
 [release-51]: https://github.com/dxw/DataSubmissionService/compare/release-50...release-51
 [release-50]: https://github.com/dxw/DataSubmissionService/compare/release-49...release-50
 [release-49]: https://github.com/dxw/DataSubmissionService/compare/release-48...release-49
