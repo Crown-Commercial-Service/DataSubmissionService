@@ -41,13 +41,13 @@
   {
     "service_name": "APP_SECRETBASE",
     "env": [
-      "APP_SECRET_KEY_BASE"
+      "CCSRMIAPP_SECRET_KEY_BASE"
     ]
   },
   {
     "service_name": "API_SECRETBASE",
     "env": [
-      "API_SECRET_KEY_BASE"
+      "CCSRMIAPI_SECRET_KEY_BASE"
     ]
   },
   {
