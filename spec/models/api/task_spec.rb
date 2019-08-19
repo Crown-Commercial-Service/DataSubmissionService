@@ -25,6 +25,13 @@ RSpec.describe API::Task do
       expect(task_with_invalid_submission.errors?).to be_truthy
     end
 
+    it 'returns true if the latest submission failed to have its management charge calculated' do
+      mock_task_with_submission_that_failed_management_charge_calculation_endpoint!
+      task_with_invalid_submission = API::Task.includes(:active_submission).find(mock_task_id).first
+
+      expect(task_with_invalid_submission.errors?).to be_truthy
+    end
+
     it 'returns false if the latest submission is not errored' do
       mock_task_with_valid_submission_endpoint!
       task_with_valid_submission = API::Task.includes(:active_submission).find(mock_task_id).first

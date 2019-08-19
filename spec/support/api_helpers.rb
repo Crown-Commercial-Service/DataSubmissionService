@@ -62,6 +62,11 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('submission_errored.json'))
   end
 
+  def mock_submission_management_charge_calculation_failed_endpoint!
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
+      .to_return(headers: json_headers, body: json_fixture_file('submission_management_charge_calculation_failed.json'))
+  end
+
   def mock_submission_completed_no_business_endpoint!
     stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed_no_business.json'))
@@ -177,6 +182,12 @@ module ApiHelpers
   def mock_task_with_submission_that_failed_ingest_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_submission_that_failed_ingest.json'))
+  end
+
+  def mock_task_with_submission_that_failed_management_charge_calculation_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=active_submission"))
+      .to_return(headers: json_headers,
+                 body: json_fixture_file('task_with_submission_that_failed_management_charge_calculation.json'))
   end
 
   def mock_task_with_valid_submission_endpoint!

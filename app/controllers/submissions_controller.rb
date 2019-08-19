@@ -18,7 +18,7 @@ class SubmissionsController < ApplicationController
     @submission = API::Submission.includes(:files).find(params[:id]).first
     @file = @submission.files&.first
 
-    render template_for_submission(@submission)
+    render template_for_submission(@submission), status: status_for_submission(@submission)
   end
 
   def download
@@ -64,12 +64,17 @@ class SubmissionsController < ApplicationController
   end
 
   def template_for_submission(submission)
+    case (status = submission.status)
+    when 'pending' then 'processing'
+    when 'management_charge_calculation_failed' then 'errors/internal_server_error'
+    else status
+    end
+  end
+
+  def status_for_submission(submission)
     case submission.status
-    when 'pending', 'processing' then :processing
-    when 'in_review' then :in_review
-    when 'validation_failed' then :validation_failed
-    when 'ingest_failed' then :ingest_failed
-    when 'completed' then :completed
+    when 'management_charge_calculation_failed' then :internal_server_error
+    else :ok
     end
   end
 
