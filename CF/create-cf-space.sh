@@ -9,8 +9,8 @@ usage() {
   echo "  -h                    - help"
   echo "  -u <CF_USER>          - CloudFoundry user             (required)"
   echo "  -p <CF_PASS>          - CloudFoundry password         (required)"
-  echo "  -o <CF_ORG>           - CloudFoundry org              (required)" 
-  echo "  -s <CF_SPACE>         - CloudFoundry space to create  (required)" 
+  echo "  -o <CF_ORG>           - CloudFoundry org              (required)"
+  echo "  -s <CF_SPACE>         - CloudFoundry space to create  (required)"
   echo "  -a <CF_API_ENDPOINT>  - CloudFoundry API endpoint     (default: https://api.london.cloud.service.gov.uk)"
   exit 1
 }
