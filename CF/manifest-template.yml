@@ -19,5 +19,3 @@ applications:
       RACK_ENV: production
       RAILS_SERVE_STATIC_FILES: enabled
       CORRECTION_RETURNS_ENABLED: true
-
-
