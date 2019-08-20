@@ -83,7 +83,7 @@ RSpec.describe 'the tasks list' do
       assert_select "#task-#{correcting_task_id}" do
         assert_select '.govuk-tag__notice', text: 'Correction'
         assert_select 'a[href=?]',
-                      task_submission_path(task_id: correcting_task_id, id: correcting_submission_id),
+                      task_submission_path(task_id: correcting_task_id, id: correcting_submission_id, correction: true),
                       text: 'View errors'
       end
     end
