@@ -78,8 +78,8 @@ cf install-plugin blue-green-deploy -r CF-Community
 cf create-service aws-s3-bucket default ingest-bucket-"$CF_SPACE"
 
 # create postgres services for app/api
-cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-app-"$CF_SPACE"
-cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-api-"$CF_SPACE"
+cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-app-"$CF_SPACE" -c '{"enable_extensions": ["pgcrypto"]}'
+cf create-service postgres "$POSTGRES_SIZE" ccs-rmi-api-"$CF_SPACE" -c '{"enable_extensions": ["pgcrypto"]}'
 
 # create redit service
 cf create-service redis "$REDIS_SIZE" ccs-rmi-redis-"$CF_SPACE"
