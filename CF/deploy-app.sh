@@ -94,7 +94,7 @@ then
   fi
 fi
 
-if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
+if [[ "$CF_SPACE" == "sandbox" || "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
   echo " *********************************************"
   echo "    The '$CF_SPACE' space will be selected"
   echo "     This deploys the apps as HA with"

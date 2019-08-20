@@ -50,7 +50,7 @@ fi
 POSTGRES_SIZE="tiny-unencrypted-10"
 REDIS_SIZE="tiny-3.2"
 
-if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
+if [[ "$CF_SPACE" == "sandbox" || "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
   echo " *********************************************"
   echo "    The '$CF_SPACE' space will be selected"
   echo "     This deploys the apps as HA with"
@@ -86,7 +86,7 @@ cf create-service redis "$REDIS_SIZE" ccs-rmi-redis-"$CF_SPACE"
 
 # create external domains for org
 set +o pipefail
-if [[ $CF_SPACE == 'staging' || $CF_SPACE == 'prod' ]]
+if [[ $CF_SPACE == 'sandbox' || $CF_SPACE == 'staging' || $CF_SPACE == 'prod' ]]
 then
   if cf domains | grep -q ${CF_SPACE}.rmi-paas.dxw.net
   then
