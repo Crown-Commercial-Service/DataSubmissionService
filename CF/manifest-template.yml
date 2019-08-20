@@ -2,6 +2,7 @@
 applications:
   - name: ccs-rmi-app-CF_SPACE
     memory: MEMORY_LIMIT
+    disk_quota: 2048M
     instances: INSTANCE_COUNT
     services:
       - ccs-rmi-app-CF_SPACE
