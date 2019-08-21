@@ -51,6 +51,14 @@ RSpec.describe 'the submission page' do
       expect(response.body).to include 'Enter value, without commas or pound signs'
     end
 
+    it 'displays the 500 page for a submission that failed management charge calculation' do
+      mock_submission_management_charge_calculation_failed_endpoint!
+      get task_submission_path(task_id: mock_task_id, id: mock_submission_id)
+
+      expect(response).to have_http_status(500)
+      expect(response.body).to include 'Sorry, there is a problem with the service'
+    end
+
     it 'shows completed submission page for a "completed" submission' do
       mock_submission_completed_no_business_endpoint!
       mock_user_endpoint!

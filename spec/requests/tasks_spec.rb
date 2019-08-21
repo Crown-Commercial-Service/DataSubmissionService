@@ -42,8 +42,17 @@ RSpec.describe 'the tasks list' do
       end
     end
 
-    it 'includes links to view or amend a failed submission' do
+    it 'includes links to view or amend a validation_failed submission' do
       errored_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1c'
+
+      assert_select "#task-#{errored_task_id}" do
+        assert_select 'a', text: 'View errors'
+        assert_select 'a', text: 'Upload amended file'
+      end
+    end
+
+    it 'includes links to view or amend a management_charge_calculation_failed submission' do
+      errored_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1e'
 
       assert_select "#task-#{errored_task_id}" do
         assert_select 'a', text: 'View errors'

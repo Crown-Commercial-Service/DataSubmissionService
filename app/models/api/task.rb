@@ -12,7 +12,7 @@ module API
     end
 
     def errors?
-      %w[validation_failed ingest_failed].include?(active_submission&.status) || false
+      %w[validation_failed ingest_failed management_charge_calculation_failed].include?(active_submission&.status)
     end
 
     def late?
