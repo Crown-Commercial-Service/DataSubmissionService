@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-53] - 2019-08-22
+
+- Handle the new management_charge_calculation_failed submission status
+- [Security] Bump nokogiri from 1.10.3 to 1.10.4
+- Add the correction param to view errors button
+
 ## [release-52] - 2019-08-13
 
 - Allow suppliers to download submissions from S3
