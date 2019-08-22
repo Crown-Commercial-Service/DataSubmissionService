@@ -71,6 +71,23 @@ $ bin/dtest-server down
 
 ---
 
+## Managing gems
+
+When making changes to the Gemfile we should use Docker too in order to ensure we use a consistent version of Bundler:
+
+```bash
+$ docker-compose run --rm web bundle
+```
+
+The Bundler version in the Gemfile.lock should remain unchanged unless part of a deliberate update.
+
+```
+BUNDLED WITH
+  2.0.1
+```
+
+---
+
 ## Release process
 
 The production release process is documented in [RELEASE-PROCESS.md](RELEASE-PROCESS.md).
