@@ -1,56 +1,92 @@
 # Data Submission Service Supplier Frontend
 
-This project can be run locally in two ways - with Docker or without. For speed, we recommend running _without_ Docker.
+A Rails frontend that allows suppliers to sign-in and make submissions for their outstanding tasks for frameworks they are apart of.
 
-## Running with Docker
+[Data is retrieved from an API](https://github.com/dxw/DataSubmissionServiceAPI/).
 
-See [Running with Docker](docs/running-with-docker.md)
-
-## Without Docker
+---
 
 ### Prerequisites
 
-#### DataSubmissionServiceAPI
-
-The [DataSubmissionServiceAPI](https://github.com/dxw/DataSubmissionServiceAPI/) project _must_ be set up and running before attempting to set up this project.
-
-This project uses Postgres, Bundler and Yarn, which will have been installed with DataSubmissionServiceAPI.
+- [Docker](https://docs.docker.com/docker-for-mac) greater than or equal to `18.03.1-ce-mac64 (24245)`
+- Access to the dxw 1Password vault named `DSS` can be granted by anyone on the dxw technical operations team
+- The [API](https://github.com/dxw/DataSubmissionServiceAPI) must be running locally before starting this application or you will see a Docker networking error
 
 ### Setting up the project
 
-Copy `.env.development.example` to `.env.development`. This file contains secrets which are not currently available in 1Password - liaise with team members to get the required values. See [environment-variables.md](/docs/environment-variables.md) for a description of all these environment variables.
+Copy the example environment variable file used with Docker:
 
-Once this is done, use Bundler to set up the project:
+```bash
+$ cp docker-compose.env.sample docker-compose.env
+```
 
-`$ bundle install`
+From the 1Password vault, copy the contents of a file named `Docker Compose - Frontend - docker-compose.env` into the new `docker-compose.env` file. This file should contain no further additions to get started.
 
-Create & set up the database:
+The most common command used to start all containers. It does database set up if required and leaves you on an interactive prompt within the rails server process where `pry` can be used for debugging:
 
-`$ bundle exec rake db:setup`
+```bash
+$ bin/dstart
+```
 
-Next, copy `.env.test.example` to `.env.test`. This file needs a `SECRET_KEY_BASE` parameter which you can generate with Rake:
+If you'd like to see all logs, like `Postgres` you can use the conventional docker-compose command - you will lose the ability to use `pry`:
 
-`$ rake secret`
+```bash
+$ docker-compose up
+```
 
-Install front-end dependencies:
+If you'd like to shut all containers down, and remove database information persisted in `docker volumes` you can run the following command which rebuilds everything from scratch:
 
-`$ yarn install`
+```bash
+$ bin/drebuild
+```
+
+---
 
 ## Running the tests
 
-To run the rspec tests:
+Because the setup and teardown introduces quite some latency, we use the spring service to
+start up all dependencies in a docker container. This makes the test run faster.
 
-`$ bundle exec rspec`
+Get the test server up and running behind the scenes:
 
-To run the full test suite - Rubocop, Brakeman and Rspec - before pushing to Github:
+```bash
+$ bin/dtest-server up
+```
 
-`$ bundle exec rake` (the default Rake task)
+Run all the RSpec tests:
 
-## Running the application
+```bash
+$ bin/dspec spec
+```
 
-`$ bundle exec rails s`
+When no arguments are specified, the default rake task is executed. This runs other tests such as `Rubocop` for linting and `brakeman` for static code analysis.
 
-The application will run on port 3100 by default
+You can use pass arguments as you normally would to RSpec through this script, to run a single test for example you can use `bin/dspec spec/features/task_management_spec.rb:1`
+
+To stop the test server from running in the background:
+
+```bash
+$ bin/dtest-server down
+```
+
+---
+
+## Managing gems
+
+When making changes to the Gemfile we should use Docker too in order to ensure we use a consistent version of Bundler:
+
+```bash
+$ docker-compose run --rm web bundle
+```
+
+The Bundler version in the Gemfile.lock should remain unchanged unless part of a deliberate update.
+
+```
+BUNDLED WITH
+  2.0.1
+```
+
+---
 
 ## Release process
 
