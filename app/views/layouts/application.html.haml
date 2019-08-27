@@ -18,9 +18,6 @@
     = render('shared/analytics') if ENV['GOOGLE_TAG_MANAGER_ID']
 
   %body.govuk-template__body.app-body-class
-    %script
-      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-
     %a{ href: '#main-content', class: 'govuk-skip-link' }
       Skip to main content
 
