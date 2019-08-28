@@ -101,4 +101,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_dispatch.default_headers.merge!(
+    # Value given by https://www.gov.uk/service-manual/technology/using-https
+    'Strict-Transport-Security' => 'max-age=31536000, includeSubDomains; preload;',
+
+    'Expect-CT' => 'enforce, max-age=10'
+  )
 end
