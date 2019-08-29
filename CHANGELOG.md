@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-55] - 2019-08-29
+
+- Fix Google Analytics by expanding Content-Security-Policy whitelist
+
 ## [release-54] - 2019-08-29
 
 - Improvements to documentation and Docker development environment
@@ -293,6 +297,7 @@
 
 Initial release
 
+[release-55]: https://github.com/dxw/DataSubmissionService/compare/release-54...release-55
 [release-54]: https://github.com/dxw/DataSubmissionService/compare/release-53...release-54
 [release-53]: https://github.com/dxw/DataSubmissionService/compare/release-52...release-53
 [release-52]: https://github.com/dxw/DataSubmissionService/compare/release-51...release-52
