@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-54] - 2019-08-29
+
+- Improvements to documentation and Docker development environment
+- Add some security-related HTTP response headers
+- Lock Nokogiri to a safe version
+
 ## [release-53] - 2019-08-22
 
 - Handle the new management_charge_calculation_failed submission status
@@ -287,6 +293,7 @@
 
 Initial release
 
+[release-54]: https://github.com/dxw/DataSubmissionService/compare/release-53...release-54
 [release-53]: https://github.com/dxw/DataSubmissionService/compare/release-52...release-53
 [release-52]: https://github.com/dxw/DataSubmissionService/compare/release-51...release-52
 [release-51]: https://github.com/dxw/DataSubmissionService/compare/release-50...release-51
