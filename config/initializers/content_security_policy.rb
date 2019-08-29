@@ -13,10 +13,12 @@ Rails.application.config.content_security_policy do |policy|
   # suggest we can hardcode this host)
   policy.font_src    :self, :https
 
-  # script-src and img-src settings required for Google Tag Manager:
+  # script-src and img-src settings required for Google Tag Manager;
+  # script-src, img-src, and connect-src settings required for Google Analytics:
   # https://developers.google.com/tag-manager/web/csp
-  policy.script_src :self, :unsafe_inline, 'https://www.googletagmanager.com'
-  policy.img_src    :self, 'https://www.googletagmanager.com'
+  policy.script_src  :self, :unsafe_inline, 'https://www.googletagmanager.com', 'https://www.google-analytics.com', 'https://ssl.google-analytics.com'
+  policy.img_src     :self, 'https://www.googletagmanager.com', 'https://www.google-analytics.com'
+  policy.connect_src :self, 'https://www.google-analytics.com'
 end
 
 # If you are using UJS then enable automatic nonce generation
