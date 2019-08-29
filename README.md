@@ -88,6 +88,6 @@ BUNDLED WITH
 
 ---
 
-## Release process
+## Deployments
 
-The production release process is documented in [RELEASE-PROCESS.md](RELEASE-PROCESS.md).
+Documentation on how deployments are managed for the RMI service as a whole are documented within the [service manual](https://crown-commercial-service.github.io/ReportMI-service-manual/#/deployments).
