@@ -9,7 +9,7 @@ applications:
       - ccs-rmi-logging-CF_SPACE
       - APP_AUTH0
       - SKYLIGHT
-      - ROLLBAR
+      - APP_ROLLBAR
       - DSSAPI
       - APP_SECRETBASE
       - GOOGLE_IDS
