@@ -7,10 +7,17 @@
     ]
   },
   {
-    "service_name": "ROLLBAR",
+    "service_name": "APP_ROLLBAR",
     "env": [
-      "ROLLBAR_ENV",
-      "ROLLBAR_ACCESS_TOKEN"
+      "CCSRMIAPP_ROLLBAR_ENV",
+      "CCSRMIAPP_ROLLBAR_ACCESS_TOKEN"
+    ]
+  },
+  {
+    "service_name": "API_ROLLBAR",
+    "env": [
+      "CCSRMIAPI_ROLLBAR_ENV",
+      "CCSRMIAPI_ROLLBAR_ACCESS_TOKEN"
     ]
   },
   {
