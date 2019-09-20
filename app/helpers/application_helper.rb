@@ -18,4 +18,8 @@ module ApplicationHelper
   def correction_returns_enabled?
     ENV['CORRECTION_RETURNS_ENABLED'].present?
   end
+
+  def survey_url
+    'https://www.surveymonkey.com/r/9QTDW9P'
+  end
 end
