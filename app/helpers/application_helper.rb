@@ -20,6 +20,6 @@ module ApplicationHelper
   end
 
   def survey_url
-    'https://www.surveymonkey.com/r/9QTDW9P'
+    'https://www.smartsurvey.co.uk/s/YF7CY/'
   end
 end
