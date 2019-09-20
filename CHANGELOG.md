@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-56] - 2019-09-20
+
+- Change survey link (support ticket 10150)
+
 ## [release-55] - 2019-08-29
 
 - Fix Google Analytics by expanding Content-Security-Policy whitelist
@@ -297,6 +301,7 @@
 
 Initial release
 
+[release-56]: https://github.com/dxw/DataSubmissionService/compare/release-55...release-56
 [release-55]: https://github.com/dxw/DataSubmissionService/compare/release-54...release-55
 [release-54]: https://github.com/dxw/DataSubmissionService/compare/release-53...release-54
 [release-53]: https://github.com/dxw/DataSubmissionService/compare/release-52...release-53
