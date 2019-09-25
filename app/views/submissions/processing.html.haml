@@ -4,6 +4,14 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
+    .govuk-flash__notice.govuk-body-m
+      Your file is being checked. You do not have to stay on this page.
+      %br
+      %br
+      Your task will be updated as this progresses.
+
+.govuk-grid-row
+  .govuk-grid-column-full
     = render 'shared/task_signpost', task: @task
 
 .govuk-grid-row
@@ -14,11 +22,3 @@
       = render partial: 'shared/this_is_a_correction' if correction?
 
   = render 'shared/progress_indicator'
-
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
-    %p
-      Your file is being checked. You do not have to stay on this page.
-
-    %p
-      Your task will be updated as this progresses.
