@@ -38,5 +38,5 @@ Rails.application.routes.draw do
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
 
-  get '/accessibility', to: 'application#accessibility'
+  get '/accessibility', to: 'accessibility#index'
 end

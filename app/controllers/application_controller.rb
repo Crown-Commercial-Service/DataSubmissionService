@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :correction?
 
-  def accessibility; end
-
   private
 
   def current_user_id
