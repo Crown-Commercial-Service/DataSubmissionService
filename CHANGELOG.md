@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-57] - 2019-09-27
+
+- Add accessibility statement (support ticket 10178)
+- Accessibility-related changes on upload page (support ticket 10178)
+
 ## [release-56] - 2019-09-20
 
 - Change survey link (support ticket 10150)
@@ -301,6 +306,7 @@
 
 Initial release
 
+[release-57]: https://github.com/dxw/DataSubmissionService/compare/release-56...release-57
 [release-56]: https://github.com/dxw/DataSubmissionService/compare/release-55...release-56
 [release-55]: https://github.com/dxw/DataSubmissionService/compare/release-54...release-55
 [release-54]: https://github.com/dxw/DataSubmissionService/compare/release-53...release-54
