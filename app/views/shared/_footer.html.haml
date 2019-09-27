@@ -2,6 +2,11 @@
   .govuk-width-container
     .govuk-footer__meta
       .govuk-footer__meta-item.govuk-footer__meta-item--grow
+        %h2.govuk-visually-hidden
+          Support links
+        %ul.govuk-footer__inline-list
+          %li.govuk-footer__inline-list-item
+            = link_to "Accessibility statement", accessibility_path, class: "govuk-footer__link"
         %span.govuk-footer__licence-description
           Having problems using this service? Email
           = mail_to(support_email_address, nil,{:class => "govuk-footer__link"})
