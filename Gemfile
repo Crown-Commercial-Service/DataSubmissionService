@@ -43,7 +43,6 @@ gem 'httparty'
 gem 'jsonapi-consumer', '~> 1.0'
 
 # Forms
-gem 'simple_form'
 
 # Exception tracking
 gem 'rollbar'
