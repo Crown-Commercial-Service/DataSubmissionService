@@ -82,7 +82,7 @@ GEM
     concurrent-ruby (1.1.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    crass (1.0.4)
+    crass (1.0.5)
     database_cleaner (1.7.0)
     diff-lcs (1.3)
     domain_name (0.5.20180417)
@@ -151,7 +151,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.2.3)
+    loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -174,7 +174,7 @@ GEM
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -208,8 +208,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
-    puma (3.11.4)
-    rack (2.0.6)
+    puma (3.12.2)
+    rack (2.0.8)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.2.1)
@@ -290,9 +290,6 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     sexp_processor (4.11.0)
-    simple_form (4.0.1)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     skylight (3.1.2)
       skylight-core (= 3.1.2)
     skylight-core (3.1.2)
@@ -366,13 +363,12 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   poltergeist
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2)
   rollbar
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
-  simple_form
   skylight
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -381,7 +377,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.5.7p206
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
