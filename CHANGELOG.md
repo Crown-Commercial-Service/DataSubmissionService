@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-58] - 2019-12-19
+
+- [Security] Bump rack from 2.0.6 to 2.0.8
+
 ## [release-57] - 2019-09-27
 
 - Add accessibility statement (support ticket 10178)
