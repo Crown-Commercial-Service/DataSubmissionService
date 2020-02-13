@@ -15,6 +15,7 @@
       },
       "invoice_count": 2,
       "order_count": 1,
+      "other_count": 0,
       "order_total_value": "1000.0",
       "invoices_total_value": "2000.0",
       "purchase_order_number": null,
