@@ -8,6 +8,7 @@
       "task_id": "2d98639e-5260-411f-a5ee-61847a2e067c",
       "invoice_count": 2,
       "order_count": 1,
+      "other_count": 0,
       "order_total_value": "1000.00",
       "invoice_total_value": "2000.00",
       "purchase_order_number": "123",

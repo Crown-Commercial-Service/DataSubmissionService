@@ -48,7 +48,8 @@
         "submitted_at": "2019-02-14T15:39:38.151Z",
         "purchase_order_number": null,
         "invoice_count": 0,
-        "order_count": 0
+        "order_count": 0,
+        "other_count": 0
       },
       "relationships": {
         "files": {
