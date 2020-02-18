@@ -8,17 +8,23 @@
       %th.govuk-table__header.govuk-table__header--numeric{ scope: 'col' } Total
 
   %tbody.govuk-table__body
-    %tr.govuk-table__row
-      %th.govuk-table__header{ scope: 'row' }
-        Contracts
-      %td.govuk-table__cell.govuk-table__cell--numeric
-        = @submission.order_count
-      %td.govuk-table__cell.govuk-table__cell--numeric
-        = number_to_currency(@submission.order_total_value, unit: '£')
-    %tr.govuk-table__row
+    %tr.govuk-table__row.invoices
       %th.govuk-table__header{ scope: 'row' }
         Invoices
       %td.govuk-table__cell.govuk-table__cell--numeric
         = submission.invoice_count
       %td.govuk-table__cell.govuk-table__cell--numeric
         = number_to_currency(@submission.invoice_total_value, unit: '£')
+    %tr.govuk-table__row.contracts
+      %th.govuk-table__header{ scope: 'row' }
+        Contracts
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = @submission.order_count
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = number_to_currency(@submission.order_total_value, unit: '£')
+    %tr.govuk-table__row.others
+      %th.govuk-table__header{ scope: 'row' }
+        Others
+      %td.govuk-table__cell.govuk-table__cell--numeric
+        = submission.other_count
+      %td.govuk-table__cell.govuk-table__cell

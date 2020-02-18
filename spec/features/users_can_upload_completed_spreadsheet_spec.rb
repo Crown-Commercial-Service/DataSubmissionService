@@ -108,7 +108,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       expect(page).to have_content 'Please select a file'
     end
 
-    scenario 'see the current supplier name on the review view' do
+    scenario 'see the summary of a submission on the review page' do
       travel_to Time.zone.local(2018, 7, 2)
 
       mock_sso_with(email: 'email@example.com')
@@ -123,6 +123,18 @@ RSpec.feature 'User uploads completed spreadsheet' do
 
       expect(page).to have_content 'CBOARD5'
       expect(page).to have_content 'Bobs Cheese Shop'
+
+      within first('.contracts .govuk-table__cell') do
+        expect(page).to have_content '1'
+      end
+
+      within first('.invoices .govuk-table__cell') do
+        expect(page).to have_content '2'
+      end
+
+      within first('.others .govuk-table__cell') do
+        expect(page).to have_content '0'
+      end
     end
 
     scenario 'see the current supplier name on the complete view' do

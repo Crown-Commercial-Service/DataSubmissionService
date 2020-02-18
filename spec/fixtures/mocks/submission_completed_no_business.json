@@ -8,6 +8,7 @@
       "task_id": "2d98639e-5260-411f-a5ee-61847a2e067c",
       "invoice_count": 0,
       "order_count": 0,
+      "other_count": 0,
       "order_total_value": "0.0",
       "invoices_total_value": "0.0",
       "purchase_order_number": null,
