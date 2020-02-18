@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-59] - 2020-02-18
+
+- Show OtherFields row count on summary page
+
 ## [release-58] - 2019-12-19
 
 - [Security] Bump rack from 2.0.6 to 2.0.8
@@ -310,6 +314,8 @@
 
 Initial release
 
+[release-59]: https://github.com/dxw/DataSubmissionService/compare/release-58...release-59
+[release-58]: https://github.com/dxw/DataSubmissionService/compare/release-57...release-58
 [release-57]: https://github.com/dxw/DataSubmissionService/compare/release-56...release-57
 [release-56]: https://github.com/dxw/DataSubmissionService/compare/release-55...release-56
 [release-55]: https://github.com/dxw/DataSubmissionService/compare/release-54...release-55
