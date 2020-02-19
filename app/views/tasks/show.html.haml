@@ -7,29 +7,17 @@
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
-      Task
+      = @task.framework.short_name
+      = @task.framework.name
+      for
+      = @task.reporting_period
 
-.govuk-grid-row
-  .govuk-grid-column-three-quarters
     %dl.govuk-summary-list.govuk-summary-list--no-border
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Framework
-        %dd.govuk-summary-list__value
-          = @task.framework.short_name
-          = @task.framework.name
-
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Month
-        %dd.govuk-summary-list__value
-          = @task.reporting_period
-
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
           Reported
         %dd.govuk-summary-list__value
-          = @task.completed_at
+          = @task.completed_at || '-'
 
       - if current_user.multiple_suppliers?
         .govuk-summary-list__row

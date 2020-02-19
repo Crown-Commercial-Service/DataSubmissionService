@@ -21,10 +21,6 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include 'cboard11'
     end
 
-    it 'shows the tasks ordered by due date' do
-      expect(response.body.index('7 September')).to be > response.body.index('7 August')
-    end
-
     it 'includes links to start an unstarted task' do
       unstarted_task_id = '2d98639e-5260-411f-a5ee-61847a2e067c'
 
@@ -38,7 +34,7 @@ RSpec.describe 'the tasks list' do
       in_review_task_id = '855d1dd2-d9b3-4432-8c17-b63e90e50bcd'
 
       assert_select "#task-#{in_review_task_id}" do
-        assert_select 'a', text: 'Submit management information'
+        assert_select 'a', text: 'Review and submit'
       end
     end
 
@@ -46,8 +42,7 @@ RSpec.describe 'the tasks list' do
       errored_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1c'
 
       assert_select "#task-#{errored_task_id}" do
-        assert_select 'a', text: 'View errors'
-        assert_select 'a', text: 'Upload amended file'
+        assert_select 'a', text: 'View and correct errors'
       end
     end
 
@@ -55,24 +50,7 @@ RSpec.describe 'the tasks list' do
       errored_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1e'
 
       assert_select "#task-#{errored_task_id}" do
-        assert_select 'a', text: 'View errors'
-        assert_select 'a', text: 'Upload amended file'
-      end
-    end
-
-    it 'includes a link to view the latest pending submission' do
-      in_progress_task_id = 'fc9deeb0-9804-42f7-ad8b-8b9878cce252'
-
-      assert_select "#task-#{in_progress_task_id}" do
-        assert_select 'a', text: 'View progress'
-      end
-    end
-
-    it 'includes a link to view the latest processing submission' do
-      processing_task_id = 'd211060f-e4fa-413a-928e-5928d0083db6'
-
-      assert_select "#task-#{processing_task_id}" do
-        assert_select 'a', text: 'View progress'
+        assert_select 'a', text: 'View and correct errors'
       end
     end
 
@@ -82,7 +60,7 @@ RSpec.describe 'the tasks list' do
       assert_select "#task-#{cboard5_task_id}" do
         assert_select 'a[href=?]',
                       task_template_path(cboard5_task_id),
-                      text: 'Download template'
+                      text: 'Download template (excel document)'
       end
     end
 
@@ -93,7 +71,7 @@ RSpec.describe 'the tasks list' do
         assert_select '.govuk-tag__notice', text: 'Correction'
         assert_select 'a[href=?]',
                       task_submission_path(task_id: correcting_task_id, id: correcting_submission_id, correction: true),
-                      text: 'View errors'
+                      text: 'View and correct errors'
       end
     end
   end
