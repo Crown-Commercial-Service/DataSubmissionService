@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-60] - 2020-02-27
+
+- Fix: Prevent users getting stuck on authentication page
+
 ## [release-59] - 2020-02-18
 
 - Show OtherFields row count on summary page
@@ -314,6 +318,7 @@
 
 Initial release
 
+[release-60]: https://github.com/dxw/DataSubmissionService/compare/release-59...release-60
 [release-59]: https://github.com/dxw/DataSubmissionService/compare/release-58...release-59
 [release-58]: https://github.com/dxw/DataSubmissionService/compare/release-57...release-58
 [release-57]: https://github.com/dxw/DataSubmissionService/compare/release-56...release-57
