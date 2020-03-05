@@ -1,17 +1,18 @@
 - page_title "#{@task.framework.short_name} #{@task.framework.name} for #{@task.reporting_period}"
 
+
 .govuk-grid-row
   .govuk-grid-column-full
     = link_to 'Back', history_tasks_path, { class: 'govuk-back-link', title: 'Back to your task history' }
 
-.govuk-grid-row
-  .govuk-grid-column-full
     %h1.govuk-heading-xl
       = @task.framework.short_name
       = @task.framework.name
       for
       = @task.reporting_period
 
+.govuk-grid-row
+  .govuk-grid-column-one-half
     %dl.govuk-summary-list.govuk-summary-list--no-border
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
@@ -40,8 +41,6 @@
           %dd.govuk-summary-list__value
             = link_to(@file.filename, download_task_submission_path(@task, @submission))
 
-.govuk-grid-row
-  .govuk-grid-column-full
     - if @submission.report_no_business?
       %p.ccs-return.ccs-return--no-business
         You reported no business
@@ -49,10 +48,6 @@
       = render(partial: 'shared/submission_table', object: @submission, as: 'submission')
 
 - if correction_returns_enabled?
-  .govuk-grid-row
-    .govuk-grid-column-full
-      %hr.govuk-section-break.govuk-section-break--l
-
   .govuk-grid-row
     .govuk-grid-column-two-thirds
       %h2.govuk-heading-m

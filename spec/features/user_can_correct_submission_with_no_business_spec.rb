@@ -39,7 +39,8 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_on 'Report no business'
 
         expect(page).to have_content 'This is a correction'
-        expect(page).to have_content 'Report no business for CBOARD5'
+        expect(page).to have_content 'Report no business'
+        expect(page).to have_content 'CBOARD5 Cheese Board 5'
         expect(page).to_not have_content 'Bobs Cheese Shop'
 
         click_on 'Confirm no business'
@@ -69,7 +70,8 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_on 'Report no business'
 
         expect(page).to have_content 'This is a correction'
-        expect(page).to have_content 'Report no business for CBOARD5'
+        expect(page).to have_content 'Report no business'
+        expect(page).to have_content 'CBOARD5 Cheese Board 5'
         expect(page).to have_content 'Bobs Cheese Shop'
 
         click_on 'Confirm no business'
