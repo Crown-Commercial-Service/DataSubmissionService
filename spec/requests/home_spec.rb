@@ -5,7 +5,6 @@ RSpec.describe 'the home page' do
     get root_path
 
     expect(response.body).to include 'If you’re having trouble signing in'
-    expect(response.body).to include 'Check which frameworks report here'
   end
 
   it 'links to the user’s task list when signed in' do

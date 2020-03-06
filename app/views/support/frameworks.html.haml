@@ -1,29 +1,9 @@
 .govuk-grid-row
-  .govuk-grid-column-full
-    %h1.govuk-heading-xl
+  .govuk-grid-column-two-third
+    %h1.govuk-heading-l
       Check which service to report to
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
-    %p
-      The following frameworks are submitted through this service.
-    %p
-      If you are reporting on any other framework, use the existing
-      = succeed '.' do
-        = link_to 'MISO service', 'https://miso.ccs.cabinetoffice.gov.uk/', :title => 'Link to MISO Service'
 
-.govuk-grid-row
-  .govuk-grid-column-full
-    = link_to('Back', '/',{ :class => 'govuk-back-link', :title => 'Link to start page'})
-    %table.govuk-table
-      %thead.govuk-table__head
-        %tr.govuk-table__row
-          %th.govuk-table__header{ :scope => 'col'}
-            Framework number
-          %th.govuk-table__header{ :scope => 'col'}
-            Framework name
-      %tbody.govuk-table__body
-        - @frameworks.each do |framework|
-          %tr.govuk-table__row
-            %td.govuk-table__cell= framework.short_name
-            %td.govuk-table__cell= framework.name
+    %p
+      As of March 2020, all frameworks should be reported using this service.
+
     = link_to('Back', '/',{ :class => 'govuk-back-link', :title => 'Link to start page'})
