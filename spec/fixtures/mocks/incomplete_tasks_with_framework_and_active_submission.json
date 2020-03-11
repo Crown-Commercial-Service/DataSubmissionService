@@ -266,6 +266,45 @@
           }
         }
       }
+    },
+    {
+      "id": "445d1dd2-d9b3-4432-8c17-b63e90e50bcd",
+      "type": "tasks",
+      "attributes": {
+        "status": "correcting",
+        "framework_id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "supplier_name": "Bobs Cheese Shop",
+        "description": null,
+        "due_on": "2018-09-07",
+        "period_year": 2018,
+        "period_month": 8
+      },
+      "relationships": {
+        "active_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
+          }
+        },
+        "latest_submission": {
+          "data": {
+            "type": "submissions",
+            "id": "67e7a34f-5d4c-4946-b045-da77f4b651db"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "fbe9c2dd-ad80-4398-8c92-f50a6a47d92e"
+          }
+        }
+      }
     }
   ],
   "included": [
