@@ -12,7 +12,8 @@ module API
     end
 
     def errors?
-      %w[validation_failed ingest_failed management_charge_calculation_failed].include?(active_submission&.status)
+      error_statuses = %w[validation_failed ingest_failed management_charge_calculation_failed]
+      error_statuses.include?(active_submission&.status) || error_statuses.include?(latest_submission&.status)
     end
 
     def late?
