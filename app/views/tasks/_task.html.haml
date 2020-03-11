@@ -1,46 +1,55 @@
-%li.ccs-task{id: "task-#{task.id}", 'aria-label' => "Task #{task_counter + 1}"}
-  %header.ccs-task__information
-    .ccs-task__statuses
-      - if task.complete?
-        %strong.govuk-tag.govuk-tag__success Completed
+%tr.govuk-table__row{ id: "task-#{task.id}" }
+  %td.govuk-table__cell
+    %h2.govuk-heading-m
+      = task.framework.short_name
+      = task.framework.name
+      for
+      = task.reporting_period
+
+    - if current_user.multiple_suppliers?
+      %h3.govuk-heading-s
+        %span.govuk-visually-hidden
+          Supplier:
+        = task.supplier_name
+
+    %p
+      - if task.late?
+        %strong.govuk-tag.govuk-tag__warning
+          Overdue
+      - else
+        Due
+        = task_due_date(task)
+
       - if task.errors?
         %strong.govuk-tag.govuk-tag__failure Errors
-      - if task.late?
-        %strong.govuk-tag.govuk-tag__warning Late
+
       - if task.correcting?
         %strong.govuk-tag.govuk-tag__notice Correction
-    .ccs-task__body
-      %h2.govuk-heading-s
-        Report management information for
-        = task.reporting_period
-      - if current_user.multiple_suppliers?
-        %h3.govuk-heading-m
-          %span.govuk-visually-hidden
-            Supplier:
-          = task.supplier_name
-      %h3.govuk-heading-m
-        %span.govuk-visually-hidden
-          Framework:
-        = task.framework.short_name
-        = task.framework.name
-      - unless task.complete?
-        %p
-          Due
-          = task_due_date(task)
-  .ccs-task__action
-    .ccs-task__action--secondary
+
+    - if task.status == 'in_progress' || task.correcting?
       %p
-        - if task.correcting?
-          = link_to 'Cancel correction', cancel_correction_confirmation_task_path(task)
+        - if  task.active_submission.status == 'in_review'
+          This submission has been validated. Please review and submit to CCS.
         - else
-          = link_to 'Download template', task_template_path(task), {'aria-label' => "Download template for #{task.framework.short_name} #{task.framework.name}"}
-    .ccs-task__action--primary
-      - case task.status
-      - when 'in_progress'
+          - if task.errors?
+            There were errors with this submission. Please submit a corrected return.
+          - else
+            We are currently processing this submission.
+
+    %p
+      - if task.correcting?
+        = link_to 'Cancel correction', cancel_correction_confirmation_task_path(task), {'aria-label' => "Cancel correction on #{task.framework.short_name} for #{task.reporting_period}"}
+      - elsif task.status == 'unstarted' || task.errors?
+        = link_to 'Download template (excel document)', task_template_path(task), {'aria-label' => "Download excel document template for #{task.framework.short_name} #{task.framework.name}"}
+
+    - case task.status
+    - when 'in_progress'
+      %div
         = render 'submission_buttons', task: task, submission: task.active_submission
-      - when 'correcting'
+    - when 'correcting'
+      %div
         = render 'submission_buttons', task: task, submission: task.latest_submission
-      - when 'unstarted'
+    - when 'unstarted'
+      %div
         = link_to 'Report management information', new_task_submission_path(task_id: task.id),  {class: 'govuk-button', 'aria-label' => "Report management information for #{task.supplier_name} on #{task.framework.short_name}"}
         = link_to 'Report no business', new_task_no_business_path(task_id: task.id), {class: 'govuk-button', 'aria-label' => "Report no business for #{task.supplier_name} on #{task.framework.short_name}"}
-

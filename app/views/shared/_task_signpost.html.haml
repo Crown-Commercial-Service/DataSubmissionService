@@ -1,8 +1,8 @@
-%aside.ccs-task-signpost
-  %h2.ccs-task-signpost__heading
-    - if current_user.multiple_suppliers?
-      = task.supplier_name
-      %br
-    = local_assigns.fetch(:action, 'Report management information for')
-    = task.framework.short_name
-    = task.framework.name
+%h2.govuk-heading-l
+  - if current_user.multiple_suppliers?
+    = task.supplier_name
+    %br
+  = task.framework.short_name
+  = task.framework.name
+  for
+  = task.reporting_period

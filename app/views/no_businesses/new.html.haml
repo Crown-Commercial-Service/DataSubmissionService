@@ -2,20 +2,21 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = render 'shared/task_signpost', task: @task, action: 'Report no business for'
+    = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
 
-.govuk-grid-row
-  .govuk-grid-column-full
     %h1.govuk-heading-xl
       Report no business
 
+    = render 'shared/task_signpost', task: @task, action: 'Report no business for'
+
     = render partial: 'shared/this_is_a_correction' if correction?
 
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
     %p
       By reporting no business you are confirming that you have no transactions
       to report on this framework.
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
 
     .govuk-form-group
       = form_tag(task_no_business_path(task_id: @task, correction: params[:correction])) do

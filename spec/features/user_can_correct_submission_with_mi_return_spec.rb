@@ -18,7 +18,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       click_button 'sign-in'
 
       mock_complete_tasks_endpoint!
-      click_link 'History'
+      click_link 'Completed tasks'
 
       mock_completed_task_endpoint!
       click_link 'View'

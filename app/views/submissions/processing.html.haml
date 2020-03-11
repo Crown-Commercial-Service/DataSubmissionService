@@ -1,23 +1,23 @@
 - page_title "Checking file: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= content_for(:head, tag.meta('http-equiv': 'refresh', content: 10))
+= content_for(:head, tag.meta('http-equiv': 'refresh', content: 30))
 
 .govuk-grid-row
   .govuk-grid-column-full
-    .govuk-flash__notice.govuk-body-m
-      Your file is being checked. You do not have to stay on this page.
-      %br
-      %br
-      Your task will be updated as this progresses.
-
-.govuk-grid-row
-  .govuk-grid-column-full
-    = render 'shared/task_signpost', task: @task
-
-.govuk-grid-row
-  .govuk-grid-column-full
+    = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
+      
     %h1.govuk-heading-l
       Checking file…
+
+    = render 'shared/task_signpost', task: @task
+
+    %div{ 'aria-live': 'polite' }
+      %p
+        Your file is being checked. You do not have to stay on this page.
+      %p
+        Your task will be updated as this progresses.
+      %p
+        Please remember to review and submit after validation completes.
 
       = render partial: 'shared/this_is_a_correction' if correction?
 

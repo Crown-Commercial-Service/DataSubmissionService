@@ -2,18 +2,16 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = render 'shared/task_signpost', task: @task
 
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Errors to correct
 
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
+    = render 'shared/task_signpost', task: @task
 
-    .govuk-error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
-      %h2.govuk-error-summary__title
+    .govuk-error-summary{ role: 'alert', 'aria-labelledby': 'error-summary-heading', tabindex: '-1' }
+      %h3.govuk-error-summary__title
         There are errors in your uploaded file
 
       %p
@@ -22,7 +20,9 @@
         %p
           The first 10 rows with errors are listed below. There may be also be other errors in the uploaded file.
 
-- @submission.sheet_errors.each_pair do |sheet_name, errors|
-  = render('errors_table', errors: errors, sheet_name: sheet_name) if errors.any?
+.govuk-grid-row
+  .govuk-grid-column-one-half
+    - @submission.sheet_errors.each_pair do |sheet_name, errors|
+      = render('errors_table', errors: errors, sheet_name: sheet_name) if errors.any?
 
-= link_to 'Upload amended file', new_task_submission_path(@task.id, correction: params[:correction]), class: 'govuk-button'
+    = link_to 'Upload amended file', new_task_submission_path(@task.id, correction: params[:correction]), class: 'govuk-button'
