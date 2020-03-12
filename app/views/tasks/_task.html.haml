@@ -27,8 +27,8 @@
         %strong.govuk-tag.govuk-tag__notice Correction
 
     - if task.status == 'in_progress' || task.correcting?
-      %p
-        - if  task.active_submission.status == 'in_review'
+      %p.ccs-task-status-message
+        - if task.active_submission.status == 'in_review' || task.latest_submission.status == 'in_review'
           This submission has been validated. Please review and submit to CCS.
         - else
           - if task.errors?

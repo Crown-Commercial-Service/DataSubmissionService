@@ -67,11 +67,30 @@ RSpec.describe 'the tasks list' do
     it 'lists a task with an incomplete correction' do
       correcting_task_id = 'b847e0f7-027e-4b95-afa2-3490b8d05a1d'
       correcting_submission_id = '43dfbd10-1c17-4f3c-8665-be8c27762923'
+
+      assert_select "#task-#{correcting_task_id}" do
+        assert_select '.govuk-tag__notice', text: 'Correction'
+        assert_select '.govuk-tag.govuk-tag__failure', text: 'Errors'
+        assert_select 'a[href=?]',
+                      task_submission_path(task_id: correcting_task_id,
+                                           id: correcting_submission_id,
+                                           correction: true),
+                      text: 'View and correct errors'
+        assert_select 'p.ccs-task-status-message',
+                      text: 'There were errors with this submission. Please submit a corrected return.'
+      end
+    end
+
+    it 'lists a task with a complete correction that is ready to submit' do
+      correcting_task_id = '445d1dd2-d9b3-4432-8c17-b63e90e50bcd'
+      correcting_submission_id = '67e7a34f-5d4c-4946-b045-da77f4b651db'
       assert_select "#task-#{correcting_task_id}" do
         assert_select '.govuk-tag__notice', text: 'Correction'
         assert_select 'a[href=?]',
-                      task_submission_path(task_id: correcting_task_id, id: correcting_submission_id, correction: true),
-                      text: 'View and correct errors'
+                      task_submission_path(task_id: correcting_task_id, id: correcting_submission_id),
+                      text: 'Review and submit'
+        assert_select 'p.ccs-task-status-message',
+                      text: 'This submission has been validated. Please review and submit to CCS.'
       end
     end
   end
