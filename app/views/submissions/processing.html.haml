@@ -1,11 +1,11 @@
 - page_title "Checking file: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
-= content_for(:head, tag.meta('http-equiv': 'refresh', content: 30))
+= content_for(:head, tag.meta('http-equiv': 'refresh', content: 10))
 
 .govuk-grid-row
   .govuk-grid-column-full
     = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
-      
+
     %h1.govuk-heading-l
       Checking file…
 
