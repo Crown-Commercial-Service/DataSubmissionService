@@ -1,5 +1,12 @@
 # Change Log
 
+## [release-61] - 2020-03-12
+
+- [Security] Bump puma from 3.12.2 to 3.12.4
+- [Security] Bump rake from 12.3.2 to 13.0.1
+- [Security] Bump omniauth from 1.8.1 to 1.9.1
+- Accessibility improvements
+
 ## [release-60] - 2020-02-27
 
 - Fix: Prevent users getting stuck on authentication page
@@ -318,6 +325,7 @@
 
 Initial release
 
+[release-61]: https://github.com/dxw/DataSubmissionService/compare/release-60...release-61
 [release-60]: https://github.com/dxw/DataSubmissionService/compare/release-59...release-60
 [release-59]: https://github.com/dxw/DataSubmissionService/compare/release-58...release-59
 [release-58]: https://github.com/dxw/DataSubmissionService/compare/release-57...release-58
