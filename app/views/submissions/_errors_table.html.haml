@@ -1,24 +1,23 @@
-%h4.govuk-heading-s
-  = sheet_name
-
 %table.govuk-table
+  %caption.govuk-table__caption
+    Errors found in sheet
+    = surround "“", "”" do
+      = sheet_name
+
   %thead.govuk-table__head
     %tr.govuk-table__row
-      %th.govuk-table__cell
+      %th.govuk-table__cell{ scope: 'col' }
         Row
-      %th.govuk-table__cell
+      %th.govuk-table__cell{ scope: 'col' }
         Column
-      %th.govuk-table__cell
+      %th.govuk-table__cell{ scope: 'col' }
         Help
   %tbody.govuk-table__body
     - errors.each do |error|
       %tr.govuk-table__row
         %td.govuk-table__cell
-          %p
-            = error['location']['row']
+          = error['location']['row']
         %td.govuk-table__cell
-          %p
-            = error['location']['column']
+          = error['location']['column']
         %td.govuk-table__cell
-          %p
-            = error['message']
+          = error['message']

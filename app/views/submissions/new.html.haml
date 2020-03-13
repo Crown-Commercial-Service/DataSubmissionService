@@ -2,18 +2,18 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = render 'shared/task_signpost', task: @task
+    = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
 
-.govuk-grid-row
-  .govuk-grid-column-full
     %h1.govuk-heading-xl
       Report management information
+
+    = render 'shared/task_signpost', task: @task
 
     = render partial: 'shared/this_is_a_correction' if correction?
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
-    %h2.govuk-heading-l
+    %h3.govuk-heading-m
       Upload a file
     %p
       Choose a file to upload
@@ -26,7 +26,8 @@
         %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
           Choose a file
         = file_field_tag 'upload', required: true, class: 'govuk-file-upload', id: 'submission_file_upload'
-      %h2.govuk-heading-l
+
+      %h3.govuk-heading-m
         Add a purchase order number
       %p
         You have the option of adding a purchase order number to this return, which will appear on your invoice.
@@ -38,6 +39,7 @@
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
+
     %p
       Have no business to report?
       = link_to 'Report no business', new_task_no_business_path(task_id: @task.id), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}

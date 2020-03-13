@@ -19,65 +19,13 @@ $button-shadow-size: $govuk-border-width-form-element;
     color: $govuk-button-text-colour;
   }
 
-  @include govuk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $govuk-button-text-colour;
-    }
+  &:focus {
+    color: govuk-colour("black");
+    background-color: govuk-colour("yellow") !important;
+    outline: none;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $govuk-button-hover-colour;
   }
 }
-
-.govuk-button--disabled,
-.govuk-button[disabled="disabled"],
-.govuk-button[disabled] {
-  background: $govuk-button-colour;
-
-  &:hover {
-    background-color: $govuk-button-colour;
-  }
-
-  &:active {
-    top: 0;
-    box-shadow: 0 $button-shadow-size 0 $govuk-button-shadow-colour; // s0
-    -webkit-box-shadow: 0 $button-shadow-size 0 $govuk-button-shadow-colour;
-    @include govuk-if-ie8 {
-      border-bottom: $button-shadow-size solid $govuk-button-shadow-colour; // s0
-    }
-  }
-}
-
-.govuk-button--as-link {
-  margin-bottom: 0;
-  padding: 0;
-  border: 0;
-  color: govuk-colour("blue");
-  text-decoration: underline;
-  @include govuk-font(19);
-
-  &:link {
-    color: $govuk-link-colour;
-  }
-
-  &:visited {
-    color: $govuk-link-visited-colour;
-  }
-
-  &:hover {
-    color: $govuk-link-hover-colour;
-  }
-
-  &:active {
-    color: $govuk-link-active-colour;
-  }
-
-  &:focus {
-    color: $govuk-focus-text-colour;
-    @include govuk-focusable-fill;
-  }
-}
-
-

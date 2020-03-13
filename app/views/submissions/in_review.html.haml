@@ -2,17 +2,15 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = render 'shared/task_signpost', task: @task
+    = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
 
-.govuk-grid-row
-  .govuk-grid-column-full
     %h1.govuk-heading-xl
       Review & submit
 
+    = render 'shared/task_signpost', task: @task
+
     = render partial: 'shared/this_is_a_correction' if correction?
 
-.govuk-grid-row
-  .govuk-grid-column-three-quarters
     %p
       Your file has been checked and is ready to submit.
 

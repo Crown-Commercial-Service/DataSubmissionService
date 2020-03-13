@@ -1,8 +1,5 @@
 - case submission.status
-- when 'pending', 'processing'
-    = link_to 'View progress', task_submission_path(task_id: task.id, id: submission.id), {class: 'govuk-button', 'aria-label' => "View progress of this task"}
 - when 'validation_failed', 'ingest_failed', 'management_charge_calculation_failed'
-    = link_to 'View errors', task_submission_path(task_id: task.id, id: submission.id, correction: task.correcting?), {class: 'govuk-button', 'aria-label' => "View the errors for this task"}
-    = link_to 'Upload amended file', new_task_submission_path(task_id: task.id, correction: task.correcting?), {class: 'govuk-button', 'aria-label' => "Upload an amended file for this task"}
+    = link_to 'View and correct errors', task_submission_path(task_id: task.id, id: submission.id, correction: task.correcting?), {class: 'govuk-button govuk-button__secondary', 'aria-label' => "View and correct the errors on #{task.framework.short_name} for #{task.reporting_period}"}
 - when 'in_review'
-    = link_to 'Submit management information', task_submission_path(task_id: task.id, id: submission.id), {class: 'govuk-button', 'aria-label' => "Submit management information for this task"}
+    = link_to 'Review and submit', task_submission_path(task_id: task.id, id: submission.id), {class: 'govuk-button', 'aria-label' => "Review and submit the management information on #{task.framework.short_name} for #{task.reporting_period}"}

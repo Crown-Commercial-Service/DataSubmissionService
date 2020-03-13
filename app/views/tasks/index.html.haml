@@ -4,11 +4,13 @@
   .govuk-grid-column-full
     %h1.govuk-heading-xl
       Tasks
-.govuk-grid-row
-  .govuk-grid-column-full
-    %ul.ccs-tasks{'aria-label' => 'Tasks'}
-      = render(collection: @tasks, partial: "task") || render("no_tasks")
 
-.govuk-grid-row
-  .govuk-grid-column-full
-    %p{'class' => 'govuk-!-margin-top-7'}= link_to "View history", history_tasks_path
+    - if @tasks.any?
+      %table.govuk-table
+        %tbody.govuk-table__body
+          = render collection: @tasks, partial: 'task'
+    - else
+      = render 'no_tasks'
+
+    %p{class: 'govuk-!-margin-top-7'}
+      = link_to "View completed tasks", history_tasks_path

@@ -17,12 +17,13 @@ RSpec.feature 'Cancelling a correction submission' do
       click_button 'sign-in'
 
       mock_correcting_task_with_framework_endpoint!
-      click_link 'Cancel correction'
+      within '#task-b847e0f7-027e-4b95-afa2-3490b8d05a1d' do
+        click_link 'Cancel correction'
+      end
       mock_correcting_task_endpoint!
       mock_correction_cancellation = mock_correction_cancellation_endpoint!
       mock_correcting_task_with_framework_and_active_submission_endpoint!
       click_button 'Cancel correction'
-
       expect(mock_correction_cancellation).to have_been_requested
       expect(current_path).to eq(task_path('b847e0f7-027e-4b95-afa2-3490b8d05a1d'))
       expect(page).to have_content('You have successfully cancelled the correction.')
