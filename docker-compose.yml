@@ -32,6 +32,8 @@ services:
     container_name: "data-submission-service_db"
     networks:
       private:
+    environment:
+      POSTGRES_PASSWORD: "password"
 volumes:
   pg_data: {}
   node_modules:
