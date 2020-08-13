@@ -19,7 +19,7 @@ services:
     volumes:
       - .:/srv/dss:cached
       - node_modules:/srv/dss/node_modules
-    command: bash -c "rm -f tmp/pids/server.pid && rails s"
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -b 0.0.0.0 -p 3100"
     container_name: "data-submission-service_web"
     networks:
       private:
@@ -32,6 +32,8 @@ services:
     container_name: "data-submission-service_db"
     networks:
       private:
+    environment:
+      POSTGRES_PASSWORD: "password"
 volumes:
   pg_data: {}
   node_modules:
