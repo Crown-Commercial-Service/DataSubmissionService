@@ -7,6 +7,7 @@ applications:
       - ccs-rmi-app-CF_SPACE
       - ingest-bucket-CF_SPACE
       - ccs-rmi-logging-CF_SPACE
+      - rmi-splunk-CF_SPACE
       - APP_AUTH0
       - SKYLIGHT
       - APP_ROLLBAR
