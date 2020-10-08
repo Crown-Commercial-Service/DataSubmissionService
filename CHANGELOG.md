@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-63] - 2020-10-08
+
+- Update Travis credentials, from dxw to ccs (password & username).
+
 ## [release-62] - 2020-09-18
 
 - Enable splunk monitoring
@@ -329,6 +333,7 @@
 
 Initial release
 
+[release-63]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-62...release-63
 [release-62]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-61...release-62
 [release-61]: https://github.com/dxw/DataSubmissionService/compare/release-60...release-61
 [release-60]: https://github.com/dxw/DataSubmissionService/compare/release-59...release-60
