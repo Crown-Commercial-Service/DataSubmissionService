@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-64] - 2020-11-09
+
+- Added SimpleCov and Code Climate to Travis build
+- Change to pull request template
+
 ## [release-63] - 2020-10-08
 
 - Update Travis credentials, from dxw to ccs (password & username).
@@ -333,6 +338,7 @@
 
 Initial release
 
+[release-64]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-63...release-64
 [release-63]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-62...release-63
 [release-62]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-61...release-62
 [release-61]: https://github.com/dxw/DataSubmissionService/compare/release-60...release-61
