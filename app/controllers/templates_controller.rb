@@ -14,7 +14,8 @@ class TemplatesController < ApplicationController
   private
 
   def template_filename_for_task_period(task)
-    "#{task.framework.safe_short_name} Data Template (#{task.reporting_period}).xls"
+    file_extension = task.file_name.partition('.').last
+    "#{task.framework.safe_short_name} Data Template (#{task.reporting_period}).#{file_extension}"
   end
 
   def s3_client
