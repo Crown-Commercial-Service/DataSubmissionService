@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-65] - 2020-11-11
+
+- Bump rails from 5.2.4.3 to 5.2.4.4
+- [Security] Bump actionview from 5.2.4.3 to 5.2.4.4
+
 ## [release-64] - 2020-11-09
 
 - Added SimpleCov and Code Climate to Travis build
@@ -338,6 +343,7 @@
 
 Initial release
 
+[release-65]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-64...release-65
 [release-64]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-63...release-64
 [release-63]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-62...release-63
 [release-62]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-61...release-62
