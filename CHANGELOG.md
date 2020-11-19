@@ -4,6 +4,7 @@
 
 - Bump rails from 5.2.4.3 to 5.2.4.4
 - [Security] Bump actionview from 5.2.4.3 to 5.2.4.4
+- Fix: templates now keep their original file extension.
 
 ## [release-64] - 2020-11-09
 
