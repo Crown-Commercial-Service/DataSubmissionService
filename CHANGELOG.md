@@ -3,6 +3,7 @@
 ## [release-66] - 2020-11-26
 
 - Fix: prevent error when users download template stored in repo
+- RMI-275: Add to travis.yml and deploy-app.sh to accomodate and add Preproduction to the Travis/Github infrastructure.
 
 ## [release-65] - 2020-11-11
 
