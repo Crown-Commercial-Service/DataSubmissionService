@@ -4,18 +4,19 @@ class TemplatesController < ApplicationController
 
     if task.file_key.present?
       framework_template_file = s3_client.get_object(bucket: ENV['AWS_S3_BUCKET'], key: task.file_key)
-      send_data framework_template_file.body.read, filename: template_filename_for_task_period(task)
+      file_extension = File.extname(task.file_name)
+      send_data framework_template_file.body.read, filename: template_filename_for_task_period(task, file_extension)
     else
       framework_template_file = Rails.root.join('public', 'templates', "#{task.framework.safe_short_name}.xls")
-      send_file framework_template_file, filename: template_filename_for_task_period(task)
+      file_extension = '.xls'
+      send_file framework_template_file, filename: template_filename_for_task_period(task, file_extension)
     end
   end
 
   private
 
-  def template_filename_for_task_period(task)
-    file_extension = task.file_name.partition('.').last
-    "#{task.framework.safe_short_name} Data Template (#{task.reporting_period}).#{file_extension}"
+  def template_filename_for_task_period(task, file_extension)
+    "#{task.framework.safe_short_name} Data Template (#{task.reporting_period})#{file_extension}"
   end
 
   def s3_client
