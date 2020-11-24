@@ -83,6 +83,16 @@ then
     fi
   fi
   
+  if [[ "$CF_SPACE" == "preprod" ]]
+  then
+    if [[ ! "$BRANCH" == "preproduction" ]]
+    then
+      echo "We only deploy the 'preproduction' branch to $CF_SPACE"
+      echo "if you want to deploy $BRANCH to $CF_SPACE use -f"
+      exit 1
+    fi
+  fi
+
   if [[ "$CF_SPACE" == "prod" ]]
   then
     if [[ ! "$BRANCH" == "master" ]]
@@ -94,13 +104,13 @@ then
   fi
 fi
 
-if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
+if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "preprod" || "$CF_SPACE" == "prod" ]]; then
   echo " *********************************************"
   echo "    The '$CF_SPACE' space will be selected"
   echo "     This deploys the apps as HA with"
   echo "      production like resource sizes"
   echo " For feature testing, choose a space with a"
-  echo "      name other than staging / prod"
+  echo "      name other than staging / preprod / prod"
   echo " *********************************************"
 
   MEMORY_LIMIT="512M"
