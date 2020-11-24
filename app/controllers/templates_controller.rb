@@ -8,7 +8,7 @@ class TemplatesController < ApplicationController
       send_data framework_template_file.body.read, filename: template_filename_for_task_period(task, file_extension)
     else
       framework_template_file = Rails.root.join('public', 'templates', "#{task.framework.safe_short_name}.xls")
-      file_extension = ".xls"
+      file_extension = '.xls'
       send_file framework_template_file, filename: template_filename_for_task_period(task, file_extension)
     end
   end
