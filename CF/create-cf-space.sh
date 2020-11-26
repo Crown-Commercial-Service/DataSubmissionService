@@ -50,21 +50,21 @@ fi
 POSTGRES_SIZE="tiny-unencrypted-10"
 REDIS_SIZE="tiny-3.2"
 
-if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "prod" ]]; then
+if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "preprod" || "$CF_SPACE" == "prod" ]]; then
   echo " *********************************************"
   echo "    The '$CF_SPACE' space will be selected"
   echo "     This deploys the apps as HA with"
   echo "      production like resource sizes"
   echo " For feature testing, choose a space with a"
-  echo "      name other than staging / prod"
+  echo "      name other than staging / preprod / prod"
   echo " *********************************************"
 
   POSTGRES_SIZE="small-ha-10"
   REDIS_SIZE="medium-ha-3.2"
 fi
 
-# login (all users should have access to the sandbox)
-cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -a "$CF_API_ENDPOINT" -s sandbox
+# login (all users should have access to the sandbox/development space)
+cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -a "$CF_API_ENDPOINT" -s development
 
 # create and target space (user must be org admin)
 cf create-space "$CF_SPACE"
@@ -86,13 +86,13 @@ cf create-service redis "$REDIS_SIZE" ccs-rmi-redis-"$CF_SPACE"
 
 # create external domains for org
 set +o pipefail
-if [[ $CF_SPACE == 'staging' || $CF_SPACE == 'prod' ]]
+if [[ $CF_SPACE == 'staging' || $CF_SPACE == 'preprod' || $CF_SPACE == 'prod' ]]
 then
-  if cf domains | grep -q ${CF_SPACE}.rmi-paas.dxw.net
+  if cf domains | grep -q ${CF_SPACE}.rmi-paas.ai-cloud.uk
   then
-    echo "domain ${CF_SPACE}.rmi-paas.dxw.net already exists"
+    echo "domain ${CF_SPACE}.rmi-paas.ai-cloud.uk already exists"
   else
-    cf create-domain ccs-report-management-info "$CF_SPACE".rmi-paas.dxw.net
+    cf create-domain ccs-report-management-info "$CF_SPACE".rmi-paas.ai-cloud.uk
   fi
 
 # create cdn route for space

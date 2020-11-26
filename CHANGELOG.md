@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-66] - 2020-11-26
+
+- Fix: prevent error when users download template stored in repo
+- RMI-275: Add to travis.yml and deploy-app.sh to accomodate and add Preproduction to the Travis/Github infrastructure.
+
 ## [release-65] - 2020-11-11
 
 - Bump rails from 5.2.4.3 to 5.2.4.4
@@ -344,6 +349,7 @@
 
 Initial release
 
+[release-66]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-65...release-66
 [release-65]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-64...release-65
 [release-64]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-63...release-64
 [release-63]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-62...release-63
