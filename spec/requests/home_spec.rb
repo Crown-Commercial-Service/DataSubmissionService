@@ -21,9 +21,9 @@ RSpec.describe 'the home page' do
     end
 
     it do
-      expect {
+      expect do
         post '/auth/auth0'
-      }.to raise_error(ActionController::InvalidAuthenticityToken)
+      end.to raise_error(ActionController::InvalidAuthenticityToken)
     end
 
     after do
