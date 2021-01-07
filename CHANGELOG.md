@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-67] - 2021-01-07
+
+- [Security] Bump Nokogiri from 1.10.10 to 1.11.0
+- Added test to remediation measures for omniauth vulnerability
+- Addressed build issue caused by libv8
+
 ## [release-66] - 2020-11-26
 
 - Fix: prevent error when users download template stored in repo
