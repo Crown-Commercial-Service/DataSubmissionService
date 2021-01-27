@@ -1,51 +1,92 @@
-- page_title 'Support'
+- page_title 'Help'
 
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
-      Support
+      Help
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
 
+    %h2.govuk-heading-l
+      Guidance
+
     %p
-      Report management information is a new service from Crown Commercial Service. You may see changes between visits as it is developed.
+      CCS Management Information (MI) submissions are a record of business contracted to/or invoiced by suppliers on CCS commercial agreements.
     %p
-      We are working hard to make sure the service is stable and usable, but if you do experience issues you can email the team for support at
+      All CCS suppliers need to complete MI submissions on a monthly basis for any agreements they are listed on as a supplier. Submissions are made using this online web portal.
+    %p
+      There are a number of guides for the process:
+    %ul.govuk-list.govuk-list--bullet
+      %li
+        = link_to 'Management Information introduction',
+          '/guides/Management_Information_introduction.pdf'
+        (PDF, 289KB, 9 pages)
+      %li
+        = link_to 'RMI supplier guidance and FAQs',
+          '/guides/RMI_supplier_guidance_and_FAQs.pdf'
+        (PDF, 822KB, 8 pages)
+      %li
+        = link_to 'Navigating CCS MI templates',
+          '/guides/Navigating_CCS_MI_templates.pdf'
+        (PDF, 150KB, 3 pages)
+      %li
+        = link_to 'MI admin fees and default charges',
+          '/guides/MI_admin_fees_and_default_charges.pdf'
+        (PDF, 281KB, 7 pages)
+
+    %h2.govuk-heading-l
+      Support
+
+    %p
+      For additional help and guidance please email our support team at:
+      %br
       = succeed '.' do
         = mail_to support_email_address
     %p
-      We offer support during office hours: 9.30am to 5.30pm, Monday to Friday.
-    %p
-      When contacting us for support, please include:
+      When contacting us please include:
     %ul.govuk-list.govuk-list--bullet
       %li
-        what you were trying to do
+        the name of the supplier
       %li
-        what happened
+        the month/year of the task
       %li
-        what internet browser you were using
+        the framework name and number
+      %li
+        the email address you are using to log in
+      %li
+        the nature of your query
       %li
         screenshots of any error screens or messages
+    
     %p
-      If you have a general question about the service, please contact the team at the same address, including ‘general question’ in the subject line of your email.
+      We aim to respond to all queries within one working day.
+
     %p
-      To tell us about your experience of the service you can complete our <a href=#{survey_url}>short feedback survey</a>. Alternatively contact the team on
-      = mail_to support_email_address
-      with ‘feedback’ in the subject line of your email.
+      For queries relating to invoicing please email our finance team at:
+      %br
+      = succeed '.' do
+        = mail_to finance_email_address
 
     %h2.govuk-heading-l
       Correcting management information
 
     %p
-      You can replace management information if it is incorrect.
-
+      If a task has failed validation, you will need to access the task from your main task screen, view the errors, and load a replacement file once you have made corrections. 
+      %br
+      If you need further support with this process, please contact us.
     %p
-      Find the return in your
-      = link_to 'history', history_tasks_path
-      and follow the steps to correct the return.
-
+      If you need to make a correction to a historic task that has already been completed, find the return in your 
+      = link_to 'Completed tasks', history_tasks_path
+      and follow the on-screen steps to load a replacement submission.
     %p
-      Please note: you will need to pay the management charge from the incorrect return unless a corrected return is made. Once your management information has been corrected you will be issued a credit note.
+      Please note: this process will 
+      %strong
+        replace 
+      the original submission, not amend or append to it, so please load a full file when completing a correction.
 
-
+    %h2.govuk-heading-l
+      Feedback
+    
+    %p
+      To tell us about your experience of the service you can complete our <a href=#{survey_url}>short feedback survey</a>.
