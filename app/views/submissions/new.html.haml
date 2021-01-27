@@ -30,19 +30,19 @@
       %h3.govuk-heading-m
         Add a purchase order number
       %p
-        You can enter your own purchase order number below, and this will appear on the management charge invoice we send you.
+        You can enter your own purchase order number below. This will appear on the management charge invoice we send you.
       .govuk-form-group
         %label.govuk-label{ :for => 'purchase_order_number' }
           Purchase order number
         %span#purchase-order-number-hint.govuk-hint
           This field is optional.
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
-      
-      %h3.govuk-heading-m
-        Important
-      %p
-        Should your accounts payable department operate a NO PO - NO PAYMENT POLICY, please ensure the field is completed.
-      
+      .govuk-warning-text
+        %span.govuk-warning-text__icon
+          !
+        %strong.govuk-warning-text__text
+          Should your accounts payable department operate a NO PO - NO PAYMENT POLICY, please ensure the field is completed.
+
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
