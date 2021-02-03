@@ -3,6 +3,7 @@
 ## [release-68] - 2021-02-04
 
 - Updated Help page
+- Updated upload page
 
 ## [release-67] - 2021-01-07
 
