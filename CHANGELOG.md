@@ -1,10 +1,5 @@
 # Change Log
 
-## [release-68] - 2021-02-04
-
-- Updated Help page
-- Updated upload page
-
 ## [release-67] - 2021-01-07
 
 - [Security] Bump Nokogiri from 1.10.10 to 1.11.0
@@ -360,8 +355,6 @@
 
 Initial release
 
-[release-68]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-67...release-68
-[release-67]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-66...release-67
 [release-66]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-65...release-66
 [release-65]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-64...release-65
 [release-64]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-63...release-64
