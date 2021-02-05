@@ -131,8 +131,4 @@ sed "s/CF_SPACE/$CF_SPACE/g" manifest-template.yml | sed "s/MEMORY_LIMIT/$MEMORY
 # push
 cd .. || exit
 
-# create an app idempotently with the v3 cli
-cf v3-create-app ccs-rmi-app-"$CF_SPACE"
-cf v3-apply-manifest -f CF/"$CF_SPACE".manifest.yml
-# do a zero down time deployment with the v3 cli
-cf v3-zdt-push ccs-rmi-app-"$CF_SPACE"
+cf push ccs-rmi-app-"$CF_SPACE" -f CF/"$CF_SPACE".manifest.yml  --strategy rolling
