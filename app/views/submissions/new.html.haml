@@ -8,12 +8,21 @@
   .govuk-grid-column-full
     = link_to 'Back', tasks_path, { class: 'govuk-back-link', title: 'Back to your tasks' }
 
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     %h1.govuk-heading-xl
       Report management information
+    
+  .govuk-grid-column-one-third
+    %nav.govuk-page-actions{"aria-labelledby" => "page-actions-title"}
+      %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
+      %ul.govuk-page-actions--actions
+        %li.govuk-page-actions--action
+          = link_to 'Download template (excel document)', task_template_path(@task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
 
-    = render 'shared/task_signpost', task: @task
+= render 'shared/task_signpost', task: @task
 
-    = render partial: 'shared/this_is_a_correction' if correction?
+= render partial: 'shared/this_is_a_correction' if correction?
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds

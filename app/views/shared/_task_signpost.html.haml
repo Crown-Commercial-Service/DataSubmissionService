@@ -1,17 +1,8 @@
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
-    %h2.govuk-heading-l
-      - if current_user.multiple_suppliers?
-        = task.supplier_name
-        %br
-      = task.framework.short_name
-      = task.framework.name
-      for
-      = task.reporting_period
-
-  .govuk-grid-column-one-third
-    %nav.govuk-page-actions{"aria-labelledby" => "page-actions-title"}
-      %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
-      %ul.govuk-page-actions--actions
-        %li.govuk-page-actions--action
-          = link_to 'Download template (excel document)', task_template_path(@task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
+%h2.govuk-heading-l
+  - if current_user.multiple_suppliers?
+    = task.supplier_name
+    %br
+  = task.framework.short_name
+  = task.framework.name
+  for
+  = task.reporting_period
