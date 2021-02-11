@@ -1,5 +1,6 @@
 # Change Log
 
+
 ## [release-68] - 2021-02-11
 
 - RMI-294: Updated Help page
@@ -363,8 +364,6 @@
 
 Initial release
 
-[release-68]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-67...release-68
-[release-67]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-66...release-67
 [release-66]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-65...release-66
 [release-65]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-64...release-65
 [release-64]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-63...release-64
