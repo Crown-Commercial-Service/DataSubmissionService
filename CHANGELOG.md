@@ -1,9 +1,12 @@
 # Change Log
 
-## [release-68] - 2021-02-04
+## [release-68] - 2021-02-11
 
-- Updated Help page
-- Updated upload page
+- RMI-294: Updated Help page
+- RMI-295: Updated upload page
+- RMI-301: Switched from zdt to rolling deploy
+- RMI-31: Blank template link on submission upload page
+- RMI-297: URN list page amendments
 
 ## [release-67] - 2021-01-07
 
