@@ -391,7 +391,7 @@ DEPENDENCIES
   poltergeist
   pry-rails
   puma (~> 3.12)
-  rails (~> 5.2.4.4)
+  rails (~> 5.2.4.5)
   rollbar
   rspec-rails
   rubocop
