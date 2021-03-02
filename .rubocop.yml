@@ -1,4 +1,7 @@
 ---
+require:
+  - rubocop-rails
+
 AllCops:
     TargetRubyVersion: 2.5
     Exclude:
@@ -7,9 +10,13 @@ AllCops:
         - 'db/seeds.rb'
         - 'bin/**/*'
         - 'vendor/**/*'
+        - 'config/puma.rb'
 
 Rails:
     Enabled: true
+
+Rails/FilePath:
+  Enabled: false
 
 Rails/HasManyOrHasOneDependent:
     Exclude:
@@ -52,7 +59,7 @@ Style/WordArray:
 Style/ClassAndModuleChildren:
     Enabled: false
 
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
     Enabled: true
 
 Metrics/ClassLength:
