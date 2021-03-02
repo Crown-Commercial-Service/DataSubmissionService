@@ -65,7 +65,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'rubocop-rails', require: false
+  gem 'rubocop-rails'
 end
 
 group :development do
