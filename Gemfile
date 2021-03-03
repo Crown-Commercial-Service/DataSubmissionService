@@ -66,6 +66,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'unicode-display_width', '~> 1.7'
 end
 
 group :development do
