@@ -1,6 +1,6 @@
 module API
   class Base < JSONAPI::Consumer::Resource
-    self.site = ENV['API_ROOT'] + 'v1/'
+    self.site = "#{ENV['API_ROOT']}v1/"
 
     class IncludeAuthId < Faraday::Middleware
       def call(env)

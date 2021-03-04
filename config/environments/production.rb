@@ -56,7 +56,7 @@ Rails.application.configure do
 
   # Use lograge for cleaner logging
   config.lograge.enabled = true
-  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
+  config.lograge.logger = ActiveSupport::Logger.new($stdout)
 
   config.lograge.custom_options = lambda do |event|
     exceptions = ['controller', 'action', 'format', 'id']
@@ -94,7 +94,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
