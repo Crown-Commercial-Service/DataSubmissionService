@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-69] - 2021-03-03
+
+- RMI-313: gem update to resolve dependabot alert and resolving obsolete rubocop config.
+
 ## [release-68] - 2021-02-11
 
 - RMI-294: Updated Help page
@@ -363,6 +367,7 @@
 
 Initial release
 
+[release-69]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-68...release-69
 [release-68]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-67...release-68
 [release-67]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-66...release-67
 [release-66]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-65...release-66
