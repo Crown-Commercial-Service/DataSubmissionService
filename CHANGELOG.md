@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-70] - 2021-03-18
+
+- RMI-27: Removed Beta Banner.
+
 ## [release-69] - 2021-03-03
 
 - RMI-313: gem update to resolve dependabot alert and resolving obsolete rubocop config.
