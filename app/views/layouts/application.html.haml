@@ -24,16 +24,6 @@
     = render 'shared/header', no_navigation: false
 
     .govuk-width-container
-      .govuk-phase-banner
-        %p.govuk-phase-banner__content
-          %strong.govuk-tag.govuk-phase-banner__content__tag
-            beta
-          %span.govuk-phase-banner__text
-            This is a new service – your
-            %a.govuk-link{:href => survey_url} feedback
-            will help us to improve it.
-
-    .govuk-width-container
       %main{ role: 'main', id: 'main-content', class: 'govuk-main-wrapper'}
 
         = render 'shared/alert' if flash[:alert]
