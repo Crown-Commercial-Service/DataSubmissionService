@@ -2,7 +2,7 @@
 
 ## [release-70] - 2021-03-18
 
-- RMI-27: Removed Beta Banner.
+- RMI-27: Removed Beta Banner. Add Feedback footer link.
 
 ## [release-69] - 2021-03-03
 
