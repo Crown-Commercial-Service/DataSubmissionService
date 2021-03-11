@@ -4,6 +4,7 @@
 
 - RMI-27: Removed Beta Banner. Add Feedback footer link.
 - RMI-300: Add missing label for corresponding input field, as per accessibility report.
+- RMI-299: Fix Aria reference/label.
 
 ## [release-69] - 2021-03-03
 
