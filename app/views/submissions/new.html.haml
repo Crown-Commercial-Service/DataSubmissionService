@@ -45,7 +45,8 @@
       %p
         You can enter your own purchase order number below. This will appear on the management charge invoice we send you.
       .govuk-form-group
-        %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
+        %label.govuk-label.govuk-visually-hidden{ :for => "purchase_order_number" }
+        %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number", :id => "purchase_order_number"}
         .govuk-warning-text
           %span.govuk-warning-text__icon
             !
