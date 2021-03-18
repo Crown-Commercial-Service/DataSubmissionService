@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-70] - 2021-03-18
+
+- RMI-27: Removed Beta Banner. Add Feedback footer link.
+- RMI-300: Add missing label for corresponding input field, as per accessibility report.
+- RMI-299: Fix Aria reference/label.
+
 ## [release-69] - 2021-03-03
 
 - RMI-313: gem update to resolve dependabot alert and resolving obsolete rubocop config.

@@ -1,3 +1,7 @@
+%head
+  = content_for(:head)
+  = stylesheet_link_tag    'application', media: 'all'
+
 - page_title "Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
 
 .govuk-grid-row
@@ -39,13 +43,16 @@
       %h3.govuk-heading-m
         Add a purchase order number
       %p
-        You have the option of adding a purchase order number to this return, which will appear on your invoice.
+        You can enter your own purchase order number below. This will appear on the management charge invoice we send you.
       .govuk-form-group
-        %label.govuk-label{ :for => 'purchase_order_number' }
-          Purchase order number
-        %span#purchase-order-number-hint.govuk-hint
-          This field is optional.
+        %label.govuk-label.govuk-visually-hidden{ :for => "purchase_order_number" }
         %input.govuk-input#purchase_order_number{ :type => 'text', :name => "purchase_order_number"}
+        .govuk-warning-text
+          %span.govuk-warning-text__icon
+            !
+          %strong.govuk-warning-text__text
+            Should your accounts payable department operate a No PO - No Payment Policy, please ensure the field is completed.
+
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
 

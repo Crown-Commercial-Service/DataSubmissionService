@@ -10,7 +10,7 @@
 
     = render 'shared/task_signpost', task: @task
 
-    .govuk-error-summary{ role: 'alert', 'aria-labelledby': 'error-summary-heading', tabindex: '-1' }
+    .govuk-error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
       %h3.govuk-error-summary__title
         There are errors in your uploaded file
 
