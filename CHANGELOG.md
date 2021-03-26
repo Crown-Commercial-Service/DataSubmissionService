@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-71] - 2021-04-01
+
+- Fix: Update mime-magic dependancy gem.
+
 ## [release-70] - 2021-03-18
 
 - RMI-27: Removed Beta Banner. Add Feedback footer link.
