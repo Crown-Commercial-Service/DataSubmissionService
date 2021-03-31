@@ -29,7 +29,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        click_link 'View'
+        first(:link, 'View').click
         click_link 'Correct this return'
 
         expect(page).to have_content 'Cheese Board 5'
@@ -60,7 +60,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        click_link 'View'
+        first(:link, 'View').click
         click_link 'Correct this return'
 
         expect(page).to have_content 'Cheese Board 5'
@@ -96,7 +96,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        click_link 'View'
+        first(:link, 'View').click
         click_link 'Correct this return'
 
         expect(page).to_not have_content 'Report no business'
@@ -122,7 +122,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
       click_button 'sign-in'
 
       click_link 'Completed tasks'
-      click_link 'View'
+      first(:link, 'View').click
 
       expect(page).to_not have_content 'Correct this return'
     end

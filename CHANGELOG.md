@@ -3,6 +3,7 @@
 ## [release-71] - 2021-04-01
 
 - Fix: Update mime-magic dependancy gem.
+- RMI-37: Added reported value to completed tasks page
 
 ## [release-70] - 2021-03-18
 
@@ -377,6 +378,8 @@
 
 Initial release
 
+[release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
+[release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70
 [release-69]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-68...release-69
 [release-68]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-67...release-68
 [release-67]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-66...release-67

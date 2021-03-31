@@ -17,6 +17,39 @@
         "active_submission": {
           "data": {
             "type": "submissions",
+            "id": "4a6b9d83-28b0-4bef-9852-90425d07dd32"
+          }
+        },
+        "submissions": {
+          "meta": {
+            "included": false
+          }
+        },
+        "framework": {
+          "data": {
+            "type": "frameworks",
+            "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc"
+          }
+        }
+      }
+    },
+    {
+      "id": "2d98639e-5260-411f-a5ee-61847a2e067c",
+      "type": "tasks",
+      "attributes": {
+        "status": "completed",
+        "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+        "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+        "supplier_name": "Bobs Cheese Shop",
+        "description": null,
+        "due_on": "2018-09-07",
+        "period_year": 2018,
+        "period_month": 8
+      },
+      "relationships": {
+        "active_submission": {
+          "data": {
+            "type": "submissions",
             "id": "663f8bf9-464b-4d2f-8532-7404ae76063c"
           }
         },
@@ -36,33 +69,31 @@
   ],
   "included": [
     {
+      "id": "4a6b9d83-28b0-4bef-9852-90425d07dd32",
+      "type": "submissions",
+      "attributes": {
+          "status": "completed",
+          "invoice_total_value": "0.0",
+          "report_no_business?": true,
+          "submitted_at": "2019-01-14T15:30:38.151Z"
+      }
+    },
+    {
+      "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+      "type": "frameworks",
+      "attributes": {
+          "short_name": "cboard13",
+          "name": "Cheese Board 13"
+      }
+    },
+    {
       "id": "663f8bf9-464b-4d2f-8532-7404ae76063c",
       "type": "submissions",
       "attributes": {
         "status": "completed",
+        "invoice_total_value": "12345.67",
+        "report_no_business?": false,
         "submitted_at": "2019-02-14T15:39:38.151Z"
-      },
-      "relationships": {
-        "framework": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "entries": {
-          "meta": {
-            "included": false
-          }
-        },
-        "files": {
-          "meta": {
-            "included": false
-          }
-        }
       }
     },
     {
