@@ -13,7 +13,7 @@
       List of previously completed tasks
     %thead.govuk-table__head
       %tr.govuk-table__row
-        %th.govuk-table__header{ scope: 'col' } Framework
+        %th.govuk-table__header{ :class => 'govuk-!-width-one-third' } Framework
         - if current_user.multiple_suppliers?
           %th.govuk-table__header{ scope: 'col' }
             Supplier
