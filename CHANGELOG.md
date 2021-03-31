@@ -378,6 +378,8 @@
 
 Initial release
 
+[release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
+[release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70
 [release-69]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-68...release-69
 [release-68]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-67...release-68
 [release-67]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-66...release-67
