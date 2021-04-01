@@ -123,6 +123,14 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include 'July 2018'
     end
 
+    it 'shows the reported value for the completed task' do
+      expect(response.body).to include '£12,345.67'
+    end
+
+    it 'shows the no business when appropriate for the completed task' do
+      expect(response.body).to include 'No business'
+    end
+
     it 'shows the completed date for the completed task' do
       expect(response.body).to include '14 February 2019 15:39 UTC'
     end

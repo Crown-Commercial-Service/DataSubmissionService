@@ -13,11 +13,12 @@
       List of previously completed tasks
     %thead.govuk-table__head
       %tr.govuk-table__row
-        %th.govuk-table__header{ scope: 'col' } Framework
+        %th.govuk-table__header{ :class => 'govuk-!-width-one-third' } Framework
         - if current_user.multiple_suppliers?
           %th.govuk-table__header{ scope: 'col' }
             Supplier
         %th.govuk-table__header{ scope: 'col' } Month
+        %th.govuk-table__header{ scope: 'col' } Reported value
         %th.govuk-table__header{ scope: 'col' } Completed at
         %th.govuk-table__header{ scope: 'col' } Actions
     %tbody.govuk-table__body
@@ -31,6 +32,8 @@
               = task.supplier_name
           %td.govuk-table__cell.ccs-report-table__cell
             = task.reporting_period
+          %td.govuk-table__cell.ccs-report-table__cell
+            = task.active_submission.report_no_business? ? 'No business' : number_to_currency(task.active_submission.invoice_total_value, unit: '£')
           %td.govuk-table__cell.ccs-report-table__cell
             = task.completed_at || '-'
           %td.govuk-table__cell.ccs-report-table__cell

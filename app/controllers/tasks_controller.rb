@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   def history
     @tasks = API::Task
-             .select(submissions: %i[status submitted_at])
+             .select(submissions: %i[status submitted_at invoice_total_value report_no_business?])
              .where(status: 'completed')
              .includes(:framework, :active_submission)
              .all
