@@ -3,7 +3,7 @@
 ## [release-71] - 2021-04-01
 
 - Fix: Update mime-magic dependancy gem.
-- RMI-37: Added reported value to completed tasks page
+- RMI-37: Added reported value to completed tasks page.
 
 ## [release-70] - 2021-03-18
 
