@@ -3,6 +3,10 @@ module ApplicationHelper
     'report-mi@crowncommercial.gov.uk'
   end
 
+  def finance_email_address
+    'ccsfinance@crowncommercial.gov.uk'
+  end
+
   def task_status(task)
     task.status == 'completed' ? 'Task Completed' : "Due by #{task.due_on.to_date}"
   end
