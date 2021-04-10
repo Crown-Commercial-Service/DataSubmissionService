@@ -64,8 +64,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
+  gem 'rubocop', '>= 1.7.0', require: false
+  gem 'rubocop-rails', '>= 2.9.1', require: false
 end
 
 group :development do
@@ -83,6 +83,6 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
-  gem 'webmock'
+  gem 'webmock', '>= 3.12.0'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
 end
