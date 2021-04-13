@@ -153,6 +153,18 @@ GEM
       faraday (>= 0.9)
       faraday_middleware
     jwt (2.2.2)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (8.4.255.0)
@@ -385,6 +397,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.5)
   jsonapi-consumer (~> 1.0)
+  kaminari
   launchy
   listen (>= 3.0.5, < 3.2)
   lograge
