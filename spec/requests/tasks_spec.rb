@@ -138,7 +138,6 @@ RSpec.describe 'the tasks list' do
     it 'paginates the task list' do
       expect(response.body).to include 'Displaying <b>all 2</b> tasks'
     end
-    
   end
 
   context 'when viewing a completed task that reported business' do
