@@ -30,6 +30,7 @@ class TasksController < ApplicationController
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
              .reverse!
+    @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(12)
   end
 
   def cancel_correction_confirmation

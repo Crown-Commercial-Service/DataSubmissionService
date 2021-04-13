@@ -42,7 +42,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'httparty'
 gem 'jsonapi-consumer', '~> 1.0'
 
-# Forms
+# Pagination
+gem 'kaminari'
 
 # Exception tracking
 gem 'rollbar'
