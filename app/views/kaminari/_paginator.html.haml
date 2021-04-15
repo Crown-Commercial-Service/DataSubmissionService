@@ -8,6 +8,7 @@
 
 = paginator.render do
   %ul.ccs-pagination__pager
+    %li.ccs-pagination__item= first_page_tag unless current_page.first?
     %li.ccs-pagination__item= prev_page_tag unless current_page.first?
     - each_page do |page|
       - if page.display_tag?
@@ -15,3 +16,4 @@
       - elsif !page.was_truncated?
         = gap_tag
     %li.ccs-pagination__item= next_page_tag unless current_page.last?
+    %li.ccs-pagination__item= last_page_tag unless current_page.last?
