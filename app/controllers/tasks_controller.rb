@@ -30,6 +30,8 @@ class TasksController < ApplicationController
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
              .reverse!
+
+    @tasks.reverse! if (params[:order_by]) == 'Oldest'
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
   end
 

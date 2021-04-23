@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-72] - 2021-04-29
+
+- RMI-314: Added sorting functionality to completed tasks page
+
 ## [release-71] - 2021-04-01
 
 - Fix: Update mime-magic dependancy gem.
@@ -378,6 +382,7 @@
 
 Initial release
 
+[release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
 [release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70
 [release-69]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-68...release-69
