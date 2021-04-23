@@ -8,6 +8,14 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
+  = form_tag(history_tasks_path, method: "get") do
+    %p
+      Sort by &nbsp
+      = select_tag(:order_by, options_for_select(['Select', 'Newest', 'Oldest']),
+        onchange: "document.getElementById('task-order-submit').click();",
+        class: 'govuk-select')
+      = submit_tag "Change order", id: 'task-order-submit', hidden: true
+
   %table.govuk-table
     %caption.govuk-table__caption.govuk-visually-hidden
       List of previously completed tasks

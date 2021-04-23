@@ -86,4 +86,5 @@ group :test do
   gem 'poltergeist'
   gem 'webmock'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
+  gem 'orderly'
 end
