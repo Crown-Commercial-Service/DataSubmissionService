@@ -1,6 +1,6 @@
 # Change Log
 
-## [release-72] - 2021-04-29
+## [release-72] - 2021-04-?
 
 - RMI-314: Added sorting functionality to completed tasks page
 
