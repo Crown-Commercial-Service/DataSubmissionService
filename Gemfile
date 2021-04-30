@@ -45,6 +45,8 @@ gem 'jsonapi-consumer', '~> 1.0'
 # Pagination
 gem 'kaminari'
 
+gem 'jquery-rails'
+
 # Exception tracking
 gem 'rollbar'
 

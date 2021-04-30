@@ -31,8 +31,13 @@ class TasksController < ApplicationController
              .sort_by! { |t| Date.parse(t.due_on) }
              .reverse!
 
-    @tasks.reverse! if (params[:order_by]) == 'Oldest'
+    @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def cancel_correction_confirmation

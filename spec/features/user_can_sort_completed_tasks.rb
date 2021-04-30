@@ -24,15 +24,15 @@ RSpec.feature 'Sorting completed tasks' do
     end
 
     scenario 'tasks can be ordered by oldest using dropdown' do
-      select('Oldest', from: 'order_by')
-      find('#task-order-submit', visible: false).click
+      pp select('Month (oldest)', from: 'order_by').click
+      find('#task-order-submit').click
 
       expect(first_task_due_by).to appear_before(second_task_due_by)
     end
 
     scenario 'tasks can be ordered by newest using dropdown' do
-      select('Newest', from: 'order_by')
-      find('#task-order-submit', visible: false).click
+      select('Month (newest)', from: 'order_by')
+      find('#task-order-submit').click
 
       expect(second_task_due_by).to appear_before(first_task_due_by)
     end
