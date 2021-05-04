@@ -3,6 +3,7 @@
 ## [release-72] - 2021-04-?
 
 - RMI-314: Added sorting functionality to completed tasks page
+- RMI-345: set up conclave branch to deploy rmi-conclave integration work to preprod env
 
 ## [release-71] - 2021-04-01
 
