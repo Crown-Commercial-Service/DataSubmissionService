@@ -24,6 +24,6 @@ module ApplicationHelper
   end
 
   def survey_url
-    'https://www.smartsurvey.co.uk/s/YF7CY/'
+    'https://crowncommercial.qualtrics.com/jfe/form/SV_7a44L3eBrOGDCVU'
   end
 end
