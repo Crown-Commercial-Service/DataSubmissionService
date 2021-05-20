@@ -402,33 +402,33 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   brakeman
   byebug
-  capybara
+  capybara (>= 3.35.3)
   climate_control
   database_cleaner
   dotenv-rails (>= 2.7.6)
-  factory_bot_rails (>= 6.1.0)
+  factory_bot_rails (>= 6.2.0)
   haml-rails (>= 2.0.1)
   httparty
   jbuilder (~> 2.5)
   jquery-rails (>= 4.4.0)
   jsonapi-consumer (~> 1.0)
-  kaminari
+  kaminari (>= 1.2.1)
   launchy
   listen (>= 3.0.5, < 3.2)
   lograge (>= 0.11.2)
   mini_racer
-  nokogiri (>= 1.10.4)
+  nokogiri (>= 1.11.4)
   omniauth
   omniauth-auth0 (~> 2.0.0)
-  omniauth-rails_csrf_protection (>= 0.1.2)
-  orderly
+  omniauth-rails_csrf_protection (>= 1.0.0)
+  orderly (>= 0.1.1)
   pg (>= 0.18, < 2.0)
-  poltergeist
+  poltergeist (>= 1.18.1)
   pry-rails
   puma (~> 4.3)
   rails (~> 5.2.4.6)
   rollbar
-  rspec-rails (>= 4.0.2)
+  rspec-rails (>= 5.0.1)
   rubocop
   rubocop-rails
   sass-rails (~> 5.1, >= 5.1.0)
