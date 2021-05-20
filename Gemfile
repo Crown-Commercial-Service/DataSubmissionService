@@ -36,14 +36,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Authentication
 gem 'omniauth'
 gem 'omniauth-auth0', '~> 2.0.0'
-gem 'omniauth-rails_csrf_protection', '>= 0.1.2'
+gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
 
 # API requests
 gem 'httparty'
 gem 'jsonapi-consumer', '~> 1.0'
 
 # Pagination
-gem 'kaminari'
+gem 'kaminari', '>= 1.2.1'
 
 gem 'jquery-rails', '>= 4.4.0'
 
@@ -58,15 +58,15 @@ gem 'skylight'
 gem 'auth0', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.10.4'
+gem 'nokogiri', '>= 1.11.4'
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 2.7.6'
-  gem 'factory_bot_rails', '>= 6.1.0'
+  gem 'factory_bot_rails', '>= 6.2.0'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 4.0.2'
+  gem 'rspec-rails', '>= 5.0.1'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end
@@ -81,12 +81,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', require: false
+  gem 'capybara', '>= 3.35.3', require: false
   gem 'climate_control'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'poltergeist'
+  gem 'poltergeist', '>= 1.18.1'
   gem 'webmock'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
-  gem 'orderly'
+  gem 'orderly', '>= 0.1.1'
 end
