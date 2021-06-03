@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-73] - 2021-06-10(?)
+
+- RMI-314: Sort feature for completed tasks page
+- RMI-315: Paginate completed tasks page
+
 ## [release-72] - 2021-06-03
 
 - RMI-345: set up conclave branch to deploy rmi-conclave integration work to preprod env
