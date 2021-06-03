@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-72] - 2021-06-03
+
+- RMI-345: set up conclave branch to deploy rmi-conclave integration work to preprod env
+- RMI-343: Update Ruby version from 2.5.7 to 2.5.8 (minor update).
+- RMI-348: Update survey url.
+
 ## [release-71] - 2021-04-01
 
 - Fix: Update mime-magic dependancy gem.
@@ -378,6 +384,7 @@
 
 Initial release
 
+[release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
 [release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70
 [release-69]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-68...release-69
