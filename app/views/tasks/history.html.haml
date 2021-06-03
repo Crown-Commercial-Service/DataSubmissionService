@@ -8,15 +8,33 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  = form_tag(history_tasks_path, method: "get", enforce_utf8: false) do
-    %p
-      Sort by &nbsp
-      = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)'], :selected => params[:order_by]), 
-        class: 'govuk-select', 
-        data: { url: history_tasks_path, remote: :true, method: :get})
-      %noscript
-        = surround "&nbsp&nbsp".html_safe do
-          = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
-
-      .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
-
+  %table.govuk-table
+    %caption.govuk-table__caption.govuk-visually-hidden
+      List of previously completed tasks
+    %thead.govuk-table__head
+      %tr.govuk-table__row
+        %th.govuk-table__header{ :class => 'govuk-!-width-one-third' } Framework
+        - if current_user.multiple_suppliers?
+          %th.govuk-table__header{ scope: 'col' }
+            Supplier
+        %th.govuk-table__header{ scope: 'col' } Month
+        %th.govuk-table__header{ scope: 'col' } Reported value
+        %th.govuk-table__header{ scope: 'col' } Completed at
+        %th.govuk-table__header{ scope: 'col' } Actions
+    %tbody.govuk-table__body
+      - @tasks.each do |task|
+        %tr.govuk-table__row
+          %th.govuk-table__header.ccs-report-table__cell{ scope: 'row' }
+            = task.framework.short_name
+            = task.framework.name
+          - if current_user.multiple_suppliers?
+            %td.govuk-table__cell.ccs-report-table__cell
+              = task.supplier_name
+          %td.govuk-table__cell.ccs-report-table__cell
+            = task.reporting_period
+          %td.govuk-table__cell.ccs-report-table__cell
+            = task.active_submission.report_no_business? ? 'No business' : number_to_currency(task.active_submission.invoice_total_value, unit: '£')
+          %td.govuk-table__cell.ccs-report-table__cell
+            = task.completed_at || '-'
+          %td.govuk-table__cell.ccs-report-table__cell
+            = link_to 'View', task_path(task), { 'aria-label' => 'View submission on #{task.framework.short_name} for #{task.reporting_period}'}
