@@ -1,8 +1,7 @@
 # Change Log
 
-## [release-72] - 2021-05-
+## [release-72] - 2021-06-03
 
-- RMI-314: Added sorting functionality to completed tasks page
 - RMI-345: set up conclave branch to deploy rmi-conclave integration work to preprod env
 - RMI-343: Update Ruby version from 2.5.7 to 2.5.8 (minor update).
 - RMI-348: Update survey url.

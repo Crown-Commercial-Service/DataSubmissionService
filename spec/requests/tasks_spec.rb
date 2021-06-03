@@ -134,10 +134,6 @@ RSpec.describe 'the tasks list' do
     it 'shows the completed date for the completed task' do
       expect(response.body).to include '14 February 2019 15:39 UTC'
     end
-
-    it 'paginates the task list' do
-      expect(response.body).to include 'Displaying <b>all 2</b> tasks'
-    end
   end
 
   context 'when viewing a completed task that reported business' do
