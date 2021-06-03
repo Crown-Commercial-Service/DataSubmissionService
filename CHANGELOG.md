@@ -2,8 +2,8 @@
 
 ## [release-73] - 2021-06-10(?)
 
-- RMI-314: Sort feature for completed tasks page.
-- RMI-315: Paginate completed tasks page.
+- RMI-314: Sort feature for completed tasks page
+- RMI-315: Paginate completed tasks page
 
 ## [release-72] - 2021-06-03
 
