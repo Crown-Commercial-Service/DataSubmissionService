@@ -8,12 +8,9 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  .govuk-grid-column-one-third
-    = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
-      %p
-        Sort by &nbsp
-        = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
-          class: 'govuk-select')
+  .govuk-grid-row
+  = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
+    .govuk-grid-column-one-third
       %p
         Select framework
       .govuk-checkboxes
@@ -24,11 +21,19 @@
               value: framework_id)
             = label_tag 'framework', framework
 
+
+    .govuk-grid-column-two-thirds  
+      %p
+        Sort by &nbsp
+        = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
+          class: 'govuk-select')
+      .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
+
       %noscript
         = surround "&nbsp&nbsp".html_safe do
           = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
-      .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
+.govuk-grid-row
 
 :javascript
   var checkBoxes = document.querySelectorAll(".govuk-checkboxes");

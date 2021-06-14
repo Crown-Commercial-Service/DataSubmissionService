@@ -38,8 +38,8 @@ class TasksController < ApplicationController
               .sort_by! { |t| Date.parse(t.due_on) }
               .reverse!
 
-    pp @frameworks = @tasks.collect { |task| "#{task.framework.name} (#{task.framework.short_name})" }.uniq.sort
-    @framework_ids = @tasks.collect { |task| "#{task.framework.id}" }.uniq
+    @frameworks = @tasks.collect { |task| "#{task.framework.name} (#{task.framework.short_name})" }.uniq.sort
+    @framework_ids = @tasks.collect { |task| "#{task.framework.id}" }.uniq.sort
 
     @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
