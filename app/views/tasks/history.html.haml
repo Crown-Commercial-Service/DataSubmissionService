@@ -8,15 +8,39 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  = form_tag(history_tasks_path, method: "get", enforce_utf8: false) do
-    %p
-      Sort by &nbsp
-      = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)'], :selected => params[:order_by]), 
-        class: 'govuk-select', 
-        data: { url: history_tasks_path, remote: :true, method: :get})
+  .govuk-grid-column-one-third
+    = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
+      %p
+        Sort by &nbsp
+        = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
+          class: 'govuk-select')
+      %p
+        Select framework
+      .govuk-checkboxes
+        - @frameworks.zip(@framework_ids).each do |framework, framework_id|
+          .govuk-checkboxes__item
+            = check_box_tag('framework_id[]', framework , false,
+              class: 'govuk-checkboxes',
+              value: framework_id)
+            = label_tag 'framework', framework
+
       %noscript
         = surround "&nbsp&nbsp".html_safe do
           = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
       .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
 
+:javascript
+  var checkBoxes = document.querySelectorAll(".govuk-checkboxes");
+  var orderSelect = document.querySelector('.govuk-select');
+  var form = document.querySelector('form');
+
+  orderSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+  
+  for (const check of checkBoxes) {
+    check.addEventListener( 'change', function() {
+      Rails.fire(form, 'submit');
+    });
+  }
