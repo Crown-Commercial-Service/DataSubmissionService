@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  before_action :load_frameworks
+  before_action :load_framework_ids
+
   def index
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
@@ -29,6 +32,11 @@ class TasksController < ApplicationController
     puts
     puts " order_by param--> #{params[:order_by]}"
     puts
+    puts "@frameworks:::::::"
+    puts @frameworks
+    puts "@framework_ids:::::::"
+    puts @framework_ids
+
 
     @tasks = API::Task
               .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
@@ -37,9 +45,6 @@ class TasksController < ApplicationController
               .all
               .sort_by! { |t| Date.parse(t.due_on) }
               .reverse!
-
-    @frameworks = @tasks.collect { |task| "#{task.framework.name} (#{task.framework.short_name})" }.uniq.sort
-    @framework_ids = @tasks.collect { |task| "#{task.framework.id}" }.uniq.sort
 
     @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
@@ -65,5 +70,17 @@ class TasksController < ApplicationController
       task_path(@task),
       flash: { notice: 'You have successfully cancelled the correction.' }
     )
+  end
+
+  private
+
+  def load_frameworks
+    @tasks = API::Task.where(status: 'completed').includes(:framework).all
+    @frameworks = @tasks.collect { |task| "#{task.framework.name} (#{task.framework.short_name})" }.uniq.sort
+  end
+
+  def load_framework_ids
+    @tasks = API::Task.where(status: 'completed').includes(:framework).all
+    @framework_ids = @tasks.collect { |task| "#{task.framework.id}" }.uniq.sort
   end
 end

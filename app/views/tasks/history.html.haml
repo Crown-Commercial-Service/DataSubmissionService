@@ -38,7 +38,7 @@
 
         %noscript
           = surround "&nbsp&nbsp".html_safe do
-            = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
+            = submit_tag "Submit", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
       .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
 
