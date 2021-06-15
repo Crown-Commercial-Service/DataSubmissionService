@@ -93,7 +93,7 @@ class SubmissionsController < ApplicationController
   end
 
   def acceptable_file_extension?
-    extension = File.extname(params[:upload].original_filename).downcase[1..-1]
+    extension = File.extname(params[:upload].original_filename).downcase[1..]
     %w[xlsx xls].include?(extension)
   end
 
