@@ -1,6 +1,4 @@
 class TasksController < ApplicationController
-  before_action :load_frameworks
-  before_action :load_framework_ids
 
   def index
     @tasks = API::Task
@@ -27,16 +25,14 @@ class TasksController < ApplicationController
 
   def history
 
-    puts
-    puts " framework_id param--> #{params[:framework_id]}"
-    puts
-    puts " order_by param--> #{params[:order_by]}"
-    puts
-    puts "@frameworks:::::::"
-    puts @frameworks
-    puts "@framework_ids:::::::"
-    puts @framework_ids
+    # puts "params::::::"
+    # puts params
+    # puts
+    # puts " framework_id param--> #{params[:framework_id]}"
+    # puts
+    # puts " order_by param--> #{params[:order_by]}"
 
+    load_frameworks
 
     @tasks = API::Task
               .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
@@ -76,11 +72,6 @@ class TasksController < ApplicationController
 
   def load_frameworks
     @tasks = API::Task.where(status: 'completed').includes(:framework).all
-    @frameworks = @tasks.collect { |task| "#{task.framework.name} (#{task.framework.short_name})" }.uniq.sort
-  end
-
-  def load_framework_ids
-    @tasks = API::Task.where(status: 'completed').includes(:framework).all
-    @framework_ids = @tasks.collect { |task| "#{task.framework.id}" }.uniq.sort
+    @frameworks = @tasks.collect { |task| task.framework }.uniq.sort_by(&:name)
   end
 end
