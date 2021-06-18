@@ -22,12 +22,14 @@
                 %h3.govuk-heading-s
                   Select framework
           #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
-            .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable
-              - @frameworks.each do |framework|
-                .govuk-checkboxes__item--small
-                  = check_box_tag('framework_id[]', framework , false,
-                    value: framework.id)
-                  = label_tag 'framework', "#{framework.name} (#{framework.short_name})", class: 'govuk-body'
+            .govuk-form-group
+              .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                  
+                - @frameworks.each do |framework|
+                  .govuk-checkboxes__item
+                    = check_box_tag(framework.id, framework , false,
+                      value: framework.id,
+                      class: 'govuk-checkboxes__input')
+                    = label_tag framework.id, "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
 
     .govuk-grid-column-three-quarters 
       %p
