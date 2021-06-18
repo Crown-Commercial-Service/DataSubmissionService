@@ -4,10 +4,6 @@ module ApiHelpers
     "#{ENV['API_ROOT']}v1/#{path}"
   end
 
-  def mock_framework_id
-    '485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc'
-  end
-
   def mock_task_id
     '2d98639e-5260-411f-a5ee-61847a2e067c'
   end
