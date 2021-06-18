@@ -26,8 +26,8 @@
               .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                  
                 - @frameworks.each do |framework|
                   .govuk-checkboxes__item
-                    = check_box_tag(framework.id, framework , false,
-                      value: framework.id,
+                    = check_box_tag('framework_id[]', framework.id, false,
+                      id: "framework_id_#{framework.id}",
                       class: 'govuk-checkboxes__input')
                     = label_tag framework.id, "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
 
