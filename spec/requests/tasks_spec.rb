@@ -136,7 +136,7 @@ RSpec.describe 'the tasks list' do
     end
 
     it 'paginates the task list' do
-      expect(response.body).to include 'Displaying <b>all 2</b> tasks'
+      expect(response.body).to include 'Displaying <b>all 3</b> tasks'
     end
   end
 

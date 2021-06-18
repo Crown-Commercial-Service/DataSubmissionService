@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-
   def index
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
@@ -24,23 +23,15 @@ class TasksController < ApplicationController
   end
 
   def history
-
-    # puts "params::::::"
-    # puts params
-    # puts
-    # puts " framework_id param--> #{params[:framework_id]}"
-    # puts
-    # puts " order_by param--> #{params[:order_by]}"
-
     load_frameworks
 
     @tasks = API::Task
-              .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
-              .where(framework_id: params[:framework_id], status: 'completed')
-              .includes(:framework, :active_submission)
-              .all
-              .sort_by! { |t| Date.parse(t.due_on) }
-              .reverse!
+             .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
+             .where(framework_id: params[:framework_id], status: 'completed')
+             .includes(:framework, :active_submission)
+             .all
+             .sort_by! { |t| Date.parse(t.due_on) }
+             .reverse!
 
     @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
@@ -72,6 +63,6 @@ class TasksController < ApplicationController
 
   def load_frameworks
     @tasks = API::Task.where(status: 'completed').includes(:framework).all
-    @frameworks = @tasks.collect { |task| task.framework }.uniq.sort_by(&:name)
+    @frameworks = @tasks.collect(&:framework).uniq.sort_by(&:name)
   end
 end
