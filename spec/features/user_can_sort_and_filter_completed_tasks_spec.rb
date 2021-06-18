@@ -43,7 +43,7 @@ RSpec.feature 'Sorting and filtering completed tasks' do
       expect(page).to have_content 'Cheese Board 13 (cboard13)'
       expect(page).to have_content 'Cheese Board 5 (CBOARD5)'
 
-      element = page.check('framework_id[]', match: :first)
+      page.check('framework_id[]', match: :first)
       find('#sort-and-filter-submit').click
       mock_filter_complete_tasks = mock_filter_complete_tasks_endpoint!
 
