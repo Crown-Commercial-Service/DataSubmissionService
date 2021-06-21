@@ -8,15 +8,54 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  = form_tag(history_tasks_path, method: "get", enforce_utf8: false) do
-    %p
-      Sort by &nbsp
-      = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)'], :selected => params[:order_by]), 
-        class: 'govuk-select', 
-        data: { url: history_tasks_path, remote: :true, method: :get})
-      %noscript
-        = surround "&nbsp&nbsp".html_safe do
-          = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
+  .govuk-grid-row
+  = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
+    .govuk-grid-column-one-quarter
+      .ccs-filters-intro
+        = link_to 'Clear filters', history_tasks_path, { class: 'ccs-clear-filters', 'aria-label' => 'Clear filters'}
+        %h2.govuk-heading-m Apply filters
+      #accordion-with-summary-sections.ccs-accordion.ccs-accordion--clean{"data-module" => "accordion"}
+        .govuk-accordion__section.ccs-accordion__section--clean.govuk-form-group.govuk-form-group--enclosure.ccs-form-group--enclosure--tight
+          .govuk-accordion__section-header
+            %h2.govuk-accordion__section-heading
+              %span#accordion-with-summary-sections-heading-1.govuk-accordion__section-button.ccs-accordion__section-button
+                %h3.govuk-heading-s
+                  Select framework
+          #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
+            .govuk-form-group
+              .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                  
+                - @frameworks.each do |framework|
+                  .govuk-checkboxes__item
+                    = check_box_tag('framework_id[]', framework.id, false,
+                      id: "framework_id_#{framework.id}",
+                      class: 'govuk-checkboxes__input')
+                    = label_tag framework.id, "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
+
+    .govuk-grid-column-three-quarters 
+      %p
+        Sort by &nbsp
+        = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
+          class: 'govuk-select')
+
+        %noscript
+          = surround "&nbsp&nbsp".html_safe do
+            = submit_tag "Submit", id: 'sort-and-filter-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
       .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
 
+.govuk-grid-row
+
+:javascript
+  var checkBoxes = document.querySelectorAll(".govuk-checkboxes");
+  var orderSelect = document.querySelector('.govuk-select');
+  var form = document.querySelector('form');
+
+  orderSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+  
+  for (const check of checkBoxes) {
+    check.addEventListener( 'change', function() {
+      Rails.fire(form, 'submit');
+    });
+  }

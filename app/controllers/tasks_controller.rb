@@ -23,9 +23,11 @@ class TasksController < ApplicationController
   end
 
   def history
+    load_frameworks
+
     @tasks = API::Task
-             .select(submissions: %i[status submitted_at invoice_total_value report_no_business?])
-             .where(status: 'completed')
+             .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
+             .where(framework_id: params[:framework_id], status: 'completed')
              .includes(:framework, :active_submission)
              .all
              .sort_by! { |t| Date.parse(t.due_on) }
@@ -55,5 +57,12 @@ class TasksController < ApplicationController
       task_path(@task),
       flash: { notice: 'You have successfully cancelled the correction.' }
     )
+  end
+
+  private
+
+  def load_frameworks
+    @tasks = API::Task.where(status: 'completed').includes(:framework).all
+    @frameworks = @tasks.collect(&:framework).uniq.sort_by(&:name)
   end
 end

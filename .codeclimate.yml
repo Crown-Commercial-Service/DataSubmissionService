@@ -3,3 +3,6 @@ plugins:
   rubocop:
     enabled: true
     channel: rubocop-1-7-0
+exclude_patterns:
+- "app/assets/javascripts/main.js"
+- "spec/"
