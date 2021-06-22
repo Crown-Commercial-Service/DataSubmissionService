@@ -15,8 +15,8 @@
     - @tasks.each do |task|
       %tr.govuk-table__row
         %th.govuk-table__header.ccs-report-table__cell{ scope: 'row' }
-          = task.framework.short_name
           = task.framework.name
+          = "(#{task.framework.short_name})"
         - if current_user.multiple_suppliers?
           %td.govuk-table__cell.ccs-report-table__cell
             = task.supplier_name
