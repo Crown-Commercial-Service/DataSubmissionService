@@ -4,6 +4,7 @@
 
 - RMI-314: Sort feature for completed tasks page
 - RMI-315: Paginate completed tasks page
+- RMI-36: Framework filter on completed tasks page
 
 ## [release-72] - 2021-06-03
 
@@ -389,6 +390,7 @@
 
 Initial release
 
+[release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
 [release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70
