@@ -93,7 +93,9 @@ class SubmissionsController < ApplicationController
   end
 
   def acceptable_file_extension?
+    # rubocop:disable Style/SlicingWithRange
     extension = File.extname(params[:upload].original_filename).downcase[1..-1]
+    # rubocop:enable Style/SlicingWithRange
     %w[xlsx xls].include?(extension)
   end
 
