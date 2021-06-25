@@ -17,6 +17,14 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  def terminate
+    Auditor.new.user_terminated(user_id: params[:auth_id])
+
+    session[:auth_id] = nil
+
+    redirect_to '/'
+  end
+
   protected
 
   def auth_hash
