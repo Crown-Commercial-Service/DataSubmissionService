@@ -50,13 +50,13 @@ fi
 POSTGRES_SIZE="tiny-unencrypted-10"
 REDIS_SIZE="tiny-3.2"
 
-if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "preprod" || "$CF_SPACE" == "prod" ]]; then
+if [[ "$CF_SPACE" == "staging" || "$CF_SPACE" == "conclave-development" || "$CF_SPACE" == "prod" ]]; then
   echo " *********************************************"
   echo "    The '$CF_SPACE' space will be selected"
   echo "     This deploys the apps as HA with"
   echo "      production like resource sizes"
   echo " For feature testing, choose a space with a"
-  echo "      name other than staging / preprod / prod"
+  echo "      name other than staging / conclave-development / prod"
   echo " *********************************************"
 
   POSTGRES_SIZE="small-ha-10"
@@ -69,6 +69,13 @@ cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -a "$CF_API_ENDPOINT" -s devel
 # create and target space (user must be org admin)
 cf create-space "$CF_SPACE"
 cf target -o "$CF_ORG" -s "$CF_SPACE"
+
+# This is a fix for the environment being renamed - all apps and services are still ending with "-preprod".
+# It's easier to manually adjust this here, after the env has been selected already as conclave-development, so set it back.
+if [[ "$CF_SPACE" == "conclave-development" ]]
+then
+  "$CF_SPACE" = "preprod"
+fi
 
 # install cf-blue-green-deploy plugin
 cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
