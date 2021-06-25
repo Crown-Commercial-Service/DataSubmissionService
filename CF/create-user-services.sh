@@ -55,7 +55,7 @@ cf login -u "$CF_USER" -p "$CF_PASS" -o "$CF_ORG" -s "$CF_SPACE" -a "$CF_API_END
 # It's easier to manually adjust this here, after the env has been selected already as conclave-development, so set it back.
 if [[ "$CF_SPACE" == "conclave-development" ]]
 then
-  "$CF_SPACE" = "preprod"
+  CF_SPACE = "preprod"
 fi
 
 # source environment variables
