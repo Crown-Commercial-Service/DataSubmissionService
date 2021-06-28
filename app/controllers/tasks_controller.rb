@@ -63,6 +63,6 @@ class TasksController < ApplicationController
 
   def load_frameworks
     @tasks = API::Task.where(status: 'completed').includes(:framework).all
-    @frameworks = @tasks.collect(&:framework).uniq.sort_by(&:name)
+    @frameworks = @tasks.collect(&:framework).uniq.sort_by {|framework| framework.name.downcase}
   end
 end

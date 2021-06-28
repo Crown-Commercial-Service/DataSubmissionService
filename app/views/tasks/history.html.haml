@@ -8,10 +8,9 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  .govuk-grid-row
   = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
-    .govuk-grid-column-one-quarter
-      .ccs-filters-intro
+    .govuk-grid-column-one-quarter{class: 'govuk-!-padding-0'}
+      .ccs-filters-intro{class: 'govuk-!-padding-1'}
         = link_to 'Clear filters', history_tasks_path, { class: 'ccs-clear-filters', 'aria-label' => 'Clear filters'}
         %h2.govuk-heading-m Apply filters
       #accordion-with-summary-sections.ccs-accordion.ccs-accordion--clean{"data-module" => "accordion"}
@@ -20,22 +19,24 @@
             %h2.govuk-accordion__section-heading
               %span#accordion-with-summary-sections-heading-1.govuk-accordion__section-button.ccs-accordion__section-button
                 %h3.govuk-heading-s
-                  Select framework
+                  Framework
           #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
             .govuk-form-group
-              .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                  
-                - @frameworks.each do |framework|
-                  .govuk-checkboxes__item
-                    = check_box_tag('framework_id[]', framework.id, false,
-                      id: "framework_id_#{framework.id}",
-                      class: 'govuk-checkboxes__input')
-                    = label_tag framework.id, "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
+              %fieldset.govuk-fieldset
+                %legend.govuk-fieldset__legend.govuk-fieldset__legend--m
+                .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                
+                  - @frameworks.each do |framework|
+                    .govuk-checkboxes__item
+                      = check_box_tag('framework_id[]', framework.id, false,
+                        id: "framework_id_#{framework.id}",
+                        class: 'govuk-checkboxes__input')
+                      = label_tag "framework_id_#{framework.id}", "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
 
     .govuk-grid-column-three-quarters 
       %p
         Sort by &nbsp
         = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
-          class: 'govuk-select')
+          class: 'govuk-select', 'aria-label' => "Sort by month")
 
         %noscript
           = surround "&nbsp&nbsp".html_safe do
