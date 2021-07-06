@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   get '/auth/oauth/authorize', to: 'sessions#create'
   get '/auth/auth0/callback', to: 'sessions#create'
-  post '/auth/conclavesso', to: 'sessions#con_create'
+  post '/auth/conclavesso', to: 'sessions#con_redirect'
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   post '/terminate_user/:auth_id', to: 'sessions#terminate'

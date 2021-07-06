@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
     redirect_to '/tasks'
   end
 
+  def con_create
+    redirect_to '/tasks'
+  end
+
   def destroy
     Auditor.new.user_signed_out(user_id: session[:auth_id])
 
@@ -25,7 +29,7 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
-  def con_create
+  def con_redirect
     redirect_to ENV['CON_COMPLETE_URL']
   end
 
