@@ -25,6 +25,10 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  def con_create
+    redirect_to ENV['CON_COMPLETE_URL']
+  end
+
   protected
 
   def auth_hash
