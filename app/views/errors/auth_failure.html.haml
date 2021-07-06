@@ -11,6 +11,9 @@
     %p{class: 'govuk-!-margin-top-9'}
       = button_to 'Sign in', '/auth/auth0', class: 'govuk-button govuk-button--start', id: 'sign-in', 'aria-label' => "Sign in to the service"
 
+    %p{class: 'govuk-!-margin-top-9'}
+      = button_to 'ConclaveSSO Sign in', '/auth/conclavesso', class: 'govuk-button govuk-button--start', id: 'sign-in', 'aria-label' => "[Testing ConclaveSSO] Sign in to the service"
+
     %p
       If you are unable to sign in or do not receive a password reset email from the service contact
       = support_email_address

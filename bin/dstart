@@ -3,7 +3,7 @@
 set -e
 
 
-function cleanup {
+cleanup() {
   # capture exit code
   code=$?
   echo "cleaning up"
