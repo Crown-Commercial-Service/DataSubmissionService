@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def con_redirect
+
     redirect_to ENV['CON_COMPLETE_URL']
   end
 
