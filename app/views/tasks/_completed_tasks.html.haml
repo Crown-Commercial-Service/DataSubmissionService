@@ -1,0 +1,35 @@
+%table.govuk-table
+  %caption.govuk-table__caption.govuk-visually-hidden
+    List of previously completed tasks
+  %thead.govuk-table__head
+    %tr.govuk-table__row
+      %th.govuk-table__header{ :class => 'govuk-!-width-one-third' } Framework
+      - if current_user.multiple_suppliers?
+        %th.govuk-table__header{ scope: 'col' }
+          Supplier
+      %th.govuk-table__header{ scope: 'col' } Month
+      %th.govuk-table__header{ scope: 'col' } Reported value
+      %th.govuk-table__header{ scope: 'col' } Completed at
+      %th.govuk-table__header{ scope: 'col' } Actions
+  %tbody.govuk-table__body
+    - @tasks.each do |task|
+      %tr.govuk-table__row
+        %th.govuk-table__header.ccs-report-table__cell{ scope: 'row' }
+          = task.framework.name
+          = "(#{task.framework.short_name})"
+        - if current_user.multiple_suppliers?
+          %td.govuk-table__cell.ccs-report-table__cell
+            = task.supplier_name
+        %td.govuk-table__cell.ccs-report-table__cell
+          = task.reporting_period
+        %td.govuk-table__cell.ccs-report-table__cell
+          = task.active_submission.report_no_business? ? 'No business' : number_to_currency(task.active_submission.invoice_total_value, unit: '£')
+        %td.govuk-table__cell.ccs-report-table__cell
+          = task.completed_at || '-'
+        %td.govuk-table__cell.ccs-report-table__cell
+          = link_to 'View', task_path(task), { 'aria-label' => 'View submission on #{task.framework.short_name} for #{task.reporting_period}'}
+
+
+%nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
+  .ccs-pagination__summary= page_entries_info @tasks, entry_name: "task"
+  = paginate @tasks

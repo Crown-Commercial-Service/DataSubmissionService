@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-73] - 2021-08-05
+
+- RMI-314: Sort feature for completed tasks page
+- RMI-315: Paginate completed tasks page
+- RMI-36: Framework filter on completed tasks page
+- Ruby update
+- Snyk fix
+
 ## [release-72] - 2021-06-03
 
 - RMI-345: set up conclave branch to deploy rmi-conclave integration work to preprod env
@@ -384,6 +392,7 @@
 
 Initial release
 
+[release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
 [release-70]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-69...release-70

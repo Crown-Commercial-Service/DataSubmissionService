@@ -213,6 +213,17 @@ module ApiHelpers
       )
   end
 
+  def mock_filter_complete_tasks_endpoint!
+    fields = 'fields%5Bsubmissions%5D=status,framework_id,submitted_at,invoice_total_value,report_no_business?'
+    framework = 'filter%5Bframework_id%5D%5B0%5D=485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc'
+    status = 'filter%5Bstatus%5D=completed'
+    stub_request(:get, api_url("tasks?#{fields}&#{framework}&#{status}&include=framework,active_submission"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('complete_tasks_with_framework_and_active_submission_filtered.json')
+      )
+  end
+
   def mock_empty_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
       .with(query: hash_including(filter: hash_including('status')))
