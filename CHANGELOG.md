@@ -1,10 +1,12 @@
 # Change Log
 
-## [release-73] - 2021-06-10(?)
+## [release-73] - 2021-08-05
 
 - RMI-314: Sort feature for completed tasks page
 - RMI-315: Paginate completed tasks page
 - RMI-36: Framework filter on completed tasks page
+- Ruby update
+- Snyk fix
 
 ## [release-72] - 2021-06-03
 
