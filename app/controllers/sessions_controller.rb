@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     Auditor.new.user_signed_in(user_id: auth_hash.uid)
 
-    redirect_to '/tasks'
+    redirect_to '/'
   end
 
   def destroy
@@ -21,12 +21,6 @@ class SessionsController < ApplicationController
     Auditor.new.user_terminated(user_id: params[:auth_id])
 
     session[:auth_id] = nil
-
-    redirect_to '/'
-  end
-
-  def conclave_redirect
-    redirect_to ENV['CON_COMPLETE_URL']
   end
 
   protected
