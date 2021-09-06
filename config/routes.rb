@@ -32,8 +32,7 @@ Rails.application.routes.draw do
   end
 
   get '/auth/oauth/authorize', to: 'sessions#create'
-  get '/auth/auth0/callback', to: 'sessions#create'
-  post '/auth/conclavesso', to: 'sessions#conclave_redirect'
+  # get '/auth/auth0/callback', to: 'sessions#create' #Legacy Auth0 login route.
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   post '/terminate_user/:auth_id', to: 'sessions#terminate'

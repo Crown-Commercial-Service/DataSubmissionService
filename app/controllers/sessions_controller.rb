@@ -21,12 +21,6 @@ class SessionsController < ApplicationController
     Auditor.new.user_terminated(user_id: params[:auth_id])
 
     session[:auth_id] = nil
-
-    redirect_to '/'
-  end
-
-  def conclave_redirect
-    redirect_to ENV['CON_COMPLETE_URL']
   end
 
   protected
