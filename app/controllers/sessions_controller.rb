@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     Auditor.new.user_signed_in(user_id: auth_hash.uid)
 
-    redirect_to '/'
+    redirect_to '/tasks'
   end
 
   def destroy
