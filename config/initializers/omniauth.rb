@@ -5,9 +5,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider(
     :auth0,
-    ENV['CONCLAVE_DOMAIN'],
     ENV['CONCLAVE_CLIENT_ID'],
     ENV['CONCLAVE_CLIENT_SECRET'],
+    ENV['CONCLAVE_DOMAIN'],
     callback_path: '/auth/oauth/authorize',
     authorize_params: {
       scope: 'openid profile email'

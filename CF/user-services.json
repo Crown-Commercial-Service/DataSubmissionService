@@ -21,6 +21,14 @@
     ]
   },
   {
+    "service_name": "CONCLAVE_SSO",
+    "env": [
+      "CONCLAVE_CLIENT_ID",
+      "CONCLAVE_CLIENT_SECRET",
+      "CONCLAVE_DOMAIN"
+    ]
+  },
+  {
     "service_name": "APP_AUTH0",
     "env": [
       "CCSRMIAPP_AUTH0_DOMAIN",
