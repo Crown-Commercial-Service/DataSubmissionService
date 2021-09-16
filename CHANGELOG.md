@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-74] - 2021-09-16
+
+- RMI-425: Update travis env variable
+- Ruby update
+
 ## [release-73] - 2021-08-05
 
 - RMI-314: Sort feature for completed tasks page
@@ -392,6 +397,7 @@
 
 Initial release
 
+[release-74]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-73...release-74
 [release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71
