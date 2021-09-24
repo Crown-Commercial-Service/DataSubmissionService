@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   # get '/auth/auth0/callback', to: 'sessions#create' #Legacy Auth0 login route.
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
-  post '/terminate_user/:auth_id', to: 'sessions#terminate'
+  get '/terminate_user/:auth_id', to: 'sessions#terminate'
   get '/style_guide', to: 'styleguide#index'
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
