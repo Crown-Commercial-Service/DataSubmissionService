@@ -27,7 +27,7 @@
         %td.govuk-table__cell.ccs-report-table__cell
           = task.completed_at || '-'
         %td.govuk-table__cell.ccs-report-table__cell
-          = link_to 'View', task_path(task), { 'aria-label' => 'View submission on #{task.framework.short_name} for #{task.reporting_period}'}
+          = link_to 'View', task_path(task), { 'aria-label' => "View submission on #{task.framework.short_name} for #{task.reporting_period}"}
 
 
 %nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
