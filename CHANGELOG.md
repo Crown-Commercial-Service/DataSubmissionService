@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-75] - 2021-10-14
+
+- RMI-352: Fixed aria text for screenreader in completed tasks page.
+
 ## [release-74] - 2021-09-16
 
 - RMI-425: Update travis env variable
@@ -397,6 +401,7 @@
 
 Initial release
 
+[release-75]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-74...release-75
 [release-74]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-73...release-74
 [release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
