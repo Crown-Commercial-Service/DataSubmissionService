@@ -82,6 +82,11 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed_with_task.json'))
   end
 
+  def mock_submission_validated_with_task_endpoint!
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=task"))
+      .to_return(headers: json_headers, body: json_fixture_file('submission_validated_with_task.json'))
+  end
+
   def mock_submission_transitioning_to_in_review!
     stub_request(:get, api_url("submissions/#{mock_submission_id}?include=files"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_pending.json'))
