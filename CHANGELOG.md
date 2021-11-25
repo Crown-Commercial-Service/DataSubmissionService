@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-76] - 2021-11-25
+
+- RMI-418: Guard against incorrectly issuing credit notes.
+- RMI-377: Update to google analytics code.
+
 ## [release-75] - 2021-10-14
 
 - RMI-352: Fixed aria text for screenreader in completed tasks page.
@@ -401,6 +406,7 @@
 
 Initial release
 
+[release-76]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-75...release-76
 [release-75]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-74...release-75
 [release-74]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-73...release-74
 [release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
