@@ -1,0 +1,26 @@
+.govuk-cookie-banner{"aria-label" => "Cookies on Report Management Information", role: "region"}
+  .govuk-cookie-banner__message.govuk-width-container
+    #cookie-options-container
+      .govuk-grid-row
+        .govuk-grid-column-two-thirds
+          %h2.govuk-cookie-banner__heading.govuk-heading-m
+            Cookies on Report Management Information
+          .govuk-cookie-banner__content
+            %p
+              We use some essential cookies to make this website work.
+            %p
+              We’d also like to use analytics cookies so we can understand how you use the service and make improvements.
+      .govuk-button-group
+        = button_tag 'Accept analytics cookies', class: 'govuk-button', id: 'accept-cookies', 'aria-label' => "Accept analytics cookies"
+        = button_tag 'Reject analytics cookies', class: 'govuk-button', id: 'reject-cookies', 'aria-label' => "Reject analytics cookies"
+        = link_to 'View cookies', cookie_policy_path, class: 'govuk-link--no-visited-state'
+    #cookies-accepted-container{hidden: ""}
+      %p
+        You’ve accepted analytics cookies. You can
+        = link_to ' change your cookie settings ', cookie_settings_path, class: 'govuk-link--no-visited-state'
+        at any time.
+    #cookies-rejected-container{hidden: ""}
+      %p
+        You’ve rejected analytics cookies. You can 
+        = link_to ' change your cookie settings ', cookie_settings_path, class: 'govuk-link--no-visited-state'
+        at any time.

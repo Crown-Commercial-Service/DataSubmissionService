@@ -15,12 +15,13 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    = render 'shared/analytics'
+    = render 'shared/analytics' if cookies[:rmi_google_analytics_enabled] == 'true'
 
   %body.govuk-template__body.app-body-class
     %a{ href: '#main-content', class: 'govuk-skip-link' }
       Skip to main content
 
+    = render 'layouts/cookie_banner' unless cookies[:rmi_cookie_settings_viewed] == 'true' || controller.action_name == 'cookie_settings'
     = render 'shared/header', no_navigation: false
 
     .govuk-width-container
