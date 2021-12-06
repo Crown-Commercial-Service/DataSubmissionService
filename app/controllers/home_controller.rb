@@ -8,4 +8,12 @@ class HomeController < ApplicationController
       render :guest_homepage
     end
   end
+
+  def cookie_policy
+    render :cookie_policy
+  end
+
+  def cookie_settings
+    render :cookie_settings
+  end
 end
