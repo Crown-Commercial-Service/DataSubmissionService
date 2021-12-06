@@ -21,7 +21,9 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       click_link 'Completed tasks'
 
       mock_completed_task_endpoint!
-      first(:link, 'View').click
+      within('.govuk-table__body') do
+        first(:link, 'View').click
+      end
 
       click_link 'Correct this return'
       expect(page).to have_content 'Cheese Board 5'
