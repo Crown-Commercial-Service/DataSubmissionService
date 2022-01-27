@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.4.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 4.3', '>= 4.3.9'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +44,9 @@ gem 'jsonapi-consumer', '~> 1.0'
 
 # Pagination
 gem 'kaminari', '>= 1.2.1'
+
+# Cookie handling
+gem 'js_cookie_rails', '~> 2.2'
 
 gem 'jquery-rails', '>= 4.4.0'
 
@@ -81,12 +84,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.35.3', require: false
+  gem 'capybara', '>= 3.36.0', require: false
   gem 'climate_control'
   gem 'database_cleaner'
   gem 'launchy', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '>= 3.12.2'
+  gem 'webmock', '~> 3.12.2'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
   gem 'orderly', '>= 0.1.1'
 end

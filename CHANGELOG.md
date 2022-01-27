@@ -1,5 +1,20 @@
 # Change Log
 
+## [release-77] - 2022-01-27
+
+- RMI-378: Cookie banner
+- RMI-379: Cookie setting and policy pages
+- RMI-478: Update to HTST config
+
+## [release-76] - 2021-11-25
+
+- RMI-418: Guard against incorrectly issuing credit notes.
+- RMI-377: Update to google analytics code.
+
+## [release-75] - 2021-10-14
+
+- RMI-352: Fixed aria text for screenreader in completed tasks page.
+
 ## [release-74] - 2021-09-16
 
 - RMI-425: Update travis env variable
@@ -397,6 +412,12 @@
 
 Initial release
 
+<<<<<<< HEAD
+=======
+[release-77]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-76...release-77
+[release-76]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-75...release-76
+[release-75]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-74...release-75
+>>>>>>> ff0fa51b87a32f725373068ed6b610eebd19d3a4
 [release-74]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-73...release-74
 [release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72

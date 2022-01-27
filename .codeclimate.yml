@@ -5,4 +5,5 @@ plugins:
     channel: rubocop-1-7-0
 exclude_patterns:
 - "app/assets/javascripts/main.js"
+- "app/assets/javascripts/cookie-banner.js"
 - "spec/"

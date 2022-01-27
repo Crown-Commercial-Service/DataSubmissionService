@@ -144,7 +144,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
       mock_upload_task_submission_flow_endpoints!
       mock_submission_validated_endpoint!
       mock_user_with_multiple_suppliers_endpoint!
-      mock_submission_completed_with_task_endpoint!
+      mock_submission_validated_with_task_endpoint!
       mock_complete_submission_endpoint!
 
       visit '/'
