@@ -1,9 +1,10 @@
 # Change Log
 
-## [release-77] - 2021-12-?
+## [release-77] - 2022-01-27
 
 - RMI-378: Cookie banner
 - RMI-379: Cookie setting and policy pages
+- RMI-478: Update to HTST config
 
 ## [release-76] - 2021-11-25
 
