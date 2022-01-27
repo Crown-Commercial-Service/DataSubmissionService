@@ -17,7 +17,7 @@
       .govuk-button-group
         = button_tag 'Accept analytics cookies', class: 'govuk-button', id: 'accept-cookies', 'aria-label' => "Accept analytics cookies"
         = button_tag 'Reject analytics cookies', class: 'govuk-button', id: 'reject-cookies', 'aria-label' => "Reject analytics cookies"
-        = link_to 'View cookies', cookie_policy_path, class: 'govuk-link--no-visited-state'
+        = link_to 'View cookies', cookie_settings_path, class: 'govuk-link--no-visited-state'
     #cookies-accepted-container{hidden: ""}
       %p
         You’ve accepted analytics cookies. You can
