@@ -13,5 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require govuk-frontend/all.js
+//= require govuk-frontend/govuk/all.js
+//= require js.cookie
+//= require cookie-banner
 //= require_tree .

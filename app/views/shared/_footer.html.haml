@@ -9,6 +9,10 @@
             %a.govuk-link{:href => survey_url, :class => "govuk-footer__link"} Feedback
           %li.govuk-footer__inline-list-item
             = link_to "Accessibility statement", accessibility_path, class: "govuk-footer__link"
+          %li.govuk-footer__inline-list-item
+            = link_to "Cookie settings", cookie_settings_path, class: "govuk-footer__link"
+          %li.govuk-footer__inline-list-item
+            = link_to "Cookie policy", cookie_policy_path, class: "govuk-footer__link"
         %span.govuk-footer__licence-description
           Having problems using this service? Email
           = mail_to(support_email_address, nil,{:class => "govuk-footer__link"})

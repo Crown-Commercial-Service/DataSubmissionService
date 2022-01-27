@@ -45,6 +45,9 @@ gem 'jsonapi-consumer', '~> 1.0'
 # Pagination
 gem 'kaminari', '>= 1.2.1'
 
+# Cookie handling
+gem 'js_cookie_rails', '~> 2.2'
+
 gem 'jquery-rails', '>= 4.4.0'
 
 # Exception tracking
@@ -86,7 +89,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '>= 3.12.2'
+  gem 'webmock', '~> 3.12.2'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
   gem 'orderly', '>= 0.1.1'
 end
