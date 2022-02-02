@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-78] - 2022-02-03
+
+- RMI-494: Fixed nav menu dropdown and filter expansion
+
 ## [release-77] - 2022-01-27
 
 - RMI-378: Cookie banner
@@ -412,6 +416,7 @@
 
 Initial release
 
+[release-78]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-77...release-78
 [release-77]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-76...release-77
 [release-76]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-75...release-76
 [release-75]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-74...release-75
