@@ -2,7 +2,7 @@
 
 ## [release-79] - 2022-03-24
 
-- RMI-504: Dependency updates, to fix security vulnerabilities (manual).
+- RMI-504: Dependency updates, to fix security vulnerabilities. (Manual Update)
 
 ## [release-78] - 2022-02-03
 
