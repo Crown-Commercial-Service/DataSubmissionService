@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-79] - 2022-03-24
+
+- RMI-504: Dependency updates, to fix security vulnerabilities (manual).
+
 ## [release-78] - 2022-02-03
 
 - RMI-494: Fixed nav menu dropdown and filter expansion
