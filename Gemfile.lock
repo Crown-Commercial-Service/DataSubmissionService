@@ -426,7 +426,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   poltergeist (>= 1.18.1)
   pry-rails
-  puma (~> 4.3, >= 4.3.12)
+  puma (~> 4.3)
   rails (~> 5.2.6.3)
   rollbar
   rspec-rails (>= 5.0.1)
