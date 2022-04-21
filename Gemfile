@@ -36,14 +36,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Authentication
 gem 'omniauth'
 gem 'omniauth-auth0', '~> 2.0.0'
-gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
+gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
 gem 'httparty'
 gem 'jsonapi-consumer', '~> 1.0'
 
 # Pagination
-gem 'kaminari', '>= 1.2.1'
+gem 'kaminari', '>= 1.2.2'
 
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
@@ -61,7 +61,7 @@ gem 'skylight'
 gem 'auth0', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.13.2'
+gem 'nokogiri', '>= 1.13.4'
 
 group :development, :test do
   gem 'brakeman', require: false
