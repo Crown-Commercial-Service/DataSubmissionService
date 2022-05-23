@@ -61,7 +61,7 @@ gem 'skylight'
 gem 'auth0', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.13.4'
+gem 'nokogiri', '>= 1.13.6'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -69,7 +69,7 @@ group :development, :test do
   gem 'dotenv-rails', '>= 2.7.6'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 5.1.1'
+  gem 'rspec-rails', '>= 5.1.2'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end
