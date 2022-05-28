@@ -84,7 +84,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.36.0', require: false
+  gem 'capybara', '>= 3.37.1', require: false
   gem 'climate_control'
   gem 'database_cleaner'
   gem 'launchy', '>= 2.4.3'
