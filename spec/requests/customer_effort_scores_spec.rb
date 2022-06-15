@@ -13,6 +13,5 @@ RSpec.describe 'giving feedback' do
     post customer_effort_score_path
 
     expect(response).to be_successful
-    # expect(response.body).to include('Help')
   end
 end

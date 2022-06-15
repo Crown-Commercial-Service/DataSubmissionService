@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'Submitting customer effort score' do
   before do
-    # travel_to Time.zone.local(2018, 7, 2)
-
     mock_sso_with(email: 'email@example.com')
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
@@ -22,10 +20,5 @@ RSpec.feature 'Submitting customer effort score' do
 
     expect(page).to have_content 'Overall how easy was it to use this service today?'
     expect(page).to have_content 'How could we improve this service?'
-
-    choose 'Very easy'
-    fill_in 'more_detail', with: 'Excellent service.'
-    
-    # click_on 'Send Feedback'
   end
 end
