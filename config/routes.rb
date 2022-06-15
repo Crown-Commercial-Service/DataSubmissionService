@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :customer_effort_score, only: :create
+
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
@@ -39,6 +41,5 @@ Rails.application.routes.draw do
   get '/support/frameworks', to: 'support#frameworks'
   get '/cookie-settings', to: 'home#cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
-
   get '/accessibility', to: 'accessibility#index'
 end
