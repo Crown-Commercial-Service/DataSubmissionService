@@ -59,7 +59,7 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-form-group{id: 'feedback-form', class: 'govuk-!-margin-top-7'}
-      = form_tag(customer_effort_score_path, method: :post, id: 'customer-effort-score', remote: :true) do
+      = form_tag(customer_effort_score_path, method: :post, id: 'customer-effort-score', remote: :true, :authenticity_token => true) do
         %fieldset.govuk-fieldset
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
             %h2.govuk-heading-m
@@ -93,15 +93,16 @@
           Don't include personal or financial information.
         %textarea#more-detail.govuk-textarea{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"}
 
-        = submit_tag 'Send feedback', :onclick => "return submit_feedback()", data: { 'prevent-double-click': true }, class: 'govuk-button'
+        = submit_tag 'Send feedback', :disabled => true, :onclick => "return submit_feedback()", data: { 'prevent-double-click': true }, class: 'govuk-button', id: 'submit-feedback'
+
         %noscript
           %p
             Please enable javascript to submit feedback.
 
 
-
-
 :javascript
+  document.getElementById("submit-feedback").disabled=false;
+
   function submit_feedback()
   {
     Rails.fire(document.getElementById('customer-effort-score'), 'submit');
