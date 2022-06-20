@@ -18,6 +18,7 @@
     = render 'shared/analytics' if cookies[:rmi_google_analytics_enabled] == 'true' 
 
   %body.govuk-template__body.app-body-class
+    = render 'shared/tag_manager' if cookies[:rmi_google_analytics_enabled] == 'true' 
     %a{ href: '#main-content', class: 'govuk-skip-link' }
       Skip to main content
 
