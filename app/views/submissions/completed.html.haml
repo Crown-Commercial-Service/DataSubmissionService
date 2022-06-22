@@ -59,7 +59,7 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-form-group{id: 'feedback-form', class: 'govuk-!-margin-top-7'}
-      = form_tag(customer_effort_score_path, method: :post, id: 'customer-effort-score', remote: :true, :authenticity_token => true) do
+      = form_tag(customer_effort_score_path, method: :post) do
         %fieldset.govuk-fieldset
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
             %h2.govuk-heading-m
@@ -86,39 +86,14 @@
               %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-4"}
                 Very difficult
 
-        %h2.govuk-label-wrapper{class: 'govuk-!-margin-top-7'}
-          %label.govuk-label.govuk-label--m{for: "more-detail"}
-            How could we improve this service?
-        #more-detail-hint.govuk-hint
-          Don't include personal or financial information.
-        %textarea#more-detail.govuk-textarea{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"}
+        .govuk-character-count{"data-maxlength" => "2000", "data-module" => "govuk-character-count"}
+          %h2.govuk-label-wrapper{class: 'govuk-!-margin-top-7'}
+            %label.govuk-label.govuk-label--m{for: "more-detail"}
+              How could we improve this service?
+          #more-detail-hint.govuk-hint
+            Don't include personal or financial information.
+          %textarea#with-hint.govuk-textarea.govuk-js-character-count{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"}
+          #with-hint-info.govuk-hint.govuk-character-count__message.govuk-character-count__status
+            You can enter up to 2000 characters
 
-        = submit_tag 'Send feedback', :disabled => true, :onclick => "return submit_feedback()", data: { 'prevent-double-click': true }, class: 'govuk-button', id: 'submit-feedback'
-
-        %noscript
-          %p
-            Please enable javascript to submit feedback.
-
-
-:javascript
-  var radios = document.getElementsByClassName("govuk-radios__item");
-
-  for (var i = 0 ; i < radios.length; i++) {
-   radios[i].addEventListener('change', function() {
-      document.getElementById("submit-feedback").disabled=false;
-    });
-  }
-
-  function submit_feedback()
-  {
-    Rails.fire(document.getElementById('customer-effort-score'), 'submit');
-
-    var old_elem = document.getElementById("feedback-form");
-
-    var new_elem = document.createElement("h2");
-    new_elem.classList.add( "govuk-heading-m", "govuk-!-margin-top-7" );
-    var new_content = document.createTextNode("Thank you for your feedback");
-    new_elem.appendChild(new_content); 
-
-    old_elem.replaceWith(new_elem);
-  }
+        = submit_tag 'Send feedback', data: { 'prevent-double-click': true }, class: 'govuk-button'
