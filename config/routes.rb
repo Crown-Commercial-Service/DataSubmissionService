@@ -31,8 +31,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :customer_effort_score, only: :create
-
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'errors#auth_failure'
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
