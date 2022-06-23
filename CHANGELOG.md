@@ -1,5 +1,13 @@
 # Change Log
 
+
+## [release-80] - 2022-06-23
+
+- RMI-505: Google Analytics 4 set up
+- RMI-511: Google Tag Manager set up
+- Bump jmespath from 1.4.0 to 1.6.1 
+- [Snyk] Security upgrade aws-sdk-s3 from 1.94.1 to 1.94.1
+
 ## [release-79] - 2022-03-24
 
 - RMI-504: Dependency updates, to fix security vulnerabilities. (Manual Update)
@@ -421,6 +429,8 @@
 
 Initial release
 
+[release-80]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-79...release-80
+[release-79]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-78...release-79
 [release-78]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-77...release-78
 [release-77]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-76...release-77
 [release-76]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-75...release-76

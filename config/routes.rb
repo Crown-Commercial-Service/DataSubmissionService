@@ -39,6 +39,5 @@ Rails.application.routes.draw do
   get '/support/frameworks', to: 'support#frameworks'
   get '/cookie-settings', to: 'home#cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
-
   get '/accessibility', to: 'accessibility#index'
 end

@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.6.3'
+gem 'rails', '~> 5.2.7.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3', '>= 4.3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,14 +36,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Authentication
 gem 'omniauth'
 gem 'omniauth-auth0', '~> 2.0.0'
-gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
+gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
 gem 'httparty'
 gem 'jsonapi-consumer', '~> 1.0'
 
 # Pagination
-gem 'kaminari', '>= 1.2.1'
+gem 'kaminari', '>= 1.2.2'
 
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
@@ -54,14 +54,15 @@ gem 'jquery-rails', '>= 4.4.0'
 gem 'rollbar'
 
 # Logging
-gem 'lograge', '>= 0.11.2'
+gem 'lograge', '>= 0.12.0'
+
 gem 'skylight'
 
 # Auth0 client for user setup scripts
 gem 'auth0', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.13.2'
+gem 'nokogiri', '>= 1.13.6'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -69,7 +70,7 @@ group :development, :test do
   gem 'dotenv-rails', '>= 2.7.6'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 5.0.1'
+  gem 'rspec-rails', '>= 5.1.2'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end
@@ -84,7 +85,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.36.0', require: false
+  gem 'capybara', '>= 3.37.1', require: false
   gem 'climate_control'
   gem 'database_cleaner'
   gem 'launchy', '>= 2.4.3'
