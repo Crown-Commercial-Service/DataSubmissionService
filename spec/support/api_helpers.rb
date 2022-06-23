@@ -24,10 +24,6 @@ module ApiHelpers
     'auth0|123456'
   end
 
-  def mock_user_id
-    'efa8ebb8-de51-4718-b085-a583f8d41e3e'
-  end
-
   def hash_including_correction
     {
       body: {
@@ -334,21 +330,6 @@ module ApiHelpers
         headers: json_headers,
         body: json_fixture_file('urn_lists.json')
       )
-  end
-
-  def mock_customer_effort_score_endpoint!
-    feedback_params = {
-      data: {
-        type: 'customer_effort_scores',
-        attributes: {
-          rating: nil,
-          comments: nil,
-          user_id: mock_user_id
-        }
-      }
-    }
-    stub_request(:post, api_url('customer_effort_scores'))
-      .with(body: feedback_params.to_json)
   end
 
   def mock_empty_urn_lists_endpoint!
