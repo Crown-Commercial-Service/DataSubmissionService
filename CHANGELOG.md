@@ -1,5 +1,6 @@
 # Change Log
 
+
 ## [release-80] - 2022-06-23
 
 - RMI-505: Google Analytics 4 set up
@@ -14,6 +15,7 @@
 ## [release-78] - 2022-02-03
 
 - RMI-494: Fixed nav menu dropdown and filter expansion
+- RMI-480: Enable Sidekiq pro
 
 ## [release-77] - 2022-01-27
 
