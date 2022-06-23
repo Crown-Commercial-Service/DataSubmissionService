@@ -1,6 +1,6 @@
 # Change Log
 
-## [release-80] - 2022-06-16
+## [release-80] - 2022-06-23
 
 - RMI-505: Google Analytics 4 set up
 - RMI-511: Google Tag Manager set up
