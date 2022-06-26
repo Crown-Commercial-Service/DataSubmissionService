@@ -48,7 +48,7 @@ gem 'kaminari', '>= 1.2.2'
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
 
-gem 'jquery-rails', '>= 4.4.0'
+gem 'jquery-rails', '>= 4.5.0'
 
 # Exception tracking
 gem 'rollbar'
