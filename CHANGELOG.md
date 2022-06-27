@@ -1,8 +1,11 @@
 # Change Log
 
-## [release-80] - 2022-06-16
+## [release-80] - 2022-06-23
 
-- RMI-341: Created mechanism to measure customer effort score
+- RMI-505: Google Analytics 4 set up
+- RMI-511: Google Tag Manager set up
+- Bump jmespath from 1.4.0 to 1.6.1 
+- [Snyk] Security upgrade aws-sdk-s3 from 1.94.1 to 1.94.1
 
 ## [release-79] - 2022-03-24
 
