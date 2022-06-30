@@ -12,6 +12,10 @@ RSpec.feature 'Submitting customer effort score' do
   scenario 'user submits feedback after completing a task' do
     mock_user_endpoint!
 
+    allow_any_instance_of(API::CustomerEffortScore).to receive(:save).and_return(false)
+    allow_any_instance_of(API::CustomerEffortScore).to receive_message_chain(:errors)
+      .and_return(rating: ['Invalid rating'])
+
     visit '/'
     click_button 'sign-in'
     visit '/tasks'
@@ -20,5 +24,9 @@ RSpec.feature 'Submitting customer effort score' do
 
     expect(page).to have_content 'Overall how easy was it to use this service today?'
     expect(page).to have_content 'How could we improve this service?'
+
+    click_on 'Send feedback'
+
+    expect(page).to have_content 'Feedback not submitted, please see below.'
   end
 end

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
+        post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
@@ -30,8 +31,6 @@ Rails.application.routes.draw do
       get :download
     end
   end
-
-  resource :customer_effort_score, only: :create
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'errors#auth_failure'
