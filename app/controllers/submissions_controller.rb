@@ -39,7 +39,7 @@ class SubmissionsController < ApplicationController
     @submission = API::Submission.includes(:files).find(params[:id]).first
 
     if @score.errors.any?
-      flash.now[:alert] = "Feedback not submitted, please see below."
+      flash.now[:alert] = 'Feedback not submitted, please see below.'
       render :completed
     else
       render :feedback_submitted

@@ -14,7 +14,7 @@ RSpec.feature 'Submitting customer effort score' do
 
     allow_any_instance_of(API::CustomerEffortScore).to receive(:save).and_return(false)
     allow_any_instance_of(API::CustomerEffortScore).to receive_message_chain(:errors)
-      .and_return(:rating=>["Invalid rating"])
+      .and_return(rating: ['Invalid rating'])
 
     visit '/'
     click_button 'sign-in'
