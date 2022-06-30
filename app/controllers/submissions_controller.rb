@@ -28,6 +28,24 @@ class SubmissionsController < ApplicationController
     send_data submission_file.body.read, filename: submission.filename
   end
 
+  def customer_effort_score
+    @score = API::CustomerEffortScore.create(
+      rating: params[:customer_satisfaction],
+      comments: params[:more_detail],
+      user_id: current_user.id
+    )
+
+    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @submission = API::Submission.includes(:files).find(params[:id]).first
+
+    if @score.errors.any?
+      flash.now[:alert] = "Feedback not submitted, please see below."
+      render :completed
+    else
+      render :feedback_submitted
+    end
+  end
+
   private
 
   def upload_file_submission(task, upload)

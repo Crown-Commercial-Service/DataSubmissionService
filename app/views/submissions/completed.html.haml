@@ -56,44 +56,4 @@
       = link_to 'View your tasks', tasks_path
       to make another report.
 
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
-    .govuk-form-group{id: 'feedback-form', class: 'govuk-!-margin-top-7'}
-      = form_tag(customer_effort_score_path, method: :post) do
-        %fieldset.govuk-fieldset
-          %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
-            %h2.govuk-heading-m
-              Overall how easy was it to use this service today?
-          .govuk-radios{"data-module" => "govuk-radios"}
-            .govuk-radios__item
-              %input#customer-satisfaction.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Very easy"}/
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction"}
-                Very easy
-            .govuk-radios__item
-              %input#customer-satisfaction-2.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Easy"}/
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-2"}
-                Easy
-            .govuk-radios__item
-              %input#customer-satisfaction-3.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Neither easy or hard"}/
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-3"}
-                Neither easy or difficult
-            .govuk-radios__item
-              %input#customer-satisfaction-4.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Hard"}/
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-4"}
-                Difficult
-            .govuk-radios__item
-              %input#customer-satisfaction-5.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Very hard"}/
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-4"}
-                Very difficult
-
-        .govuk-character-count{"data-maxlength" => "2000", "data-module" => "govuk-character-count"}
-          %h2.govuk-label-wrapper{class: 'govuk-!-margin-top-7'}
-            %label.govuk-label.govuk-label--m{for: "more-detail"}
-              How could we improve this service?
-          #more-detail-hint.govuk-hint
-            Don't include personal or financial information.
-          %textarea#with-hint.govuk-textarea.govuk-js-character-count{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"}
-          #with-hint-info.govuk-hint.govuk-character-count__message.govuk-character-count__status
-            You can enter up to 2000 characters
-
-        = submit_tag 'Send feedback', data: { 'prevent-double-click': true }, class: 'govuk-button'
+= render 'customer_effort_score'
