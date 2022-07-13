@@ -49,8 +49,7 @@
       We will contact you if we need more information about what you have told us.
     %p
       If you’ve made a mistake or need to amend the management information 
-      you’ve supplied, 
-      = link_to 'correct this return.', correct_task_path(@task)
+      you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
     %p
       = link_to 'View your tasks', tasks_path
       to make another report.
