@@ -35,7 +35,7 @@
             %label.govuk-label.govuk-label--m{for: "more-detail"}
               How could we improve this service? (Optional)
           #more-detail-hint.govuk-hint
-            Don't include personal or financial information.
+            Do not include personal or financial information.
           - if @score && @score.errors.key?('comments')
             %p.govuk-error-message Feedback must be 2000 characters or less
           %textarea#with-hint.govuk-textarea.govuk-js-character-count{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"} #{@score.comments if @score}
