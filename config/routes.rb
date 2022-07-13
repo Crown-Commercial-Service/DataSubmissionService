@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
+        post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
