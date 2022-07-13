@@ -217,7 +217,7 @@ GEM
     mini_portile2 (2.8.0)
     mini_racer (0.4.0)
       libv8-node (~> 15.14.0.0)
-    minitest (5.15.0)
+    minitest (5.16.1)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -424,7 +424,7 @@ DEPENDENCIES
   haml-rails (>= 2.0.1)
   httparty
   jbuilder (~> 2.5)
-  jquery-rails (>= 4.4.0)
+  jquery-rails (>= 4.5.0)
   js_cookie_rails (~> 2.2, >= 2.2.0)
   jsonapi-consumer (~> 1.0)
   kaminari (>= 1.2.2)
