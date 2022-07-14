@@ -55,6 +55,7 @@ gem 'rollbar'
 
 # Logging
 gem 'lograge', '>= 0.12.0'
+
 gem 'skylight'
 
 # Auth0 client for user setup scripts
