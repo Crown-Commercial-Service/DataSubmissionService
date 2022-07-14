@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-81] - 2022-07-14
+
+- RMI-341: Created mechanism to measure customer effort score
+- [Snyk] Security upgrade rails from 5.2.7.1 to 5.2.8.1
+- [Dependabot] Bump rails-html-sanitizer from 1.4.2 to 1.4.3
 
 ## [release-80] - 2022-06-23
 
@@ -429,6 +434,7 @@
 
 Initial release
 
+[release-81]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-80...release-81
 [release-80]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-79...release-80
 [release-79]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-78...release-79
 [release-78]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-77...release-78
