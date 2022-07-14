@@ -1,8 +1,10 @@
 # Change Log
 
-## [release-81] - 2022-06-30
+## [release-81] - 2022-07-14
 
 - RMI-341: Created mechanism to measure customer effort score
+- [Snyk] Security upgrade rails from 5.2.7.1 to 5.2.8.1
+- [Dependabot] Bump rails-html-sanitizer from 1.4.2 to 1.4.3
 
 ## [release-80] - 2022-06-23
 
