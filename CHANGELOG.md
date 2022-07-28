@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-82] - 2022-07-28
+
+- RMI-516: Add glassbox domains to CSP whitelist
+- [Snyk] Upgrade jbuilder and jsonapi-consumer
+- [Dependabot] Bump tzinfo from 1.2.9 to 1.2.10
+
 ## [release-81] - 2022-07-14
 
 - RMI-341: Created mechanism to measure customer effort score
@@ -434,6 +440,7 @@
 
 Initial release
 
+[release-82]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-81...release-82
 [release-81]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-80...release-81
 [release-80]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-79...release-80
 [release-79]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-78...release-79

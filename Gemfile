@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.11', '>= 2.11.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -40,7 +40,7 @@ gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
 gem 'httparty'
-gem 'jsonapi-consumer', '~> 1.0'
+gem 'jsonapi-consumer', '~> 1.0', '>= 1.0.1'
 
 # Pagination
 gem 'kaminari', '>= 1.2.2'
