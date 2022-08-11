@@ -27,11 +27,11 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %h3.govuk-heading-m
-      Upload a file
+      Upload a completed template file
     %p
       Choose a file to upload
     %p
-      Accepted file types are Microsoft Excel (.xls or .xlsx).
+      Only completed template files in Microsoft Excel format (.xls or .xlsx) will be accepted
     %p
       You’ll be able to review a summary of the files before you submit.
     = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
