@@ -74,7 +74,7 @@ class TasksController < ApplicationController
     period_date_to = Date.new(params[:year_to].to_i, params[:month_to].to_i)
 
     return if period_date_from > period_date_to
-    
+
     tasks.reject { |t| Date.new(t.period_year, t.period_month) < period_date_from }
     tasks.reject { |t| Date.new(t.period_year, t.period_month) > period_date_to }
   end
