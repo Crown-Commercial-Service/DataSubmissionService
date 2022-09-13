@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @file = @submission.files&.first
   end
 
-  def history    
+  def history
     @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
     @tasks = task_period_filter(@tasks) if params[:month_from]
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
@@ -74,6 +74,7 @@ class TasksController < ApplicationController
     period_date_to = Date.new(params[:year_to].to_i, params[:month_to].to_i)
 
     return if period_date_from > period_date_to
+    
     tasks.reject { |t| Date.new(t.period_year, t.period_month) < period_date_from }
     tasks.reject { |t| Date.new(t.period_year, t.period_month) > period_date_to }
   end
