@@ -53,12 +53,12 @@
                     .govuk-form-group
                       %label.govuk-label.govuk-date-input__label{for: "mm-from"}
                         Month
-                      = select_tag 'month_from', options_from_collection_for_select(@tasks, :period_month, :period_month, @earliest_task.period_month), class: 'govuk-select', 'aria-label' => "Month From"
+                      = select_tag 'month_from', options_from_collection_for_select(@tasks.to_a.uniq{ |t| t.period_month}, :period_month, :period_month, @earliest_task.period_month), class: 'govuk-select', 'aria-label' => "Month From"
                   .govuk-date-input__item
                     .govuk-form-group
                       %label.govuk-label.govuk-date-input__label{for: "yyyy-from"}
                         Year
-                      = select_tag 'year_from', options_from_collection_for_select(@tasks, :period_year, :period_year, @earliest_task.period_year), class: 'govuk-select', 'aria-label' => "Year From"
+                      = select_tag 'year_from', options_from_collection_for_select(@tasks.to_a.uniq{ |t| t.period_year}, :period_year, :period_year, @earliest_task.period_year), class: 'govuk-select', 'aria-label' => "Year From"
 
             .govuk-form-group
               %fieldset.govuk-fieldset
@@ -70,12 +70,12 @@
                     .govuk-form-group
                       %label.govuk-label.govuk-date-input__label{for: "mm-to"}
                         Month
-                      = select_tag 'month_to', options_from_collection_for_select(@tasks, :period_month, :period_month, @latest_task.period_month), class: 'govuk-select', 'aria-label' => "Month To"
+                      = select_tag 'month_to', options_from_collection_for_select(@tasks.to_a.uniq{ |t| t.period_month}, :period_month, :period_month, @latest_task.period_month), class: 'govuk-select', 'aria-label' => "Month To"
                   .govuk-date-input__item
                     .govuk-form-group
                       %label.govuk-label.govuk-date-input__label{for: "yyyy-to"}
                         Year
-                      = select_tag 'year_to', options_from_collection_for_select(@tasks, :period_year, :period_year, @latest_task.period_year), class: 'govuk-select', 'aria-label' => "Year To"
+                      = select_tag 'year_to', options_from_collection_for_select(@tasks.to_a.uniq{ |t| t.period_year}, :period_year, :period_year, @latest_task.period_year), class: 'govuk-select', 'aria-label' => "Year To"
 
     .govuk-grid-column-three-quarters 
       %p
