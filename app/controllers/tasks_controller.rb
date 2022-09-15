@@ -25,9 +25,9 @@ class TasksController < ApplicationController
   end
 
   def history
-    @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
+    @tasks.reverse! if params[:order_by] == 'Month (oldest)'
     @tasks = task_period_filter(@tasks) if params[:month_from]
-    @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
+    @paginated_tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
 
     respond_to do |format|
       format.html
@@ -70,13 +70,11 @@ class TasksController < ApplicationController
   end
 
   def task_period_filter(tasks)
-    period_date_from = Date.new(params[:year_from].to_i, params[:month_from].to_i)
-    period_date_to = Date.new(params[:year_to].to_i, params[:month_to].to_i)
+    date_from = Date.new(params[:year_from].to_i, params[:month_from].to_i)
+    date_to = Date.new(params[:year_to].to_i, params[:month_to].to_i)
 
-    return if period_date_from > period_date_to
-
-    tasks.reject { |t| Date.new(t.period_year, t.period_month) < period_date_from }
-    tasks.reject { |t| Date.new(t.period_year, t.period_month) > period_date_to }
+    tasks.delete_if { |t| Date.new(t.period_year, t.period_month) < date_from }
+    tasks.delete_if { |t| Date.new(t.period_year, t.period_month) > date_to }
   end
 
   def first_and_last_completed_task
