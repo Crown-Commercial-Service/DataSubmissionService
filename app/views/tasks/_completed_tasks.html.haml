@@ -12,7 +12,7 @@
       %th.govuk-table__header{ scope: 'col' } Completed at
       %th.govuk-table__header{ scope: 'col' } Actions
   %tbody.govuk-table__body
-    - @tasks.each do |task|
+    - @paginated_tasks.each do |task|
       %tr.govuk-table__row
         %th.govuk-table__header.ccs-report-table__cell{ scope: 'row' }
           = task.framework.name
@@ -31,5 +31,5 @@
 
 
 %nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
-  .ccs-pagination__summary= page_entries_info @tasks, entry_name: "task"
-  = paginate @tasks
+  .ccs-pagination__summary= page_entries_info @paginated_tasks, entry_name: "task"
+  = paginate @paginated_tasks
