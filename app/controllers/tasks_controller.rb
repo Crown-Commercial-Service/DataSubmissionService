@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :load_frameworks, :load_completed_tasks, :first_and_last_completed_task, only: [:history]
+  before_action :load_frameworks, :load_completed_tasks, :load_date_filter_values, only: [:history]
 
   def index
     @tasks = API::Task
@@ -77,9 +77,7 @@ class TasksController < ApplicationController
     tasks.delete_if { |t| Date.new(t.period_year, t.period_month) > date_to }
   end
 
-  def first_and_last_completed_task
-    tasks = API::Task.where(status: 'completed').all.sort_by! { |t| Date.parse(t.due_on) }
-    @earliest_task = tasks.first
-    @latest_task = tasks.last
+  def load_date_filter_values
+    @completed_tasks = API::Task.where(status: 'completed').all.sort_by! { |t| Date.parse(t.due_on) }
   end
 end
