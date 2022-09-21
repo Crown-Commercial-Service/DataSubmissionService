@@ -52,7 +52,7 @@
     %table.govuk-table
       %thead.govuk-table__head
         %tr.govuk-table__row
-          %th.govuk-table__header{ scope: 'col' } Name
+          %th.govuk-table__header{ scope: 'col' } Cookie name
           %th.govuk-table__header{ scope: 'col' } Purpose
           %th.govuk-table__header{ scope: 'col' } Expires
       %tbody.govuk-table__body
@@ -70,6 +70,64 @@
             These helps us count how many people visit RMI by tracking if you’ve visited before
           %td.govuk-table__cell
             24 hours
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _gat_gtag_UA_47046847_14
+          %td.govuk-table__cell
+            These helps us count how many people visit RMI by tracking if you’ve visited before
+          %td.govuk-table__cell
+            1 minute
+
+    %h2.govuk-heading-m
+      Measuring website usage (Glassbox)
+    %p
+      We use Glassbox software to collect information about how you use CCS. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
+    %p
+      Glassbox stores information about:
+    %ul{ :class => 'govuk-list govuk-list--bullet' }
+      %li
+        Browsing activity
+      %li
+        Click-stream activity
+      %li
+        Session heatmaps
+      %li
+        Scrolls
+    %p
+      We don’t collect or store your personal information (e.g. your name or address) so this information can’t be used to identify who you are.
+    %p
+      We don’t allow Glassbox to use or share our analytics data.
+    %p
+      Glassbox sets the following cookies:
+    %table.govuk-table
+      %thead.govuk-table__head
+        %tr.govuk-table__row
+          %th.govuk-table__header{ scope: 'col' } Name
+          %th.govuk-table__header{ scope: 'col' } Type
+          %th.govuk-table__header{ scope: 'col' } Description
+      %tbody.govuk-table__body
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cls_s
+          %td.govuk-table__cell
+            Cookie (required)
+          %td.govuk-table__cell
+            The session identifying cookie. It also indicates if the visitor is new or existing.
+            %ul{ :class => 'govuk-list govuk-list--bullet' }
+              %li
+                0: New
+              %li
+                1: Existing
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cls_v
+          %td.govuk-table__cell
+            Cookie (required)
+          %td.govuk-table__cell
+            The visitor identifying cookie.
+    %p
+      You can opt out of
+      = link_to ' Glassbox cookies', "https://tools.google.com/dlpage/gaoptout"
     
     %h2.govuk-heading-m
       Strictly necessary cookies

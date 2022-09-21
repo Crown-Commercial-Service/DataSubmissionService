@@ -9,14 +9,14 @@
             %p
               We use some essential cookies to make this website work.
             %p
-              We’d also like to use analytics cookies so we can understand how you use the service and make improvements.
+              We’d like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.
             %noscript
               .ccs-in-service-alert.ccs-in-service-alert--warning{role: "alert", tabindex: "-1"}
                 %p 
                   Please enable Javascript in your browser settings to set your cookie preferences.
       .govuk-button-group
-        = button_tag 'Accept analytics cookies', class: 'govuk-button', id: 'accept-cookies', 'aria-label' => "Accept analytics cookies"
-        = button_tag 'Reject analytics cookies', class: 'govuk-button', id: 'reject-cookies', 'aria-label' => "Reject analytics cookies"
+        = button_tag 'Accept additional cookies', class: 'govuk-button', id: 'accept-cookies', 'aria-label' => "Accept additional cookies"
+        = button_tag 'Reject additional cookies', class: 'govuk-button', id: 'reject-cookies', 'aria-label' => "Reject additional cookies"
         = link_to 'View cookies', cookie_settings_path, class: 'govuk-link--no-visited-state'
     #cookies-accepted-container{hidden: ""}
       %p
