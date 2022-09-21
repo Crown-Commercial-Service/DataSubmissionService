@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def history
-    @tasks.reverse! if (params[:order_by]) == 'Month (oldest)'
+    @tasks.reverse! if params[:order_by] == 'Month (oldest)'
     @tasks = task_period_filter(@tasks) if params[:month_from]
     @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(24)
 
