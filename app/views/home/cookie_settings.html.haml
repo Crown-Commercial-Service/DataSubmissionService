@@ -61,6 +61,34 @@
 
     %hr.govuk-section-break.govuk-section-break--s
 
+      %p
+        We use Glassbox software to collect information about how you use CCS. We do this to help 
+        make sure the site is meeting the needs of its users and to help us make improvements.
+        Glassbox stores information about:
+      %ul{ :class => 'govuk-list govuk-list--bullet' }
+        %li
+          Browsing activity
+        %li
+          Click-stream activity
+        %li
+          Session heatmaps
+        %li
+          Scrolls
+      %p
+        This information can’t be used to identify who you are.
+      %p
+        We don’t allow Glassbox to use or share our analytics data.
+    
+      .govuk-radios.govuk-radios--inline
+        .govuk-radios__item
+          = radio_button_tag :glassbox_cookie_usage, true, cookies[:rmi_glassbox_enabled] == 'true', class: 'govuk-radios__input'
+          = label_tag :glassbox_cookie_usage, 'On', for: :glassbox_cookie_usage_true, class: 'govuk-label govuk-radios__label'
+        .govuk-radios__item
+          = radio_button_tag :glassbox_cookie_usage, false, cookies[:rmi_glassbox_enabled] != 'true', class: 'govuk-radios__input'
+          = label_tag :glassbox_cookie_usage, 'Off', for: :glassbox_cookie_usage_false, class: 'govuk-label govuk-radios__label'
+
+    %hr.govuk-section-break.govuk-section-break--m
+
     .govuk-form-group
       %fieldset.govuk-fieldset
         %legend.govuk-fieldset__legend.govuk-fieldset__legend--m

@@ -22,6 +22,7 @@ $(() => {
 
     Cookies.set('rmi_cookie_settings_viewed', 'true', { expires: 365 });
     Cookies.set('rmi_google_analytics_enabled', 'true', { expires: 365 });
+    Cookies.set('rmi_glassbox_enabled', 'true', { expires: 365 })
     $('#cookie-options-container').hide();
     $('#cookies-accepted-container').show();
   });
@@ -31,6 +32,7 @@ $(() => {
 
     Cookies.set('rmi_cookie_settings_viewed', 'true', { expires: 365 });
     Cookies.set('rmi_google_analytics_enabled', 'false', { expires: 365 });
+    Cookies.set('rmi_glassbox_enabled', 'false', { expires: 365 })
     $('#cookie-options-container').hide();
     $('#cookies-rejected-container').show();
   });
@@ -43,6 +45,12 @@ $(() => {
     } else {
       Cookies.remove('rmi_google_analytics_enabled');
       removeGACookies();
+    }
+
+    if ($('input[name=glassbox_cookie_usage]:checked').val() === 'true') {
+      Cookies.set('rmi_glassbox_enabled', 'true', { expires: 365 })
+    } else {
+      Cookies.remove('rmi_glassbox_enabled');
     }
 
     $('#cookie-settings-saved').show();
