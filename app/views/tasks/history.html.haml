@@ -115,7 +115,7 @@
   yearToSelect.addEventListener( 'change', function() {
     Rails.fire(form, 'submit');
   });
-
+  
   for (const check of checkBoxes) {
     check.addEventListener( 'change', function() {
       Rails.fire(form, 'submit');
