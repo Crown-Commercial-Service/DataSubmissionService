@@ -2,6 +2,7 @@
 
 ## [release-83] - 2022-09-29
 
+- RMI-509: Amended wording to suppliers upload and ingest failed pages
 - RMI-401: Replaced UI instaces of "Framework" with "Agreement", to web pages, or where it will be seen on the site.
 - RMI-353: Add additional year filter to the completed tasks page.
 - RMI-522: Include Glassbox into the cookie configuration and page.
