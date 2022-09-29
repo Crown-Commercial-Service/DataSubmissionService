@@ -34,6 +34,8 @@
 
 - RMI-494: Fixed nav menu dropdown and filter expansion
 
+- RMI-480: Enable Sidekiq pro
+
 ## [release-77] - 2022-01-27
 
 - RMI-378: Cookie banner
