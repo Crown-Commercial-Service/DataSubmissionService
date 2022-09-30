@@ -1,0 +1,15 @@
+{
+    "data": {
+        "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+        "type": "frameworks",
+        "attributes": {
+            "short_name": "cboard12",
+            "name": "Cheese Board 12",
+            "file_key": "FILEKEY",
+            "file_name": "FILENAME"
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

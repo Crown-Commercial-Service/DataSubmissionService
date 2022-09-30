@@ -1,0 +1,23 @@
+%tr.govuk-table__row{ id: "agreement-#{agreement.id}" }
+  %td.govuk-table__cell
+    %h2.govuk-heading-m
+      = agreement.framework.short_name
+      = agreement.framework.name
+    %br/
+    - if current_user.multiple_suppliers?
+      %h3.govuk-heading-s
+        %span.govuk-visually-hidden
+          Supplier:
+        = agreement.supplier.name
+
+    - agreement.relevant_lots.each do |lot|
+      %p
+        Lot #{lot[0]}: #{lot[1]}
+      %p 
+        = link_to 'Download template (excel document)', template_path(id: agreement.framework, agreements_page: true), {'aria-label' => "Download excel document template for #{agreement.framework.short_name} #{agreement.framework.name}"}
+  %td.govuk-table__cell
+    %h2.govuk-heading-m
+      - if agreement.active
+        Active
+      - else
+        Inactive
