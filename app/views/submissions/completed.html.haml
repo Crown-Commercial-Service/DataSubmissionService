@@ -23,7 +23,7 @@
     %dl.govuk-summary-list.govuk-summary-list--no-border
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
-          Framework
+          Agreement
         %dd.govuk-summary-list__value
           = @task.framework.short_name
           = @task.framework.name
@@ -48,9 +48,10 @@
     %p
       We will contact you if we need more information about what you have told us.
     %p
-      If you’ve made a mistake or need to amend the management information
-      you’ve supplied, email
-      = mail_to support_email_address
-      for help.
+      If you’ve made a mistake or need to amend the management information 
+      you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
     %p
-      = link_to 'Home', tasks_path
+      = link_to 'View your tasks', tasks_path
+      to make another report.
+
+= render 'customer_effort_score'

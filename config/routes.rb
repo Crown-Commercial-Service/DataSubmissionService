@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
+        post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
   get '/style_guide', to: 'styleguide#index'
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
-
+  get '/cookie-settings', to: 'home#cookie_settings'
+  get '/cookie-policy', to: 'home#cookie_policy'
   get '/accessibility', to: 'accessibility#index'
 end

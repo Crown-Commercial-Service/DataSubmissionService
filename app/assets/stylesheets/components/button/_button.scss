@@ -1,4 +1,4 @@
-@import "govuk-frontend/components/button/button";
+@import "govuk-frontend/govuk/components/button/button";
 
 $govuk-button-colour: govuk-colour("secondary");
 $govuk-button-hover-colour: darken($govuk-button-colour, 5%);

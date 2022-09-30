@@ -36,7 +36,7 @@ RSpec.feature 'task management' do
     )
 
     mock_complete_submission_endpoint!
-    mock_submission_completed_with_task_endpoint!
+    mock_submission_validated_with_task_endpoint!
     mock_submission_completed_report_mi_endpoint!
 
     click_on 'Submit management information'

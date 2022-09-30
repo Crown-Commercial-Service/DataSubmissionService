@@ -24,6 +24,10 @@ module ApiHelpers
     'auth0|123456'
   end
 
+  def mock_user_id
+    'efa8ebb8-de51-4718-b085-a583f8d41e3e'
+  end
+
   def hash_including_correction
     {
       body: {
@@ -80,6 +84,11 @@ module ApiHelpers
   def mock_submission_completed_with_task_endpoint!
     stub_request(:get, api_url("submissions/#{mock_submission_id}?include=task"))
       .to_return(headers: json_headers, body: json_fixture_file('submission_completed_with_task.json'))
+  end
+
+  def mock_submission_validated_with_task_endpoint!
+    stub_request(:get, api_url("submissions/#{mock_submission_id}?include=task"))
+      .to_return(headers: json_headers, body: json_fixture_file('submission_validated_with_task.json'))
   end
 
   def mock_submission_transitioning_to_in_review!
@@ -325,6 +334,21 @@ module ApiHelpers
         headers: json_headers,
         body: json_fixture_file('urn_lists.json')
       )
+  end
+
+  def mock_customer_effort_score_endpoint!
+    feedback_params = {
+      data: {
+        type: 'customer_effort_scores',
+        attributes: {
+          rating: nil,
+          comments: nil,
+          user_id: mock_user_id
+        }
+      }
+    }
+    stub_request(:post, api_url('customer_effort_scores'))
+      .with(body: feedback_params.to_json)
   end
 
   def mock_empty_urn_lists_endpoint!

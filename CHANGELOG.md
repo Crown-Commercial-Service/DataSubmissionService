@@ -1,5 +1,61 @@
 # Change Log
 
+## [release-83] - 2022-09-29
+
+- RMI-509: Amended wording to suppliers upload and ingest failed pages
+- RMI-401: Replaced UI instaces of "Framework" with "Agreement", to web pages, or where it will be seen on the site.
+- RMI-353: Add additional year filter to the completed tasks page.
+- RMI-522: Include Glassbox into the cookie configuration and page.
+
+## [release-82] - 2022-07-28
+
+- RMI-516: Add glassbox domains to CSP whitelist
+- [Snyk] Upgrade jbuilder and jsonapi-consumer
+- [Dependabot] Bump tzinfo from 1.2.9 to 1.2.10
+
+## [release-81] - 2022-07-14
+
+- RMI-341: Created mechanism to measure customer effort score
+- [Snyk] Security upgrade rails from 5.2.7.1 to 5.2.8.1
+- [Dependabot] Bump rails-html-sanitizer from 1.4.2 to 1.4.3
+
+## [release-80] - 2022-06-23
+
+- RMI-505: Google Analytics 4 set up
+- RMI-511: Google Tag Manager set up
+- Bump jmespath from 1.4.0 to 1.6.1 
+- [Snyk] Security upgrade aws-sdk-s3 from 1.94.1 to 1.94.1
+
+## [release-79] - 2022-03-24
+
+- RMI-504: Dependency updates, to fix security vulnerabilities. (Manual Update)
+
+## [release-78] - 2022-02-03
+
+- RMI-494: Fixed nav menu dropdown and filter expansion
+
+- RMI-480: Enable Sidekiq pro
+
+## [release-77] - 2022-01-27
+
+- RMI-378: Cookie banner
+- RMI-379: Cookie setting and policy pages
+- RMI-478: Update to HTST config
+
+## [release-76] - 2021-11-25
+
+- RMI-418: Guard against incorrectly issuing credit notes.
+- RMI-377: Update to google analytics code.
+
+## [release-75] - 2021-10-14
+
+- RMI-352: Fixed aria text for screenreader in completed tasks page.
+
+## [release-74] - 2021-09-16
+
+- RMI-425: Update travis env variable
+- Ruby update
+
 ## [release-73] - 2021-08-05
 
 - RMI-314: Sort feature for completed tasks page
@@ -392,6 +448,16 @@
 
 Initial release
 
+[release-83]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-82...release-83
+[release-82]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-81...release-82
+[release-81]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-80...release-81
+[release-80]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-79...release-80
+[release-79]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-78...release-79
+[release-78]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-77...release-78
+[release-77]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-76...release-77
+[release-76]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-75...release-76
+[release-75]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-74...release-75
+[release-74]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-73...release-74
 [release-73]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-72...release-73
 [release-72]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-71...release-72
 [release-71]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-70...release-71

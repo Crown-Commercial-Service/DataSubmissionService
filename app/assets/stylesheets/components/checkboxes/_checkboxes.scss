@@ -17,7 +17,11 @@
   }
   
   .govuk-checkboxes--small .govuk-checkboxes__input {
+<<<<<<< HEAD
     left: -10px;
+=======
+    left: 0px;
+>>>>>>> origin/master
   }
   
   .govuk-checkboxes--small .govuk-checkboxes__label {
@@ -39,10 +43,17 @@
   }
   
   .govuk-checkboxes--small .govuk-checkboxes__label:after {
+<<<<<<< HEAD
     top: 16px;
     left: 15px;
     width: 9.5px;
     height: 5.5px;
+=======
+    top: 16.6px;
+    left: 17px;
+    width: 11px;
+    height: 6px;
+>>>>>>> origin/master
     border-width: 0 0 3px 3px;
   }
   
@@ -69,6 +80,10 @@
 .ccs-checkboxes--scrollable {
     max-height: govuk-px-to-rem(394);
     min-height: govuk-px-to-rem(234);
+<<<<<<< HEAD
     width: 224px;
+=======
+    width: auto;
+>>>>>>> origin/master
     overflow: auto;
 }

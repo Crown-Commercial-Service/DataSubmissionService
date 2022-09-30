@@ -8,19 +8,22 @@
     %meta{ 'http-equiv': 'x-ua-compatible', content: 'ie-edge' }/
     %meta{ name: 'format-detection', content: 'telephone=no' }/
 
-    = favicon_link_tag('govuk-frontend/assets/images/favicon.ico')
-    = favicon_link_tag('govuk-frontend/assets/images/govuk-apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png')
+    = favicon_link_tag('govuk-frontend/govuk/assets/images/favicon.ico')
+    = favicon_link_tag('govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png')
 
     = content_for(:head)
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    = render('shared/analytics') if ENV['GOOGLE_TAG_MANAGER_ID']
+    = render 'shared/analytics' if cookies[:rmi_google_analytics_enabled] == 'true' 
+    = render 'shared/tag_manager_head'
 
   %body.govuk-template__body.app-body-class
+    = render 'shared/tag_manager' 
     %a{ href: '#main-content', class: 'govuk-skip-link' }
       Skip to main content
 
+    = render 'layouts/cookie_banner' unless cookies[:rmi_cookie_settings_viewed] == 'true' || controller.action_name == 'cookie_settings'
     = render 'shared/header', no_navigation: false
 
     .govuk-width-container
