@@ -1,18 +1,4 @@
 // standard
-<<<<<<< HEAD
-@import "govuk-frontend/components/input/input";
-@import "govuk-frontend/components/file-upload/file-upload";
-@import "govuk-frontend/components/skip-link/skip-link";
-@import "govuk-frontend/components/phase-banner/phase-banner";
-@import "govuk-frontend/components/table/table";
-@import "govuk-frontend/components/error-summary/error-summary";
-@import "govuk-frontend/components/select/select";
-@import "govuk-frontend/components/breadcrumbs/breadcrumbs";
-@import "govuk-frontend/components/fieldset/fieldset";
-@import "govuk-frontend/components/summary-list/summary-list";
-@import "govuk-frontend/components/back-link/back-link";
-@import "govuk-frontend/components/checkboxes/checkboxes";
-=======
 @import "govuk-frontend/govuk/components/input/input";
 @import "govuk-frontend/govuk/components/file-upload/file-upload";
 @import "govuk-frontend/govuk/components/skip-link/skip-link";
@@ -27,7 +13,6 @@
 @import "govuk-frontend/govuk/components/checkboxes/checkboxes";
 @import "govuk-frontend/govuk/components/radios/radios";
 @import "govuk-frontend/govuk/components/character-count/character-count";
->>>>>>> origin/master
 
 // custom
 @import "type/type";
@@ -48,7 +33,4 @@
 @import "accordion/accordion";
 @import "enclosure/enclosure";
 @import "checkboxes/checkboxes";
-<<<<<<< HEAD
-=======
 @import "radios/radios";
->>>>>>> origin/master
