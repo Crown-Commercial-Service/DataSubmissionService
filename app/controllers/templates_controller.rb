@@ -1,10 +1,6 @@
 class TemplatesController < ApplicationController
   def show
-    if params[:agreements_page]
-      resp = API::Framework.with_params(include_file: true).find(params[:id]).first
-    else
-      resp = API::Task.includes(:framework).with_params(include_file: true).find(params[:id]).first
-    end
+    resp = call_api
 
     if resp.file_key.present?
       framework_template_file = s3_client.get_object(bucket: ENV['AWS_S3_BUCKET'], key: resp.file_key)
@@ -18,6 +14,14 @@ class TemplatesController < ApplicationController
   end
 
   private
+
+  def call_api
+    if params[:agreements_page]
+      API::Framework.with_params(include_file: true).find(params[:id]).first
+    else
+      API::Task.includes(:framework).with_params(include_file: true).find(params[:id]).first
+    end
+  end
 
   def framework_short_name(resp)
     if params[:agreements_page]

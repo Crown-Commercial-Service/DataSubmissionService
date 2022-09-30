@@ -18,7 +18,7 @@ RSpec.describe 'downloading a template' do
     end
   end
 
-  context 'when downloading from the agreements page' do 
+  context 'when downloading from the agreements page' do
     it 'returns the template file named with the framework short name' do
       stub_signed_in_user
       mock_framework_and_file_endpoint!
