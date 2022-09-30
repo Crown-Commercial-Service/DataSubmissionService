@@ -1,0 +1,140 @@
+{
+    "data": [
+        {
+            "id": "924ce8ad-cb9d-4383-9fa8-b53c7060c44a",
+            "type": "agreements",
+            "attributes": {
+                "framework_id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+                "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+                "active": true,
+                "relevant_lots": [
+                    [
+                        "10",
+                        "Manchego"
+                    ]
+                ]
+            },
+            "relationships": {
+                "supplier": {
+                    "data": {
+                        "type": "suppliers",
+                        "id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e"
+                    }
+                },
+                "framework": {
+                    "data": {
+                        "type": "frameworks",
+                        "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7382e0e7-e15e-4d9e-82b5-df0dfde2a62d",
+            "type": "agreements",
+            "attributes": {
+                "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+                "supplier_id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+                "active": true,
+                "relevant_lots": [
+                    [
+                        "1",
+                        "Gorgonzola"
+                    ]
+                ]
+            },
+            "relationships": {
+                "supplier": {
+                    "data": {
+                        "type": "suppliers",
+                        "id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e"
+                    }
+                },
+                "framework": {
+                    "data": {
+                        "type": "frameworks",
+                        "id": "f87717d4-874a-43d9-b99f-c8cf2897b526"
+                    }
+                }
+            }
+        },
+        {
+            "id": "d71cef58-feb5-42ee-81ec-e48855ccfed8",
+            "type": "agreements",
+            "attributes": {
+                "framework_id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+                "supplier_id": "df3e2abc-f738-4abe-8028-1262a5a38cf0",
+                "active": false,
+                "relevant_lots": [
+                    [
+                        "4",
+                        "Halloumi"
+                    ]
+                ]
+            },
+            "relationships": {
+                "supplier": {
+                    "data": {
+                        "type": "suppliers",
+                        "id": "df3e2abc-f738-4abe-8028-1262a5a38cf0"
+                    }
+                },
+                "framework": {
+                    "data": {
+                        "type": "frameworks",
+                        "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1"
+                    }
+                }
+            }
+        }
+    ],
+    "included": [
+        {
+            "id": "533a1357-4faf-4ced-b759-3e6da0bc5f3e",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Bobs Cheese Shop"
+            }
+        },
+        {
+            "id": "485c9fdd-cfc9-4b3c-9a69-a8195f9c13bc",
+            "type": "frameworks",
+            "attributes": {
+                "short_name": "cboard13",
+                "name": "Cheese Board 13",
+                "file_key": "FILEKEY",
+                "file_name": "cboard13 Cheese Board 13 Template.xlsx"
+            }
+        },
+        {
+            "id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
+            "type": "frameworks",
+            "attributes": {
+                "short_name": "CBOARD5",
+                "name": "Cheese Board 5",
+                "file_key": "FILEKEY",
+                "file_name": "CBOARD5 Cheese Board 5 Template.xlsx"
+            }
+        },
+        {
+            "id": "df3e2abc-f738-4abe-8028-1262a5a38cf0",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Test Ltd"
+            }
+        },
+        {
+            "id": "7a50a178-3fb8-4c0a-9f2c-8841812448d1",
+            "type": "frameworks",
+            "attributes": {
+                "short_name": "cboard12",
+                "name": "Cheese Board 12",
+                "file_key": "FILEKEY",
+                "file_name": "cboard12 Cheese Board 12 Template.xls"
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

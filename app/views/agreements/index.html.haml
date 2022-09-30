@@ -1,0 +1,10 @@
+- page_title 'Your agreements'
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Agreements 
+
+    %table.govuk-table
+      %tbody.govuk-table__body
+        = render collection: @agreements, partial: 'agreement'
