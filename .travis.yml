@@ -24,7 +24,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get --yes remove postgresql\*
   - sudo apt-get install -y postgresql-11 postgresql-client-11
-  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  # - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
   - sudo service postgresql restart 11 
 before_script:
   # - sudo apt-get update -qq
@@ -32,7 +32,7 @@ before_script:
   - psql --version
   - psql -U postgres -c 'CREATE DATABASE DataSubmissionService_test;'
   - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+  # - cp config/database.yml.travis config/database.yml
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64  > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
