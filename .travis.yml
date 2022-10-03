@@ -18,15 +18,13 @@ env:
   global:
     - CF_ORG=ccs-report-management-info
     - secure: "XuxCtcAuJjEP+SEzl5zJq/g9urjNFkcN4dAv35E8A/SV+rpjwza7rBv5CKO3TwrEoCe1Osn7ILfsqwPGv6riqDMeO0MLIrmxhniXOFHIO+0xg2loBefc/jiRCZufPwLNtgZW+BhgN701NOpsDZL3zcS2QT/Oy5w16/fob4dS9eCxX77FBeT8ig6IYuqkbs2UhCAUbHWrjZ3L3FJpXSHe+GB0pU+Qj61aNjZG21mTgaIG3G+O4ZOz+skBuJbqY+3JzGrzgI8ZxlzQXijAU2+TmkZHwu0uruKyN/19aEVBaEeAeJDc5mj9mpijCGi34ZM50Lr4ECmuX3JozfkvHYOkSsYxUXG/5HK1Y8mIOXDdkoyjn+R7cWPnbLykg6imaE3MosTUJ0PR1GbPblZPOZtGKPZ+XE6uTvrkTsjFFnfnSyPAbqPL8zcrgGa4ZP2FCXk45R0dJfBPu7Iik1SjDckt4n8p9B1YSPE6bFv2wnXCGWgjlo3iMwiLCK6M8eSf3Xrzstqb+DZiT91Y8kna71XhWfVR9muiO5mhRNj7xp8dSvOXqX9w2fI+SS+F3qZyqovRAZ2iozAaYMPIC0rQuwcKoyRdQ762Ixze6rvNG6i4Cyt/u4QTYRLDSPA5YjUdb5VA9PqF9b/Une70/vXKH7sooGQ9R0hKxG8R01XLqpN/R+M="
-before_install:
-  - sudo sed -i -e 's/^#listen_addresses.*/listen_addresses = "*"/' /etc/postgresql/11/main/postgresql.conf
-  - sudo sed -i -e 's/^port = 5433/port = 5432/' /etc/postgresql/11/main/postgresql.conf
-  - sudo service postgresql restart 11
+# before_install:
+#   - sudo service postgresql restart 11
 before_script:
-  # - sudo apt-get update -qq
-  # - sudo apt-get install -y postgresql-11 postgresql-client-11
-  # - psql -U postgres -c 'create database DataSubmissionService_test'
-  # - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+  - sudo apt-get update -qq
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - psql -U postgres -c 'create database DataSubmissionService_test'
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
   - cp config/database.yml.travis config/database.yml
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64  > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
