@@ -10,11 +10,13 @@
           Supplier:
         = agreement.supplier.name
 
+    %p 
+      = link_to 'Download template (excel document)', template_path(id: agreement.framework, agreements_page: true), {'aria-label' => "Download excel document template for #{agreement.framework.short_name} #{agreement.framework.name}"}
+
     - agreement.relevant_lots.each do |lot|
       %p
         Lot #{lot[0]}: #{lot[1]}
-      %p 
-        = link_to 'Download template (excel document)', template_path(id: agreement.framework, agreements_page: true), {'aria-label' => "Download excel document template for #{agreement.framework.short_name} #{agreement.framework.name}"}
+      
   %td.govuk-table__cell
     %h2.govuk-heading-m
       - if agreement.active
