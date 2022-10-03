@@ -22,8 +22,8 @@ before_install:
   - sudo service postgresql restart 11 
 before_script:
   - psql --version
-  - psql -U postgres -c 'CREATE DATABASE DataSubmissionService_test;'
-  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+  # - psql -U postgres -c 'CREATE DATABASE DataSubmissionService_test;'
+  # - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64  > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
