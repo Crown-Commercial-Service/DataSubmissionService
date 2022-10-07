@@ -153,7 +153,7 @@ module ApiHelpers
   end
 
   def mock_agreements_with_framework_and_supplier_endpoint!
-    stub_request(:get, api_url('agreements?include=framework,supplier'))
+    stub_request(:get, api_url('agreements?filter%5Bactive%5D&include=framework,supplier'))
       .to_return(headers: json_headers, body: json_fixture_file('agreements_with_framework_and_supplier.json'))
   end
 

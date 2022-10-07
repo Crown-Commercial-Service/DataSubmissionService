@@ -1,5 +1,7 @@
 class AgreementsController < ApplicationController
   def index
-    @agreements = API::Agreement.includes(:framework, :supplier).all.sort_by! { |t| t.framework.name }
+    @agreements = API::Agreement.includes(:framework, :supplier)
+                                .where(active: params[:status])
+                                .all
   end
 end
