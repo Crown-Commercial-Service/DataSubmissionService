@@ -3,7 +3,7 @@
 ## [release-84] - 2022-10-??
 
 - RMI-33: New agreements page
-- RMI-419: Added status filter to Agreements page
+- RMI-419: Added status filter to Agreements page 
 
 ## [release-83] - 2022-09-29
 
