@@ -6,7 +6,13 @@
         %h2.govuk-heading-m
           = agreement.framework.name
           = "(#{agreement.framework.short_name})"
-        %br/
+        
+        - if agreement.active
+          %strong.govuk-tag.govuk-tag__success Active
+        - else
+          %strong.govuk-tag.govuk-tag__notice Inactive
+
+        %p
         - if current_user.multiple_suppliers?
           %h3.govuk-heading-s
             %span.govuk-visually-hidden
@@ -19,10 +25,3 @@
         - agreement.relevant_lots.each do |lot|
           %p
             Lot #{lot[0]}: #{lot[1]}
-          
-      %td.govuk-table__cell
-        %h2.govuk-heading-m
-          - if agreement.active
-            Active
-          - else
-            Inactive
