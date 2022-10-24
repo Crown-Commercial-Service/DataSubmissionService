@@ -62,7 +62,7 @@ gem 'skylight'
 gem 'auth0', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.13.6'
+gem 'nokogiri', '>= 1.13.9'
 
 group :development, :test do
   gem 'brakeman', require: false
