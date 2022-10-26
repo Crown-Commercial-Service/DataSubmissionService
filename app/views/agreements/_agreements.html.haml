@@ -8,9 +8,9 @@
           = "(#{agreement.framework.short_name})"
         
         - if agreement.active
-          %strong.govuk-tag.govuk-tag{style: "color: #10403c, background: #bfe3e0;"} Active
+          %strong.govuk-tag.govuk-tag__active Active
         - else
-          %strong.govuk-tag.govuk-tag__notice Inactive
+          %strong.govuk-tag.govuk-tag__inactive Inactive
 
         %p
         - if current_user.multiple_suppliers?
