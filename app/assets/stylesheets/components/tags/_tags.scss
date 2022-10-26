@@ -22,3 +22,13 @@
 .govuk-tag__notice {
   background-color: govuk-colour("dark-grey");
 }
+
+.govuk-tag__active {
+  color: #10403c;
+  background: #bfe3e0;
+}
+
+.govuk-tag__inactive {
+  color: #383f43;
+  background: #eeefef;
+}
