@@ -315,8 +315,7 @@ module ApiHelpers
   end
 
   def mock_create_submission_file_blob_endpoint!
-    submission_file_blob = {
-    }
+    submission_file_blob = {}
 
     stub_request(:post, api_url("files/#{mock_submission_file_id}/blobs"))
       .to_return(headers: json_headers, body: submission_file_blob.to_json)
