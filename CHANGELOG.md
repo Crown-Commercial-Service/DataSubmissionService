@@ -1,9 +1,13 @@
 # Change Log
 
-## [release-84] - 2022-10-??
+## [release-84] - 2022-11-02
 
 - RMI-33: New agreements page
 - RMI-419: Added status filter to Agreements page 
+- RMI-546: Fix for HTML showing on completed tasks page
+- RMI-532: Update nav menu
+- RMI-524: Improve customer effort score messaging
+- RMI-525: Update travis yaml for postgres 11
 
 ## [release-83] - 2022-09-29
 
