@@ -28,6 +28,10 @@ module ApiHelpers
     'efa8ebb8-de51-4718-b085-a583f8d41e3e'
   end
 
+  def mock_framework_id
+    '7a50a178-3fb8-4c0a-9f2c-8841812448d1'
+  end
+
   def hash_including_correction
     {
       body: {
@@ -146,6 +150,23 @@ module ApiHelpers
     stub_request(:post, api_url("tasks/#{mock_task_id}/no_business"))
       .with(body: { correction: 'true' }.to_json)
       .to_return(status: 201, headers: json_headers, body: no_business_submission.to_json)
+  end
+
+  def mock_agreements_with_framework_and_supplier_endpoint!
+    stub_request(:get, api_url('agreements?filter%5Bactive%5D&include=framework,supplier'))
+      .to_return(headers: json_headers, body: json_fixture_file('agreements_with_framework_and_supplier.json'))
+  end
+
+  def mock_framework_and_file_endpoint!
+    stub_request(:get, api_url("frameworks/#{mock_framework_id}?include_file=true"))
+      .to_return(headers: json_headers, body: json_fixture_file('framework.json'))
+  end
+
+  def mock_framework_and_file_with_unsafe_short_name_endpoint!
+    json = JSON.parse(File.read(json_fixture_file('framework.json')))
+    json['data']['attributes']['short_name'] = 'cboard/12'
+    stub_request(:get, api_url("frameworks/#{mock_framework_id}?include_file=true"))
+      .to_return(headers: json_headers, body: json.to_json)
   end
 
   def mock_frameworks_endpoint!
@@ -294,8 +315,7 @@ module ApiHelpers
   end
 
   def mock_create_submission_file_blob_endpoint!
-    submission_file_blob = {
-    }
+    submission_file_blob = {}
 
     stub_request(:post, api_url("files/#{mock_submission_file_id}/blobs"))
       .to_return(headers: json_headers, body: submission_file_blob.to_json)

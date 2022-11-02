@@ -21,7 +21,6 @@ Rails.application.routes.draw do
 
       resource :complete, only: :create, controller: 'submission_completion'
     end
-    resource :template, only: %i[show]
 
     resource :no_business, only: %i[new create]
   end
@@ -31,6 +30,10 @@ Rails.application.routes.draw do
       get :download
     end
   end
+
+  resource :template, only: %i[show]
+
+  resources :agreements, only: %i[index]
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'errors#auth_failure'

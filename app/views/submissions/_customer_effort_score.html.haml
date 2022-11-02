@@ -5,7 +5,7 @@
         %fieldset.govuk-fieldset
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
             %h2.govuk-heading-m
-              Overall how easy was it to use this service today?
+              Overall how easy was it to use this service today? (Optional)
           - if @score && @score.errors.key?('rating')
             %p.govuk-error-message{class: 'govuk-!-padding-bottom-3'} Please select an option
           .govuk-radios{"data-module" => "govuk-radios"}

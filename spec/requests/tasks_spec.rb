@@ -59,7 +59,7 @@ RSpec.describe 'the tasks list' do
 
       assert_select "#task-#{cboard5_task_id}" do
         assert_select 'a[href=?]',
-                      task_template_path(cboard5_task_id),
+                      template_path(id: cboard5_task_id),
                       text: 'Download template (excel document)'
       end
     end
