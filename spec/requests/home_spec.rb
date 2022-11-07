@@ -11,7 +11,7 @@ RSpec.describe 'the home page' do
     stub_signed_in_user
     get root_path
 
-    expect(response.body).to include 'View your tasks'
+    expect(response).to redirect_to(tasks_path)
   end
 
   # describe 'POST /auth/:provider without CSRF token' do
