@@ -53,3 +53,10 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
     margin-bottom: govuk-spacing(3);
   }
 }
+
+.govuk-header__service-name {
+  font-size: 1.5rem;
+  color: govuk-colour("white");
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
