@@ -9,7 +9,7 @@
           %br
           Service
     .govuk-header__content
-      %a.govuk-header__link.govuk-header__link--service-name{:href => root_path}
+      %h1.govuk-heading-l.govuk-header__service-name
         Report management information to CCS
       - if current_user_id
         %button.govuk-header__menu-button.govuk-js-header-toggle{"aria-controls" => "navigation", "aria-label" => "Show or hide Top Level Navigation", :role => "button"} Menu

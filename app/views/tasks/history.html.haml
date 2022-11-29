@@ -44,19 +44,19 @@
                   Task Period
           #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
             .govuk-form-group
-              %fieldset.govuk-fieldset{"aria-describedby" => "from-date-hint", role: "group"}
+              %fieldset.govuk-fieldset
                 %legend.govuk-fieldset__legend.govuk-fieldset__legend--l{class: 'govuk-!-margin-bottom-1'}
                   %h3.govuk-heading-s{class: 'govuk-!-margin-bottom-1'}
                     From
                 #from-date.govuk-date-input
                   .govuk-date-input__item
                     .govuk-form-group
-                      %label.govuk-label.govuk-date-input__label{for: "mm-from"}
+                      %label.govuk-label.govuk-date-input__label{for: "month_from"}
                         Month
                       = select_tag 'month_from', options_for_select((1..12).map {|m| [Date::ABBR_MONTHNAMES[m], m]}, @completed_tasks.first.period_month), class: 'govuk-select', 'aria-label' => "Month From"
                   .govuk-date-input__item
                     .govuk-form-group
-                      %label.govuk-label.govuk-date-input__label{for: "yyyy-from"}
+                      %label.govuk-label.govuk-date-input__label{for: "year_from"}
                         Year
                       = select_tag 'year_from', options_for_select(@completed_tasks.pluck(:period_year).uniq, @completed_tasks.pluck(:period_year).uniq.first), class: 'govuk-select', 'aria-label' => "Year From"
 
@@ -68,12 +68,12 @@
                 #to-date.govuk-date-input
                   .govuk-date-input__item
                     .govuk-form-group
-                      %label.govuk-label.govuk-date-input__label{for: "mm-to"}
+                      %label.govuk-label.govuk-date-input__label{for: "month_to"}
                         Month
                       = select_tag 'month_to', options_for_select((1..12).map {|m| [Date::ABBR_MONTHNAMES[m], m]}, @completed_tasks.last.period_month), class: 'govuk-select', 'aria-label' => "Month To"
                   .govuk-date-input__item
                     .govuk-form-group
-                      %label.govuk-label.govuk-date-input__label{for: "yyyy-to"}
+                      %label.govuk-label.govuk-date-input__label{for: "year_to"}
                         Year
                       = select_tag 'year_to', options_for_select(@completed_tasks.pluck(:period_year).uniq, @completed_tasks.pluck(:period_year).uniq.last), class: 'govuk-select', 'aria-label' => "Year To"
 
