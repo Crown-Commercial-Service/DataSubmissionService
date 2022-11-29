@@ -1,9 +1,19 @@
 # Change Log
 
-## [release-84] - 2022-10-??
+## [release-85] - 2022-11-10
+
+- RMI-534: Remove signed in home page
+- RMI-560: Fix accessibility issue on Help page
+- RMI-558: Fix accessibility issue on Completed Tasks page
+
+## [release-84] - 2022-11-02
 
 - RMI-33: New agreements page
 - RMI-419: Added status filter to Agreements page 
+- RMI-546: Fix for HTML showing on completed tasks page
+- RMI-532: Update nav menu
+- RMI-524: Improve customer effort score messaging
+- RMI-525: Update travis yaml for postgres 11
 
 ## [release-83] - 2022-09-29
 
@@ -453,6 +463,7 @@
 
 Initial release
 
+[release-85]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-84...release-85
 [release-84]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-83...release-84
 [release-83]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-82...release-83
 [release-82]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-81...release-82
