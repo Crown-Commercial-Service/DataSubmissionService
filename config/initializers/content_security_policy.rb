@@ -17,7 +17,7 @@ Rails.application.config.content_security_policy do |policy|
   # script-src, img-src, and connect-src settings required for Google Analytics:
   # https://developers.google.com/tag-manager/web/csp
   policy.script_src  :self, :unsafe_inline, 'https://www.googletagmanager.com', 'https://www.google-analytics.com',
-                     'https://ssl.google-analytics.com', 'cdn.gbqofs.com', 'report.*.gbqofs.com'
+                     'https://ssl.google-analytics.com', 'https://cdn2.gbqofs.com', 'https://report.*.gbqofs.com'
   policy.img_src     :self, 'https://www.googletagmanager.com', 'https://www.google-analytics.com'
   policy.connect_src :self, 'https://www.google-analytics.com'
 end
