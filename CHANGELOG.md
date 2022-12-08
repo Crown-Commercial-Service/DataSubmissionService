@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-86] - 2022-12-08
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+
 ## [release-85] - 2022-11-10
 
 - RMI-534: Remove signed in home page
@@ -463,6 +467,7 @@
 
 Initial release
 
+[release-86]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-85...release-86
 [release-85]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-84...release-85
 [release-84]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-83...release-84
 [release-83]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-82...release-83
