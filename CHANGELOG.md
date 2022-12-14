@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-87] - 2022-12-14
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+
 ## [release-86] - 2022-12-08
 
 - RMI-516: Amend content security policy to allow use of Glassbox
@@ -467,6 +471,7 @@
 
 Initial release
 
+[release-87]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-86...release-87
 [release-86]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-85...release-86
 [release-85]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-84...release-85
 [release-84]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-83...release-84
