@@ -4,7 +4,7 @@ Rails.application.configure do
   config.assets.check_precompiled_asset = false
   config.assets.css_compressor = nil
   config.sass.style = :compressed
-  
+
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
