@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.assets.css_compressor = nil
   config.sass.style = :compressed
   
   # The test environment is used exclusively to run your application's
