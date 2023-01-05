@@ -39,7 +39,7 @@ gem 'omniauth-auth0', '~> 2.0.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
-gem 'httparty'
+gem 'httparty', '>= 0.21.0'
 gem 'jsonapi-consumer', '~> 1.0', '>= 1.0.1'
 
 # Pagination
