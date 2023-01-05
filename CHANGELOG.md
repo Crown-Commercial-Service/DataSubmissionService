@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-88] - 2023-01-05
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+- [Snyk] Security upgrade httparty from 0.18.1 to 0.21.0 
+- [Snyk] Security upgrade sass-rails from 5.1.0 to 6.0.0 
+- [Snyk] Security upgrade loofah from 2.18.0 to 2.19.1
+- [Snyk] Security upgrade rails-html-sanitizer from 1.4.3 to 1.4.4
+
 ## [release-87] - 2022-12-14
 
 - RMI-516: Amend content security policy to allow use of Glassbox
@@ -471,6 +479,7 @@
 
 Initial release
 
+[release-88]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-87...release-88
 [release-87]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-86...release-87
 [release-86]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-85...release-86
 [release-85]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-84...release-85
