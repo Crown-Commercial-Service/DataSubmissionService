@@ -1,8 +1,8 @@
 %tr.govuk-table__row{ id: "task-#{task.id}" }
   %td.govuk-table__cell
     %h2.govuk-heading-m
-      = task.framework.short_name
       = task.framework.name
+      = "(#{task.framework.short_name})"
       for
       = task.reporting_period
 
