@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-89] - 2023-01-19
+
+- RMI-527: Change task titles and sort order on home page
+
 ## [release-88] - 2023-01-05
 
 - RMI-516: Amend content security policy to allow use of Glassbox
@@ -479,6 +483,7 @@
 
 Initial release
 
+[release-89]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-88...release-89
 [release-88]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-87...release-88
 [release-87]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-86...release-87
 [release-86]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-85...release-86
