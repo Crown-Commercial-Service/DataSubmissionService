@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
   def destroy
     Auditor.new.user_signed_out(user_id: session[:auth_id])
 
+    reset_session
     session[:auth_id] = nil
 
     redirect_to '/'
