@@ -58,4 +58,4 @@
 
     %p
       Have no business to report?
-      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
+      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id, correction: params[:correction]), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
