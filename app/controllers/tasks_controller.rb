@@ -7,6 +7,7 @@ class TasksController < ApplicationController
              .where(status: ['unstarted', 'in_progress', 'correcting'])
              .includes(:framework, :active_submission, :latest_submission)
              .all
+             .sort_by { |t| [t.due_on, t.framework.name] }
   end
 
   def show
