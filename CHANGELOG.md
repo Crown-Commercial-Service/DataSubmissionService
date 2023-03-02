@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-91] - 2023-03-02
+
+- RMI-547: Improve feedback submitted wording
+
 ## [release-90] - 2023-02-16
 
 - RMI-476: Terminate sessions effectively
@@ -491,6 +495,7 @@
 
 Initial release
 
+[release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
 [release-90]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-89...release-90
 [release-89]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-88...release-89
 [release-88]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-87...release-88
