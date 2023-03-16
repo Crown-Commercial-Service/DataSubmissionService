@@ -348,14 +348,6 @@ module ApiHelpers
       )
   end
 
-  def mock_urn_lists_endpoint!
-    stub_request(:get, api_url('urn_lists?page%5Bpage%5D=1&page%5Bper_page%5D=1'))
-      .to_return(
-        headers: json_headers,
-        body: json_fixture_file('urn_lists.json')
-      )
-  end
-
   def mock_customer_effort_score_endpoint!
     feedback_params = {
       data: {

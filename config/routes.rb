@@ -25,11 +25,7 @@ Rails.application.routes.draw do
     resource :no_business, only: %i[new create]
   end
 
-  resource :urns, only: :show do
-    member do
-      get :download
-    end
-  end
+  resources :urns, only: %i[index]
 
   resource :template, only: %i[show]
 
