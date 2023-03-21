@@ -63,4 +63,14 @@ RSpec.describe API::Task do
       expect(API::Task.new(period_month: 7, period_year: 2018).reporting_period).to eq('July 2018')
     end
   end
+
+  describe '#can_report_no_business?' do
+    it 'returns false unless task unstarted or active submission is not no business' do
+      mock_task_with_framework_and_active_submission_endpoint!
+      pp task_with_no_business_submission = API::Task.includes(:framework, :active_submission).find(mock_task_id).first
+      pp task_with_no_business_submission.active_submission
+
+      expect(task_with_no_business_submission.can_report_no_business?).to be_falsey
+    end
+  end
 end

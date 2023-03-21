@@ -43,6 +43,7 @@ module ApiHelpers
   def mock_upload_task_submission_flow_endpoints!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
+    mock_task_with_framework_and_active_submission_endpoint!
     mock_create_submission_endpoint!
     mock_create_submission_file_endpoint!
     mock_create_submission_file_blob_endpoint!
@@ -177,6 +178,11 @@ module ApiHelpers
   def mock_task_with_framework_endpoint!(include_file: false)
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework#{'&include_file=true' if include_file}"))
       .to_return(headers: json_headers, body: json_fixture_file('task_with_framework.json'))
+  end
+
+  def mock_task_with_framework_and_active_submission_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission"))
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_framework_and_no_business_submission.json'))
   end
 
   def mock_task_with_framework_and_file_endpoint!
