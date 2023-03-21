@@ -182,7 +182,7 @@ module ApiHelpers
 
   def mock_task_with_framework_and_active_submission_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission"))
-      .to_return(headers: json_headers, body: json_fixture_file('task_with_framework_and_active_no_business_submission.json'))
+      .to_return(headers: json_headers, body: json_fixture_file('task_with_framework_and_no_business_submission.json'))
   end
 
   def mock_task_with_framework_and_file_endpoint!
