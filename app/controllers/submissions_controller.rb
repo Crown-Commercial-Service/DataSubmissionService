@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def new
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
   end
 
   def create

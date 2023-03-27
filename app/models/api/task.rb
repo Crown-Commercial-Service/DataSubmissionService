@@ -24,6 +24,14 @@ module API
       status == 'correcting'
     end
 
+    def unstarted?
+      status == 'unstarted'
+    end
+
+    def no_business_active_submission
+      active_submission && active_submission.report_no_business? == true
+    end
+
     def reporting_period
       [Date::MONTHNAMES[period_month], period_year].join(' ')
     end
@@ -32,6 +40,10 @@ module API
       return unless active_submission.submitted_at
 
       Time.zone.parse(active_submission.submitted_at).to_s(:date_with_utc_time)
+    end
+
+    def can_report_no_business?
+      unstarted? || !no_business_active_submission
     end
   end
 end
