@@ -1,5 +1,17 @@
 # Change Log
 
+## [release-91] - 2023-03-02
+
+- RMI-547: Improve feedback submitted wording
+
+## [release-90] - 2023-02-16
+
+- RMI-476: Terminate sessions effectively
+- RMI-502: Fix for workday transaction not being reversed
+- RMI-582: Fix for blanks on completed tasks page
+- RMI-583: Fix for discrepency between completed tasks and individual completed task view.
+- [Security] Bump globalid from 1.0.0 to 1.0.1 
+
 ## [release-89] - 2023-01-19
 
 - RMI-527: Change task titles and sort order on home page
@@ -483,6 +495,8 @@
 
 Initial release
 
+[release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
+[release-90]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-89...release-90
 [release-89]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-88...release-89
 [release-88]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-87...release-88
 [release-87]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-86...release-87
