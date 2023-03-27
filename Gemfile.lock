@@ -433,7 +433,7 @@ DEPENDENCIES
   factory_bot_rails (>= 6.2.0)
   haml-rails (>= 2.1.0)
   httparty (>= 0.21.0)
-  jbuilder (~> 2.11, >= 2.11.2)
+  jbuilder (~> 2.11, >= 2.11.5)
   jquery-rails (>= 4.5.1)
   js_cookie_rails (~> 2.2, >= 2.2.0)
   jsonapi-consumer (~> 1.0, >= 1.0.1)
