@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-92] - 2023-03-30
+
+- RMI-590: Prevent users from replacing no business with same to avoid error
+- RMI-549: Imporvements to URN page
+- [Dependabot] Bump rack from 2.2.5 to 2.2.6.4
+
 ## [release-91] - 2023-03-02
 
 - RMI-547: Improve feedback submitted wording
@@ -495,6 +501,7 @@
 
 Initial release
 
+[release-92]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-91...release-92
 [release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
 [release-90]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-89...release-90
 [release-89]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-88...release-89
