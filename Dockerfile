@@ -1,4 +1,4 @@
-FROM ruby:2.7.2
+FROM ruby:2.7
 
 MAINTAINER dxw <rails@dxw.com>
 
@@ -32,7 +32,7 @@ COPY package.json yarn.lock $INSTALL_PATH/
 
 RUN yarn
 RUN gem update --system
-RUN gem install bundler
+RUN gem install bundler -v 2.2.27
 
 # bundle ruby gems based on the current environment, default to production
 RUN echo $RAILS_ENV
