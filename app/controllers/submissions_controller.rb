@@ -56,7 +56,7 @@ class SubmissionsController < ApplicationController
     )
     submission_file = API::SubmissionFile.create(submission_id: submission.id)
 
-    blob = ActiveStorage::Blob.create_after_upload!(
+    blob = ActiveStorage::Blob.create_and_upload!(
       io: upload,
       filename: upload.original_filename,
       content_type: upload.content_type,
