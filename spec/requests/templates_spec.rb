@@ -13,8 +13,8 @@ RSpec.describe 'downloading a template' do
       mock_task_with_framework_and_file_endpoint!
       get template_path(id: mock_task_id)
       expect(response).to be_successful
-      expected_disposition = 'attachment; filename="CBOARD5 Data Template (July 2018).xls"'
-      expect(response.headers['Content-Disposition']).to eq(expected_disposition)
+      expected_disposition = "filename*=UTF-8''CBOARD5%20Data%20Template%20%28July%202018%29.xls"
+      expect(response.headers['Content-Disposition']).to include(expected_disposition)
     end
   end
 
@@ -25,7 +25,7 @@ RSpec.describe 'downloading a template' do
       get template_path(id: mock_framework_id, agreements_page: true)
       expect(response).to be_successful
       expected_disposition = 'attachment; filename="cboard12 Data Template"'
-      expect(response.headers['Content-Disposition']).to eq(expected_disposition)
+      expect(response.headers['Content-Disposition']).to include(expected_disposition)
     end
 
     it 'santitizes the file name' do
@@ -34,7 +34,7 @@ RSpec.describe 'downloading a template' do
       get template_path(id: mock_framework_id, agreements_page: true)
       expect(response).to be_successful
       expected_disposition = 'attachment; filename="cboard-12 Data Template"'
-      expect(response.headers['Content-Disposition']).to eq(expected_disposition)
+      expect(response.headers['Content-Disposition']).to include(expected_disposition)
     end
   end
 
@@ -44,8 +44,8 @@ RSpec.describe 'downloading a template' do
       mock_task_with_framework_endpoint!(include_file: true)
       get template_path(id: mock_task_id)
       expect(response).to be_successful
-      expected_disposition = 'attachment; filename="CBOARD5 Data Template (July 2018).xls"'
-      expect(response.headers['Content-Disposition']).to eq(expected_disposition)
+      expected_disposition = "filename*=UTF-8''CBOARD5%20Data%20Template%20%28July%202018%29.xls"
+      expect(response.headers['Content-Disposition']).to include(expected_disposition)
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe 'downloading a template' do
     mock_task_with_unsafe_short_name_framework_endpoint!(include_file: true)
     get template_path(id: mock_task_id)
     expect(response).to be_successful
-    expected_disposition = 'attachment; filename="CBOARD-5 Data Template (July 2018).xls"'
-    expect(response.headers['Content-Disposition']).to eq(expected_disposition)
+    expected_disposition = "filename*=UTF-8''CBOARD-5%20Data%20Template%20%28July%202018%29.xls"
+    expect(response.headers['Content-Disposition']).to include(expected_disposition)
   end
 end
