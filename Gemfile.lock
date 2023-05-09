@@ -445,15 +445,15 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   brakeman
   byebug
-  capybara (>= 3.37.1)
+  capybara (>= 3.38.0)
   climate_control
   database_cleaner
-  dotenv-rails (>= 2.7.6)
+  dotenv-rails (>= 2.8.1)
   factory_bot_rails (>= 6.2.0)
-  haml-rails (>= 2.0.1)
+  haml-rails (>= 2.1.0)
   httparty (>= 0.21.0)
   jbuilder (~> 2.11, >= 2.11.5)
-  jquery-rails (>= 4.5.0)
+  jquery-rails (>= 4.5.1)
   js_cookie_rails (~> 2.2, >= 2.2.0)
   jsonapi-consumer (~> 1.0, >= 1.0.1)
   kaminari (>= 1.2.2)
