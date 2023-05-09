@@ -45,7 +45,7 @@ gem 'jsonapi-consumer', '~> 1.0', '>= 1.0.1'
 # Pagination
 gem 'kaminari', '>= 1.2.2'
 
-# Cookie handling 
+# Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
 
 gem 'jquery-rails', '>= 4.5.1'
