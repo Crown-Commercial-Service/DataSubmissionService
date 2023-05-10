@@ -64,9 +64,6 @@ gem 'auth0', require: false
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 gem 'nokogiri', '>= 1.13.9'
 
-# Fix for already initialized constant warning, see: https://stackoverflow.com/questions/67773514/getting-warning-already-initialized-constant-on-assets-precompile-at-the-time
-gem 'net-http'
-
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
