@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-93] - 2023-05-11
+
+- [Snyk] Security upgrade rails from 5.2.8.1 to 6.1.7.3
+- [Dependabot] Bump nokogiri from 1.14.2 to 1.14.3
+
 ## [release-92] - 2023-03-30
 
 - RMI-590: Prevent users from replacing no business with same to avoid error
@@ -501,6 +506,7 @@
 
 Initial release
 
+[release-93]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-92...release-93
 [release-92]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-91...release-92
 [release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
 [release-90]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-89...release-90
