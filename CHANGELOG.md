@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-94] - 2023-05-25
+
+- RMI-612: implement session timeout
+
 ## [release-93] - 2023-05-11
 
 - [Snyk] Security upgrade rails from 5.2.8.1 to 6.1.7.3
@@ -506,6 +510,7 @@
 
 Initial release
 
+[release-94]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-93...release-94
 [release-93]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-92...release-93
 [release-92]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-91...release-92
 [release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
