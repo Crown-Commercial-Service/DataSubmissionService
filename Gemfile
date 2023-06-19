@@ -58,6 +58,8 @@ gem 'lograge', '>= 0.12.0'
 
 gem 'skylight'
 
+gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
+
 # Auth0 client for user setup scripts
 gem 'auth0', require: false
 
