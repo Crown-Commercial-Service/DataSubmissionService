@@ -91,6 +91,6 @@ group :test do
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
   gem 'webmock', '~> 3.12.2'
-  gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
+  gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
