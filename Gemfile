@@ -88,7 +88,7 @@ group :test do
   gem 'capybara', '>= 3.38.0', require: false
   gem 'climate_control'
   gem 'database_cleaner'
-  gem 'launchy', '>= 2.4.3'
+  # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
   gem 'webmock', '~> 3.12.2'
   gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
