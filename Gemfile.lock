@@ -480,7 +480,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (~> 6.0, >= 6.0.0)
   simplecov (~> 0.22.0)
-  skylight
+  skylight (~> 5.3, >= 5.3.4)
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (~> 3.4, >= 3.4.2)

@@ -56,7 +56,7 @@ gem 'rollbar'
 # Logging
 gem 'lograge', '>= 0.12.0'
 
-gem 'skylight'
+gem 'skylight', '~> 5.3', '>= 5.3.4'
 
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 
