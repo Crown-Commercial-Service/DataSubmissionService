@@ -39,7 +39,7 @@ module API
     def completed_at
       return unless active_submission.submitted_at
 
-      Time.zone.parse(active_submission.submitted_at).to_s(:date_with_utc_time)
+      Time.zone.parse(active_submission.submitted_at).to_fs(:date_with_utc_time)
     end
 
     def can_report_no_business?
