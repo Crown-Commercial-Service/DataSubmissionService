@@ -193,7 +193,7 @@ GEM
     jsonapi-consumer (1.0.1)
       activemodel (>= 3.2)
       activesupport (>= 3.2)
-      addressable (~> 2.5.2)
+      addressable (>= 2.8.0)
       faraday (>= 0.9)
       faraday_middleware
     jwt (2.2.3)
