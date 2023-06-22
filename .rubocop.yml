@@ -79,6 +79,8 @@ Metrics/AbcSize:
 
 Metrics/LineLength:
     Max: 120
+    Exclude:
+        - 'lib/tasks/yarn.rake'
 
 Metrics/BlockLength:
     Max: 40

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7.3'
+gem 'rails', '~> 7.0', '>= 7.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -56,7 +56,9 @@ gem 'rollbar'
 # Logging
 gem 'lograge', '>= 0.12.0'
 
-gem 'skylight'
+gem 'skylight', '~> 5.3', '>= 5.3.4'
+
+gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 
 # Auth0 client for user setup scripts
 gem 'auth0', require: false
@@ -88,9 +90,9 @@ group :test do
   gem 'capybara', '>= 3.38.0', require: false
   gem 'climate_control'
   gem 'database_cleaner'
-  gem 'launchy', '>= 2.4.3'
+  # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
   gem 'webmock', '~> 3.12.2'
-  gem 'simplecov', '0.17', require: false # SimpleCov 0.18+ not yet supported by Codeclimate
+  gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
