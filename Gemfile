@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0', '>= 7.0.4'
+gem 'rails', '~> 7.0', '>= 7.0.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -48,7 +48,7 @@ gem 'kaminari', '>= 1.2.2'
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
 
-gem 'jquery-rails', '>= 4.5.1'
+gem 'jquery-rails', '>= 4.6.0'
 
 # Exception tracking
 gem 'rollbar'
