@@ -155,6 +155,8 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include '42'
       expect(response.body).to include '£12,345.67'
       expect(response.body).to include 'RM3786 MISO Data Template (August 2018).xls'
+      expect(response.body).to include 'CINV-00123456'
+      expect(response.body).to include 'Unpaid'
     end
   end
 
