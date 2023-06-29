@@ -6,7 +6,7 @@ RSpec.feature 'downloading a submission' do
     mock_user_endpoint!
     mock_incomplete_tasks_endpoint!
 
-    mock_completed_task_endpoint!
+    mock_completed_task_with_invoice_details_endpoint!
 
     visit '/'
     click_button 'sign-in'
