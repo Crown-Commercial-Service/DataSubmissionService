@@ -1,0 +1,64 @@
+{
+   "data": [
+    {
+        "id": "65a934cd-88f1-402c-bb16-1cb6f19b0243",
+        "type": "customers",
+        "attributes": {
+            "name":"101 Customers",
+            "postcode":"HR2 6BS",
+            "urn":56338561,
+            "sector":"central_government"
+        }
+    },
+    {
+        "id": "14ad0818-c5ca-4f04-9d1d-6fec2178a373",
+        "type": "customers",
+        "attributes": {
+            "name":"A Random Customer",
+            "postcode":"WC2R 1HG",
+            "urn":62221732,
+            "sector":"wider_public_sector"
+        }
+    },
+    {
+        "id": "7b9cc27a-e57d-40b8-89b9-e9d56b899fda",
+        "type": "customers",
+        "attributes": {
+            "name":"B A Customer",
+            "postcode":"PL29 3RP",
+            "urn":11064235,
+            "sector":"central_government"
+        }
+    },
+    {
+        "id": "ef6190c9-bf99-438d-b7b7-26319c84b5e3",
+        "type": "customers",
+        "attributes": {
+            "name":"Crikey Another Customer",
+            "postcode":"LL26 0YF",
+            "urn":82618604,
+            "sector":"central_government"
+        }
+    },
+    {
+        "id": "1606de99-921e-4ebe-bae1-fb33e9bb2b76",
+        "type": "customers",
+        "attributes": {
+            "name":"Different Customer",
+            "postcode":"NN6 0DW",
+            "urn":79414968,
+            "sector":"central_government"
+        }
+    },
+    {
+        "id": "d25c5f1f-fc4f-4ba0-ac53-b3ec8c8bb046",
+        "type": "customers",
+        "attributes": {
+            "name":"Everyone's A Customer",
+            "postcode":"DT1 2HL",
+            "urn":84197565,
+            "sector":"central_government"
+        }
+    }
+  ]
+}
