@@ -53,7 +53,7 @@
           %dt.govuk-summary-list__key
             Invoice amount
           %dd.govuk-summary-list__value
-            = "£#{@submission.invoice_details[:invoice_amount]}"
+            = number_to_currency(@submission.invoice_details[:invoice_amount], unit: '£')
 
       - if @submission.invoice_details.present?
         .govuk-summary-list__row
