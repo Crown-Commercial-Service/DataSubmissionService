@@ -387,11 +387,11 @@ module ApiHelpers
       .with(body: feedback_params.to_json)
   end
 
-  def mock_empty_urn_lists_endpoint!
-    stub_request(:get, api_url('urn_lists?page%5Bpage%5D=1&page%5Bper_page%5D=1'))
+  def mock_customers_endpoint!
+    stub_request(:get, api_url("customers?filter%5Bsearch%5D"))
       .to_return(
         headers: json_headers,
-        body: json_fixture_file('urn_lists_empty.json')
+        body: json_fixture_file('customers.json')
       )
   end
 
