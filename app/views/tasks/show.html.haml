@@ -41,6 +41,27 @@
           %dd.govuk-summary-list__value
             = link_to(@file.filename, download_task_submission_path(@task, @submission))
 
+      - if @submission.invoice_details.present?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Invoice number
+          %dd.govuk-summary-list__value
+            = @submission.invoice_details[:invoice_number]
+
+      - if @submission.invoice_details.present?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Invoice amount
+          %dd.govuk-summary-list__value
+            = number_to_currency(@submission.invoice_details[:invoice_amount], unit: '£')
+
+      - if @submission.invoice_details.present?
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Payment status
+          %dd.govuk-summary-list__value
+            = @submission.invoice_details[:payment_status]
+
     - if @submission.report_no_business?
       %p.ccs-return.ccs-return--no-business
         You reported no business

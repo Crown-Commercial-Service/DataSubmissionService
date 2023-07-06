@@ -51,7 +51,8 @@
         "order_count": 99,
         "other_count": 0,
         "invoice_total_value": 12345.67,
-        "order_total_value": 987.65
+        "order_total_value": 987.65,
+        "invoice_details": null
       },
       "relationships": {
         "files": {

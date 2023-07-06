@@ -49,7 +49,8 @@
         "purchase_order_number": null,
         "invoice_count": 0,
         "order_count": 0,
-        "other_count": 0
+        "other_count": 0,
+        "invoice_details": null
       },
       "relationships": {
         "files": {
