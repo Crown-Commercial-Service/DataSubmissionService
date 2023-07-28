@@ -54,7 +54,7 @@ gem 'jquery-rails', '>= 4.5.1'
 gem 'rollbar'
 
 # Logging
-gem 'lograge', '>= 0.12.0'
+gem 'lograge', '>= 0.13.0'
 
 gem 'skylight', '~> 5.3', '>= 5.3.4'
 
