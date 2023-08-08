@@ -39,8 +39,6 @@ RSpec.describe UrnHelper do
     end
 
     it 'displays a message about the number of entries on display' do
-      pp 'short_customers_list'
-      pp short_customers_list
       expect(helper.urn_page_entries_info(short_list, short_meta,
                                           entry_name: 'customer')).to eq 'Displaying <b>all 5</b> customers'
       expect(helper.urn_page_entries_info(long_list, long_meta,
