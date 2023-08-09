@@ -14,8 +14,8 @@ RSpec.feature 'Finding URN list' do
     visit '/urns'
 
     expect(page).to have_content 'URN list'
-    expect(page).to have_content 'You can search for URNs below or go to this page to download a list'
-    expect(page).to have_content 'Search and check URNs'
+    expect(page).to have_content 'You can search for URNs below or download a list'
+    expect(page).to have_content 'Search URNs'
     expect(page).to have_content 'URN Organisation name Sector Postcode'
   end
 end
