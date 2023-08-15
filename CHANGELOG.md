@@ -4,6 +4,7 @@
 
 - RMI-627: Improve loading time of URN list page
 - RMI-630: Minor content updates for URN list page
+- RMI-637: fix for GPG error in build
 
 ## [release-96] - 2023-07-06
 
