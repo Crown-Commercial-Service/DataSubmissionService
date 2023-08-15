@@ -1,6 +1,6 @@
 # Change Log
 
-## [release-97] - 2023-08-14
+## [release-97] - 2023-08-15
 
 - RMI-627: Improve loading time of URN list page
 - RMI-630: Minor content updates for URN list page
