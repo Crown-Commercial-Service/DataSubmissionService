@@ -8,14 +8,13 @@
   .govuk-grid-column-full
     %p
       When you submit a return, you need to supply your customers' Unique Reference Numbers or URNs. You can search for URNs below or 
-      = link_to 'go to this page to download a list ', "https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know#customer-unique-reference-number-urn-list", target: :_blank
-      that includes a log of recent changes.
+      = link_to 'download a list that includes a log of recent changes.', "https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know#customer-unique-reference-number-urn-list", target: :_blank
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %form{method: 'get'}
       %h2.govuk-heading-s
-        Search and check URNs
+        Search URNs
       .ccs-search-form-group
         %label.govuk-label.govuk-visually-hidden{for: 'search'} Search and check URNs
         #search-hint.govuk-hint
@@ -41,7 +40,7 @@
               %td.govuk-table__cell= customer.sector.titleize
               %td.govuk-table__cell= customer.postcode
       %nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
-        .ccs-pagination__summary= page_entries_info @customers, entry_name: "customer"
+        .ccs-pagination__summary= urn_page_entries_info @customers, @pagination_info, entry_name: "customer"
         = paginate @customers
 
     - else params[:search]

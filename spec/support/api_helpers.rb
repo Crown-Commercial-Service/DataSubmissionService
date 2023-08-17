@@ -388,7 +388,7 @@ module ApiHelpers
   end
 
   def mock_customers_endpoint!
-    stub_request(:get, api_url('customers?filter%5Bsearch%5D'))
+    stub_request(:get, api_url('customers?filter%5Bsearch%5D&page%5Bpage%5D'))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('customers.json')

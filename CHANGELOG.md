@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-97] - 2023-08-15
+
+- RMI-627: Improve loading time of URN list page
+- RMI-630: Minor content updates for URN list page
+- RMI-637: fix for GPG error in build
+
 ## [release-96] - 2023-07-06
 
 - RMI-427: Workday invoice number integration
@@ -519,6 +525,7 @@
 
 Initial release
 
+[release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97
 [release-96]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-95...release-96
 [release-95]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-94...release-95
 [release-94]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-93...release-94
