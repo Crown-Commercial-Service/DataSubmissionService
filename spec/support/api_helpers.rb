@@ -203,6 +203,14 @@ module ApiHelpers
       )
   end
 
+  def mock_correcting_task_with_framework_invoice_details_and_active_submission_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('correcting_task_with_framework_and_active_submission.json')
+      )
+  end
+
   def mock_task_with_unsafe_short_name_framework_endpoint!(include_file: false)
     json = JSON.parse(File.read(json_fixture_file('task_with_framework.json')))
     json['included'][0]['attributes']['short_name'] = 'CBOARD/5'
@@ -271,6 +279,11 @@ module ApiHelpers
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
   end
 
+  def mock_completed_task_with_invoice_details_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
+      .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
+  end
+
   def mock_task_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
@@ -287,6 +300,11 @@ module ApiHelpers
 
   def mock_completed_task_with_no_business_endpoint!
     stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.files"))
+      .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
+  end
+
+  def mock_completed_task_with_no_business_with_invoice_details_endpoint!
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
   end
 
@@ -369,11 +387,11 @@ module ApiHelpers
       .with(body: feedback_params.to_json)
   end
 
-  def mock_empty_urn_lists_endpoint!
-    stub_request(:get, api_url('urn_lists?page%5Bpage%5D=1&page%5Bper_page%5D=1'))
+  def mock_customers_endpoint!
+    stub_request(:get, api_url('customers?filter%5Bsearch%5D&page%5Bpage%5D'))
       .to_return(
         headers: json_headers,
-        body: json_fixture_file('urn_lists_empty.json')
+        body: json_fixture_file('customers.json')
       )
   end
 
