@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-98] - 2023-09-05
+
+- RMI-631: add submitter details to view completed task page
+- RMI-642: GPaaS Migration prep work - add /check to the Frontend service
+- [Snyk] Security upgrade lograge from 0.12.0 to 0.13.0
+- [Snyk] Security upgrade rails from 7.0.4 to 7.0.5.1
+- [Snyk] Security upgrade jquery-rails from 4.5.1 to 4.6.0
+
 ## [release-97] - 2023-08-15
 
 - RMI-627: Improve loading time of URN list page
@@ -525,6 +533,7 @@
 
 Initial release
 
+[release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98
 [release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97
 [release-96]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-95...release-96
 [release-95]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-94...release-95
