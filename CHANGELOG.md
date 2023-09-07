@@ -1,6 +1,6 @@
 # Change Log
 
-## [release-98] - 2023-09-05
+## [release-98] - 2023-09-07
 
 - RMI-631: add submitter details to view completed task page
 - RMI-642: GPaaS Migration prep work - add /check to the Frontend service
