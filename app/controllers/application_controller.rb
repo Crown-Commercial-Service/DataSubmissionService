@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_user_signed_in
     return if current_user_id.present?
+    return if request.path == '/check'
 
     redirect_to root_path
   end

@@ -46,6 +46,14 @@
         "report_no_business?": true,
         "status": "completed",
         "submitted_at": "2019-02-14T15:39:38.151Z",
+        "submitter": {
+          "id": "c408ed99-c02f-4526-b1df-7bd2f725af34", 
+          "auth_id": "auth0|5ffs81e234b05e60078bfe69", 
+          "name": "User Name", 
+          "email": "user@example.com", 
+          "created_at": "2022-11-22T11:22:48.447Z", 
+          "updated_at": "2022-11-22T11:22:49.333Z"
+        },
         "purchase_order_number": null,
         "invoice_count": 0,
         "order_count": 0,
