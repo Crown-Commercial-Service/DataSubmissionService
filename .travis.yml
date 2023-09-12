@@ -1,26 +1,22 @@
 language: ruby
 rvm:
-- 2.6.6
+- 3.1.4
 services:
   - postgresql
 addons:
-  postgresql: "10"
-apt:
-  packages:
-  - postgresql-10
-  - postgresql-client-10
-dist: xenial
+  postgresql: "11"
+dist: bionic
 cache:
   - bundler
 env:
   matrix:
     - API_ROOT='https://ccs.api/'
   global:
-    - CF_USER=ccs-rmi-travis-deploy@crowncommercial.gov.uk
     - CF_ORG=ccs-report-management-info
     - secure: "XuxCtcAuJjEP+SEzl5zJq/g9urjNFkcN4dAv35E8A/SV+rpjwza7rBv5CKO3TwrEoCe1Osn7ILfsqwPGv6riqDMeO0MLIrmxhniXOFHIO+0xg2loBefc/jiRCZufPwLNtgZW+BhgN701NOpsDZL3zcS2QT/Oy5w16/fob4dS9eCxX77FBeT8ig6IYuqkbs2UhCAUbHWrjZ3L3FJpXSHe+GB0pU+Qj61aNjZG21mTgaIG3G+O4ZOz+skBuJbqY+3JzGrzgI8ZxlzQXijAU2+TmkZHwu0uruKyN/19aEVBaEeAeJDc5mj9mpijCGi34ZM50Lr4ECmuX3JozfkvHYOkSsYxUXG/5HK1Y8mIOXDdkoyjn+R7cWPnbLykg6imaE3MosTUJ0PR1GbPblZPOZtGKPZ+XE6uTvrkTsjFFnfnSyPAbqPL8zcrgGa4ZP2FCXk45R0dJfBPu7Iik1SjDckt4n8p9B1YSPE6bFv2wnXCGWgjlo3iMwiLCK6M8eSf3Xrzstqb+DZiT91Y8kna71XhWfVR9muiO5mhRNj7xp8dSvOXqX9w2fI+SS+F3qZyqovRAZ2iozAaYMPIC0rQuwcKoyRdQ762Ixze6rvNG6i4Cyt/u4QTYRLDSPA5YjUdb5VA9PqF9b/Une70/vXKH7sooGQ9R0hKxG8R01XLqpN/R+M="
-    - CC_TEST_REPORTER_ID=fd77fd608d62b7a46467dfa4c8d3ece86f525be4fec94d4874f3ab7665f70693
 before_script:
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - psql -U postgres -c 'CREATE DATABASE DataSubmissionService_test;'
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64  > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
@@ -30,6 +26,7 @@ before_deploy:
   - echo "install cloudfoundry cli"
   - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
   - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  - sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com --refresh-keys
   - sudo apt-get update -qq
   - sudo apt-get install cf7-cli
 deploy:

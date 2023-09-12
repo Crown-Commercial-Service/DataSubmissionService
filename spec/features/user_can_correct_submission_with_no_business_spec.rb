@@ -20,6 +20,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
     context 'when the latest submission is a business return' do
       before do
         mock_completed_task_endpoint!
+        mock_completed_task_with_invoice_details_endpoint!
       end
 
       scenario 'user corrects a submission, reporting "no business" when linked to one supplier' do
@@ -29,7 +30,9 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        first(:link, 'View').click
+        within('.govuk-table__body') do
+          first(:link, 'View').click
+        end
         click_link 'Correct this return'
 
         expect(page).to have_content 'Cheese Board 5'
@@ -60,7 +63,9 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        first(:link, 'View').click
+        within('.govuk-table__body') do
+          first(:link, 'View').click
+        end
         click_link 'Correct this return'
 
         expect(page).to have_content 'Cheese Board 5'
@@ -87,6 +92,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
     context 'when the latest submission is a no business' do
       before do
         mock_completed_task_with_no_business_endpoint!
+        mock_completed_task_with_no_business_with_invoice_details_endpoint!
       end
 
       scenario 'user cannot correct a no business with no business' do
@@ -96,7 +102,9 @@ RSpec.feature 'Correcting a submission by reporting no business' do
         click_button 'sign-in'
 
         click_link 'Completed tasks'
-        first(:link, 'View').click
+        within('.govuk-table__body') do
+          first(:link, 'View').click
+        end
         click_link 'Correct this return'
 
         expect(page).to_not have_content 'Report no business'

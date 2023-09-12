@@ -8,15 +8,116 @@
 - if @tasks.blank?
   %p You have no completed tasks yet.
 - else
-  = form_tag(history_tasks_path, method: "get", enforce_utf8: false) do
-    %p
-      Sort by &nbsp
-      = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)'], :selected => params[:order_by]), 
-        class: 'govuk-select', 
-        data: { url: history_tasks_path, remote: :true, method: :get})
+  = form_tag(history_tasks_path, method: :get, enforce_utf8: false, remote: :true) do
+    .govuk-grid-column-one-quarter{class: 'govuk-!-padding-0'}
       %noscript
-        = surround "&nbsp&nbsp".html_safe do
-          = submit_tag "Change order", id: 'task-order-submit', data: { 'prevent-double-click': true }, class: 'govuk-button'
+        %p
+          Please enable javascript for sorting and filtering.
+      .ccs-filters-intro{class: 'govuk-!-padding-1'}
+        = link_to 'Clear filters', history_tasks_path, { class: 'ccs-clear-filters', 'aria-label' => 'Clear filters'}
+        %h2.govuk-heading-m Apply filters
+      #accordion-with-summary-sections.ccs-accordion.ccs-accordion--clean{"data-module" => "govuk-accordion"}
+        .govuk-accordion__section.ccs-accordion__section--clean.govuk-form-group.govuk-form-group--enclosure.ccs-form-group--enclosure--tight
+          .govuk-accordion__section-header
+            %h2.govuk-accordion__section-heading
+              %span#accordion-with-summary-sections-heading-1.govuk-accordion__section-button.ccs-accordion__section-button
+                %h3.govuk-heading-s
+                  Agreement
+          #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
+            .govuk-form-group
+              %fieldset.govuk-fieldset
+                %legend.govuk-fieldset__legend.govuk-fieldset__legend--m
+                .govuk-checkboxes.govuk-checkboxes--small.ccs-checkboxes--scrollable                
+                  - @frameworks.each do |framework|
+                    .govuk-checkboxes__item
+                      = check_box_tag('framework_id[]', framework.id, false,
+                        id: "framework_id_#{framework.id}",
+                        class: 'govuk-checkboxes__input')
+                      = label_tag "framework_id_#{framework.id}", "#{framework.name} (#{framework.short_name})", class: 'govuk-checkboxes__label'
+
+      #accordion-with-summary-sections.ccs-accordion.ccs-accordion--clean{"data-module" => "govuk-accordion"}
+        .govuk-accordion__section.ccs-accordion__section--clean.govuk-form-group.govuk-form-group--enclosure.ccs-form-group--enclosure--tight
+          .govuk-accordion__section-header
+            %h2.govuk-accordion__section-heading
+              %span#accordion-with-summary-sections-heading-1.govuk-accordion__section-button.ccs-accordion__section-button
+                %h3.govuk-heading-s
+                  Task Period
+          #accordion-with-summary-sections-content-1.govuk-accordion__section-content{"aria-labelledby" => "accordion-with-summary-sections-heading-1"}
+            .govuk-form-group
+              %fieldset.govuk-fieldset
+                %legend.govuk-fieldset__legend.govuk-fieldset__legend--l{class: 'govuk-!-margin-bottom-1'}
+                  %h3.govuk-heading-s{class: 'govuk-!-margin-bottom-1'}
+                    From
+                #from-date.govuk-date-input
+                  .govuk-date-input__item
+                    .govuk-form-group
+                      %label.govuk-label.govuk-date-input__label{for: "month_from"}
+                        Month
+                      = select_tag 'month_from', options_for_select((1..12).map {|m| [Date::ABBR_MONTHNAMES[m], m]}, @completed_tasks.first.period_month), class: 'govuk-select', 'aria-label' => "Month From"
+                  .govuk-date-input__item
+                    .govuk-form-group
+                      %label.govuk-label.govuk-date-input__label{for: "year_from"}
+                        Year
+                      = select_tag 'year_from', options_for_select(@completed_tasks.pluck(:period_year).uniq, @completed_tasks.pluck(:period_year).uniq.first), class: 'govuk-select', 'aria-label' => "Year From"
+
+            .govuk-form-group
+              %fieldset.govuk-fieldset
+                %legend.govuk-fieldset__legend.govuk-fieldset__legend--l{class: 'govuk-!-margin-bottom-1'}
+                  %h3.govuk-heading-s{class: 'govuk-!-margin-bottom-1'}
+                    To
+                #to-date.govuk-date-input
+                  .govuk-date-input__item
+                    .govuk-form-group
+                      %label.govuk-label.govuk-date-input__label{for: "month_to"}
+                        Month
+                      = select_tag 'month_to', options_for_select((1..12).map {|m| [Date::ABBR_MONTHNAMES[m], m]}, @completed_tasks.last.period_month), class: 'govuk-select', 'aria-label' => "Month To"
+                  .govuk-date-input__item
+                    .govuk-form-group
+                      %label.govuk-label.govuk-date-input__label{for: "year_to"}
+                        Year
+                      = select_tag 'year_to', options_for_select(@completed_tasks.pluck(:period_year).uniq, @completed_tasks.pluck(:period_year).uniq.last), class: 'govuk-select', 'aria-label' => "Year To"
+
+    .govuk-grid-column-three-quarters 
+      %p
+        Sort by &nbsp
+        = select_tag(:order_by, options_for_select(['Month (newest)', 'Month (oldest)']), 
+          class: 'govuk-select', 'aria-label' => "Sort by month")
 
       .results{id: 'completed-tasks-table'}= render 'completed_tasks', tasks: @tasks
 
+.govuk-grid-row
+
+:javascript
+  var checkBoxes = document.querySelectorAll(".govuk-checkboxes");
+  var orderSelect = document.getElementById('order_by');
+  var monthFromSelect = document.getElementById('month_from');
+  var yearFromSelect = document.getElementById('year_from');
+  var monthToSelect = document.getElementById('month_to');
+  var yearToSelect = document.getElementById('year_to');
+  var form = document.querySelector('form');
+
+  orderSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+
+  monthFromSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+
+  yearFromSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+
+  monthToSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+
+  yearToSelect.addEventListener( 'change', function() {
+    Rails.fire(form, 'submit');
+  });
+
+  for (const check of checkBoxes) {
+    check.addEventListener( 'change', function() {
+      Rails.fire(form, 'submit');
+    });
+  }

@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def new
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
   end
 
   def create
@@ -28,6 +28,24 @@ class SubmissionsController < ApplicationController
     send_data submission_file.body.read, filename: submission.filename
   end
 
+  def customer_effort_score
+    @score = API::CustomerEffortScore.create(
+      rating: params[:customer_satisfaction],
+      comments: params[:more_detail],
+      user_id: current_user.id
+    )
+
+    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @submission = API::Submission.includes(:files).find(params[:id]).first
+
+    if @score.errors.any?
+      flash.now[:alert] = 'Feedback not submitted, please see below.'
+      render :completed
+    else
+      render :feedback_submitted
+    end
+  end
+
   private
 
   def upload_file_submission(task, upload)
@@ -38,7 +56,7 @@ class SubmissionsController < ApplicationController
     )
     submission_file = API::SubmissionFile.create(submission_id: submission.id)
 
-    blob = ActiveStorage::Blob.create_after_upload!(
+    blob = ActiveStorage::Blob.create_and_upload!(
       io: upload,
       filename: upload.original_filename,
       content_type: upload.content_type,

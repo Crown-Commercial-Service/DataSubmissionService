@@ -18,7 +18,7 @@
       %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
       %ul.govuk-page-actions--actions
         %li.govuk-page-actions--action
-          = link_to 'Download template (excel document)', task_template_path(@task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
+          = link_to 'Download template (excel document)', template_path(id: @task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
 
 = render 'shared/task_signpost', task: @task
 
@@ -27,11 +27,11 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %h3.govuk-heading-m
-      Upload a file
+      Upload a completed template file
     %p
       Choose a file to upload
     %p
-      Accepted file types are Microsoft Excel (.xls or .xlsx).
+      Only completed template files in Microsoft Excel format (.xls or .xlsx) will be accepted
     %p
       You’ll be able to review a summary of the files before you submit.
     = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
@@ -56,6 +56,7 @@
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
-    %p
-      Have no business to report?
-      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
+    - if @task.can_report_no_business?
+      %p
+        Have no business to report?
+        = link_to 'Report no business', new_task_no_business_path(task_id: @task.id, correction: params[:correction]), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}

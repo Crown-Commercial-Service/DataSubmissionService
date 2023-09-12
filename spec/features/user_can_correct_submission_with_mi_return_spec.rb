@@ -14,6 +14,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       mock_user_endpoint!
       mock_sso_with(email: 'email@example.com')
       mock_task_with_framework_endpoint!
+      mock_task_with_framework_and_active_submission_endpoint!
       mock_incomplete_tasks_endpoint!
       click_button 'sign-in'
 
@@ -21,7 +22,10 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       click_link 'Completed tasks'
 
       mock_completed_task_endpoint!
-      first(:link, 'View').click
+      mock_completed_task_with_invoice_details_endpoint!
+      within('.govuk-table__body') do
+        first(:link, 'View').click
+      end
 
       click_link 'Correct this return'
       expect(page).to have_content 'Cheese Board 5'
@@ -50,7 +54,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
       expect(page).to have_content 'Review & submit'
       expect(page).to have_content 'This is a correction'
 
-      mock_submission_completed_with_task_endpoint!
+      mock_submission_validated_with_task_endpoint!
       mock_complete_submission_endpoint!
       click_button 'Submit management information'
       expect(page).to have_content 'This is a correction'

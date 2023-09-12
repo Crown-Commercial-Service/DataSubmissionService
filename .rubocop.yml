@@ -2,7 +2,7 @@ require:
   - rubocop-rails
   
 AllCops:
-    TargetRubyVersion: 2.6
+    TargetRubyVersion: 2.7
     Exclude:
         - 'db/migrate/**/*'
         - 'db/schema.rb'
@@ -16,6 +16,10 @@ Rails:
 
 Rails/FilePath:
   Enabled: false
+
+Rails/OutputSafety:
+    Exclude:
+        - 'app/helpers/urn_helper.rb'
 
 Rails/HasManyOrHasOneDependent:
     Exclude:
@@ -79,6 +83,9 @@ Metrics/AbcSize:
 
 Metrics/LineLength:
     Max: 120
+    Exclude:
+        - 'lib/tasks/yarn.rake'
+        - 'spec/support/api_helpers.rb'
 
 Metrics/BlockLength:
     Max: 40

@@ -3,9 +3,17 @@ class HomeController < ApplicationController
 
   def index
     if current_user_id
-      render :signed_in_homepage
+      redirect_to tasks_path
     else
       render :guest_homepage
     end
+  end
+
+  def cookie_policy
+    render :cookie_policy
+  end
+
+  def cookie_settings
+    render :cookie_settings
   end
 end

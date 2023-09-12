@@ -1,8 +1,8 @@
 %tr.govuk-table__row{ id: "task-#{task.id}" }
   %td.govuk-table__cell
     %h2.govuk-heading-m
-      = task.framework.short_name
       = task.framework.name
+      = "(#{task.framework.short_name})"
       for
       = task.reporting_period
 
@@ -40,7 +40,7 @@
       - if task.correcting?
         = link_to 'Cancel correction', cancel_correction_confirmation_task_path(task), {'aria-label' => "Cancel correction on #{task.framework.short_name} for #{task.reporting_period}"}
       - elsif task.status == 'unstarted' || task.errors?
-        = link_to 'Download template (excel document)', task_template_path(task), {'aria-label' => "Download excel document template for #{task.framework.short_name} #{task.framework.name}"}
+        = link_to 'Download template (excel document)', template_path(id: task), {'aria-label' => "Download excel document template for #{task.framework.short_name} #{task.framework.name}"}
 
     - case task.status
     - when 'in_progress'

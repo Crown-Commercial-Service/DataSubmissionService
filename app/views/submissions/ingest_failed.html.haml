@@ -10,16 +10,16 @@
     .govuk-error-summary{ :role=>"alert", :aria-labelledby=>"error-summary-heading", :tabindex=>"-1"}
 
       %p
-        Please upload a file that is:
+        Please check that the file you are trying to upload is:
 
       %ul.govuk-list.govuk-list--bullet
         %li
-          in Excel format (.xls or .xlsx)
-        %li
-          based on the
-          = link_to "Excel template", task_template_path(@task), {'aria-label' => "Download template for #{@task.framework.short_name} #{@task.framework.name}"}
-          for
+          a completed
+          = link_to "template", template_path(id: @task), {'aria-label' => "Download template for #{@task.framework.short_name} #{@task.framework.name}"}
+          file for 
           = @task.framework.short_name
+        %li
+          in Excel format (.xls or .xlsx)
 
     = link_to 'Upload file', new_task_submission_path(@task.id, correction: params[:correction]), class: 'govuk-button'
 

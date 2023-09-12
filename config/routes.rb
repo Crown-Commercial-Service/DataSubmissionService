@@ -16,20 +16,20 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
+        post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
     end
-    resource :template, only: %i[show]
 
     resource :no_business, only: %i[new create]
   end
 
-  resource :urns, only: :show do
-    member do
-      get :download
-    end
-  end
+  resources :urns, only: %i[index]
+
+  resource :template, only: %i[show]
+
+  resources :agreements, only: %i[index]
 
   get '/auth/oauth/authorize', to: 'sessions#create'
   # get '/auth/auth0/callback', to: 'sessions#create' #Legacy Auth0 login route.
@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get '/style_guide', to: 'styleguide#index'
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
-
+  get '/cookie-settings', to: 'home#cookie_settings'
+  get '/cookie-policy', to: 'home#cookie_policy'
   get '/accessibility', to: 'accessibility#index'
+  get '/check', to: 'check#index'
 end
