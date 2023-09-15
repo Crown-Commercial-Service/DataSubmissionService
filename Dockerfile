@@ -1,12 +1,8 @@
-FROM ruby:3.1.4
+# Build Stage
+FROM ruby:3.1.4-alpine
+RUN apk add build-base curl libpq-dev nodejs tzdata
 
-MAINTAINER dxw <rails@dxw.com>
-
-RUN apt-get update && apt-get install -qq -y build-essential libpq-dev nodejs locales --fix-missing --no-install-recommends
-RUN echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen en_GB.UTF-8 UTF-8 && update-locale en_GB.UTF-8 UTF-8
-ENV LANGUAGE=en_GB.UTF-8 LC_ALL=en_GB.UTF-8
-
-RUN YARN_VERSION=1.9.4 \
+RUN YARN_VERSION=1.17.3 \
   set -ex \
   && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && mkdir -p /opt/yarn \
@@ -15,6 +11,21 @@ RUN YARN_VERSION=1.9.4 \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz
 
+COPY requirements.txt $INSTALL_PATH/requirements.txt
+# This should be kept in sync with the version specified in runtime.txt
+ENV PYTHON_VERSION 3.7.4
+RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
+    && tar -xf Python-${PYTHON_VERSION}.tgz \
+    && cd Python-${PYTHON_VERSION} \
+    && ./configure \
+    && make \
+    && make install \
+    && cd .. \
+    && rm Python-${PYTHON_VERSION}.tgz \
+    && rm -r Python-${PYTHON_VERSION} \
+    && pip3 install --quiet -r $INSTALL_PATH/requirements.txt
+
+RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
 ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
@@ -32,23 +43,43 @@ COPY package.json yarn.lock $INSTALL_PATH/
 
 RUN yarn
 RUN gem update --system
-RUN gem install bundler -v 2.1.4
+RUN gem install bundler
 
 # bundle ruby gems based on the current environment, default to production
 RUN echo $RAILS_ENV
 RUN \
   if [ "$RAILS_ENV" = "production" ]; then \
-    bundle install --without development test --retry 10; \
+    bundle install --without development test --jobs 4 --retry 10; \
   else \
-    bundle install --retry 10; \
+    bundle install --jobs 4 --retry 10; \
   fi
 
 COPY . $INSTALL_PATH
 
-RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
+RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist SECRET_KEY_BASE=dummy --quiet assets:precompile
+
+# runtime stage
+FROM ruby:3.1.4-alpine
+ENV INSTALL_PATH /srv/dss-api
+RUN mkdir -p $INSTALL_PATH
+
+WORKDIR $INSTALL_PATH
+
+RUN apk --no-cache add curl libc-utils libpq-dev nodejs
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
+
+# Set locale and timezone
+COPY --from=0 /usr/share/zoneinfo/Europe/London /etc/localtime
+RUN echo "Europe/London" > /etc/timezone
+RUN echo 'export LC_ALL=en_GB.UTF-8' >> /etc/profile.d/locale.sh && \
+  sed -i 's|LANG=C.UTF-8|LANG=en_GB.UTF-8|' /etc/profile.d/locale.sh
+
+COPY --from=0 /usr/local/bundle /usr/local/bundle
+
+COPY . .
+
 EXPOSE 3100
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
