@@ -2,7 +2,7 @@
 FROM ruby:3.1.4-alpine
 RUN apk add build-base curl libpq-dev nodejs tzdata
 
-RUN YARN_VERSION=1.17.3 \
+RUN YARN_VERSION=1.9.4 \
   set -ex \
   && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && mkdir -p /opt/yarn \
@@ -10,22 +10,6 @@ RUN YARN_VERSION=1.17.3 \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz
-
-COPY requirements.txt $INSTALL_PATH/requirements.txt
-# This should be kept in sync with the version specified in runtime.txt
-ENV PYTHON_VERSION 3.7.4
-RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
-    && tar -xf Python-${PYTHON_VERSION}.tgz \
-    && cd Python-${PYTHON_VERSION} \
-    && ./configure \
-    && make \
-    && make install \
-    && cd .. \
-    && rm Python-${PYTHON_VERSION}.tgz \
-    && rm -r Python-${PYTHON_VERSION} \
-    && pip3 install --quiet -r $INSTALL_PATH/requirements.txt
-
-RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
 ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
@@ -43,7 +27,7 @@ COPY package.json yarn.lock $INSTALL_PATH/
 
 RUN yarn
 RUN gem update --system
-RUN gem install bundler
+RUN gem install bundler -v 2.1.4
 
 # bundle ruby gems based on the current environment, default to production
 RUN echo $RAILS_ENV
