@@ -21,7 +21,7 @@ module ApiHelpers
   end
 
   def mock_auth_id
-    'auth0|123456'
+    'eyJhbGciOiJIUzI1NiJ9.ImF1dGgwfDEyMzQ1NiI.-MroB4ActYlc-0-XG1UrdbdDfhY0MbD86TMdLv4P5ig'
   end
 
   def mock_user_id
