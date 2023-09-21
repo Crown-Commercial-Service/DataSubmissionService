@@ -107,9 +107,9 @@ spec:
             - --local
             - dockerfile=/workspace
             #SANDBOX_ECR- --output
-            #SANDBOX_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_SANDBOX).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(SANDBOX_ECR_ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
+            #SANDBOX_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_SANDBOX).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(AWS_ACCOUNT_RMI_SANDBOX).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
             #DEV_ECR- --output
-            #DEV_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_DEVELOPMENT).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(DEV_ECR_ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
+            #DEV_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_DEVELOPMENT).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(AWS_ACCOUNT_RMI_DEVELOPMENT).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
             #STAGING_ECR- --output
             #STAGING_ECR- type=image,name=$(AWS_ACCOUNT_RMI_STAGING).dkr.ecr.$(REGION).amazonaws.com/repo-name:TAG_PLACEHOLDER,push=true
             #PROD_ECR- --output
