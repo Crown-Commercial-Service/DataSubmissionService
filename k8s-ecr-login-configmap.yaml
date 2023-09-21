@@ -2,14 +2,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ecr-login-data-submission-service
+  name: buildkit-ecr-credential-helper
 data:
   config.json: |
     {
-      "credHelpers": {
-        "938662338283.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login",
-        "053307063686.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login",
-        "870606811783.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login",
-        "309460125589.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login"
-      }
+      "credsStore": "ecr-login"
     }
