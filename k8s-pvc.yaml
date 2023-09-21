@@ -11,5 +11,5 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: 20Gi
+      storage: 40Gi
   storageClassName: gp3
