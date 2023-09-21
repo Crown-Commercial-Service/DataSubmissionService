@@ -110,10 +110,10 @@ spec:
             #SANDBOX_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_SANDBOX).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(SANDBOX_ECR_ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
             #DEV_ECR- --output
             #DEV_ECR- "type=image,\"name=$(AWS_ACCOUNT_RMI_DEVELOPMENT).dkr.ecr.$(REGION).amazonaws.com/frontend:TAG_PLACEHOLDER,$(DEV_ECR_ACCOUNT_ID).dkr.ecr.$(REGION).amazonaws.com/frontend:latest\",push=true"
-            #PRE_PROD_ECR- --output
-            #PRE_PROD_ECR- type=image,name=$(AWS_ACCOUNT_RMI_PRE_PRODUCTION).dkr.ecr.$(REGION).amazonaws.com/repo-name:TAG_PLACEHOLDER,push=true
+            #STAGING_ECR- --output
+            #STAGING_ECR- type=image,name=$(AWS_ACCOUNT_RMI_STAGING).dkr.ecr.$(REGION).amazonaws.com/repo-name:TAG_PLACEHOLDER,push=true
             #PROD_ECR- --output
-            #PROD_ECR- type=image,name=PRODUCTION.dkr.ecr.$(REGION).amazonaws.com/repo-name:TAG_PLACEHOLDER,push=true
+            #PROD_ECR- type=image,name=$(AWS_ACCOUNT_RMI_PRODUCTION).dkr.ecr.$(REGION).amazonaws.com/repo-name:TAG_PLACEHOLDER,push=true
             - --export-cache
             - type=local,mode=max,dest=/cache/data-submission-service
             - --import-cache
