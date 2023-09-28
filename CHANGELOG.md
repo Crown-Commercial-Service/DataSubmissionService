@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-99] - 2023-09-28
+
+- RMI-646: enable encryption on traffic between front-end and API layer
+- RMI-649: enable RMI apps to be run within Jenkins using docker
+
 ## [release-98] - 2023-09-07
 
 - RMI-631: add submitter details to view completed task page
@@ -533,6 +538,7 @@
 
 Initial release
 
+[release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
 [release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98
 [release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97
 [release-96]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-95...release-96
