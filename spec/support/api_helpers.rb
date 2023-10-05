@@ -360,12 +360,12 @@ module ApiHelpers
   end
 
   def mock_user_endpoint!
-    stub_request(:get, api_url("users?filter[auth_id]=#{mock_auth_id}"))
+    stub_request(:get, api_url("users?filter[auth_id]=#{JWT.encode(mock_auth_id, 'test')}"))
       .to_return(headers: json_headers, body: json_fixture_file('user.json'))
   end
 
   def mock_user_with_multiple_suppliers_endpoint!
-    stub_request(:get, api_url("users?filter[auth_id]=#{mock_auth_id}"))
+    stub_request(:get, api_url("users?filter[auth_id]=#{JWT.encode(mock_auth_id, 'test')}"))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('user_with_multiple_suppliers.json')
@@ -400,7 +400,7 @@ module ApiHelpers
   def json_headers
     {
       'Content-Type': 'application/vnd.api+json; charset=utf-8',
-      'X-Auth-Id': '123456'
+      'X-Auth-Id': JWT.encode(mock_auth_id, 'test')
     }
   end
 
