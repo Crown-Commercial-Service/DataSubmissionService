@@ -8,7 +8,7 @@ gem 'rails', '~> 7.0', '>= 7.0.7.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,6 +18,8 @@ gem 'mini_racer'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
+
+gem 'jwt', '~> 2.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -61,7 +63,7 @@ gem 'skylight', '~> 5.3', '>= 5.3.4'
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 
 # Auth0 client for user setup scripts
-gem 'auth0', require: false
+gem 'auth0', '~> 4.17', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 gem 'nokogiri', '>= 1.13.9'

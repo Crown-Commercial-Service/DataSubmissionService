@@ -24,7 +24,7 @@
         %dt.govuk-summary-list__key
           Reported by
         %dd.govuk-summary-list__value
-          = @submission.submitter[:name]
+          = @submission.submitter[:email]
 
       - if current_user.multiple_suppliers?
         .govuk-summary-list__row

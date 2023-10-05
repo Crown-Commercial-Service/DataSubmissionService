@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   get '/cookie-settings', to: 'home#cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
   get '/accessibility', to: 'accessibility#index'
+  get '/check', to: 'check#index'
 end
