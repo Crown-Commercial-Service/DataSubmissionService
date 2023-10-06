@@ -66,4 +66,10 @@ RSpec.configure do |config|
     # Stub audit requests
     stub_request(:any, %r{/v1/events/}).and_return(status: 201)
   end
+
+  config.around(:each) do |example|
+    ClimateControl.modify AUTH_SECRET: 'test' do
+      example.run
+    end
+  end
 end
