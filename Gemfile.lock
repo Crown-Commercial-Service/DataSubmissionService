@@ -424,7 +424,7 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.3.0)
     version_gem (1.1.1)
-    web-console (4.2.0)
+    web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -487,7 +487,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (~> 3.4, >= 3.4.2)
   uglifier (>= 1.3.0)
-  web-console (>= 4.0.0)
+  web-console (>= 4.2.1)
   webmock (~> 3.12.2)
 
 RUBY VERSION
