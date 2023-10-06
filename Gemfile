@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0', '>= 7.0.5.1'
+gem 'rails', '~> 7.0', '>= 7.0.7.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -91,7 +91,7 @@ end
 group :test do
   gem 'capybara', '>= 3.38.0', require: false
   gem 'climate_control'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '>= 2.0.2'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
   gem 'webmock', '~> 3.12.2'
