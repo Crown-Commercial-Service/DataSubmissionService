@@ -74,8 +74,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     auth0 (4.17.0)
       jwt (~> 2.2.0)
@@ -312,7 +312,7 @@ GEM
     psych (5.1.0)
       stringio
     public_suffix (3.1.1)
-    puma (5.6.7)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (3.0.8)
@@ -510,7 +510,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   poltergeist (>= 1.18.1)
   pry-rails
-  puma (~> 5.6)
+  puma (~> 6.3, >= 6.3.1)
   rails (~> 7.1, >= 7.1.0)
   rollbar
   rspec-rails (>= 6.0.0)
