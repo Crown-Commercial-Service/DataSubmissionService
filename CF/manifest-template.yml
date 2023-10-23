@@ -3,7 +3,7 @@ applications:
   - name: ccs-rmi-app-CF_SPACE
     memory: MEMORY_LIMIT
     buildpacks:
-    - https://github.com/cloudfoundry/ruby-buildpack.git#v1.8.42
+    - https://github.com/cloudfoundry/ruby-buildpack.git
     instances: INSTANCE_COUNT
     services:
       - ccs-rmi-app-CF_SPACE
@@ -16,6 +16,7 @@ applications:
       - DSSAPI
       - APP_SECRETBASE
       - GOOGLE_IDS
+      - AUTH_SECRET
     env:
       RAILS_ENV: production
       RACK_ENV: production

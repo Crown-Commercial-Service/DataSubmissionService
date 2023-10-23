@@ -9,7 +9,7 @@
           %br
           Service
     .govuk-header__content
-      %a.govuk-header__link.govuk-header__link--service-name{:href => root_path}
+      %h1.govuk-heading-l.govuk-header__service-name
         Report management information to CCS
       - if current_user_id
         %button.govuk-header__menu-button.govuk-js-header-toggle{"aria-controls" => "navigation", "aria-label" => "Show or hide Top Level Navigation", :role => "button"} Menu
@@ -18,9 +18,11 @@
             %ul#navigation.govuk-header__navigation{"aria-label" => "Top Level Navigation"}
               - if current_user_id
                 %li.govuk-header__navigation-item
-                  = link_to 'Home', tasks_path, {:class=>"govuk-header__link"}
+                  = link_to 'Tasks', tasks_path, {:class=>"govuk-header__link"}
                 %li.govuk-header__navigation-item
                   = link_to 'Completed tasks', history_tasks_path, {:class=>"govuk-header__link"}
+                %li.govuk-header__navigation-item
+                  = link_to 'Agreements', agreements_path, {:class=>"govuk-header__link"}
                 %li.govuk-header__navigation-item
                   = link_to 'URN list', urns_path, {:class=>"govuk-header__link"}
                 %li.govuk-header__navigation-item

@@ -7,11 +7,11 @@ class TasksController < ApplicationController
              .where(status: ['unstarted', 'in_progress', 'correcting'])
              .includes(:framework, :active_submission, :latest_submission)
              .all
-             .sort_by! { |t| Date.parse(t.due_on) }
+             .sort_by { |t| [t.due_on, t.framework.name] }
   end
 
   def show
-    @task = API::Task.includes(:framework, active_submission: :files).find(params[:id]).first
+    @task = API::Task.includes(:framework, active_submission: %i[invoice_details files]).find(params[:id]).first
     @submission = @task.active_submission
     @file = @submission.files&.first
   end

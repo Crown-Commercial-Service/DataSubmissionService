@@ -59,7 +59,7 @@ RSpec.describe 'the tasks list' do
 
       assert_select "#task-#{cboard5_task_id}" do
         assert_select 'a[href=?]',
-                      task_template_path(cboard5_task_id),
+                      template_path(id: cboard5_task_id),
                       text: 'Download template (excel document)'
       end
     end
@@ -142,7 +142,7 @@ RSpec.describe 'the tasks list' do
 
   context 'when viewing a completed task that reported business' do
     before do
-      mock_completed_task_endpoint!
+      mock_completed_task_with_invoice_details_endpoint!
       mock_user_endpoint!
       stub_signed_in_user
 
@@ -155,12 +155,15 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include '42'
       expect(response.body).to include '£12,345.67'
       expect(response.body).to include 'RM3786 MISO Data Template (August 2018).xls'
+      expect(response.body).to include 'CINV-00123456'
+      expect(response.body).to include 'Unpaid'
+      expect(response.body).to include 'user@example.com'
     end
   end
 
   context 'when viewing a completed task that reported no business' do
     before do
-      mock_completed_task_with_no_business_endpoint!
+      mock_completed_task_with_no_business_with_invoice_details_endpoint!
       mock_user_endpoint!
       stub_signed_in_user
 

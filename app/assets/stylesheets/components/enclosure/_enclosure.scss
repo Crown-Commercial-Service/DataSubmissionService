@@ -78,7 +78,7 @@
 }
 
 
-@include govuk-media-query($from: 1000) {
+@include govuk-media-query($from: 1000px) {
 
     .apollo-enclosure--padded {
 

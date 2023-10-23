@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
   before_action :validate_file_presence_and_content_type, only: [:create]
 
   def new
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
   end
 
   def create
@@ -56,7 +56,7 @@ class SubmissionsController < ApplicationController
     )
     submission_file = API::SubmissionFile.create(submission_id: submission.id)
 
-    blob = ActiveStorage::Blob.create_after_upload!(
+    blob = ActiveStorage::Blob.create_and_upload!(
       io: upload,
       filename: upload.original_filename,
       content_type: upload.content_type,

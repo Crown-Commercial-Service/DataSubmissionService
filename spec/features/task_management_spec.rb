@@ -49,6 +49,7 @@ RSpec.feature 'task management' do
     mock_user_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
+    mock_task_with_framework_and_active_submission_endpoint!
     mock_submission_errored_endpoint!
 
     visit '/'

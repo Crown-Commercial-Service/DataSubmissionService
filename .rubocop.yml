@@ -17,6 +17,10 @@ Rails:
 Rails/FilePath:
   Enabled: false
 
+Rails/OutputSafety:
+    Exclude:
+        - 'app/helpers/urn_helper.rb'
+
 Rails/HasManyOrHasOneDependent:
     Exclude:
         - 'app/models/api/*'
@@ -79,6 +83,9 @@ Metrics/AbcSize:
 
 Metrics/LineLength:
     Max: 120
+    Exclude:
+        - 'lib/tasks/yarn.rake'
+        - 'spec/support/api_helpers.rb'
 
 Metrics/BlockLength:
     Max: 40

@@ -1,0 +1,48 @@
+- page_title 'Unique reference number lookup'
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      URN list
+.govuk-grid-row
+  .govuk-grid-column-full
+    %p
+      When you submit a return, you need to supply your customers' Unique Reference Numbers or URNs. You can search for URNs below or 
+      = link_to 'download a list that includes a log of recent changes.', "https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know#customer-unique-reference-number-urn-list", target: :_blank
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %form{method: 'get'}
+      %h2.govuk-heading-s
+        Search URNs
+      .ccs-search-form-group
+        %label.govuk-label.govuk-visually-hidden{for: 'search'} Search and check URNs
+        #search-hint.govuk-hint
+          Enter URN, organisation name or postcode
+        %input#search{name: 'search', type: 'text', value: params[:search], class: ['govuk-!-width-two-thirds', 'govuk-input']}
+        %button.govuk-button Search
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    - if @customers.present?
+      %table.govuk-table{:class => 'govuk-!-margin-top-7'}
+        %thead.govuk-table__head
+          %tr.govuk-table__row
+            %th.govuk-table__header URN
+            %th.govuk-table__header Organisation name
+            %th.govuk-table__header Sector
+            %th.govuk-table__header Postcode
+        %tbody.govuk-table__body
+          - @customers.each do |customer|
+            %tr.govuk-table__row
+              %td.govuk-table__cell= customer.urn
+              %td.govuk-table__cell= customer.name
+              %td.govuk-table__cell= customer.sector.titleize
+              %td.govuk-table__cell= customer.postcode
+      %nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
+        .ccs-pagination__summary= urn_page_entries_info @customers, @pagination_info, entry_name: "customer"
+        = paginate @customers
+
+    - else params[:search]
+      %p
+        No customers found for ‘#{params[:search]}’.

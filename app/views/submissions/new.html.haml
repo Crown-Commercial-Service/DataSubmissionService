@@ -18,7 +18,7 @@
       %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
       %ul.govuk-page-actions--actions
         %li.govuk-page-actions--action
-          = link_to 'Download template (excel document)', task_template_path(@task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
+          = link_to 'Download template (excel document)', template_path(id: @task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
 
 = render 'shared/task_signpost', task: @task
 
@@ -56,6 +56,7 @@
       .govuk-form-group
         = submit_tag 'Upload and check file', data: { 'prevent-double-click': true }, class: 'govuk-button'
 
-    %p
-      Have no business to report?
-      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
+    - if @task.can_report_no_business?
+      %p
+        Have no business to report?
+        = link_to 'Report no business', new_task_no_business_path(task_id: @task.id, correction: params[:correction]), {'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}

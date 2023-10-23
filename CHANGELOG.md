@@ -1,5 +1,95 @@
 # Change Log
 
+## [release-99] - 2023-09-28
+
+- RMI-646: enable encryption on traffic between front-end and API layer
+- RMI-649: enable RMI apps to be run within Jenkins using docker
+
+## [release-98] - 2023-09-07
+
+- RMI-631: add submitter details to view completed task page
+- RMI-642: GPaaS Migration prep work - add /check to the Frontend service
+- [Snyk] Security upgrade lograge from 0.12.0 to 0.13.0
+- [Snyk] Security upgrade rails from 7.0.4 to 7.0.5.1
+- [Snyk] Security upgrade jquery-rails from 4.5.1 to 4.6.0
+
+## [release-97] - 2023-08-15
+
+- RMI-627: Improve loading time of URN list page
+- RMI-630: Minor content updates for URN list page
+- RMI-637: fix for GPG error in build
+
+## [release-96] - 2023-07-06
+
+- RMI-427: Workday invoice number integration
+- RMI-606: Searchable URN table
+
+## [release-95] - 2023-06-22
+
+- RMI-620: Rails upgrade from 6.1.7.3 to 7 and Ruby upgrade from 2.7 to 3.1.4
+
+## [release-94] - 2023-05-25
+
+- RMI-612: implement session timeout
+
+## [release-93] - 2023-05-11
+
+- [Snyk] Security upgrade rails from 5.2.8.1 to 6.1.7.3
+- [Dependabot] Bump nokogiri from 1.14.2 to 1.14.3
+
+## [release-92] - 2023-03-30
+
+- RMI-590: Prevent users from replacing no business with same to avoid error
+- RMI-549: Imporvements to URN page
+- [Dependabot] Bump rack from 2.2.5 to 2.2.6.4
+
+## [release-91] - 2023-03-02
+
+- RMI-547: Improve feedback submitted wording
+
+## [release-90] - 2023-02-16
+
+- RMI-476: Terminate sessions effectively
+- RMI-502: Fix for workday transaction not being reversed
+- RMI-582: Fix for blanks on completed tasks page
+- RMI-583: Fix for discrepency between completed tasks and individual completed task view.
+- [Security] Bump globalid from 1.0.0 to 1.0.1 
+
+## [release-89] - 2023-01-19
+
+- RMI-527: Change task titles and sort order on home page
+
+## [release-88] - 2023-01-05
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+- [Snyk] Security upgrade httparty from 0.18.1 to 0.21.0 
+- [Snyk] Security upgrade sass-rails from 5.1.0 to 6.0.0 
+- [Snyk] Security upgrade loofah from 2.18.0 to 2.19.1
+- [Snyk] Security upgrade rails-html-sanitizer from 1.4.3 to 1.4.4
+
+## [release-87] - 2022-12-14
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+
+## [release-86] - 2022-12-08
+
+- RMI-516: Amend content security policy to allow use of Glassbox
+
+## [release-85] - 2022-11-10
+
+- RMI-534: Remove signed in home page
+- RMI-560: Fix accessibility issue on Help page
+- RMI-558: Fix accessibility issue on Completed Tasks page
+
+## [release-84] - 2022-11-02
+
+- RMI-33: New agreements page
+- RMI-419: Added status filter to Agreements page 
+- RMI-546: Fix for HTML showing on completed tasks page
+- RMI-532: Update nav menu
+- RMI-524: Improve customer effort score messaging
+- RMI-525: Update travis yaml for postgres 11
+
 ## [release-83] - 2022-09-29
 
 - RMI-509: Amended wording to suppliers upload and ingest failed pages
@@ -448,6 +538,22 @@
 
 Initial release
 
+[release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
+[release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98
+[release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97
+[release-96]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-95...release-96
+[release-95]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-94...release-95
+[release-94]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-93...release-94
+[release-93]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-92...release-93
+[release-92]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-91...release-92
+[release-91]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-90...release-91
+[release-90]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-89...release-90
+[release-89]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-88...release-89
+[release-88]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-87...release-88
+[release-87]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-86...release-87
+[release-86]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-85...release-86
+[release-85]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-84...release-85
+[release-84]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-83...release-84
 [release-83]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-82...release-83
 [release-82]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-81...release-82
 [release-81]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-80...release-81
