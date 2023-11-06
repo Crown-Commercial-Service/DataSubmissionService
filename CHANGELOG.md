@@ -1,9 +1,16 @@
 # Change Log
 
-## [release-99] - 2023-09-28
+## [release-99] - 2023-10-26
 
 - RMI-646: enable encryption on traffic between front-end and API layer
 - RMI-649: enable RMI apps to be run within Jenkins using docker
+- RMI-654: Upgrade to jquery3
+- [Dependabot] Bump puma from 4.3.12 to 5.6.7
+- [Snyk] Security upgrade rails from 7.0.5.1 to 7.0.7.1
+- [Snyk] Security upgrade web-console from 4.2.0 to 4.2.1
+- [Snyk] Security upgrade rubocop-rails from 2.20.2 to 2.21.0
+- [Snyk] Security upgrade skylight from 5.3.4 to 6.0.0
+- [Snyk] Security upgrade rails from 7.0.7.2 to 7.1.0
 
 ## [release-98] - 2023-09-07
 
