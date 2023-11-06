@@ -30,4 +30,16 @@ module ApplicationHelper
   def about_cookies_url
     'http://www.aboutcookies.org/'
   end
+
+  def cookie_preferences
+    JSON.parse(cookies[:cookie_preferences]) if cookies[:cookie_preferences]
+  end
+
+  def ga_cookie_permission
+    cookie_preferences['usage'] if cookie_preferences
+  end
+
+  def glassbox_cookie_permission
+    cookie_preferences['glassbox'] if cookie_preferences
+  end
 end
