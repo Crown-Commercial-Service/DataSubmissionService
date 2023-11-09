@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-100] - 2023-11-09
+
+- RMI-648: Update google tag manager
+- RMI-665: Address jsonapi-consumer gem vulnerability
+
 ## [release-99] - 2023-10-26
 
 - RMI-646: enable encryption on traffic between front-end and API layer
@@ -545,6 +550,7 @@
 
 Initial release
 
+[release-100]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-99...release-100
 [release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
 [release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98
 [release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97

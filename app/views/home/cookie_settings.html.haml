@@ -53,10 +53,10 @@
 
         .govuk-radios.govuk-radios--inline
           .govuk-radios__item
-            = radio_button_tag :ga_cookie_usage, true, cookies[:rmi_google_analytics_enabled] == 'true', class: 'govuk-radios__input'
+            = radio_button_tag :ga_cookie_usage, true, ga_cookie_permission == true, class: 'govuk-radios__input'
             = label_tag :ga_cookie_usage, 'On', for: :ga_cookie_usage_true, class: 'govuk-label govuk-radios__label'
           .govuk-radios__item
-            = radio_button_tag :ga_cookie_usage, false, cookies[:rmi_google_analytics_enabled] != 'true', class: 'govuk-radios__input'
+            = radio_button_tag :ga_cookie_usage, false, ga_cookie_permission != true, class: 'govuk-radios__input'
             = label_tag :ga_cookie_usage, 'Off', for: :ga_cookie_usage_false, class: 'govuk-label govuk-radios__label'
 
     %hr.govuk-section-break.govuk-section-break--s
@@ -81,10 +81,10 @@
     
       .govuk-radios.govuk-radios--inline
         .govuk-radios__item
-          = radio_button_tag :glassbox_cookie_usage, true, cookies[:rmi_glassbox_enabled] == 'true', class: 'govuk-radios__input'
+          = radio_button_tag :glassbox_cookie_usage, true, glassbox_cookie_permission == true, class: 'govuk-radios__input'
           = label_tag :glassbox_cookie_usage, 'On', for: :glassbox_cookie_usage_true, class: 'govuk-label govuk-radios__label'
         .govuk-radios__item
-          = radio_button_tag :glassbox_cookie_usage, false, cookies[:rmi_glassbox_enabled] != 'true', class: 'govuk-radios__input'
+          = radio_button_tag :glassbox_cookie_usage, false, glassbox_cookie_permission != true, class: 'govuk-radios__input'
           = label_tag :glassbox_cookie_usage, 'Off', for: :glassbox_cookie_usage_false, class: 'govuk-label govuk-radios__label'
 
     %hr.govuk-section-break.govuk-section-break--m
