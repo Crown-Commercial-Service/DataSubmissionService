@@ -42,7 +42,7 @@ gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
 gem 'httparty', '>= 0.21.0'
-gem 'jsonapi-consumer', '~> 1.0', '>= 1.0.1'
+gem 'jsonapi-consumer', git: 'https://github.com/jsmestad/jsonapi-consumer.git', ref: '7d9721e'
 
 # Pagination
 gem 'kaminari', '>= 1.2.2'
@@ -57,8 +57,6 @@ gem 'rollbar'
 
 # Logging
 gem 'lograge', '>= 0.13.0'
-
-# gem 'skylight', '~> 6.0', '>= 6.0.0'
 
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 
