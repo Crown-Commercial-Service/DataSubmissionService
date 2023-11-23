@@ -61,7 +61,8 @@ gem 'lograge', '>= 0.13.0'
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 
 # To enable app maintenance mode
-gem 'turnout', '~> 2.5'
+# gem 'turnout', '~> 2.5'
+gem 'rack-maintenance', '~> 3.0'
 
 # Auth0 client for user setup scripts
 gem 'auth0', '~> 4.17', require: false
