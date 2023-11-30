@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+# Alpine and Windows do not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby ruby]
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'aws-sdk-s3'
