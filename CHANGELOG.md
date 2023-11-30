@@ -1,5 +1,22 @@
 # Change Log
 
+## [release-100] - 2023-11-09
+
+- RMI-648: Update google tag manager
+- RMI-665: Address jsonapi-consumer gem vulnerability
+
+## [release-99] - 2023-10-26
+
+- RMI-646: enable encryption on traffic between front-end and API layer
+- RMI-649: enable RMI apps to be run within Jenkins using docker
+- RMI-654: Upgrade to jquery3
+- [Dependabot] Bump puma from 4.3.12 to 5.6.7
+- [Snyk] Security upgrade rails from 7.0.5.1 to 7.0.7.1
+- [Snyk] Security upgrade web-console from 4.2.0 to 4.2.1
+- [Snyk] Security upgrade rubocop-rails from 2.20.2 to 2.21.0
+- [Snyk] Security upgrade skylight from 5.3.4 to 6.0.0
+- [Snyk] Security upgrade rails from 7.0.7.2 to 7.1.0
+
 ## [release-98] - 2023-09-07
 
 - RMI-631: add submitter details to view completed task page
@@ -533,6 +550,8 @@
 
 Initial release
 
+[release-100]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-99...release-100
+[release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
 [release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98
 [release-97]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-96...release-97
 [release-96]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-95...release-96

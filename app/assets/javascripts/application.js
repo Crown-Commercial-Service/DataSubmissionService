@@ -10,10 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
 //= require govuk-frontend/govuk/all.js
 //= require js.cookie
-//= require cookie-banner
+//= require cookie-settings
 //= require_tree .

@@ -1,0 +1,39 @@
+---
+version: "3"
+services:
+  test:
+    image: datasubmissionserviceapi:$COMMIT_HASH
+    environment:
+      RAILS_ENV: "test"
+      DATABASE_URL: "postgres://postgres:password@db-test:5432/DataSubmissionService_test?template=template0&pool=5&encoding=unicode"
+      API_ROOT: "https://ccs.api/"
+    env_file:
+      - docker-compose.env
+    volumes:
+      - .:/srv/dss:cached
+      - node_modules:/srv/dss/node_modules
+    depends_on:
+      - db-test
+    command: ["bundle", "exec", "./bin/dsetup && spring server"]
+    restart: on-failure
+    networks:
+      - tests
+    container_name: data-submission-service_test
+
+  db-test:
+    image: postgres
+    volumes:
+      - pg_test_data:/var/lib/postgresql/data/:cached
+    networks:
+      - tests
+    restart: on-failure
+    container_name: data-submission-service_db-test
+    environment:
+      POSTGRES_PASSWORD: "password"
+
+networks:
+  tests:
+
+volumes:
+  pg_test_data: {}
+  node_modules:
