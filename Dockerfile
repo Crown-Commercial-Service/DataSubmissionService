@@ -1,4 +1,4 @@
-FROM ruby:3.1.4-alpine
+FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine
 RUN apk upgrade && apk add build-base curl git libc-utils libpq-dev nodejs tzdata
 
 # Set locale and timezone
