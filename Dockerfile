@@ -1,6 +1,10 @@
-# Build Stage
-FROM ruby:3.1.4-alpine AS base
-RUN apk add build-base curl git libpq-dev nodejs tzdata
+FROM ruby:3.1.4-alpine
+RUN apk upgrade && apk add build-base curl git libc-utils libpq-dev nodejs tzdata
+
+# Set locale and timezone
+RUN echo "Europe/London" > /etc/timezone
+RUN echo 'export LC_ALL=en_GB.UTF-8' >> /etc/profile.d/locale.sh && \
+  sed -i 's|LANG=C.UTF-8|LANG=en_GB.UTF-8|' /etc/profile.d/locale.sh
 
 RUN YARN_VERSION=1.9.4 \
   set -ex \
@@ -39,29 +43,10 @@ RUN \
 
 COPY . $INSTALL_PATH
 
-RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist SECRET_KEY_BASE=dummy --quiet assets:precompile
-
-# runtime stage
-FROM ruby:3.1.4-alpine
-ENV INSTALL_PATH /srv/dss-api
-RUN mkdir -p $INSTALL_PATH
-
-WORKDIR $INSTALL_PATH
-
-RUN apk --no-cache upgrade && apk --no-cache add curl libc-utils libpq-dev nodejs
+RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-
-# Set locale and timezone
-COPY --from=0 /usr/share/zoneinfo/Europe/London /etc/localtime
-RUN echo "Europe/London" > /etc/timezone
-RUN echo 'export LC_ALL=en_GB.UTF-8' >> /etc/profile.d/locale.sh && \
-  sed -i 's|LANG=C.UTF-8|LANG=en_GB.UTF-8|' /etc/profile.d/locale.sh
-
-COPY --from=base /usr/local/bundle /usr/local/bundle
-
-COPY . .
 
 EXPOSE 3100
 
