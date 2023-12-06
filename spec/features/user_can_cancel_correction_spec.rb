@@ -16,7 +16,7 @@ RSpec.feature 'Cancelling a correction submission' do
       mock_incomplete_tasks_endpoint!
       click_button 'sign-in'
 
-      mock_correcting_task_with_framework_endpoint!
+      mock_correcting_task_with_framework_and_active_submission_endpoint!
       within '#task-b847e0f7-027e-4b95-afa2-3490b8d05a1d' do
         click_link 'Cancel correction'
       end

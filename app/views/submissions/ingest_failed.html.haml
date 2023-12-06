@@ -22,6 +22,10 @@
           in Excel format (.xls or .xlsx)
 
     = link_to 'Upload file', new_task_submission_path(@task.id, correction: params[:correction]), class: 'govuk-button'
+    - if @task.can_report_no_business?
+      = link_to 'Report no business', new_task_no_business_path(task_id: @task.id, correction: params[:correction]), {class: 'govuk-button', 'aria-label' => "Report no business for #{@task.supplier_name} on #{@task.framework.short_name}"}
+    - else 
+      = link_to 'Report no business', cancel_correction_confirmation_task_path(@task), {class: 'govuk-button', 'aria-label' => "Cancel correction on #{@task.framework.short_name} for #{@task.reporting_period}"}
 
     %p
       If your file is in the correct format but it is not being accepted please contact
