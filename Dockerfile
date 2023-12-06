@@ -1,4 +1,9 @@
-# Build Stage
+# This is a multi-stage image build. The rationale is to copy compiled files
+# from the base stage, leaving unnecessary build tools and libraries out of
+# the runtime image. This results in a smaller image with fewer attack vectors
+# It also improves build times by caching the base stage.
+
+# Base stage
 FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine AS base
 RUN apk add build-base curl git libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
 
@@ -46,7 +51,7 @@ COPY . $INSTALL_PATH
 
 RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
-# runtime stage
+# Runtime stage
 FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine
 ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
