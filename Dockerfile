@@ -55,6 +55,7 @@ WORKDIR $INSTALL_PATH
 
 RUN apk upgrade && apk add curl libc-utils libpq nodejs && rm -rf /var/cache/apk/*
 COPY --from=base /etc/profile.d/locale.sh /etc/profile.d/locale.sh
+COPY --from=base /etc/timezone /etc/timezone
 COPY --from=base /opt/yarn /opt/yarn
 COPY --from=base /usr/local/bundle /usr/local/bundle
 COPY --from=base /usr/share/zoneinfo /usr/share/zoneinfo
