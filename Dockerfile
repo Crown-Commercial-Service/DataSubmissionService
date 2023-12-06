@@ -1,6 +1,6 @@
 # Build Stage
-FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine
-RUN apk upgrade && apk add build-base curl git libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
+FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine AS base
+RUN apk add build-base curl git libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
 
 # Set locale and timezone
 RUN echo "Europe/London" > /etc/timezone
@@ -46,6 +46,19 @@ COPY . $INSTALL_PATH
 
 RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
+# runtime stage
+FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine
+ENV INSTALL_PATH /srv/dss-api
+RUN mkdir -p $INSTALL_PATH
+
+WORKDIR $INSTALL_PATH
+
+RUN apk upgrade && apk add curl libc-utils libpq nodejs && rm -rf /var/cache/apk/*
+COPY --from=base /etc/profile.d/locale.sh /etc/profile.d/locale.sh
+COPY --from=base /opt/yarn /opt/yarn
+COPY --from=base /usr/local/bundle /usr/local/bundle
+COPY --from=base /usr/share/zoneinfo /usr/share/zoneinfo
+COPY . $INSTALL_PATH
 RUN mv docker-entrypoint.sh /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 EXPOSE 3100
