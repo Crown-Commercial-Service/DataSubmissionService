@@ -1,6 +1,6 @@
 # Build Stage
 FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine AS base
-RUN apk add build-base git libc-utils libpq-dev nodejs tzdata
+RUN apk add build-base curl git libc-utils libpq-dev nodejs tzdata
 
 # Set locale and timezone
 RUN echo "Europe/London" > /etc/timezone
@@ -26,9 +26,9 @@ ARG RAILS_ENV
 ENV RAILS_ENV=${RAILS_ENV:-production}
 ENV RACK_ENV=${RAILS_ENV:-production}
 
-COPY Gemfile $INSTALL_PATH/Gemfile
-COPY Gemfile.lock $INSTALL_PATH/Gemfile.lock
+COPY Gemfile Gemfile.lock $INSTALL_PATH/
 COPY package.json yarn.lock $INSTALL_PATH/
+COPY Rakefile $INSTALL_PATH/
 
 RUN yarn
 RUN gem update --system
@@ -44,7 +44,6 @@ RUN \
 
 COPY . $INSTALL_PATH
 
-
 RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
 # runtime stage
@@ -54,9 +53,10 @@ RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
 
-RUN apk upgrade && apk add curl libc-utils libpq nodejs
-COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+RUN apk upgrade && apk add curl libc-utils libpq nodejs && rm -rf /var/cache/apk/*
+COPY --from=base /usr/local/bundle /usr/local/bundle
+COPY . $INSTALL_PATH
+RUN mv docker-entrypoint.sh /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 EXPOSE 3100
 
