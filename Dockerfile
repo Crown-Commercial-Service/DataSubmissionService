@@ -48,7 +48,7 @@ RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_
 
 # runtime stage
 FROM public.ecr.aws/docker/library/ruby:3.1.4-alpine
-ENV INSTALL_PATH /srv/dss-api
+ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
@@ -56,10 +56,11 @@ WORKDIR $INSTALL_PATH
 RUN apk upgrade && apk add curl libc-utils libpq nodejs && rm -rf /var/cache/apk/*
 COPY --from=base /etc/profile.d/locale.sh /etc/profile.d/locale.sh
 COPY --from=base /etc/timezone /etc/timezone
-COPY --from=base /opt/yarn /opt/yarn
 COPY --from=base /usr/local/bundle /usr/local/bundle
 COPY --from=base /usr/share/zoneinfo /usr/share/zoneinfo
 COPY . $INSTALL_PATH
+COPY --from=base $INSTALL_PATH/node_modules $INSTALL_PATH/node_modules
+COPY --from=base $INSTALL_PATH/public/assets $INSTALL_PATH/public/assets
 RUN mv docker-entrypoint.sh /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 EXPOSE 3100
