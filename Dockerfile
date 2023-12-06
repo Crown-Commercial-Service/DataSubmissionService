@@ -53,7 +53,7 @@ RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
 
-RUN apk upgrade && apk add curl libc-utils libpq nodejs && rm -rf /var/cache/apk/*
+RUN apk upgrade && apk add curl libpq nodejs && rm -rf /var/cache/apk/*
 COPY --from=base /etc/profile.d/locale.sh /etc/profile.d/locale.sh
 COPY --from=base /etc/timezone /etc/timezone
 COPY --from=base /usr/local/bundle /usr/local/bundle
