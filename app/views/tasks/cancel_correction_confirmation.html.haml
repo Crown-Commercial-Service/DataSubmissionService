@@ -8,9 +8,13 @@
       Confirm correction cancellation
 
     = render 'shared/task_signpost', task: @task
-
-    %p
-      By cancelling this correction you will still be required to pay the management charge from the existing submission you made.
+      
+    - if !@task.can_report_no_business?
+      %p 
+        You have previously reported no business.
+    - else
+      %p
+        By cancelling this correction you will still be required to pay the management charge from the existing submission you made.
     %p
       Any correction files uploaded will be deleted.
 
