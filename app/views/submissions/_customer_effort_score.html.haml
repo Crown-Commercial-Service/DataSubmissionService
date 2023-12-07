@@ -10,8 +10,8 @@
             %p.govuk-error-message{class: 'govuk-!-padding-bottom-3'} Please select an option
           .govuk-radios{"data-module" => "govuk-radios"}
             .govuk-radios__item
-              %input#customer-satisfaction.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Very easy", checked: (@score.rating == "Very easy" if @score)}
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction"}
+              %input#customer-satisfaction-1.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Very easy", checked: (@score.rating == "Very easy" if @score)}
+              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-1"}
                 Very easy
             .govuk-radios__item
               %input#customer-satisfaction-2.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Easy", checked: (@score.rating == "Easy" if @score)}
@@ -27,7 +27,7 @@
                 Difficult
             .govuk-radios__item
               %input#customer-satisfaction-5.govuk-radios__input{name: "customer_satisfaction", type: "radio", value: "Very difficult", checked: (@score.rating == "Very difficult" if @score)}
-              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-4"}
+              %label.govuk-label.govuk-radios__label{for: "customer-satisfaction-5"}
                 Very difficult
 
         .govuk-character-count{"data-maxlength" => "2000", "data-module" => "govuk-character-count"}

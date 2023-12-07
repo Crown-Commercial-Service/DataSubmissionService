@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-101] - 2023-12-07
+
+- RMI-670: set up maintenance mode page
+- RMI-653: correct customer effort score label
+- RMI-632: add no business button to errored submission pages
+
 ## [release-100] - 2023-11-09
 
 - RMI-648: Update google tag manager
@@ -550,6 +556,7 @@
 
 Initial release
 
+[release-101]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-100...release-101
 [release-100]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-99...release-100
 [release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
 [release-98]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-97...release-98

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the submission page' do
   before do
-    mock_task_with_framework_endpoint!
+    mock_task_with_framework_and_active_submission_endpoint!
     mock_user_endpoint!
   end
 
