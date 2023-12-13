@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-102] - 2023-12-13
+
+- RMI-673: update maintenance mode page
+- GMTRP-63: Fix for missing Linux container image security updates in aws instance
+
 ## [release-101] - 2023-12-07
 
 - RMI-670: set up maintenance mode page
@@ -556,6 +561,7 @@
 
 Initial release
 
+[release-102]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-101...release-102
 [release-101]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-100...release-101
 [release-100]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-99...release-100
 [release-99]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-98...release-99
