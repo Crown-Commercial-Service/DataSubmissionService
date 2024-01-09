@@ -256,7 +256,7 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -299,7 +299,7 @@ GEM
     psych (4.0.6)
       stringio
     public_suffix (3.1.1)
-    puma (6.4.0)
+    puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (3.0.8)
@@ -501,7 +501,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   poltergeist (>= 1.18.1)
   pry-rails
-  puma (~> 6.3, >= 6.3.1)
+  puma (~> 6.4, >= 6.4.2)
   rack-maintenance (~> 3.0)
   rails (~> 7.1, >= 7.1.0)
   rollbar
@@ -522,4 +522,4 @@ RUBY VERSION
    ruby 3.1.4p223
 
 BUNDLED WITH
-   2.4.22
+   2.3.26
