@@ -72,6 +72,9 @@ gem 'auth0', '~> 4.17', require: false
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 gem 'nokogiri', '>= 1.13.9'
 
+#AWS XRAY sdk used for APM testing
+gem 'aws-xray-sdk', require: ['aws-xray-sdk/facets/rails/railtie']
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
