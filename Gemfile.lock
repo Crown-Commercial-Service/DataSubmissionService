@@ -108,8 +108,14 @@ GEM
       aws-sdk-core (~> 3, >= 3.127.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.4)
+    aws-sdk-xray (1.4.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
     aws-sigv4 (1.5.0)
       aws-eventstream (~> 1, >= 1.0.2)
+    aws-xray-sdk (0.15.0)
+      aws-sdk-xray (~> 1.4.0)
+      multi_json (~> 1)
     base64 (0.1.1)
     bigdecimal (3.1.4)
     bindex (0.8.1)
@@ -243,6 +249,7 @@ GEM
       libv8-node (~> 18.16.0.0)
     minitest (5.20.0)
     msgpack (1.7.1)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
     mutex_m (0.1.2)
@@ -474,6 +481,7 @@ PLATFORMS
 DEPENDENCIES
   auth0 (~> 4.17)
   aws-sdk-s3
+  aws-xray-sdk
   bootsnap (>= 1.1.0)
   brakeman
   byebug
