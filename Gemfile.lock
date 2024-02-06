@@ -256,6 +256,7 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
+    newrelic_rpm (9.7.1)
     nio4r (2.5.9)
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
@@ -493,6 +494,7 @@ DEPENDENCIES
   listen (~> 3.5, >= 3.5.1)
   lograge (>= 0.13.0)
   mini_racer
+  newrelic_rpm
   nokogiri (>= 1.13.9)
   omniauth
   omniauth-auth0 (~> 2.0.0)
