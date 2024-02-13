@@ -72,6 +72,9 @@ gem 'auth0', '~> 4.17', require: false
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 gem 'nokogiri', '>= 1.13.9'
 
+# New Relic Apm test
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
