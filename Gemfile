@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1', '>= 7.1.0'
+gem 'rails', '~> 7.1', '>= 7.1.3.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -39,8 +39,8 @@ gem 'haml-rails', '>= 2.1.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
-gem 'omniauth'
-gem 'omniauth-auth0', '~> 2.0.0'
+gem 'omniauth', '>= 2.1.2'
+gem 'omniauth-auth0', '~> 2.1.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 
 # API requests
@@ -75,12 +75,12 @@ gem 'nokogiri', '>= 1.13.9'
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.8.1'
-  gem 'factory_bot_rails', '>= 6.2.0'
+  gem 'dotenv-rails', '>= 3.0.0'
+  gem 'factory_bot_rails', '>= 6.3.0'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 6.0.0'
+  gem 'rspec-rails', '>= 6.1.1'
   gem 'rubocop', require: false
-  gem 'rubocop-rails', '>= 2.21.0', require: false
+  gem 'rubocop-rails', '>= 2.23.0', require: false
 end
 
 group :development do
@@ -93,7 +93,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.38.0', require: false
+  gem 'capybara', '>= 3.40.0', require: false
   gem 'climate_control'
   gem 'database_cleaner', '>= 2.0.2'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
