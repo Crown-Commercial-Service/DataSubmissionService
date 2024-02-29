@@ -6,6 +6,7 @@ RSpec.describe 'giving feedback' do
     mock_submission_completed_no_business_endpoint!
     mock_no_business_endpoint!
     mock_customer_effort_score_endpoint!
+    mock_notifications_endpoint!
     mock_user_endpoint!
   end
 

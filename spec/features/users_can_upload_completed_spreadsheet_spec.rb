@@ -5,6 +5,7 @@ RSpec.feature 'User uploads completed spreadsheet' do
     before(:each) do
       mock_upload_task_submission_flow_endpoints!
       mock_submission_processing_endpoint!
+      mock_notifications_endpoint!
       mock_user_endpoint!
     end
 
