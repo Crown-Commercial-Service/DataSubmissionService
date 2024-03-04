@@ -196,7 +196,7 @@ module ApiHelpers
   end
 
   def mock_correcting_task_with_framework_and_active_submission_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,active_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,active_submission"))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('correcting_task_with_framework_and_active_submission.json')
@@ -392,6 +392,14 @@ module ApiHelpers
       .to_return(
         headers: json_headers,
         body: json_fixture_file('customers.json')
+      )
+  end
+
+  def mock_notifications_endpoint!
+    stub_request(:get, api_url('notifications'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('notification.json')
       )
   end
 

@@ -14,7 +14,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
+    @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
     @submission = API::Submission.includes(:files).find(params[:id]).first
     @file = @submission.files&.first
 

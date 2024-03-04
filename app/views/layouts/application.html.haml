@@ -15,7 +15,6 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    = render 'shared/analytics' if cookies[:rmi_google_analytics_enabled] == 'true' 
     = render 'shared/tag_manager_head'
 
   %body.govuk-template__body.app-body-class
@@ -32,6 +31,8 @@
         = render 'shared/alert' if flash[:alert]
 
         = render 'shared/notice' if flash[:notice]
+
+        = render 'shared/notification' if @notification.present?
 
         = yield
 

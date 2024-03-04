@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.feature 'Correcting a submission by reporting no business' do
   before do
     mock_sso_with(email: 'email@example.com')
+    mock_notifications_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_complete_tasks_endpoint!
     mock_task_with_framework_endpoint!
+    mock_task_with_framework_and_active_submission_endpoint!
     mock_no_business_correction_endpoint!
     mock_submission_completed_no_business_endpoint!
   end
