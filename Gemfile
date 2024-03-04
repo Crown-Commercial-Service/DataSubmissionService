@@ -98,7 +98,7 @@ group :test do
   gem 'database_cleaner', '>= 2.0.2'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '~> 3.12.2'
+  gem 'webmock', '~> 3.13.0'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
