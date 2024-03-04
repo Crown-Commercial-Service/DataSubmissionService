@@ -4,6 +4,7 @@ RSpec.feature 'Signing in and out as a user' do
   scenario 'Signing in successfully' do
     mock_sso_with(email: 'email@example.com')
     mock_incomplete_tasks_endpoint!
+    mock_notifications_endpoint!
     mock_user_endpoint!
 
     visit '/tasks'
@@ -32,6 +33,7 @@ RSpec.feature 'Signing in and out as a user' do
 
     # Allow Auth0 to succeed the second time
     mock_sso_with(email: 'success@example.com')
+    mock_notifications_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_user_endpoint!
 
@@ -44,6 +46,7 @@ RSpec.feature 'Signing in and out as a user' do
   scenario 'Signing out successfully' do
     mock_sso_with(email: 'email@example.com')
     mock_incomplete_tasks_endpoint!
+    mock_notifications_endpoint!
     mock_user_endpoint!
 
     visit '/'

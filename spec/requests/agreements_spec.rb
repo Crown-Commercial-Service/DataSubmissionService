@@ -17,6 +17,7 @@ RSpec.describe 'the agreements list' do
     before do
       mock_agreements_with_framework_and_supplier_endpoint!
       mock_user_with_multiple_suppliers_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
       get agreements_path
     end

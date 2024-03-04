@@ -5,6 +5,7 @@ RSpec.feature 'Submitting no business' do
     travel_to Time.zone.local(2018, 7, 2)
 
     mock_sso_with(email: 'email@example.com')
+    mock_notifications_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_task_with_framework_and_active_submission_endpoint!
