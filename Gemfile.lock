@@ -514,7 +514,7 @@ DEPENDENCIES
   listen (~> 3.5, >= 3.5.1)
   lograge (>= 0.13.0)
   mini_racer
-  nokogiri (>= 1.13.9)
+  nokogiri (>= 1.16.2)
   omniauth (>= 2.1.2)
   omniauth-auth0 (~> 2.1.0)
   omniauth-rails_csrf_protection (>= 1.0.1)
