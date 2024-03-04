@@ -1,0 +1,8 @@
+.grid-row
+  .column-full
+    .govuk-notification-banner{"aria-labelledby" => "govuk-notification-banner-title", "data-module" => "govuk-notification-banner", role: "region"}
+      .govuk-notification-banner__header
+        %h2#govuk-notification-banner-title.govuk-notification-banner__title
+          Important
+      .govuk-notification-banner__content
+        = @notification.notification_message.html_safe

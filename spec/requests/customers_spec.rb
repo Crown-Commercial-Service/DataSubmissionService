@@ -10,6 +10,7 @@ RSpec.describe 'the customers list' do
   context 'when signed-in as a user' do
     before do
       mock_customers_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
       get urns_path
     end
