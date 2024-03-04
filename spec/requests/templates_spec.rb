@@ -7,6 +7,10 @@ RSpec.describe 'downloading a template' do
     end
   end
 
+  before do
+    mock_notifications_endpoint!
+  end
+
   context 'when file key exists' do
     it 'returns the template file named with the month of the task' do
       stub_signed_in_user

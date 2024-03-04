@@ -6,6 +6,7 @@ RSpec.describe 'downloading a submission' do
     stub_signed_in_user
     allow_any_instance_of(SubmissionsController).to receive(:s3_client).and_return(fake_s3_client)
     mock_submission_with_file_endpoint!
+    mock_notifications_endpoint!
 
     get download_task_submission_path(mock_task_id, mock_submission_id)
   end
