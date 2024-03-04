@@ -9,6 +9,7 @@ RSpec.describe 'the home page' do
 
   it 'links to the user’s task list when signed in' do
     stub_signed_in_user
+    mock_notifications_endpoint!
     get root_path
 
     expect(response).to redirect_to(tasks_path)
