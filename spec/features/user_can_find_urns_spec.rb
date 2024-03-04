@@ -5,6 +5,7 @@ RSpec.feature 'Finding URN list' do
     mock_sso_with(email: 'email@example.com')
     mock_incomplete_tasks_endpoint!
     mock_user_endpoint!
+    mock_notifications_endpoint!
     mock_customers_endpoint!
   end
 

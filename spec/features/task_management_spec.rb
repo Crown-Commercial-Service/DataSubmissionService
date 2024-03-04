@@ -7,6 +7,7 @@ RSpec.feature 'task management' do
     mock_sso_with(email: 'email@example.com')
 
     mock_upload_task_submission_flow_endpoints!
+    mock_notifications_endpoint!
     mock_user_endpoint!
 
     visit '/'
@@ -47,6 +48,7 @@ RSpec.feature 'task management' do
   scenario 'user can upload an amended file' do
     mock_sso_with(email: 'email@example.com')
     mock_user_endpoint!
+    mock_notifications_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_task_with_framework_and_active_submission_endpoint!
@@ -69,6 +71,7 @@ RSpec.feature 'task management' do
 
     mock_sso_with(email: 'email@example.com')
 
+    mock_notifications_endpoint!
     mock_upload_task_submission_flow_endpoints!
     mock_user_with_multiple_suppliers_endpoint!
 

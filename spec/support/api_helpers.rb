@@ -395,6 +395,14 @@ module ApiHelpers
       )
   end
 
+  def mock_notifications_endpoint!
+    stub_request(:get, api_url('notifications'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('notification.json')
+      )
+  end
+
   private
 
   def json_headers

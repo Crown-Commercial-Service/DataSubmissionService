@@ -11,6 +11,7 @@ RSpec.describe 'the tasks list' do
     before do
       mock_incomplete_tasks_endpoint!
       mock_user_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
       get tasks_path
     end
@@ -98,6 +99,7 @@ RSpec.describe 'the tasks list' do
   context 'when signed-in as a user with no tasks' do
     before do
       mock_empty_tasks_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
       get tasks_path
     end
@@ -111,6 +113,7 @@ RSpec.describe 'the tasks list' do
     before do
       mock_complete_tasks_endpoint!
       mock_user_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
       get history_tasks_path
     end
@@ -144,6 +147,7 @@ RSpec.describe 'the tasks list' do
     before do
       mock_completed_task_with_invoice_details_endpoint!
       mock_user_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
 
       get task_path(mock_task_id)
@@ -165,6 +169,7 @@ RSpec.describe 'the tasks list' do
     before do
       mock_completed_task_with_no_business_with_invoice_details_endpoint!
       mock_user_endpoint!
+      mock_notifications_endpoint!
       stub_signed_in_user
 
       get task_path(mock_task_id)
