@@ -32,6 +32,8 @@
 
         = render 'shared/notice' if flash[:notice]
 
+        = render 'shared/notification' if @notification.present?
+
         = yield
 
     = render 'shared/footer'
