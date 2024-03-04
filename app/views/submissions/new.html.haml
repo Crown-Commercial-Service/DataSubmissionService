@@ -32,8 +32,11 @@
       Choose a file to upload
     %p
       Only completed template files in Microsoft Excel format (.xls or .xlsx) will be accepted
-    %p
-      You’ll be able to review a summary of the files before you submit.
+    .govuk-warning-text
+      %span.govuk-warning-text__icon
+        !
+      %strong.govuk-warning-text__text
+        You will need to review a summary of the uploaded file and confirm submission to complete the task.
     = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
       .govuk-form-group
         %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
