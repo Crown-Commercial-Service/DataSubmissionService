@@ -5,11 +5,10 @@ ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.1', '>= 7.1.3.1'
-
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.4'
+gem 'puma', '~> 6.4', '>= 6.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
