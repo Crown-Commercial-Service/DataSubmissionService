@@ -11,6 +11,7 @@ RSpec.describe ApplicationController do
     end
 
     it 'allows signed in users to access' do
+      mock_notifications_endpoint!
       session[:auth_id] = 'auth0|123456789'
 
       get :index

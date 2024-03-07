@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_request_details
   before_action :ensure_user_signed_in
+  before_action :set_published_notification, if: :user_signed_in?
 
   helper_method :current_user_id
   helper_method :ensure_user_signed_in
@@ -30,5 +31,13 @@ class ApplicationController < ActionController::Base
 
   def correction?
     params[:correction] == 'true'
+  end
+
+  def user_signed_in?
+    current_user_id.present?
+  end
+
+  def set_published_notification
+    @notification = API::Notification.all.first
   end
 end
