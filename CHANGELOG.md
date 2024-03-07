@@ -1,5 +1,17 @@
 # Change Log
 
+## [release-103] - 2023-03-07
+
+- RMI-652: notification banner
+- RMI-672: update wording on doc loading page 
+- [Snyk] Security upgrade webmock from 3.12.2 to 3.13.0
+- [Snyk] Security upgrade puma from 6.4.0 to 6.4.2
+- [Snyk] Upgrade govuk-frontend from 3.14.0 to 3.15.0
+- [Snyk] Security upgrade nokogiri from 1.13.9 to 1.16.2
+- [Dependabot] Bump rails from 7.1.0 to 7.1.3.1
+- [Snyk] Security upgrade actionpack from 7.1.0 to 7.1.3.2
+- [Dependabot] Bump rack from 3.0.8 to 3.0.9.1
+
 ## [release-102] - 2023-12-13
 
 - RMI-673: update maintenance mode page
@@ -561,6 +573,7 @@
 
 Initial release
 
+[release-103]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-102...release-103
 [release-102]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-101...release-102
 [release-101]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-100...release-101
 [release-100]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-99...release-100
