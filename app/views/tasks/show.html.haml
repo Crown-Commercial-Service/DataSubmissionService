@@ -12,7 +12,7 @@
       = @task.reporting_period
 
 .govuk-grid-row
-  .govuk-grid-column-one-half
+  .govuk-grid-column-two-thirds
     %dl.govuk-summary-list.govuk-summary-list--no-border
       .govuk-summary-list__row
         %dt.govuk-summary-list__key
@@ -86,6 +86,89 @@
           You can replace this return with a corrected one or report no business.
 
       = link_to 'Correct this return', correct_task_path(@task), { class: 'govuk-button' }
+
+- if @task.past_submissions.any?
+  .govuk-grid-row
+    .govuk-grid-column-two-thirds
+      %h2.govuk-heading-m{class: 'govuk-!-margin-bottom-3'}
+        Previous Submissions
+      - @task.past_submissions.each do |past_submission|
+        %details.govuk-details
+          %summary.govuk-details__summary
+            %span.govuk-details__summary-text
+              = Time.zone.parse(past_submission[:submitted_at]).to_fs(:date_with_utc_time)
+          .govuk-details__text
+            %dl.govuk-summary-list.govuk-summary-list--no-border
+              .govuk-summary-list__row
+                %dt.govuk-summary-list__key
+                  Reported by
+                %dd.govuk-summary-list__value
+                  = past_submission[:submitted_by]
+
+              .govuk-summary-list__row
+                %dt.govuk-summary-list__key
+                  Reported spend
+                %dd.govuk-summary-list__value
+                  - if past_submission[:invoice_total]
+                    = past_submission[:invoice_total]
+                  - else
+                    No business
+
+              - if past_submission[:file_name]
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    File name
+                  %dd.govuk-summary-list__value
+                    = link_to(past_submission[:file_name], download_task_submission_path(@task, past_submission[:id]))
+
+              - if past_submission[:invoice_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Invoice number
+                  %dd.govuk-summary-list__value
+                    = past_submission[:invoice_details][:invoice_number]
+
+              - if past_submission[:invoice_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Invoice date
+                  %dd.govuk-summary-list__value
+                    = Time.zone.parse(past_submission[:invoice_details][:invoice_date]).to_fs(:invoice_date)
+
+              - if past_submission[:invoice_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Value
+                  %dd.govuk-summary-list__value
+                    = number_to_currency(past_submission[:invoice_details][:invoice_amount], unit: '£')
+
+              - if past_submission[:invoice_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Payment status
+                  %dd.govuk-summary-list__value
+                    = past_submission[:invoice_details][:payment_status]
+
+              - if past_submission[:credit_note_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Credit note number
+                  %dd.govuk-summary-list__value
+                    = past_submission[:credit_note_details][:invoice_number].delete_prefix! "Customer Invoice Adjustment: Credit Note-"
+
+              - if past_submission[:credit_note_details].present?
+                .govuk-summary-list__row
+                  %dt.govuk-summary-list__key
+                    Credit note date
+                  %dd.govuk-summary-list__value
+                    = Time.zone.parse(past_submission[:credit_note_details][:invoice_date]).to_fs(:invoice_date)
+
+                - if past_submission[:credit_note_details].present?
+                  .govuk-summary-list__row
+                    %dt.govuk-summary-list__key
+                      Value
+                    %dd.govuk-summary-list__value
+                      = number_to_currency(past_submission[:credit_note_details][:invoice_amount], unit: '£')
 
 .govuk-grid-row
   .govuk-grid-column-full

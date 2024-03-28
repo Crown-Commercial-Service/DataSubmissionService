@@ -204,7 +204,7 @@ module ApiHelpers
   end
 
   def mock_correcting_task_with_framework_invoice_details_and_active_submission_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_correcting_task_id}?include=framework,past_submissions,active_submission.invoice_details,active_submission.files"))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('correcting_task_with_framework_and_active_submission.json')
@@ -280,7 +280,7 @@ module ApiHelpers
   end
 
   def mock_completed_task_with_invoice_details_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,past_submissions,active_submission.invoice_details,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task.json'))
   end
 
@@ -304,7 +304,7 @@ module ApiHelpers
   end
 
   def mock_completed_task_with_no_business_with_invoice_details_endpoint!
-    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,active_submission.invoice_details,active_submission.files"))
+    stub_request(:get, api_url("tasks/#{mock_task_id}?include=framework,past_submissions,active_submission.invoice_details,active_submission.files"))
       .to_return(headers: json_headers, body: json_fixture_file('completed_task_with_no_business.json'))
   end
 
