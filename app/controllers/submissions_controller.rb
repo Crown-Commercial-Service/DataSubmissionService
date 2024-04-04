@@ -14,6 +14,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
     @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
     @submission = API::Submission.includes(:files).find(params[:id]).first
     @file = @submission.files&.first
@@ -35,6 +36,7 @@ class SubmissionsController < ApplicationController
       user_id: current_user.id
     )
 
+    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
     @task = API::Task.includes(:framework).find(params[:task_id]).first
     @submission = API::Submission.includes(:files).find(params[:id]).first
 
