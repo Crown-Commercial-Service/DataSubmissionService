@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :validate_file_presence_and_content_type, only: [:create]
+  before_action :set_tasks, only: %i[show customer_effort_score]
 
   def new
     @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
@@ -14,7 +15,6 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
     @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
     @submission = API::Submission.includes(:files).find(params[:id]).first
     @file = @submission.files&.first
@@ -36,7 +36,6 @@ class SubmissionsController < ApplicationController
       user_id: current_user.id
     )
 
-    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
     @task = API::Task.includes(:framework).find(params[:task_id]).first
     @submission = API::Submission.includes(:files).find(params[:id]).first
 
@@ -123,6 +122,10 @@ class SubmissionsController < ApplicationController
     handle_file_presence_validation && return if params[:upload].nil?
 
     handle_file_extension_validation unless acceptable_file_extension?
+  end
+
+  def set_tasks
+    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
   end
 
   def s3_client
