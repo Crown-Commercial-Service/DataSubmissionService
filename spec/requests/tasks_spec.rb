@@ -163,6 +163,12 @@ RSpec.describe 'the tasks list' do
       expect(response.body).to include 'Unpaid'
       expect(response.body).to include 'user@example.com'
     end
+
+    it 'shows previous submission if there are any' do
+      expect(response.body).to include 'Previous Submissions'
+      expect(response.body).to include 'CINV-12345678'
+      expect(response.body).to include '00054321'
+    end
   end
 
   context 'when viewing a completed task that reported no business' do
