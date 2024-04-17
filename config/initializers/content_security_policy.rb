@@ -24,7 +24,8 @@ Rails.application.config.content_security_policy do |policy|
   policy.child_src   :blob
   policy.worker_src  :blob
   policy.img_src     :self, '*.google-analytics.com', '*.googletagmanager.com', '*.contentsquare.net'
-  policy.connect_src :self, '*.google-analytics.com', '*.analytics.google.com', '*.googletagmanager.com', '*.contentsquare.net'
+  policy.connect_src :self, '*.google-analytics.com', '*.analytics.google.com', '*.googletagmanager.com',
+                     '*.contentsquare.net'
 end
 
 # If you are using UJS then enable automatic nonce generation
