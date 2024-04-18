@@ -15,14 +15,14 @@ const removeGaCookies = () => {
   unwantedCookieList.forEach((cookieName) => Cookies.remove(cookieName));
 };
 
-const removeGlassboxCookies = () => {
+const removeContentsquareCookies = () => {
   const cookieList = Object.keys(Cookies.get());
   const unwantedCookieList = [];
 
   for (let i = 0; i < cookieList.length; i++) {
     const cookieName = cookieList[i];
 
-    if (cookieName.startsWith('_cls')) unwantedCookieList.push(cookieName);
+    if (cookieName.startsWith('_cs')) unwantedCookieList.push(cookieName);
   }
 
   unwantedCookieList.forEach((cookieName) => Cookies.remove(cookieName));
@@ -33,7 +33,7 @@ const updateDataLayer = cookiePreferences => {
     window.dataLayer.push({
       event: "gtm_consent_update",
       usage_consent: getGrantedText(cookiePreferences.usage),
-      glassbox_consent: getGrantedText(cookiePreferences.glassbox),
+      contentsquare_consent: getGrantedText(cookiePreferences.contentsquare),
     })
   }
 }
@@ -45,7 +45,7 @@ $(() => {
     Cookies.set('rmi_cookie_settings_viewed', 'true', { expires: 365 });
 
     cookiePreferenceMap.set('usage', true);
-    cookiePreferenceMap.set('glassbox', true);
+    cookiePreferenceMap.set('contentsquare', true);
     Cookies.set('cookie_preferences', Object.fromEntries(cookiePreferenceMap), { expires: 365 });
 
     updateDataLayer(JSON.parse(Cookies.get('cookie_preferences')))
@@ -60,12 +60,12 @@ $(() => {
     Cookies.set('rmi_cookie_settings_viewed', 'true', { expires: 365 });
 
     cookiePreferenceMap.set('usage', false);
-    cookiePreferenceMap.set('glassbox', false);
+    cookiePreferenceMap.set('contentsquare', false);
     Cookies.set('cookie_preferences', Object.fromEntries(cookiePreferenceMap), { expires: 365 });
 
     updateDataLayer(JSON.parse(Cookies.get('cookie_preferences')))
     removeGaCookies();
-    removeGlassboxCookies();
+    removeContentsquareCookies();
 
     $('#cookie-options-container').hide();
     $('#cookies-rejected-container').show();
@@ -83,13 +83,13 @@ $(() => {
       removeGaCookies();
     }
 
-    if ($('input[name=glassbox_cookie_usage]:checked').val() === 'true') {
-      cookiePreferenceMap.set('glassbox', true);
+    if ($('input[name=contentsquare_cookie_usage]:checked').val() === 'true') {
+      cookiePreferenceMap.set('contentsquare', true);
       Cookies.set('cookie_preferences', Object.fromEntries(cookiePreferenceMap), { expires: 365 })
     } else {
-      cookiePreferenceMap.set('glassbox', false);
+      cookiePreferenceMap.set('contentsquare', false);
       Cookies.set('cookie_preferences', Object.fromEntries(cookiePreferenceMap), { expires: 365 })
-      removeGlassboxCookies();
+      removeContentsquareCookies();
     }
 
     updateDataLayer(JSON.parse(Cookies.get('cookie_preferences')))
