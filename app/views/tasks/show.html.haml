@@ -57,7 +57,7 @@
       - if @submission.invoice_details.present?
         .govuk-summary-list__row
           %dt.govuk-summary-list__key
-            Invoice amount
+            Invoice value
           %dd.govuk-summary-list__value
             = number_to_currency(@submission.invoice_details[:invoice_amount], unit: '£')
 
@@ -138,7 +138,7 @@
               - if past_submission[:invoice_details].present?
                 .govuk-summary-list__row
                   %dt.govuk-summary-list__key
-                    Value
+                    Invoice value
                   %dd.govuk-summary-list__value
                     = number_to_currency(past_submission[:invoice_details][:invoice_amount], unit: '£')
 
@@ -166,7 +166,7 @@
                 - if past_submission[:credit_note_details].present?
                   .govuk-summary-list__row
                     %dt.govuk-summary-list__key
-                      Value
+                      Credit note value
                     %dd.govuk-summary-list__value
                       = number_to_currency(past_submission[:credit_note_details][:invoice_amount], unit: '£')
 
