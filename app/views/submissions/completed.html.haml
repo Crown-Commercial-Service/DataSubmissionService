@@ -7,7 +7,10 @@
   .govuk-grid-column-full
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
-        Task complete
+        - if @tasks.any?
+          Task complete
+        - else
+          All tasks complete
 
       = render partial: 'shared/this_is_a_correction' if correction?
 
@@ -50,8 +53,12 @@
     %p
       If you’ve made a mistake or need to amend the management information 
       you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
-    %p
-      = link_to 'View your tasks', tasks_path
-      to make another report.
+    - if @tasks.any?
+      %p
+        = link_to 'Complete another task', tasks_path,  {class: 'govuk-button'}
+    - else
+      %p 
+        = link_to 'View your completed tasks', history_tasks_path, {class: 'govuk-!-margin-right-3'}
+        = link_to 'Sign out', sign_out_path, {class: 'govuk-button'}
 
 = render 'customer_effort_score'
