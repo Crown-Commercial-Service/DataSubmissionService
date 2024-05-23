@@ -10,7 +10,37 @@
       "status": "completed",
       "framework_id": "f87717d4-874a-43d9-b99f-c8cf2897b526",
       "supplier_id": "cd40ead8-67b5-4918-abf0-ab8937cd04ff",
-      "supplier_name": "Bobs Cheese Shop"
+      "supplier_name": "Bobs Cheese Shop",
+      "past_submissions": [
+        {
+          "id": "94d9a06c-f1c1-40b9-bb04-14d960f91623",
+          "submitted_at": "2022-11-24T16:55:56.989Z",
+          "submitted_by": "user@example.com",
+          "invoice_total": null,
+          "file_name": null,
+          "invoice_details": null,
+          "credit_note_details": null
+        },
+        {
+          "id": "d4a180c4-d554-4a8f-a838-22a1305878f8",
+          "submitted_at": "2022-11-23T16:43:58.632Z",
+          "submitted_by": "user@example.com",
+          "invoice_total": "123.45",
+          "file_name": "filename.xlsx",
+          "invoice_details": {
+            "invoice_number": "CINV-12345678",
+            "invoice_amount": "1234.56",
+            "payment_status": "Paid",
+            "invoice_date": "2022-11-24-08:00"
+          },
+          "credit_note_details": {
+            "invoice_number": "Customer Invoice Adjustment: Credit Note-00054321",
+            "invoice_amount": "-1234.56",
+            "payment_status": "Paid",
+            "invoice_date": "2022-11-25-08:00"
+          }
+        }
+      ]
     },
     "relationships": {
       "framework": {

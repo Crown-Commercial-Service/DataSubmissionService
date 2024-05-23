@@ -18,7 +18,7 @@
           Overdue
       - else
         Due
-        = task_due_date(task)
+        = task_due_date(task).to_fs(:default)
 
       - if task.errors?
         %strong.govuk-tag.govuk-tag__failure Errors

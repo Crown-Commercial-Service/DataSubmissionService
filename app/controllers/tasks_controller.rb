@@ -11,7 +11,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = API::Task.includes(:framework, active_submission: %i[invoice_details files]).find(params[:id]).first
+    @task = API::Task.includes(:framework, :past_submissions,
+                               active_submission: %i[invoice_details files]).find(params[:id]).first
     @submission = @task.active_submission
     @file = @submission.files&.first
   end

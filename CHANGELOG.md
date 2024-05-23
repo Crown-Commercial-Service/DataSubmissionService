@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-104] - 2023-05-23
+
+- RMI-592: Allow suppliers to see replaced submissions info
+- RMI-605: Improve journey to move on to remaining tasks
+- RMI-682: Change wording on feedback survey
+- RMI-666: Correct due date display on tasks list
+- RMI-671: Ruby upgrade from 3.1.4 to 3.2.2
+
 ## [release-103] - 2023-03-07
 
 - RMI-652: notification banner
@@ -573,6 +581,7 @@
 
 Initial release
 
+[release-104]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-103...release-104
 [release-103]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-102...release-103
 [release-102]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-101...release-102
 [release-101]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-100...release-101
