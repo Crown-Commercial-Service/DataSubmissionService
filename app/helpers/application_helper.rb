@@ -39,7 +39,7 @@ module ApplicationHelper
     cookie_preferences['usage'] if cookie_preferences
   end
 
-  def glassbox_cookie_permission
-    cookie_preferences['glassbox'] if cookie_preferences
+  def contentsquare_cookie_permission
+    cookie_preferences['contentsquare'] if cookie_preferences
   end
 end
