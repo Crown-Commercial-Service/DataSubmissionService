@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-105] - 2023-05-28
+
+- RMI-674: update cookies for content square
+
 ## [release-104] - 2023-05-23
 
 - RMI-592: Allow suppliers to see replaced submissions info
@@ -581,6 +585,7 @@
 
 Initial release
 
+[release-105]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-104...release-105
 [release-104]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-103...release-104
 [release-103]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-102...release-103
 [release-102]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-101...release-102
