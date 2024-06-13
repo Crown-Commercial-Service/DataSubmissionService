@@ -66,8 +66,6 @@ class TasksController < ApplicationController
              .where(framework_id: params[:framework_id], status: 'completed')
              .includes(:framework, :active_submission)
              .all
-             .sort_by! { |t| Date.parse(t.due_on) }
-             .reverse!
   end
 
   def task_period_filter(tasks)
