@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe UrnHelper do
-  describe '#urn_page_entries_info' do
+RSpec.describe PaginationHelper do
+  describe '#page_entries_info' do
     let(:short_list) do
       list = []
       5.times do
@@ -39,9 +39,9 @@ RSpec.describe UrnHelper do
     end
 
     it 'displays a message about the number of entries on display' do
-      expect(helper.urn_page_entries_info(short_list, short_meta,
+      expect(helper.page_entries_info(short_list, short_meta,
                                           entry_name: 'customer')).to eq 'Displaying <b>all 5</b> customers'
-      expect(helper.urn_page_entries_info(long_list, long_meta,
+      expect(helper.page_entries_info(long_list, long_meta,
                                           entry_name: 'customer')).to include '<b>1&nbsp;</b>to<b>&nbsp;25</b> of'
     end
   end
