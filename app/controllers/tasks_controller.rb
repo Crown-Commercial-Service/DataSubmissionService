@@ -29,8 +29,7 @@ class TasksController < ApplicationController
     @tasks = API::Task
              .select(submissions: %i[status framework_id submitted_at invoice_total_value report_no_business?])
              .where(framework_id: params[:framework_id], status: 'completed')
-             .where(task_period: task_period_date_range)
-             .where(sort_order: sort_order)
+             .where(task_period: task_period_date_range, sort_order: sort_order, pagination_required: true)
              .includes(:framework, :active_submission)
              .page(params[:page])
              .all
