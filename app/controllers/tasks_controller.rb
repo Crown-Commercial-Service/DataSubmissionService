@@ -36,7 +36,10 @@ class TasksController < ApplicationController
              .all
 
     @pagination_info = @tasks.meta[:pagination]
-    @paginated_tasks = Kaminari.paginate_array(@tasks, total_count: @pagination_info[:total]).page(@pagination_info[:current_page]).per(@pagination_info[:per_page])
+    # rubocop:disable Metrics/LineLength
+    @paginated_tasks = Kaminari.paginate_array(@tasks,
+                                               total_count: @pagination_info[:total]).page(@pagination_info[:current_page]).per(@pagination_info[:per_page])
+    # rubocop:enable Metrics/LineLength
 
     respond_to do |format|
       format.html
@@ -73,8 +76,13 @@ class TasksController < ApplicationController
   end
 
   def task_period_date_range
-    date_from = params[:year_from] ? Date.new(params[:year_from].to_i, params[:month_from].to_i) : Date.new(1899, 12, 30)
-    date_to = params[:year_to] ? Date.new(params[:year_to].to_i, params[:month_to].to_i) : Date.today
+    date_from = if params[:year_from]
+                  Date.new(params[:year_from].to_i,
+                           params[:month_from].to_i)
+                else
+                  Date.new(1899, 12, 30)
+                end
+    date_to = params[:year_to] ? Date.new(params[:year_to].to_i, params[:month_to].to_i) : Time.zone.today
     [date_from, date_to]
   end
 

@@ -40,9 +40,9 @@ RSpec.describe PaginationHelper do
 
     it 'displays a message about the number of entries on display' do
       expect(helper.page_entries_info(short_list, short_meta,
-                                          entry_name: 'customer')).to eq 'Displaying <b>all 5</b> customers'
+                                      entry_name: 'customer')).to eq 'Displaying <b>all 5</b> customers'
       expect(helper.page_entries_info(long_list, long_meta,
-                                          entry_name: 'customer')).to include '<b>1&nbsp;</b>to<b>&nbsp;25</b> of'
+                                      entry_name: 'customer')).to include '<b>1&nbsp;</b>to<b>&nbsp;25</b> of'
     end
   end
 end
