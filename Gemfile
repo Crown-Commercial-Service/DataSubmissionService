@@ -61,7 +61,7 @@ gem 'rollbar'
 # Logging
 gem 'lograge', '>= 0.13.0'
 
-gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
+gem 'sprockets-rails', '~> 3.5', '>= 3.5.0'
 
 # To enable app maintenance mode
 gem 'rack-maintenance', '~> 3.0'
