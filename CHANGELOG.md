@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-106] - 2023-06-20
+
+- RMI-700: Speed up loading time for completed tasks page
+
 ## [release-105] - 2023-05-28
 
 - RMI-674: update cookies for content square
@@ -585,6 +589,7 @@
 
 Initial release
 
+[release-106]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-105...release-106
 [release-105]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-104...release-105
 [release-104]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-103...release-104
 [release-103]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-102...release-103
