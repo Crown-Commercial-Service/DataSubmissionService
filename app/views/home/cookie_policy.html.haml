@@ -73,11 +73,11 @@
             2 years
 
     %h2.govuk-heading-m
-      Measuring website usage (Glassbox)
+      Measuring website usage (Contentsquare)
     %p
-      We use Glassbox software to collect information about how you use CCS. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
+      We use Contentsquare software to collect information about how you use CCS. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
     %p
-      Glassbox stores information about:
+      Contentsquare stores information about:
     %ul{ :class => 'govuk-list govuk-list--bullet' }
       %li
         Browsing activity
@@ -88,40 +88,99 @@
       %li
         Scrolls
     %p
-      We don’t collect or store your personal information (e.g. your name or address) so this information can’t be used to identify who you are.
+      We don’t collect or store your personal information (for example, your name or address) so this information can’t be used to identify who you are.
     %p
-      We don’t allow Glassbox to use or share our analytics data.
+      We don’t allow Contentsquare to use or share our analytics data.
     %p
-      Glassbox sets the following cookies:
+      Contentsquare sets the following cookies:
     %table.govuk-table
       %thead.govuk-table__head
         %tr.govuk-table__row
           %th.govuk-table__header{ scope: 'col' } Name
-          %th.govuk-table__header{ scope: 'col' } Type
           %th.govuk-table__header{ scope: 'col' } Description
+          %th.govuk-table__header{ scope: 'col' } Duration
       %tbody.govuk-table__body
         %tr.govuk-table__row
           %td.govuk-table__cell
-            _cls_s
+            _cs_id
           %td.govuk-table__cell
-            Cookie (required)
+            Stores technical user data
           %td.govuk-table__cell
-            The session identifying cookie. It also indicates if the visitor is new or existing.
-            %ul{ :class => 'govuk-list govuk-list--bullet' }
-              %li
-                0: New
-              %li
-                1: Existing
+            13 months
         %tr.govuk-table__row
           %td.govuk-table__cell
-            _cls_v
+            _cs_s
           %td.govuk-table__cell
-            Cookie (required)
+            Stores Session Replay data
           %td.govuk-table__cell
-            The visitor identifying cookie.
+            30 minutes
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_c
+          %td.govuk-table__cell
+            Stores user consent on use of session data use within replays (not anonymized vs. full anonymized)
+          %td.govuk-table__cell
+            13 months
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_cvars
+          %td.govuk-table__cell
+            Stores the URL-encoded custom variables from the session
+          %td.govuk-table__cell
+            Session length
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_ex
+          %td.govuk-table__cell
+            When set, the user is excluded from tracking 
+          %td.govuk-table__cell
+            30 days
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_optout
+          %td.govuk-table__cell
+            When set, the user is opted-out from tracking 
+          %td.govuk-table__cell
+            13 months 
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_inc
+          %td.govuk-table__cell
+            Allows forcing tracking and collecting Session Replay data for a user session 
+          %td.govuk-table__cell
+            Immediately removed 
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_t
+          %td.govuk-table__cell
+            Checks if the browser supports cookies and sets flags 
+          %td.govuk-table__cell
+            Immediately removed 
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_same_site
+          %td.govuk-table__cell
+            Check if the browser supports the SameSite flag 
+          %td.govuk-table__cell
+            Immediately removed 
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_root-domain
+          %td.govuk-table__cell
+            Stores the URI-encoded main domain name of the site 
+          %td.govuk-table__cell
+            Immediately removed 
+        %tr.govuk-table__row
+          %td.govuk-table__cell
+            _cs_mk_ga
+          %td.govuk-table__cell
+            Ensures Google Analytics dimensions and eVars are set only once every 30 minutes 
+          %td.govuk-table__cell
+            30 minutes 
+
     %p
-      You can opt out of
-      = link_to ' Glassbox cookies', "https://tools.google.com/dlpage/gaoptout"
+      To be excluded from this monitoring,
+      = link_to ' click here.', cookie_settings_path
     
     %h2.govuk-heading-m
       Strictly necessary cookies

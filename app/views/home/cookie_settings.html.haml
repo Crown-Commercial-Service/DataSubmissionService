@@ -62,9 +62,9 @@
     %hr.govuk-section-break.govuk-section-break--s
 
       %p
-        We use Glassbox software to collect information about how you use CCS. We do this to help 
+        We use Contentsquare software to collect information about how you use CCS. We do this to help 
         make sure the site is meeting the needs of its users and to help us make improvements.
-        Glassbox stores information about:
+        Contentsquare stores information about:
       %ul{ :class => 'govuk-list govuk-list--bullet' }
         %li
           Browsing activity
@@ -77,15 +77,15 @@
       %p
         This information can’t be used to identify who you are.
       %p
-        We don’t allow Glassbox to use or share our analytics data.
+        We don’t allow Contentsquare to use or share our analytics data.
     
       .govuk-radios.govuk-radios--inline
         .govuk-radios__item
-          = radio_button_tag :glassbox_cookie_usage, true, glassbox_cookie_permission == true, class: 'govuk-radios__input'
-          = label_tag :glassbox_cookie_usage, 'On', for: :glassbox_cookie_usage_true, class: 'govuk-label govuk-radios__label'
+          = radio_button_tag :contentsquare_cookie_usage, true, contentsquare_cookie_permission == true, class: 'govuk-radios__input'
+          = label_tag :contentsquare_cookie_usage, 'On', for: :contentsquare_cookie_usage_true, class: 'govuk-label govuk-radios__label'
         .govuk-radios__item
-          = radio_button_tag :glassbox_cookie_usage, false, glassbox_cookie_permission != true, class: 'govuk-radios__input'
-          = label_tag :glassbox_cookie_usage, 'Off', for: :glassbox_cookie_usage_false, class: 'govuk-label govuk-radios__label'
+          = radio_button_tag :contentsquare_cookie_usage, false, contentsquare_cookie_permission != true, class: 'govuk-radios__input'
+          = label_tag :contentsquare_cookie_usage, 'Off', for: :contentsquare_cookie_usage_false, class: 'govuk-label govuk-radios__label'
 
     %hr.govuk-section-break.govuk-section-break--m
 
