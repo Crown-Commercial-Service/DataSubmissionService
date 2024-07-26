@@ -20,9 +20,12 @@ Rails.application.config.content_security_policy do |policy|
   # script-src, img-src, and connect-src settings required for Google Analytics:
   # https://developers.google.com/tag-manager/web/csp
   policy.script_src  :self, :unsafe_inline, '*.googletagmanager.com', 'https://www.google-analytics.com',
-                     'https://ssl.google-analytics.com', 'https://cdn2.gbqofs.com', 'https://report.crown-comm.gbqofs.com'
-  policy.img_src     :self, '*.google-analytics.com', '*.googletagmanager.com'
-  policy.connect_src :self, '*.google-analytics.com', '*.analytics.google.com', '*.googletagmanager.com', 'https://report.crown-comm.gbqofs.io'
+                     'https://ssl.google-analytics.com', 't.contentsquare.net', 'app.contentsquare.com'
+  policy.child_src   :blob
+  policy.worker_src  :blob
+  policy.img_src     :self, '*.google-analytics.com', '*.googletagmanager.com', '*.contentsquare.net'
+  policy.connect_src :self, '*.google-analytics.com', '*.analytics.google.com', '*.googletagmanager.com',
+                     '*.contentsquare.net'
 end
 
 # If you are using UJS then enable automatic nonce generation
