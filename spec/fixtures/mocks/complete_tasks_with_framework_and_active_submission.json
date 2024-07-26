@@ -162,6 +162,15 @@
       }
     }
   ],
+  "meta": {
+    "pagination": {
+        "total": 3,
+        "per_page": 25,
+        "offset_value": 0,
+        "current_page": 1,
+        "total_pages": 1
+    }
+  },
   "jsonapi": {
     "version": "1.0"
   }
