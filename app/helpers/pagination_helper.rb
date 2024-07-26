@@ -1,5 +1,5 @@
-module UrnHelper
-  def urn_page_entries_info(collection, metadata, entry_name: nil)
+module PaginationHelper
+  def page_entries_info(collection, metadata, entry_name: nil)
     entry_name = entry_name.pluralize(collection.size)
 
     if metadata[:total_pages] < 2

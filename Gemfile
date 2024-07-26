@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1', '>= 7.1.3.3'
+gem 'rails', '~> 7.1', '>= 7.1.3.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -61,7 +61,7 @@ gem 'rollbar'
 # Logging
 gem 'lograge', '>= 0.13.0'
 
-gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
+gem 'sprockets-rails', '~> 3.5', '>= 3.5.0'
 
 # To enable app maintenance mode
 gem 'rack-maintenance', '~> 3.0'
@@ -79,8 +79,8 @@ group :development, :test do
   gem 'factory_bot_rails', '>= 6.3.0'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 6.1.2'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', '>= 2.23.0', require: false
+  gem 'rubocop', '>= 1.61.0', require: false
+  gem 'rubocop-rails', '>= 2.24.0', require: false
 end
 
 group :development do
@@ -98,7 +98,7 @@ group :test do
   gem 'database_cleaner', '>= 2.0.2'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '~> 3.13.0'
+  gem 'webmock', '~> 3.14.0'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
