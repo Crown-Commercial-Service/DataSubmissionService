@@ -31,5 +31,5 @@
 
 
 %nav.pagination.ccs-pagination{"aria-label" => "Pagination", :role => "navigation"}
-  .ccs-pagination__summary= page_entries_info @paginated_tasks, entry_name: "task"
-  = paginate @paginated_tasks
+  .ccs-pagination__summary= page_entries_info @paginated_tasks, @pagination_info, entry_name: "task"
+  = paginate @paginated_tasks, remote: true
