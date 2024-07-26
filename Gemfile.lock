@@ -210,7 +210,7 @@ GEM
     irb (1.13.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.11.5)
+    jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.1)
@@ -507,7 +507,7 @@ DEPENDENCIES
   factory_bot_rails (>= 6.3.0)
   haml-rails (>= 2.1.0)
   httparty (>= 0.21.0)
-  jbuilder (~> 2.11, >= 2.11.5)
+  jbuilder (~> 2.12, >= 2.12.0)
   jquery-rails (>= 4.6.0)
   js_cookie_rails (~> 2.2, >= 2.2.0)
   jsonapi-consumer!
@@ -516,7 +516,7 @@ DEPENDENCIES
   listen (~> 3.5, >= 3.5.1)
   lograge (>= 0.13.0)
   mini_racer
-  nokogiri (>= 1.16.2)
+  nokogiri (>= 1.16.5)
   omniauth (>= 2.1.2)
   omniauth-auth0 (~> 2.1.0)
   omniauth-rails_csrf_protection (>= 1.0.2)
