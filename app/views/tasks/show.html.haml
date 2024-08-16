@@ -45,7 +45,7 @@
           %dt.govuk-summary-list__key
             Filename
           %dd.govuk-summary-list__value
-            = link_to(@file.filename, download_task_submission_path(@task, @submission)), data: {track: 'file_download'}
+            = link_to(@file.filename, download_task_submission_path(@task, @submission), data: {track: 'file_download'})
 
       - if @submission.invoice_details.present?
         .govuk-summary-list__row
