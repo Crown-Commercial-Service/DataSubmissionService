@@ -15,7 +15,7 @@
       %ul.govuk-list.govuk-list--bullet
         %li
           a completed
-          = link_to "template", template_path(id: @task), {'aria-label' => "Download template for #{@task.framework.short_name} #{@task.framework.name}"}
+          = link_to "template", template_path(id: @task), data: {track: 'file_download', 'aria-label' => "Download template for #{@task.framework.short_name} #{@task.framework.name}"}
           file for 
           = @task.framework.short_name
         %li
