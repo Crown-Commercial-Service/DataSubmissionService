@@ -18,7 +18,7 @@
       %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
       %ul.govuk-page-actions--actions
         %li.govuk-page-actions--action
-          = link_to 'Download template (excel document)', template_path(id: @task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
+          = link_to 'Download template (excel document)', template_path(id: @task), data: {track: 'file_download', 'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
 
 = render 'shared/task_signpost', task: @task
 
