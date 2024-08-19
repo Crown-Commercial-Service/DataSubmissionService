@@ -79,7 +79,6 @@ $(() => {
      
       uploadStartTime = Date.now();
 
-      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'document_upload',
         file_extension: fileExtension,
@@ -91,11 +90,11 @@ $(() => {
   });
 
   // Track the completion of the document upload
-  $('form').on('submit', function(event) {
+  $('#submission_upload').on('submit', function(event) {
     event.preventDefault();
 
     const fileInput = $('input[type="file"]')[0];
-    if (fileInput.files.length > 0) {
+    if (fileInput && fileInput.files.length > 0) {
       const file = fileInput.files[0];
       const fileName = file.name;
       const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
