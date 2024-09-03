@@ -79,7 +79,6 @@ $(() => {
      
       uploadStartTime = Date.now();
 
-      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'document_upload',
         file_extension: fileExtension,
@@ -91,11 +90,11 @@ $(() => {
   });
 
   // Track the completion of the document upload
-  $('form').on('submit', function(event) {
+  $('#submission_upload').on('submit', function(event) {
     event.preventDefault();
 
     const fileInput = $('input[type="file"]')[0];
-    if (fileInput.files.length > 0) {
+    if (fileInput && fileInput.files.length > 0) {
       const file = fileInput.files[0];
       const fileName = file.name;
       const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
@@ -113,6 +112,64 @@ $(() => {
     }
 
     this.submit();
+  });
+
+  // Track opening and closing of accordions
+  $('.govuk-accordion__section-button').on('click', function() {
+    const linkText = $(this).text().trim();
+    const isExpanded = $(this).attr('aria-expanded') === 'true';
+    const interactionType = isExpanded ? 'close' : 'open';
+
+    window.dataLayer.push({
+        event: 'accordion_use',
+        interaction_type: interactionType,
+        link_text: linkText
+    });
+  });
+
+  // Track use of checkbox filters
+  $('.govuk-checkboxes__input').on('click', function() {
+    const checkbox = $(this);
+    const label = checkbox.next('label').text().trim();
+    const interactionType = checkbox.is(':checked') ? 'select' : 'remove'
+
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: interactionType,
+        interaction_detail: label
+    });
+  });
+
+  // Track use of date filter
+  $('#month_from, #year_from, #month_to, #year_to').on('change', function() {
+    let month, year;
+
+    if ($(this).attr('id').includes('from')) {
+      month = $('#month_from').val();
+      year = $('#year_from').val();
+    } else if ($(this).attr('id').includes('to')) {
+      month = $('#month_to').val();
+      year = $('#year_to').val();
+    }
+
+    if (month && year) {
+      const interactionDetail = `${month}-${year}`;
+
+      window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'select',
+        interaction_detail: interactionDetail
+      });
+    }
+  });
+
+  // Track clearing of filters
+  $('.ccs-clear-filters').on('click', function() {
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'clear',
+        interaction_detail: 'Filter(s) cleared'
+    });
   });
 
   function formatFileSize(bytes) { 
