@@ -1,5 +1,14 @@
 # Change Log
 
+## [release-107] - 2023-08-19
+
+- RMI-706: doc upload and download gtm events
+- RMI-717: view search results gtm event
+- [Snyk] Upgrade nokogiri from 1.16.2 to 1.16.5
+- [Snyk] Upgrade rails from 7.1.3.2 to 7.1.3.3
+- [Snyk] Upgrade rails from 7.1.3.3 to 7.1.3.4
+- [Snyk] Upgrade rexml from 3.2.6 to 3.3.2
+
 ## [release-106] - 2023-06-20
 
 - RMI-700: Speed up loading time for completed tasks page
@@ -589,6 +598,7 @@
 
 Initial release
 
+[release-107]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-106...release-107
 [release-106]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-105...release-106
 [release-105]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-104...release-105
 [release-104]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-103...release-104
