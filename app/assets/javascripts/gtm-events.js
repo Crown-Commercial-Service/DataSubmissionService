@@ -114,6 +114,64 @@ $(() => {
     this.submit();
   });
 
+  // Track opening and closing of accordions
+  $('.govuk-accordion__section-button').on('click', function() {
+    const linkText = $(this).text().trim();
+    const isExpanded = $(this).attr('aria-expanded') === 'true';
+    const interactionType = isExpanded ? 'close' : 'open';
+
+    window.dataLayer.push({
+        event: 'accordion_use',
+        interaction_type: interactionType,
+        link_text: linkText
+    });
+  });
+
+  // Track use of checkbox filters
+  $('.govuk-checkboxes__input').on('click', function() {
+    const checkbox = $(this);
+    const label = checkbox.next('label').text().trim();
+    const interactionType = checkbox.is(':checked') ? 'select' : 'remove'
+
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: interactionType,
+        interaction_detail: label
+    });
+  });
+
+  // Track use of date filter
+  $('#month_from, #year_from, #month_to, #year_to').on('change', function() {
+    let month, year;
+
+    if ($(this).attr('id').includes('from')) {
+      month = $('#month_from').val();
+      year = $('#year_from').val();
+    } else if ($(this).attr('id').includes('to')) {
+      month = $('#month_to').val();
+      year = $('#year_to').val();
+    }
+
+    if (month && year) {
+      const interactionDetail = `${month}-${year}`;
+
+      window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'select',
+        interaction_detail: interactionDetail
+      });
+    }
+  });
+
+  // Track clearing of filters
+  $('.ccs-clear-filters').on('click', function() {
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'clear',
+        interaction_detail: 'Filter(s) cleared'
+    });
+  });
+
   function formatFileSize(bytes) { 
     if (bytes < 1024) return bytes + ' Bytes'; 
     else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + ' KB'; 
