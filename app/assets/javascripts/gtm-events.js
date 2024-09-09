@@ -172,6 +172,42 @@ $(() => {
     });
   });
 
+  // Track call to action button clicks
+  $('.govuk-button').on('click', function() {
+    const linkUrl = $(this).attr('href') || window.location.href;
+    let linkText;
+
+    if ($(this).is('input')) {
+      linkText = $(this).val();
+    } else {
+      linkText = $(this).text().trim();
+    }
+
+    window.dataLayer.push({
+      event:        'cta_button_click',
+      link_text:    linkText,
+      link_url:     linkUrl
+    });
+  });
+
+  // Track navigation link clicks
+  $('#navigation a').on('click', function() {
+    const linkText = $(this).text().trim();
+
+    window.dataLayer.push({
+      event:        'tab_navigation',
+      link_text:    linkText
+    });
+  });
+
+  // track login button clicks
+  $('#sign-in').on('click', function() {
+    window.dataLayer.push({
+      event: 'login',
+      method: 'auth0'
+    });
+  });
+
   function formatFileSize(bytes) { 
     if (bytes < 1024) return bytes + ' Bytes'; 
     else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + ' KB'; 
