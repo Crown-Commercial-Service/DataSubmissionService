@@ -1,19 +1,33 @@
 $(() => {
-    const $searchInput = $('#search');
-    const $searchButton = $('#search-submit');
+  const userId = $('body').data('session-id');
+  const pageLocation = document.location.href;
+  const [navigation] = performance.getEntriesByType('navigation');
+  const isDynamic = navigation && navigation.type === 'reload' ? false : true;
 
-    if ($searchInput.length) {
-        $searchButton.on('click', function() {
-            const searchTerm = $searchInput.val().trim();
-            if (searchTerm.length > 0) {
-                window.dataLayer.push({
-                    event: 'view_search_results',
-                    search_term: searchTerm,
-                    interaction_type: 'Customer URNs'
-                });
-            }
-        });
+  window.dataLayer.push({
+    event: 'page_view',
+    user_id: userId,
+    special_page_params: {
+      page_location: pageLocation,
+      dynamic: isDynamic
     }
+  });
+
+  const $searchInput = $('#search');
+  const $searchButton = $('#search-submit');
+
+  if ($searchInput.length) {
+      $searchButton.on('click', function() {
+          const searchTerm = $searchInput.val().trim();
+          if (searchTerm.length > 0) {
+              window.dataLayer.push({
+                  event: 'view_search_results',
+                  search_term: searchTerm,
+                  interaction_type: 'Customer URNs'
+              });
+          }
+      });
+  }
 
   // Track file downloads
   $('a[data-track="file_download"]').on('click', function(event) {
