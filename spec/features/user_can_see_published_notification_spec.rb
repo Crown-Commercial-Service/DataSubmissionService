@@ -11,6 +11,7 @@ RSpec.feature 'User can see published notification' do
 
     click_on 'sign-in'
 
+    expect(page).to have_content 'Oh hello'
     expect(page).to have_content 'Testy McTestface'
   end
 end
