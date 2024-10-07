@@ -1,5 +1,13 @@
 # Change Log
 
+## [release-108] - 2023-10-07
+
+- RMI-707: Implement accordion_use and search_filter gtm events
+- RMI-709: Implement page_view gtm event
+- RMI-718: Implement cta_button_click, tab_navigation and login gtm events
+- NRMI-28: Change notification banner to details component
+- NRMI-75: Fix docker build
+
 ## [release-107] - 2023-08-19
 
 - RMI-706: doc upload and download gtm events
@@ -598,6 +606,7 @@
 
 Initial release
 
+[release-108]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-107...release-108
 [release-107]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-106...release-107
 [release-106]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-105...release-106
 [release-105]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-104...release-105
