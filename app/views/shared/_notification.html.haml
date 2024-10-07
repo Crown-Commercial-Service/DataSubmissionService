@@ -1,8 +1,8 @@
 .grid-row
   .column-full
-    .govuk-notification-banner{"aria-labelledby" => "govuk-notification-banner-title", "data-module" => "govuk-notification-banner", role: "region"}
-      .govuk-notification-banner__header
-        %h2#govuk-notification-banner-title.govuk-notification-banner__title
-          Important
-      .govuk-notification-banner__content
+    %details#notification.govuk-details{ data: { notification_id: @notification.id }, open: true }
+      %summary.govuk-details__summary.govuk-heading-m
+        %span.govuk-details__summary-text
+          = @notification.summary.html_safe
+      .govuk-details__text
         = @notification.notification_message.html_safe

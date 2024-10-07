@@ -1,19 +1,33 @@
 $(() => {
-    const $searchInput = $('#search');
-    const $searchButton = $('#search-submit');
+  const userId = $('body').data('session-id');
+  const pageLocation = document.location.href;
+  const [navigation] = performance.getEntriesByType('navigation');
+  const isDynamic = navigation && navigation.type === 'reload' ? false : true;
 
-    if ($searchInput.length) {
-        $searchButton.on('click', function() {
-            const searchTerm = $searchInput.val().trim();
-            if (searchTerm.length > 0) {
-                window.dataLayer.push({
-                    event: 'view_search_results',
-                    search_term: searchTerm,
-                    interaction_type: 'Customer URNs'
-                });
-            }
-        });
+  window.dataLayer.push({
+    event: 'page_view',
+    user_id: userId,
+    special_page_params: {
+      page_location: pageLocation,
+      dynamic: isDynamic
     }
+  });
+
+  const $searchInput = $('#search');
+  const $searchButton = $('#search-submit');
+
+  if ($searchInput.length) {
+      $searchButton.on('click', function() {
+          const searchTerm = $searchInput.val().trim();
+          if (searchTerm.length > 0) {
+              window.dataLayer.push({
+                  event: 'view_search_results',
+                  search_term: searchTerm,
+                  interaction_type: 'Customer URNs'
+              });
+          }
+      });
+  }
 
   // Track file downloads
   $('a[data-track="file_download"]').on('click', function(event) {
@@ -112,6 +126,100 @@ $(() => {
     }
 
     this.submit();
+  });
+
+  // Track opening and closing of accordions
+  $('.govuk-accordion__section-button').on('click', function() {
+    const linkText = $(this).text().trim();
+    const isExpanded = $(this).attr('aria-expanded') === 'true';
+    const interactionType = isExpanded ? 'close' : 'open';
+
+    window.dataLayer.push({
+        event: 'accordion_use',
+        interaction_type: interactionType,
+        link_text: linkText
+    });
+  });
+
+  // Track use of checkbox filters
+  $('.govuk-checkboxes__input').on('click', function() {
+    const checkbox = $(this);
+    const label = checkbox.next('label').text().trim();
+    const interactionType = checkbox.is(':checked') ? 'select' : 'remove'
+
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: interactionType,
+        interaction_detail: label
+    });
+  });
+
+  // Track use of date filter
+  $('#month_from, #year_from, #month_to, #year_to').on('change', function() {
+    let month, year;
+
+    if ($(this).attr('id').includes('from')) {
+      month = $('#month_from').val();
+      year = $('#year_from').val();
+    } else if ($(this).attr('id').includes('to')) {
+      month = $('#month_to').val();
+      year = $('#year_to').val();
+    }
+
+    if (month && year) {
+      const interactionDetail = `${month}-${year}`;
+
+      window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'select',
+        interaction_detail: interactionDetail
+      });
+    }
+  });
+
+  // Track clearing of filters
+  $('.ccs-clear-filters').on('click', function() {
+    window.dataLayer.push({
+        event: 'search_filter',
+        interaction_type: 'clear',
+        interaction_detail: 'Filter(s) cleared'
+    });
+  });
+
+  // Track call to action button clicks
+  $('.govuk-button').on('click', function() {
+    const linkUrl = $(this).attr('href') || window.location.href;
+    let linkText;
+
+    if ($(this).is('input')) {
+      linkText = $(this).val();
+    } else {
+      linkText = $(this).text().trim();
+    }
+
+    window.dataLayer.push({
+      event:        'cta_button_click',
+      link_text:    linkText,
+      link_url:     linkUrl
+    });
+  });
+
+  // Track navigation link clicks
+  $('#navigation a').on('click', function() {
+    const linkText = $(this).text().trim();
+
+    window.dataLayer.push({
+      event:        'tab_navigation',
+      link_text:    linkText
+    });
+  });
+
+  // track login button clicks
+  $('#sign-in').on('click', function() {
+    window.dataLayer.push({
+      event: 'login',
+      method: 'auth0'
+    });
   });
 
   function formatFileSize(bytes) { 
