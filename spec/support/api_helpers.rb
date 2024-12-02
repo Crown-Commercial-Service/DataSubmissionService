@@ -32,6 +32,10 @@ module ApiHelpers
     '7a50a178-3fb8-4c0a-9f2c-8841812448d1'
   end
 
+  def mock_release_note_id
+    'fbf94677-8f2c-44b9-8546-e8e8dcc576de'
+  end
+
   def hash_including_correction
     {
       body: {
@@ -400,6 +404,22 @@ module ApiHelpers
       .to_return(
         headers: json_headers,
         body: json_fixture_file('notification.json')
+      )
+  end
+
+  def mock_release_notes_endpoint!
+    stub_request(:get, api_url('release_notes'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('release_notes.json')
+      )
+  end
+
+  def mock_release_note_endpoint!
+    stub_request(:get, api_url("release_notes/#{mock_release_note_id}"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('release_note.json')
       )
   end
 
