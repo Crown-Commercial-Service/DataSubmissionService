@@ -1,0 +1,20 @@
+- page_title 'Release notes'
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      Release notes
+
+.govuk-grid-row
+  - if @release_notes.any?
+    .govuk-grid-column-one-third
+      %ul.govuk-list
+        - @release_notes.each do |release_note|
+          %li
+            = link_to release_note.header, release_notes_path(id: release_note.id), remote: true
+    .govuk-grid-column-two-thirds
+      .results{id: 'release-note-content'}= render partial: 'release_note', locals: { release_note: @release_note }
+  - else
+    .govuk-grid-column-full
+      %p
+        No release notes currently.
