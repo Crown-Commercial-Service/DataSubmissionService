@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-109] - 2024-12-09
+
+- NRMI-78: release notes feature
+
 ## [release-108] - 2023-10-07
 
 - RMI-707: Implement accordion_use and search_filter gtm events
@@ -606,6 +610,7 @@
 
 Initial release
 
+[release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
 [release-108]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-107...release-108
 [release-107]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-106...release-107
 [release-106]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-105...release-106
