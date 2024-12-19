@@ -6,6 +6,7 @@ module API
 
     custom_endpoint :no_business, on: :member, request_method: :post
     custom_endpoint :cancel_correction, on: :member, request_method: :patch
+    custom_endpoint :index_by_supplier, on: :collection, request_method: :get
 
     def complete?
       status == 'completed'

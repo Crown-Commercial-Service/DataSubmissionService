@@ -63,6 +63,14 @@ class TasksController < ApplicationController
     )
   end
 
+  def bulk_new
+    @suppliers_and_tasks = API::Task.index_by_supplier
+  end
+
+  def bulk_confirm; end
+
+  def bulk_create; end
+
   private
 
   def load_frameworks

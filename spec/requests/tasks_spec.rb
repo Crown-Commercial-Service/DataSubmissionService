@@ -109,6 +109,24 @@ RSpec.describe 'the tasks list' do
     end
   end
 
+  context 'when viewing select tasks for bulk no business journey' do
+    before do
+      mock_tasks_bulk_new_endpoint!
+      mock_user_with_multiple_suppliers_endpoint!
+      mock_notifications_endpoint!
+      stub_signed_in_user
+      get bulk_new_tasks_path
+    end
+
+    it 'shows supplier names' do
+      expect(response.body).to include 'Bandersnatch'
+    end
+
+    it 'shows unstarted tasks with framework name and due period' do
+      expect(response.body).to include 'Multifunctional Devices, Managed Print and Content (RM3781) for November 2024'
+    end
+  end
+
   context 'when viewing task history' do
     before do
       mock_complete_tasks_endpoint!
