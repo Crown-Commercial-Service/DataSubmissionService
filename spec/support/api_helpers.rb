@@ -423,6 +423,14 @@ module ApiHelpers
       )
   end
 
+  def mock_tasks_bulk_new_endpoint!
+    stub_request(:get, api_url('tasks/index_by_supplier'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('tasks_index_by_supplier.json')
+      )
+  end
+
   private
 
   def json_headers

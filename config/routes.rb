@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :tasks, only: %i[index show] do
     collection do
       get :history
+      get :bulk_new
+      post :bulk_confirm
+      post :bulk_create
     end
     member do
       get :correct
