@@ -67,11 +67,9 @@ class TasksController < ApplicationController
     @suppliers_and_tasks = API::Task.index_by_supplier
   end
 
-  def bulk_confirm
-  end
+  def bulk_confirm; end
 
-  def bulk_create
-  end
+  def bulk_create; end
 
   private
 
