@@ -2,5 +2,25 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    %h1.govuk-heading-xl
-      Coming soon to an RMI near you.
+    = link_to 'Back', bulk_new_tasks_path, { class: 'govuk-back-link', title: 'Back to select tasks' }
+
+    %h1.govuk-heading-xl{class: 'govuk-!-margin-bottom-3'}
+      Report no business
+    %p{class: 'govuk-!-margin-bottom-3'}
+      By reporting no business you are confirming that you have no transactions to report for these tasks.
+
+    = form_tag(bulk_create_tasks_path, method: :post, enforce_utf8: false) do
+      - @selected_tasks.each do |supplier|
+        - if current_user.multiple_suppliers?
+          %h2.govuk-heading-m{class: 'govuk-!-margin-top-7'}
+            = supplier.name
+        - supplier.tasks.each do |task|
+          %p 
+            = "#{task.framework.name} (#{task.framework.short_name}) for #{task.reporting_period}"
+            = hidden_field_tag 'task_ids[]', task['id']
+      %p{class: 'govuk-!-margin-top-7'}
+        = submit_tag 'Confirm no business', data: { 'prevent-double-click': true }, class: 'govuk-button'
+        = link_to 'Cancel and start again', bulk_new_tasks_path, class: 'govuk-!-margin-left-2 govuk-!-font-size-19'
+      
+
+      
