@@ -5,7 +5,7 @@
     %h1.govuk-heading-xl
       Report no business for 2 or more tasks
 
-    = form_tag(bulk_confirm_tasks_path, method: :post, enforce_utf8: false) do
+    = form_tag(bulk_confirm_submissions_path, method: :post, enforce_utf8: false) do
       .govuk-form-group
         %fieldset.govuk-fieldset{"aria-describedby" => "unstarted-tasks-hint"}
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l

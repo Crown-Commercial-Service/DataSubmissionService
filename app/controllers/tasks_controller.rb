@@ -63,26 +63,6 @@ class TasksController < ApplicationController
     )
   end
 
-  def bulk_new
-    @suppliers_and_tasks = API::Task.index_by_supplier
-  end
-
-  def bulk_confirm
-    task_ids = params[:task_ids]
-
-    return redirect_to bulk_new_tasks_path, alert: 'No tasks selected for confirmation.' if task_ids.blank?
-
-    @selected_tasks = API::Task.index_by_supplier(task_ids: task_ids)
-  end
-
-  def bulk_create
-    task_ids = params[:task_ids]
-
-    @completed_tasks = API::Task.bulk_no_business(task_ids: task_ids)
-
-    render :bulk_completed
-  end
-
   private
 
   def load_frameworks
