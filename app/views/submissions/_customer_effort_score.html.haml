@@ -1,7 +1,7 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     .govuk-form-group{id: 'feedback-form'}
-      = form_tag(customer_effort_score_task_submission_path, method: :post) do
+      = form_tag(customer_effort_score_submissions_path, method: :post) do
         %fieldset.govuk-fieldset
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
             %h2.govuk-heading-m
@@ -46,5 +46,13 @@
           %textarea#with-hint.govuk-textarea.govuk-js-character-count{"aria-describedby" => "more-detail-hint", name: "more_detail", rows: "5"} #{@score.comments if @score}
           #with-hint-info.govuk-hint.govuk-character-count__message.govuk-character-count__status
             You can enter up to 2000 characters
+
+          - if params[:task_ids].present?
+            - params[:task_ids].each do |task_id|
+              = hidden_field_tag 'task_ids[]', task_id
+          - if params[:task_id].present?
+            = hidden_field_tag :task_id, params[:task_id]
+          - if params[:id].present?
+            = hidden_field_tag :id, params[:id]
 
         = submit_tag 'Send feedback', data: { 'prevent-double-click': true }, class: 'govuk-button'

@@ -1,6 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :validate_file_presence_and_content_type, only: [:create]
-  before_action :set_tasks, only: %i[show customer_effort_score]
+  before_action :set_tasks, only: %i[show bulk_create customer_effort_score]
+  before_action :initialize_completed_view_variables, only: [:customer_effort_score]
 
   def new
     @task = API::Task.includes(:framework, :active_submission).find(params[:task_id]).first
@@ -29,15 +30,32 @@ class SubmissionsController < ApplicationController
     send_data submission_file.body.read, filename: submission.filename
   end
 
+  def bulk_new
+    @suppliers_and_tasks = API::Task.index_by_supplier(status: 'unstarted')
+  end
+
+  def bulk_confirm
+    task_ids = params[:task_ids]
+
+    return redirect_to bulk_new_submissions_path, alert: 'No tasks selected for confirmation.' if task_ids.blank?
+
+    @selected_tasks = API::Task.index_by_supplier(status: 'unstarted', task_ids: task_ids)
+  end
+
+  def bulk_create
+    task_ids = params[:task_ids]
+
+    @completed_tasks = API::Task.bulk_no_business(task_ids: task_ids)
+
+    render :completed
+  end
+
   def customer_effort_score
     @score = API::CustomerEffortScore.create(
       rating: params[:customer_satisfaction],
       comments: params[:more_detail],
       user_id: current_user.id
     )
-
-    @task = API::Task.includes(:framework).find(params[:task_id]).first
-    @submission = API::Submission.includes(:files).find(params[:id]).first
 
     if @score.errors.any?
       flash.now[:alert] = 'Feedback not submitted, please see below.'
@@ -48,6 +66,12 @@ class SubmissionsController < ApplicationController
   end
 
   private
+
+  def initialize_completed_view_variables
+    @completed_tasks = API::Task.index_by_supplier(task_ids: params[:task_ids]) if params[:task_ids]
+    @task = API::Task.includes(:framework).find(params[:task_id]).first if params[:task_id]
+    @submission = API::Submission.includes(:files).find(params[:id]).first if params[:id]
+  end
 
   def upload_file_submission(task, upload)
     submission = API::Submission.create(

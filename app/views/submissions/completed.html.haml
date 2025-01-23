@@ -1,4 +1,6 @@
-- if @submission.report_no_business?
+- if @completed_tasks
+  - page_title "Tasks complete: Report no business for selected tasks"
+- elsif @submission && @submission.report_no_business?
   - page_title "Task complete: Report no business for #{@task.reporting_period} on #{@task.framework.short_name} "
 - else
   - page_title "Task complete: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
@@ -7,42 +9,58 @@
   .govuk-grid-column-full
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
-        - if @tasks.any?
+        - if @completed_tasks && @tasks.any?
+          Tasks complete
+        - elsif @tasks.any?
           Task complete
         - else
           All tasks complete
 
       = render partial: 'shared/this_is_a_correction' if correction?
 
-      .govuk-panel__body
-        - if @submission.report_no_business?
-          Thank you for reporting no business for
-        - else
-          Thank you for reporting your management information for
-        = @task.reporting_period
+      - if @task
+        .govuk-panel__body
+          - if @submission.report_no_business?
+            Thank you for reporting no business for
+          - else
+            Thank you for reporting your management information for
+          = @task.reporting_period
 
 .govuk-grid-row
   .govuk-grid-column-three-quarters
     %dl.govuk-summary-list.govuk-summary-list--no-border
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Agreement
-        %dd.govuk-summary-list__value
-          = @task.framework.short_name
-          = @task.framework.name
-
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Month
-        %dd.govuk-summary-list__value
-          = @task.reporting_period
-
-      - if current_user.multiple_suppliers?
+      - if @completed_tasks
         .govuk-summary-list__row
           %dt.govuk-summary-list__key
-            Supplier
+            Tasks
           %dd.govuk-summary-list__value
-            = @task.supplier_name
+            - @completed_tasks.each do |supplier|
+              - if current_user.multiple_suppliers?
+                %p{class: 'govuk-!-font-weight-bold'}
+                  = supplier.name.html_safe
+              - supplier.tasks.each do |task|
+                %p 
+                  = "#{task.framework.name} (#{task.framework.short_name}) for #{task.reporting_period}".html_safe
+      - else
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Agreement
+          %dd.govuk-summary-list__value
+            = @task.framework.short_name
+            = @task.framework.name
+
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Month
+          %dd.govuk-summary-list__value
+            = @task.reporting_period
+
+        - if current_user.multiple_suppliers?
+          .govuk-summary-list__row
+            %dt.govuk-summary-list__key
+              Supplier
+            %dd.govuk-summary-list__value
+              = @task.supplier_name
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
@@ -50,9 +68,16 @@
       What happens next
     %p
       We will contact you if we need more information about what you have told us.
-    %p
-      If you’ve made a mistake or need to amend the management information 
-      you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
+    - if @completed_tasks
+      %p
+        If you’ve made a mistake or need to amend the management information 
+        you’ve supplied, email 
+        = mail_to(support_email_address)
+        for help.
+    - else
+      %p
+        If you’ve made a mistake or need to amend the management information 
+        you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
     - if @tasks.any?
       %p
         = link_to 'Complete another task', tasks_path,  {class: 'govuk-button'}
