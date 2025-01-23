@@ -17,7 +17,7 @@ RSpec.feature 'Bulk reporting no business' do
     visit '/'
     click_button 'sign-in'
 
-    visit '/tasks/bulk_new'
+    visit '/submissions/bulk_new'
 
     expect(page).to have_content 'Multifunctional Devices, Managed Print and Content (RM3781) for November 2024'
     expect(page).to have_content 'Multifunctional Devices, Managed Print and Content (RM3781) for October 2024'

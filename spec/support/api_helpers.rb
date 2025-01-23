@@ -424,7 +424,7 @@ module ApiHelpers
   end
 
   def mock_tasks_bulk_new_endpoint!
-    stub_request(:get, api_url('tasks/index_by_supplier'))
+    stub_request(:get, api_url('tasks/index_by_supplier?status=unstarted'))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('tasks_index_by_supplier.json')
@@ -432,7 +432,7 @@ module ApiHelpers
   end
 
   def mock_tasks_bulk_confirm_endpoint!
-    stub_request(:get, api_url('tasks/index_by_supplier?task_ids%5B%5D=aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa&task_ids%5B%5D=af669abb-4674-43ba-88a6-a938c11e86a5'))
+    stub_request(:get, api_url('tasks/index_by_supplier?status=unstarted&task_ids%5B%5D=aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa&task_ids%5B%5D=af669abb-4674-43ba-88a6-a938c11e86a5'))
       .to_return(
         headers: json_headers,
         body: json_fixture_file('tasks_index_by_supplier_two_selected.json')

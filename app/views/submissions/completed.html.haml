@@ -1,6 +1,6 @@
-- if @completed_tasks.any?
+- if @completed_tasks
   - page_title "Tasks complete: Report no business for selected tasks"
-- elsif @submission.report_no_business?
+- elsif @submission && @submission.report_no_business?
   - page_title "Task complete: Report no business for #{@task.reporting_period} on #{@task.framework.short_name} "
 - else
   - page_title "Task complete: Report management information for #{@task.reporting_period} on #{@task.framework.short_name}"
@@ -9,7 +9,7 @@
   .govuk-grid-column-full
     .govuk-panel.govuk-panel--confirmation
       %h1.govuk-panel__title
-        - if @completed_tasks.any? && @tasks.any?
+        - if @completed_tasks && @tasks.any?
           Tasks complete
         - elsif @tasks.any?
           Task complete
@@ -29,7 +29,7 @@
 .govuk-grid-row
   .govuk-grid-column-three-quarters
     %dl.govuk-summary-list.govuk-summary-list--no-border
-      - if @completed_tasks.any?
+      - if @completed_tasks
         .govuk-summary-list__row
           %dt.govuk-summary-list__key
             Tasks
@@ -68,7 +68,7 @@
       What happens next
     %p
       We will contact you if we need more information about what you have told us.
-    - if @completed_tasks.any?
+    - if @completed_tasks
       %p
         If you’ve made a mistake or need to amend the management information 
         you’ve supplied, email 

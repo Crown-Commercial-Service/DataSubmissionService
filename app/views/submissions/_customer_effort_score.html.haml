@@ -47,4 +47,12 @@
           #with-hint-info.govuk-hint.govuk-character-count__message.govuk-character-count__status
             You can enter up to 2000 characters
 
+          - if params[:task_ids].present?
+            - params[:task_ids].each do |task_id|
+              = hidden_field_tag 'task_ids[]', task_id
+          - if params[:task_id].present?
+            = hidden_field_tag :task_id, params[:task_id]
+          - if params[:id].present?
+            = hidden_field_tag :id, params[:id]
+
         = submit_tag 'Send feedback', data: { 'prevent-double-click': true }, class: 'govuk-button'

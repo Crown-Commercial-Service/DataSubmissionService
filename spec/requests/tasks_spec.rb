@@ -116,7 +116,7 @@ RSpec.describe 'the tasks list' do
       mock_user_with_multiple_suppliers_endpoint!
       mock_notifications_endpoint!
       stub_signed_in_user
-      get bulk_new_tasks_path
+      get bulk_new_submissions_path
     end
 
     it 'shows supplier names' do
@@ -128,7 +128,7 @@ RSpec.describe 'the tasks list' do
     end
 
     it 'asks the user to confirm they want to report no business on selected tasks' do
-      post bulk_confirm_tasks_path,
+      post bulk_confirm_submissions_path,
            params: { task_ids: ['af669abb-4674-43ba-88a6-a938c11e86a5', 'aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa'] }
 
       expect(response).to be_successful
@@ -136,9 +136,9 @@ RSpec.describe 'the tasks list' do
     end
 
     it 'redirects if no task IDs are provided' do
-      post bulk_confirm_tasks_path
+      post bulk_confirm_submissions_path
 
-      expect(response).to redirect_to(bulk_new_tasks_path)
+      expect(response).to redirect_to(bulk_new_submissions_path)
       expect(flash[:alert]).to eql('No tasks selected for confirmation.')
     end
   end

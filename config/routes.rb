@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   resources :tasks, only: %i[index show] do
     collection do
       get :history
-      # get :bulk_new
-      # post :bulk_confirm
-      # post :bulk_create
     end
     member do
       get :correct
@@ -19,7 +16,6 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
-        # post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
@@ -28,7 +24,6 @@ Rails.application.routes.draw do
     resource :no_business, only: %i[new create]
   end
 
-  # resource :customer_effort_score, only: %i[create]
   resources :submissions, only: [] do
     collection do
       get :bulk_new
