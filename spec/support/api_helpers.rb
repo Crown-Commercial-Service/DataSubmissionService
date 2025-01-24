@@ -254,12 +254,12 @@ module ApiHelpers
   end
 
   def mock_unstarted_task_endpoint!
-    stub_request(:get, api_url("tasks?filter%5Bstatus%5D=unstarted"))
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
       .to_return(headers: json_headers, body: json_fixture_file('unstarted_task.json'))
   end
 
   def mock_unstarted_tasks_endpoint!
-    stub_request(:get, api_url("tasks?filter%5Bstatus%5D=unstarted"))
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
       .to_return(headers: json_headers, body: json_fixture_file('unstarted_tasks.json'))
   end
 
