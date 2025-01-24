@@ -6,6 +6,7 @@ RSpec.feature 'Submitting no business' do
 
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
+    mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_task_with_framework_and_active_submission_endpoint!

@@ -4,11 +4,11 @@ RSpec.feature 'Bulk reporting no business' do
   before do
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
+    mock_unstarted_tasks_endpoint!
+    mock_incomplete_tasks_endpoint!
     mock_tasks_bulk_new_endpoint!
     mock_tasks_bulk_confirm_endpoint!
     mock_task_bulk_no_business_endpoint!
-    mock_incomplete_tasks_endpoint!
-    mock_user_with_multiple_suppliers_endpoint!
   end
 
   scenario 'user completes multiple tasks reporting "no business"' do

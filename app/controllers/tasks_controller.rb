@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :load_frameworks, :load_date_filter_values, only: [:history]
 
   def index
+    @unstarted_tasks = API::Task.where(status: 'unstarted').all
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
              .where(status: ['unstarted', 'in_progress', 'correcting'])

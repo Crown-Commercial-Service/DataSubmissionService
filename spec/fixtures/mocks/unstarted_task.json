@@ -1,0 +1,55 @@
+{
+    "data": [
+        {
+            "id": "6d9fb183-7bc5-4c64-ab35-cb14e2a8815e",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "d1b1630c-0198-4998-bece-4c0420fa962b",
+                "supplier_id": "bfac734e-884f-48e3-a0cf-e4b269892d6d",
+                "supplier_name": "Groggs",
+                "description": null,
+                "due_on": "2024-04-08",
+                "period_year": 2024,
+                "period_month": 3,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 1,
+            "per_page": 25,
+            "offset_value": 0,
+            "current_page": 1,
+            "total_pages": 1
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
