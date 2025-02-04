@@ -46,6 +46,7 @@ class SubmissionsController < ApplicationController
     task_ids = params[:task_ids]
 
     @completed_tasks = API::Task.bulk_no_business(task_ids: task_ids)
+    @tasks = API::Task.where(status: ['unstarted', 'in_progress', 'correcting']).all
 
     render :completed
   end

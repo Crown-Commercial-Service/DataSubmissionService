@@ -9,6 +9,7 @@ RSpec.describe 'the tasks list' do
 
   context 'when signed-in as a user with tasks' do
     before do
+      mock_unstarted_tasks_endpoint!
       mock_incomplete_tasks_endpoint!
       mock_user_endpoint!
       mock_notifications_endpoint!
@@ -106,6 +107,36 @@ RSpec.describe 'the tasks list' do
 
     it 'tells the user they have no tasks' do
       expect(response.body).to include 'All your tasks are complete.'
+    end
+  end
+
+  context 'when the user has one unstarted task' do
+    before do
+      mock_unstarted_task_endpoint!
+      mock_notifications_endpoint!
+      mock_incomplete_tasks_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
+      get tasks_path
+    end
+
+    it 'doesn\'t show the user the bulk no business button' do
+      expect(response.body).not_to include 'Report no business for <br/>2 or more tasks'
+    end
+  end
+
+  context 'when the user has multiple unstarted task' do
+    before do
+      mock_unstarted_tasks_endpoint!
+      mock_notifications_endpoint!
+      mock_incomplete_tasks_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
+      get tasks_path
+    end
+
+    it 'shows the user the bulk no business button' do
+      expect(response.body).to include 'Report no business for <br/>2 or more tasks'
     end
   end
 

@@ -18,6 +18,10 @@
 
       = render partial: 'shared/this_is_a_correction' if correction?
 
+      - if @completed_tasks
+        .govuk-panel__body
+          Thank you for reporting no business
+
       - if @task
         .govuk-panel__body
           - if @submission.report_no_business?

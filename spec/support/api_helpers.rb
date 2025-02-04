@@ -45,6 +45,7 @@ module ApiHelpers
   end
 
   def mock_upload_task_submission_flow_endpoints!
+    mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_task_with_framework_and_active_submission_endpoint!
@@ -250,6 +251,16 @@ module ApiHelpers
         headers: json_headers,
         body: json_fixture_file('incomplete_tasks_with_framework_and_active_submission.json')
       )
+  end
+
+  def mock_unstarted_task_endpoint!
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
+      .to_return(headers: json_headers, body: json_fixture_file('unstarted_task.json'))
+  end
+
+  def mock_unstarted_tasks_endpoint!
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
+      .to_return(headers: json_headers, body: json_fixture_file('unstarted_tasks.json'))
   end
 
   def mock_complete_tasks_endpoint!
