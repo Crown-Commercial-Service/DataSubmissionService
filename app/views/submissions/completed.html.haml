@@ -40,7 +40,7 @@
           %dd.govuk-summary-list__value
             - @completed_tasks.each do |supplier|
               - if current_user.multiple_suppliers?
-                %p{class: 'govuk-!-font-weight-bold'}
+                %p{class: 'govuk-!-font-weight-bold govuk-!-margin-top-7'}
                   = supplier.name.html_safe
               - supplier.tasks.each do |task|
                 %p 

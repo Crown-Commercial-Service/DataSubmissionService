@@ -18,7 +18,7 @@
           .govuk-checkboxes{"data-module" => "govuk-checkboxes"}
             - @suppliers_and_tasks.each do |supplier|
               - if current_user.multiple_suppliers?
-                %h2.govuk-heading-m
+                %h2.govuk-heading-m{ class: 'govuk-!-margin-top-7' }
                   = supplier.name
               - supplier.tasks.each do |task|
                 .govuk-checkboxes__item
