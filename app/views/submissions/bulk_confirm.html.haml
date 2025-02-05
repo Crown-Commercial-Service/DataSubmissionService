@@ -2,14 +2,14 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = link_to 'Back', bulk_new_tasks_path, { class: 'govuk-back-link', title: 'Back to select tasks' }
+    = link_to 'Back', bulk_new_submissions_path, { class: 'govuk-back-link', title: 'Back to select tasks' }
 
     %h1.govuk-heading-xl{class: 'govuk-!-margin-bottom-3'}
       Report no business
     %p{class: 'govuk-!-margin-bottom-3'}
       By reporting no business you are confirming that you have no transactions to report for these tasks.
 
-    = form_tag(bulk_create_tasks_path, method: :post, enforce_utf8: false) do
+    = form_tag(bulk_create_submissions_path, method: :post, enforce_utf8: false) do
       - @selected_tasks.each do |supplier|
         - if current_user.multiple_suppliers?
           %h2.govuk-heading-m{class: 'govuk-!-margin-top-7'}

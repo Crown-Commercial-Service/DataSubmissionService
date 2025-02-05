@@ -4,11 +4,11 @@ RSpec.feature 'Bulk reporting no business' do
   before do
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
+    mock_unstarted_tasks_endpoint!
+    mock_incomplete_tasks_endpoint!
     mock_tasks_bulk_new_endpoint!
     mock_tasks_bulk_confirm_endpoint!
     mock_task_bulk_no_business_endpoint!
-    mock_incomplete_tasks_endpoint!
-    mock_user_with_multiple_suppliers_endpoint!
   end
 
   scenario 'user completes multiple tasks reporting "no business"' do
@@ -17,7 +17,7 @@ RSpec.feature 'Bulk reporting no business' do
     visit '/'
     click_button 'sign-in'
 
-    visit '/tasks/bulk_new'
+    visit '/submissions/bulk_new'
 
     expect(page).to have_content 'Multifunctional Devices, Managed Print and Content (RM3781) for November 2024'
     expect(page).to have_content 'Multifunctional Devices, Managed Print and Content (RM3781) for October 2024'
@@ -35,6 +35,7 @@ RSpec.feature 'Bulk reporting no business' do
 
     click_on 'Confirm no business'
 
-    expect(page).to have_content 'Under construction'
+    expect(page).to have_content 'Tasks complete'
+    expect(page).to have_content 'email report-mi@crowncommercial.gov.uk for help'
   end
 end

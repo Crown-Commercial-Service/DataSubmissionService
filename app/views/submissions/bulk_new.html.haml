@@ -5,7 +5,7 @@
     %h1.govuk-heading-xl
       Report no business for 2 or more tasks
 
-    = form_tag(bulk_confirm_tasks_path, method: :post, enforce_utf8: false) do
+    = form_tag(bulk_confirm_submissions_path, method: :post, enforce_utf8: false) do
       .govuk-form-group
         %fieldset.govuk-fieldset{"aria-describedby" => "unstarted-tasks-hint"}
           %legend.govuk-fieldset__legend.govuk-fieldset__legend--l
@@ -18,7 +18,7 @@
           .govuk-checkboxes{"data-module" => "govuk-checkboxes"}
             - @suppliers_and_tasks.each do |supplier|
               - if current_user.multiple_suppliers?
-                %h2.govuk-heading-m
+                %h2.govuk-heading-m{ class: 'govuk-!-margin-top-7' }
                   = supplier.name
               - supplier.tasks.each do |task|
                 .govuk-checkboxes__item

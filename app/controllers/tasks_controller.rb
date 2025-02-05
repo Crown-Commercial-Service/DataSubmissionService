@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :load_frameworks, :load_date_filter_values, only: [:history]
 
   def index
+    @unstarted_tasks = API::Task.where(status: 'unstarted').all
     @tasks = API::Task
              .select(submissions: %i[status submitted_at])
              .where(status: ['unstarted', 'in_progress', 'correcting'])
@@ -61,26 +62,6 @@ class TasksController < ApplicationController
       task_path(@task),
       flash: { notice: 'You have successfully cancelled the correction.' }
     )
-  end
-
-  def bulk_new
-    @suppliers_and_tasks = API::Task.index_by_supplier
-  end
-
-  def bulk_confirm
-    task_ids = params[:task_ids]
-
-    return redirect_to bulk_new_tasks_path, alert: 'No tasks selected for confirmation.' if task_ids.blank?
-
-    @selected_tasks = API::Task.index_by_supplier(task_ids: task_ids)
-  end
-
-  def bulk_create
-    task_ids = params[:task_ids]
-
-    @completed_tasks = API::Task.bulk_no_business(task_ids: task_ids)
-
-    render :bulk_completed
   end
 
   private
