@@ -72,19 +72,22 @@
       What happens next
     %p
       We will contact you if we need more information about what you have told us.
+
     - if @completed_tasks
       %p
-        If you’ve made a mistake or need to amend the management information 
-        you’ve supplied, email 
-        = mail_to(support_email_address)
-        for help.
+        If you’ve made a mistake or need to amend the management information you’ve supplied
+        = link_to 'view your completed tasks.', history_tasks_path
     - else
       %p
         If you’ve made a mistake or need to amend the management information 
         you’ve supplied, #{link_to 'correct this return', correct_task_path(@task)}.
+
     - if @tasks.any?
       %p
         = link_to 'Complete another task', tasks_path,  {class: 'govuk-button'}
+    - elsif @completed_tasks
+      %p 
+        = link_to 'Sign out', sign_out_path, {class: 'govuk-button'}
     - else
       %p 
         = link_to 'View your completed tasks', history_tasks_path, {class: 'govuk-!-margin-right-3'}
