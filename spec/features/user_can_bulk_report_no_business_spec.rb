@@ -36,6 +36,7 @@ RSpec.feature 'Bulk reporting no business' do
     click_on 'Confirm no business'
 
     expect(page).to have_content 'Tasks complete'
-    expect(page).to have_content 'email report-mi@crowncommercial.gov.uk for help'
+    expect(page).to have_content 'to amend the management information you’ve supplied view your completed tasks'
+    expect(page).to have_content 'Complete another task'
   end
 end
