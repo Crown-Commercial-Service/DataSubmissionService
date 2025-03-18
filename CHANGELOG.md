@@ -1,5 +1,18 @@
 # Change Log
 
+## [release-110] - 2025-03-18
+
+- NRMI-80: select valid outstanding tasks for bulk report no business
+- NRMI-85: fix for error page on submit when session ended
+- NRMI-86: add back button to all task submission output pages 
+- NRMI-81: confirm/cancel bulk report no business
+- NRMI-82: bulk tasks no business completed view
+- NRMI-83: cta button for bullk report no business journey
+- NRMI-103: adjust supplier spacing on bullk report no business checkbox page
+- NRMI-114: update wording on tasks complete page
+- NRMI-98: change logo
+- NRMI-93: fix table overflow in mobile view
+
 ## [release-109] - 2024-12-09
 
 - NRMI-78: release notes feature
@@ -610,6 +623,7 @@
 
 Initial release
 
+[release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
 [release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
 [release-108]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-107...release-108
 [release-107]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-106...release-107
