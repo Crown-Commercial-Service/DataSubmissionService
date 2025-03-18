@@ -16,13 +16,21 @@ Rails.application.routes.draw do
     resources :submissions, only: %i[new create show] do
       member do
         get :download
-        post :customer_effort_score
       end
 
       resource :complete, only: :create, controller: 'submission_completion'
     end
 
     resource :no_business, only: %i[new create]
+  end
+
+  resources :submissions, only: [] do
+    collection do
+      get :bulk_new
+      post :bulk_confirm
+      post :bulk_create
+      post :customer_effort_score
+    end
   end
 
   resources :urns, only: %i[index]

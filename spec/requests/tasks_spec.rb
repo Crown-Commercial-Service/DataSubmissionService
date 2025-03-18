@@ -9,6 +9,7 @@ RSpec.describe 'the tasks list' do
 
   context 'when signed-in as a user with tasks' do
     before do
+      mock_unstarted_tasks_endpoint!
       mock_incomplete_tasks_endpoint!
       mock_user_endpoint!
       mock_notifications_endpoint!
@@ -106,6 +107,70 @@ RSpec.describe 'the tasks list' do
 
     it 'tells the user they have no tasks' do
       expect(response.body).to include 'All your tasks are complete.'
+    end
+  end
+
+  context 'when the user has one unstarted task' do
+    before do
+      mock_unstarted_task_endpoint!
+      mock_notifications_endpoint!
+      mock_incomplete_tasks_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
+      get tasks_path
+    end
+
+    it 'doesn\'t show the user the bulk no business button' do
+      expect(response.body).not_to include 'Report no business for <br/>2 or more tasks'
+    end
+  end
+
+  context 'when the user has multiple unstarted task' do
+    before do
+      mock_unstarted_tasks_endpoint!
+      mock_notifications_endpoint!
+      mock_incomplete_tasks_endpoint!
+      mock_user_endpoint!
+      stub_signed_in_user
+      get tasks_path
+    end
+
+    it 'shows the user the bulk no business button' do
+      expect(response.body).to include 'Report no business for <br/>2 or more tasks'
+    end
+  end
+
+  context 'when reporting no business for multiple tasks' do
+    before do
+      mock_tasks_bulk_new_endpoint!
+      mock_tasks_bulk_confirm_endpoint!
+      mock_user_with_multiple_suppliers_endpoint!
+      mock_notifications_endpoint!
+      stub_signed_in_user
+      get bulk_new_submissions_path
+    end
+
+    it 'shows supplier names' do
+      expect(response.body).to include 'Bandersnatch'
+    end
+
+    it 'shows unstarted tasks with framework name and due period' do
+      expect(response.body).to include 'Multifunctional Devices, Managed Print and Content (RM3781) for November 2024'
+    end
+
+    it 'asks the user to confirm they want to report no business on selected tasks' do
+      post bulk_confirm_submissions_path,
+           params: { task_ids: ['af669abb-4674-43ba-88a6-a938c11e86a5', 'aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa'] }
+
+      expect(response).to be_successful
+      expect(response.body).to include('Bandersnatch')
+    end
+
+    it 'redirects if no task IDs are provided' do
+      post bulk_confirm_submissions_path
+
+      expect(response).to redirect_to(bulk_new_submissions_path)
+      expect(flash[:alert]).to eql('No tasks selected for confirmation.')
     end
   end
 
