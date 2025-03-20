@@ -70,7 +70,7 @@ gem 'rack-maintenance', '~> 3.0'
 gem 'auth0', '~> 4.17', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.16.5'
+gem 'nokogiri', '>= 1.18.3'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -80,7 +80,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '>= 6.1.2'
   gem 'rubocop', '>= 1.61.0', require: false
-  gem 'rubocop-rails', '>= 2.24.0', require: false
+  gem 'rubocop-rails', '>= 2.30.0', require: false
 end
 
 group :development do
