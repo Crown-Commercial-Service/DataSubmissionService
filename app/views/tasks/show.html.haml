@@ -18,13 +18,14 @@
         %dt.govuk-summary-list__key
           Reported
         %dd.govuk-summary-list__value
-          = @task.completed_at || '-'
+          = @task.completed_at || 'Unknown date'
 
-      .govuk-summary-list__row
-        %dt.govuk-summary-list__key
-          Reported by
-        %dd.govuk-summary-list__value
-          = @submission.submitter[:email]
+      - if @submission.submitter
+        .govuk-summary-list__row
+          %dt.govuk-summary-list__key
+            Reported by
+          %dd.govuk-summary-list__value
+            = @submission.submitter[:email] || 'Unknown submitter'
 
       - if current_user.multiple_suppliers?
         .govuk-summary-list__row
@@ -96,14 +97,17 @@
         %details.govuk-details
           %summary.govuk-details__summary
             %span.govuk-details__summary-text
-              = Time.zone.parse(past_submission[:submitted_at]).to_fs(:date_with_utc_time)
+              - if past_submission[:submitted_at].present?
+                = Time.zone.parse(past_submission[:submitted_at]).to_fs(:date_with_utc_time)
+              - else
+                Unknown date
           .govuk-details__text
             %dl.govuk-summary-list.govuk-summary-list--no-border
               .govuk-summary-list__row
                 %dt.govuk-summary-list__key
                   Reported by
                 %dd.govuk-summary-list__value
-                  = past_submission[:submitted_by]
+                  = past_submission[:submitted_by] || 'Unknown submitter'
 
               .govuk-summary-list__row
                 %dt.govuk-summary-list__key
