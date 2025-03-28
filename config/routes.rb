@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :submissions, only: [] do
     collection do
-      get :bulk_new
+      match 'bulk_new', via: %i[get post]
       post :bulk_confirm
       post :bulk_create
       post :customer_effort_score
