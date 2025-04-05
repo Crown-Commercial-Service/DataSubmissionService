@@ -80,7 +80,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '>= 6.1.2'
   gem 'rubocop', '>= 1.61.0', require: false
-  gem 'rubocop-rails', '>= 2.24.0', require: false
+  gem 'rubocop-rails', '>= 2.30.0', require: false
 end
 
 group :development do
