@@ -23,10 +23,6 @@ module ApplicationHelper
     ENV['CORRECTION_RETURNS_ENABLED'].present?
   end
 
-  def survey_url
-    'https://crowncommercial.qualtrics.com/jfe/form/SV_7a44L3eBrOGDCVU'
-  end
-
   def about_cookies_url
     'http://www.aboutcookies.org/'
   end
