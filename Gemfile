@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1', '>= 7.1.3.4'
+gem 'rails', '~> 7.1', '>= 7.1.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -70,7 +70,7 @@ gem 'rack-maintenance', '~> 3.0'
 gem 'auth0', '~> 4.17', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.18.3'
+gem 'nokogiri', '>= 1.18.4'
 
 group :development, :test do
   gem 'brakeman', require: false
