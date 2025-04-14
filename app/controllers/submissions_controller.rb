@@ -32,6 +32,7 @@ class SubmissionsController < ApplicationController
 
   def bulk_new
     @suppliers_and_tasks = API::Task.index_by_supplier(status: 'unstarted')
+    @selected_tasks = params[:selected_tasks] || []
   end
 
   def bulk_confirm

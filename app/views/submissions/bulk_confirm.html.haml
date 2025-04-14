@@ -2,7 +2,11 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
-    = link_to 'Back', bulk_new_submissions_path, { class: 'govuk-back-link', title: 'Back to select tasks' }
+    = form_tag(bulk_new_submissions_path, method: :post) do
+      - (params[:task_ids] || []).each do |task_id|
+        = hidden_field_tag "selected_tasks[]", task_id
+          
+      %button.govuk-back-link{type: "submit"} Back
 
     %h1.govuk-heading-xl{class: 'govuk-!-margin-bottom-3'}
       Report no business
