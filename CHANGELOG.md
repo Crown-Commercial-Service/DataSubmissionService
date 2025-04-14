@@ -1,5 +1,10 @@
 # Change Log
 
+## [release-111] - 2025-03-31
+
+- NRMI-138: Enable supplier's to view/resubmit tasks pre-dating Jan-2019
+- NRMI-106: NRMI-106: Remove the dead 'Feedback' link from the footer
+
 ## [release-110] - 2025-03-18
 
 - NRMI-80: select valid outstanding tasks for bulk report no business
@@ -623,6 +628,7 @@
 
 Initial release
 
+[release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
 [release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
 [release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
 [release-108]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-107...release-108
