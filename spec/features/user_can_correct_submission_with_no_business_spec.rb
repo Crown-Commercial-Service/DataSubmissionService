@@ -4,6 +4,7 @@ RSpec.feature 'Correcting a submission by reporting no business' do
   before do
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
+    mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_complete_tasks_endpoint!
     mock_task_with_framework_endpoint!
