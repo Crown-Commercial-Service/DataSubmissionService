@@ -1,0 +1,172 @@
+{
+    "data": [
+        {
+            "id": "6d9fb183-7bc5-4c64-ab35-cb14e2a8815e",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "d1b1630c-0198-4998-bece-4c0420fa962b",
+                "supplier_id": "bfac734e-884f-48e3-a0cf-e4b269892d6d",
+                "supplier_name": "Groggs",
+                "description": null,
+                "due_on": "2024-04-08",
+                "period_year": 2024,
+                "period_month": 3,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "87220fd1-c573-46df-a777-1581061b9903",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "d1b1630c-0198-4998-bece-4c0420fa962b",
+                "supplier_id": "6bebd720-5ad1-477e-9381-6f9840d99308",
+                "supplier_name": "Bandersnatch",
+                "description": null,
+                "due_on": "2024-01-08",
+                "period_year": 2023,
+                "period_month": 12,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "225bc419-2168-4dd8-9ae0-6327629a0a98",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "d1b1630c-0198-4998-bece-4c0420fa962b",
+                "supplier_id": "6bebd720-5ad1-477e-9381-6f9840d99308",
+                "supplier_name": "Bandersnatch",
+                "description": null,
+                "due_on": "2023-12-07",
+                "period_year": 2023,
+                "period_month": 11,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "b6f8869d-10ea-4103-bbd0-bda8add46855",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "d1b1630c-0198-4998-bece-4c0420fa962b",
+                "supplier_id": "6bebd720-5ad1-477e-9381-6f9840d99308",
+                "supplier_name": "Bandersnatch",
+                "description": null,
+                "due_on": "2023-11-07",
+                "period_year": 2023,
+                "period_month": 10,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 4,
+            "per_page": 25,
+            "offset_value": 0,
+            "current_page": 1,
+            "total_pages": 1
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
