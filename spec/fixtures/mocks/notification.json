@@ -3,7 +3,8 @@
         "id": "01aea3c3-c3fa-40b5-aed4-51ba7a5c0596",
         "type": "notifications",
         "attributes": {
-            "notification_message": "<p class=\"govuk-notification-banner__heading\">Testy McTestface</p>"
+            "summary": "Oh hello",
+            "notification_message": "<p class=\"govuk-body\">Testy McTestface</p>"
         }
     },
     "jsonapi": {

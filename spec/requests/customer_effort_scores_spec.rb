@@ -13,7 +13,7 @@ RSpec.describe 'giving feedback' do
 
   it 'submits score and any comments to the api' do
     stub_signed_in_user
-    post customer_effort_score_task_submission_path(task_id: mock_task_id, id: mock_submission_id)
+    post customer_effort_score_submissions_path
 
     expect(response).to be_successful
   end
