@@ -1,0 +1,133 @@
+{
+    "data": [
+        {
+            "id": "d5e739e1-596e-435b-93a0-f3c7d9d9e3aa",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Bandersnatch"
+            },
+            "relationships": {
+                "tasks": {
+                    "data": [
+                        {
+                            "type": "tasks",
+                            "id": "af669abb-4674-43ba-88a6-a938c11e86a5"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "a768587b-1502-4dbf-ad4a-0ee8a8f31a22",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Greggs"
+            },
+            "relationships": {
+                "tasks": {
+                    "data": [
+                        {
+                            "type": "tasks",
+                            "id": "aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "included": [
+        {
+            "id": "af669abb-4674-43ba-88a6-a938c11e86a5",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "5d1b9b14-fbda-4f41-a57d-ab53f1034ebd",
+                "supplier_id": "d5e739e1-596e-435b-93a0-f3c7d9d9e3aa",
+                "supplier_name": "Bandersnatch",
+                "description": null,
+                "due_on": "2024-12-06",
+                "period_year": 2024,
+                "period_month": 11,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "data": {
+                        "type": "frameworks",
+                        "id": "5d1b9b14-fbda-4f41-a57d-ab53f1034ebd"
+                    }
+                }
+            }
+        },
+        {
+            "id": "aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa",
+            "type": "tasks",
+            "attributes": {
+                "status": "unstarted",
+                "framework_id": "5d1b9b14-fbda-4f41-a57d-ab53f1034ebd",
+                "supplier_id": "a768587b-1502-4dbf-ad4a-0ee8a8f31a22",
+                "supplier_name": "Greggs",
+                "description": null,
+                "due_on": "2024-11-07",
+                "period_year": 2024,
+                "period_month": 10,
+                "past_submissions": null,
+                "file_key": null,
+                "file_name": null
+            },
+            "relationships": {
+                "active_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "latest_submission": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "submissions": {
+                    "meta": {
+                        "included": false
+                    }
+                },
+                "framework": {
+                    "data": {
+                        "type": "frameworks",
+                        "id": "5d1b9b14-fbda-4f41-a57d-ab53f1034ebd"
+                    }
+                }
+            }
+        },
+        {
+            "id": "5d1b9b14-fbda-4f41-a57d-ab53f1034ebd",
+            "type": "frameworks",
+            "attributes": {
+                "short_name": "RM3781",
+                "name": "Multifunctional Devices, Managed Print and Content",
+                "file_key": "q5huwc0nssycrr01buqkx4pg6ulp",
+                "file_name": "RM3781 Multifunctional Devices, Managed Print and Content Template (3).xls"
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
