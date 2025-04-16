@@ -16,4 +16,5 @@
 //= require govuk-frontend/govuk/all.js
 //= require js.cookie
 //= require cookie-settings
+//= require gtm-events
 //= require_tree .
