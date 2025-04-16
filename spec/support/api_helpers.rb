@@ -32,6 +32,10 @@ module ApiHelpers
     '7a50a178-3fb8-4c0a-9f2c-8841812448d1'
   end
 
+  def mock_release_note_id
+    'fbf94677-8f2c-44b9-8546-e8e8dcc576de'
+  end
+
   def hash_including_correction
     {
       body: {
@@ -41,6 +45,7 @@ module ApiHelpers
   end
 
   def mock_upload_task_submission_flow_endpoints!
+    mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_task_with_framework_endpoint!
     mock_task_with_framework_and_active_submission_endpoint!
@@ -248,6 +253,16 @@ module ApiHelpers
       )
   end
 
+  def mock_unstarted_task_endpoint!
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
+      .to_return(headers: json_headers, body: json_fixture_file('unstarted_task.json'))
+  end
+
+  def mock_unstarted_tasks_endpoint!
+    stub_request(:get, api_url('tasks?filter%5Bstatus%5D=unstarted'))
+      .to_return(headers: json_headers, body: json_fixture_file('unstarted_tasks.json'))
+  end
+
   def mock_complete_tasks_endpoint!
     stub_request(:get, api_url('tasks'))
       .with(query: hash_including(filter: hash_including('status' => 'completed')))
@@ -400,6 +415,48 @@ module ApiHelpers
       .to_return(
         headers: json_headers,
         body: json_fixture_file('notification.json')
+      )
+  end
+
+  def mock_release_notes_endpoint!
+    stub_request(:get, api_url('release_notes'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('release_notes.json')
+      )
+  end
+
+  def mock_release_note_endpoint!
+    stub_request(:get, api_url("release_notes/#{mock_release_note_id}"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('release_note.json')
+      )
+  end
+
+  def mock_tasks_bulk_new_endpoint!
+    stub_request(:get, api_url('tasks/index_by_supplier?status=unstarted'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('tasks_index_by_supplier.json')
+      )
+  end
+
+  def mock_tasks_bulk_confirm_endpoint!
+    stub_request(:get, api_url('tasks/index_by_supplier?status=unstarted&task_ids%5B%5D=aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa&task_ids%5B%5D=af669abb-4674-43ba-88a6-a938c11e86a5'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('tasks_index_by_supplier_two_selected.json')
+      )
+  end
+
+  def mock_task_bulk_no_business_endpoint!
+    stub_request(:post, 'https://ccs.api/v1/tasks/bulk_no_business')
+      .with(
+        body: '{"task_ids":["af669abb-4674-43ba-88a6-a938c11e86a5","aae5bfb4-696f-4c4e-bfd9-08e18e3e65aa"]}'
+      ).to_return(
+        headers: json_headers,
+        body: json_fixture_file('tasks_bulk_no_business.json')
       )
   end
 

@@ -1,4 +1,6 @@
 class SubmissionCompletionController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def create
     submission = API::Submission.includes(:task).find(params[:submission_id]).first
     submission.complete unless submission.status == 'completed'

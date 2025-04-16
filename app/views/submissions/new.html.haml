@@ -37,7 +37,7 @@
         !
       %strong.govuk-warning-text__text
         You will need to review a summary of the uploaded file and confirm submission to complete the task.
-    = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
+    = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true, id: 'submission_upload') do
       .govuk-form-group
         %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
           Choose a file
