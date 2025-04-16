@@ -20,7 +20,7 @@
             = agreement.supplier.name
 
         %p 
-          = link_to 'Download template (excel document)', template_path(id: agreement.framework, agreements_page: true), {'aria-label' => "Download excel document template for #{agreement.framework.short_name} #{agreement.framework.name}"}
+          = link_to 'Download template (excel document)', template_path(id: agreement.framework, agreements_page: true), data: {track: 'file_download', 'aria-label' => "Download excel document template for #{agreement.framework.short_name} #{agreement.framework.name}"}
 
         - agreement.relevant_lots.each do |lot|
           %p

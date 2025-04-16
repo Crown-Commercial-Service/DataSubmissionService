@@ -18,7 +18,7 @@
       %h2#page-actions-title.govuk-heading-s{"aria-label" => "Page actions"} Actions
       %ul.govuk-page-actions--actions
         %li.govuk-page-actions--action
-          = link_to 'Download template (excel document)', template_path(id: @task), {'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
+          = link_to 'Download template (excel document)', template_path(id: @task), data: {track: 'file_download', 'aria-label' => "Download excel document template for #{@task.framework.short_name} #{@task.framework.name}"}
 
 = render 'shared/task_signpost', task: @task
 
@@ -37,7 +37,7 @@
         !
       %strong.govuk-warning-text__text
         You will need to review a summary of the uploaded file and confirm submission to complete the task.
-    = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true) do
+    = form_tag(task_submissions_path(task_id: params[:task_id], correction: params[:correction]), multipart: true, id: 'submission_upload') do
       .govuk-form-group
         %label.govuk-label.govuk-visually-hidden{ :for => 'submission_file_upload' }
           Choose a file

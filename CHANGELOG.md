@@ -1,5 +1,44 @@
 # Change Log
 
+## [release-111] - 2025-03-31
+
+- NRMI-138: Enable supplier's to view/resubmit tasks pre-dating Jan-2019
+- NRMI-106: NRMI-106: Remove the dead 'Feedback' link from the footer
+
+## [release-110] - 2025-03-18
+
+- NRMI-80: select valid outstanding tasks for bulk report no business
+- NRMI-85: fix for error page on submit when session ended
+- NRMI-86: add back button to all task submission output pages 
+- NRMI-81: confirm/cancel bulk report no business
+- NRMI-82: bulk tasks no business completed view
+- NRMI-83: cta button for bullk report no business journey
+- NRMI-103: adjust supplier spacing on bullk report no business checkbox page
+- NRMI-114: update wording on tasks complete page
+- NRMI-98: change logo
+- NRMI-93: fix table overflow in mobile view
+
+## [release-109] - 2024-12-09
+
+- NRMI-78: release notes feature
+
+## [release-108] - 2023-10-07
+
+- RMI-707: Implement accordion_use and search_filter gtm events
+- RMI-709: Implement page_view gtm event
+- RMI-718: Implement cta_button_click, tab_navigation and login gtm events
+- NRMI-28: Change notification banner to details component
+- NRMI-75: Fix docker build
+
+## [release-107] - 2023-08-19
+
+- RMI-706: doc upload and download gtm events
+- RMI-717: view search results gtm event
+- [Snyk] Upgrade nokogiri from 1.16.2 to 1.16.5
+- [Snyk] Upgrade rails from 7.1.3.2 to 7.1.3.3
+- [Snyk] Upgrade rails from 7.1.3.3 to 7.1.3.4
+- [Snyk] Upgrade rexml from 3.2.6 to 3.3.2
+
 ## [release-106] - 2023-06-20
 
 - RMI-700: Speed up loading time for completed tasks page
@@ -589,6 +628,11 @@
 
 Initial release
 
+[release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
+[release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
+[release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
+[release-108]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-107...release-108
+[release-107]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-106...release-107
 [release-106]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-105...release-106
 [release-105]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-104...release-105
 [release-104]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-103...release-104

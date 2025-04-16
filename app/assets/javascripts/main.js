@@ -138,6 +138,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       } // end of exists
 
+      const detailsElement = document.getElementById('notification');
+      if (detailsElement) {
+        const notificationId = detailsElement.getAttribute('data-notification-id');
+        const lastNotificationId = sessionStorage.getItem('last-notification-id');
 
+        if (notificationId !== lastNotificationId) {
+            sessionStorage.removeItem('details-open-${notificationId}');
+            sessionStorage.setItem('last-notification-id', notificationId);
+            detailsElement.setAttribute('open', 'true');
+        } else {
+            const savedState = sessionStorage.getItem('details-open-${notificationId}');
+            if (savedState === 'false') {
+                detailsElement.removeAttribute('open');
+            } else {
+                detailsElement.setAttribute('open', 'true');
+            }
+        }        
+
+        detailsElement.addEventListener('toggle', function () {
+            sessionStorage.setItem('details-open-${notificationId}', detailsElement.hasAttribute('open'));
+        });
+      }
+
+      let allSelected = false;
+      const toggleSelectElement = document.getElementById('toggle_select');
+
+      if (toggleSelectElement) {
+        toggleSelectElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            const checkboxes = document.querySelectorAll('.govuk-checkboxes__input');
+            allSelected = !allSelected;
+    
+            checkboxes.forEach(checkbox => checkbox.checked = allSelected);
+    
+            this.textContent = allSelected ? 'Deselect All' : 'Select all';
+        })
+      }
 
 });
