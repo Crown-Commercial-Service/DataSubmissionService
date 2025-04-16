@@ -29,3 +29,8 @@ $button-shadow-size: $govuk-border-width-form-element;
     background-color: $govuk-button-hover-colour;
   }
 }
+
+.govuk-back-link {
+  background-color: transparent;
+  border: none;
+}

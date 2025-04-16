@@ -22,7 +22,7 @@
                   = supplier.name
               - supplier.tasks.each do |task|
                 .govuk-checkboxes__item
-                  = check_box_tag('task_ids[]', task.id, false,
+                  = check_box_tag('task_ids[]', task.id, @selected_tasks.include?(task.id.to_s),
                     id: "task_id_#{task.id}",
                     class: 'govuk-checkboxes__input')
                   = label_tag "task_id_#{task.id}", "#{task.framework.name} (#{task.framework.short_name}) for #{task.reporting_period}", class: 'govuk-checkboxes__label'
