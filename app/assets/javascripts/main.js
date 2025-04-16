@@ -161,4 +161,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
       }
 
+      let allSelected = false;
+      const toggleSelectElement = document.getElementById('toggle_select');
+
+      if (toggleSelectElement) {
+        toggleSelectElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            const checkboxes = document.querySelectorAll('.govuk-checkboxes__input');
+            allSelected = !allSelected;
+    
+            checkboxes.forEach(checkbox => checkbox.checked = allSelected);
+    
+            this.textContent = allSelected ? 'Deselect All' : 'Select all';
+        })
+      }
+
 });
