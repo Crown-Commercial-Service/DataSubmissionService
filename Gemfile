@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.2', '>= 7.2.0'
@@ -20,6 +20,8 @@ gem 'mini_racer'
 gem 'jbuilder', '~> 2.12', '>= 2.12.0'
 
 gem 'jwt', '~> 2.2'
+
+gem 'csv', '~> 3.3', '>= 3.3.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
