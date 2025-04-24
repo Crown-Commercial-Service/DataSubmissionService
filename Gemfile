@@ -74,6 +74,7 @@ gem 'auth0', '~> 4.17', require: false
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 gem 'nokogiri', '>= 1.18.4'
 
+gem 'highline', '~> 3.1', '>= 3.1.2'
 gem 'prism', '~> 1.4'
 
 group :development, :test do
