@@ -316,6 +316,7 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
+    prism (1.4.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -532,6 +533,7 @@ DEPENDENCIES
   orderly (>= 0.1.1)
   pg (>= 0.18, < 2.0)
   poltergeist (>= 1.18.1)
+  prism (~> 1.4)
   pry-rails
   puma (~> 6.4, >= 6.4.3)
   rack-maintenance (~> 3.0)
