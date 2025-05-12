@@ -375,7 +375,7 @@ module ApiHelpers
   end
 
   def mock_no_user_logged_in_endpoint!
-    stub_request(:get, api_url("users?filter[auth_id]"))
+    stub_request(:get, api_url('users?filter[auth_id]'))
       .to_return(headers: json_headers)
   end
 
