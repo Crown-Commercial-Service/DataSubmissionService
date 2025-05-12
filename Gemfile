@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.4.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1', '>= 7.1.3.4'
+gem 'rails', '~> 7.2', '>= 7.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.4', '>= 6.4.2'
+gem 'puma', '~> 6.4', '>= 6.4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,6 +20,8 @@ gem 'mini_racer'
 gem 'jbuilder', '~> 2.12', '>= 2.12.0'
 
 gem 'jwt', '~> 2.2'
+
+gem 'csv', '~> 3.3', '>= 3.3.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -70,7 +72,10 @@ gem 'rack-maintenance', '~> 3.0'
 gem 'auth0', '~> 4.17', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.16.5'
+gem 'nokogiri', '>= 1.18.4'
+
+gem 'highline', '~> 3.1', '>= 3.1.2'
+gem 'prism', '~> 1.4'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -79,8 +84,8 @@ group :development, :test do
   gem 'factory_bot_rails', '>= 6.3.0'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 6.1.2'
-  gem 'rubocop', '>= 1.61.0', require: false
-  gem 'rubocop-rails', '>= 2.24.0', require: false
+  gem 'rubocop', '>= 1.66.0', require: false
+  gem 'rubocop-rails', '>= 2.30.0', require: false
 end
 
 group :development do
@@ -98,7 +103,7 @@ group :test do
   gem 'database_cleaner', '>= 2.0.2'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '~> 3.14.0'
+  gem 'webmock', '~> 3.15.1'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
