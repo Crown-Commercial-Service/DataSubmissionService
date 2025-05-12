@@ -4,8 +4,8 @@
 # It also improves build times by caching the base stage.
 
 # Base stage
-FROM public.ecr.aws/docker/library/ruby:3.2.2-alpine AS base
-RUN apk add build-base curl git libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
+FROM public.ecr.aws/docker/library/ruby:3.4.2-alpine AS base
+RUN apk add build-base curl git yaml-dev libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
 
 # Set locale and timezone
 RUN echo "Europe/London" > /etc/timezone
@@ -52,7 +52,7 @@ COPY . $INSTALL_PATH
 RUN bundle exec rake AWS_ACCESS_KEY_ID=dummy AWS_SECRET_ACCESS_KEY=dummy AWS_S3_REGION=dummy AWS_S3_BUCKET=dummy SECRET_KEY_BASE=dummy DATABASE_URL=postgresql:does_not_exist --quiet assets:precompile
 
 # Runtime stage
-FROM public.ecr.aws/docker/library/ruby:3.2.2-alpine
+FROM public.ecr.aws/docker/library/ruby:3.4.2-alpine
 ENV INSTALL_PATH /srv/dss
 RUN mkdir -p $INSTALL_PATH
 
