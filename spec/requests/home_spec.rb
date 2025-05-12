@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the home page' do
   it 'shows introductory text for non-signed in users' do
+    mock_no_user_logged_in_endpoint!
     get root_path
 
     expect(response.body).to include 'If you’re having trouble signing in'

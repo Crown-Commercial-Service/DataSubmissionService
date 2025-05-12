@@ -9,6 +9,7 @@ RSpec.feature 'Correcting a submission by reporting MI return' do
 
   context 'for a completed MI return submission' do
     scenario 'successfully, with a XLSX file' do
+      mock_no_user_logged_in_endpoint!
       visit '/'
 
       mock_user_endpoint!

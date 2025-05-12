@@ -374,6 +374,11 @@ module ApiHelpers
       .with(body: task_params.to_json)
   end
 
+  def mock_no_user_logged_in_endpoint!
+    stub_request(:get, api_url("users?filter[auth_id]"))
+      .to_return(headers: json_headers)
+  end
+
   def mock_user_endpoint!
     stub_request(:get, api_url("users?filter[auth_id]=#{JWT.encode(mock_auth_id, 'test')}"))
       .to_return(headers: json_headers, body: json_fixture_file('user.json'))
