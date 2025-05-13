@@ -1,9 +1,15 @@
 # Change Log
 
+## [release-112] - 2025-05-12
+
+- NRMI-105: bulk select page to retain selection when returned to via back link
+- NRMI-123: address vulnerabilities raised in ITHC
+- NRMI-104: Dependency updates
+
 ## [release-111] - 2025-03-31
 
 - NRMI-138: Enable supplier's to view/resubmit tasks pre-dating Jan-2019
-- NRMI-106: NRMI-106: Remove the dead 'Feedback' link from the footer
+- NRMI-106: Remove the dead 'Feedback' link from the footer
 
 ## [release-110] - 2025-03-18
 
@@ -628,6 +634,7 @@
 
 Initial release
 
+[release-112]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-111...release-112
 [release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
 [release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
 [release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
