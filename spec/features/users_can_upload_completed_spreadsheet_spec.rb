@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'User uploads completed spreadsheet' do
   describe 'Signed-in user can upload a completed spreadsheet' do
     before(:each) do
-      mock_no_user_logged_in_endpoint!
       mock_upload_task_submission_flow_endpoints!
       mock_submission_processing_endpoint!
       mock_notifications_endpoint!

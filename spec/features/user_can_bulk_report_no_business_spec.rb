@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'Bulk reporting no business' do
   before do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
     mock_unstarted_tasks_endpoint!

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'downloading a template' do
   scenario 'user sees a template link' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
     mock_user_with_multiple_suppliers_endpoint!

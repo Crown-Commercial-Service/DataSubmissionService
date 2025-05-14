@@ -9,7 +9,6 @@ RSpec.feature 'Cancelling a correction submission' do
 
   context 'for a task with a correction in progress' do
     scenario 'it can be cancelled' do
-      mock_no_user_logged_in_endpoint!
       visit '/'
 
       mock_user_endpoint!
@@ -35,7 +34,6 @@ RSpec.feature 'Cancelling a correction submission' do
 
   context 'for a task that is not a correction' do
     it 'redirects to home page' do
-      mock_no_user_logged_in_endpoint!
       mock_task_with_framework_endpoint!
 
       visit cancel_correction_confirmation_task_path('2d98639e-5260-411f-a5ee-61847a2e067c')

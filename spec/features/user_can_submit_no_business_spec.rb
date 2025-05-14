@@ -4,7 +4,6 @@ RSpec.feature 'Submitting no business' do
   before do
     travel_to Time.zone.local(2018, 7, 2)
 
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_notifications_endpoint!
     mock_unstarted_tasks_endpoint!

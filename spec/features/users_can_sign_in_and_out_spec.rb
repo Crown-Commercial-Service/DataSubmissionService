@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'Signing in and out as a user' do
   scenario 'Signing in successfully' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
@@ -17,7 +16,6 @@ RSpec.feature 'Signing in and out as a user' do
   end
 
   scenario 'Signing in unsuccessfully' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_failure(:invalid_credentials)
 
     visit '/tasks'
@@ -27,7 +25,6 @@ RSpec.feature 'Signing in and out as a user' do
   end
 
   scenario 'Signing in unsuccessfully, but then retrying successfully' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_failure(:csrf_detected)
 
     visit '/tasks'
@@ -49,7 +46,6 @@ RSpec.feature 'Signing in and out as a user' do
   end
 
   scenario 'Signing out successfully' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!

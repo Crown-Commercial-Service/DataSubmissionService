@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'downloading a submission' do
   scenario 'user sees a download link' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_user_endpoint!
     mock_notifications_endpoint!

@@ -13,7 +13,6 @@ RSpec.feature 'Submitting customer effort score' do
   end
 
   scenario 'user submits feedback after completing a task' do
-    mock_no_user_logged_in_endpoint!
     mock_user_endpoint!
 
     allow_any_instance_of(API::CustomerEffortScore).to receive(:save).and_return(false)

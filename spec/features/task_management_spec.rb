@@ -4,7 +4,6 @@ RSpec.feature 'task management' do
   scenario 'user can upload and complete a valid submission' do
     travel_to Time.zone.local(2018, 7, 2)
 
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
 
     mock_upload_task_submission_flow_endpoints!
@@ -47,7 +46,6 @@ RSpec.feature 'task management' do
   end
 
   scenario 'user can upload an amended file' do
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
     mock_user_endpoint!
     mock_notifications_endpoint!
@@ -72,7 +70,6 @@ RSpec.feature 'task management' do
   scenario 'see the current supplier name on a task when linked to multiple suppliers' do
     travel_to Time.zone.local(2018, 7, 2)
 
-    mock_no_user_logged_in_endpoint!
     mock_sso_with(email: 'email@example.com')
 
     mock_notifications_endpoint!
