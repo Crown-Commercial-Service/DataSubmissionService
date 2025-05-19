@@ -14,8 +14,8 @@
       - if current_user_id
         %button.govuk-header__menu-button.govuk-js-header-toggle{"aria-controls" => "navigation", "aria-label" => "Show or hide Top Level Navigation", :role => "button"} Menu
         - if !no_navigation
-          %nav
-            %ul#navigation.govuk-header__navigation{"aria-label" => "Top Level Navigation"}
+          %nav#navigation.govuk-header__navigation{"aria-label" => "Top Level Navigation"}
+            %ul.govuk-header__navigation-list
               - if current_user_id
                 %li.govuk-header__navigation-item
                   = link_to 'Tasks', tasks_path, {:class=>"govuk-header__link"}

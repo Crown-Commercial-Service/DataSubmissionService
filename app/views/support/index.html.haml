@@ -6,7 +6,205 @@
       Help
 
 .govuk-grid-row
-  .govuk-grid-column-two-thirds
+  .govuk-grid-column-full
+
+    %h2.govuk-heading-l 
+      Frequently Asked Questions
+    
+    #accordion-default.govuk-accordion{"data-module" => "govuk-accordion"}
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              What is a customer unique reference number (URN) and how do I find one?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            Public sector customers who buy products/services through CCS agreements are identified by a unique 8-digit integer, 
+            a Unique Reference Number (URN). CCS maintains a list of customer URNs which are used in MI reporting.
+          %p.govuk-body
+            Select ‘URN list’ from the menu ribbon at the top of the page to view a searchable URN list, or access a downloadable 
+            file; this file contains a second list of recent changes (‘Merge List’).
+          %p.govuk-body
+            For best results when searching for a customer on the URN list, note that customers are usually listed using their 
+            full name rather than using abbreviations. For example, ‘Ministry of Justice’ rather than ‘MOJ’. We recommend that you 
+            try your search using partial names, key words, or a postcode in order to ensure you locate all relevant results.
+          %p.govuk-body
+            If you're doing business with a customer who doesn’t have a URN, you can submit a request to have the customer added.
+          %p.govuk-body
+            Send a completed ‘add organisation request form’, downloadable from the
+            = succeed ', ' do
+              = link_to 'CCS Supplier guidance web page', "https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know", target: :_blank
+            to 
+            = mail_to 'supplier@crowncommercial.gov.uk'
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              How can I update my user profile, opt out, or set up a new MI contact for my organisation?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            All active supplier organisations on CCS agreements must have at least one active MI contact as a user of the Report-MI 
+            service. If you want to update your user details, add an additional user, remove yourself as a user of this service, or 
+            change your organisation's name please contact the support team.
+          %p.govuk-body
+            Email support:
+            = mail_to support_email_address
+          %p.govuk-body
+            When contacting us with the details of your request, please include the organisation name(s), person name and email address 
+            of any user(s) you want to add/remove/update.
+          %p.govuk-body
+            You can change your password by using the ‘Don’t remember your password?’ link on the sign in page.
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              Why do I have to report when I have conducted no business?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            It is a contractual obligation to provide MI for your organisation’s activity on all relevant CCS agreements each month. 
+            This includes if you have not done any business on an agreement.
+          %p.govuk-body
+            CCS are not able to assume that you haven’t conducted business unless this is actively confirmed. A Null result is not the 
+            same as an active Nil declaration, which is required for audit trail and completeness of income tracking.
+          %p.govuk-body
+            We recognise that having to actively declare no business doesn’t add value from a supplier/user’s perspective, so we have 
+            endeavoured to make this process as quick and easy as possible. If you need to declare no business on an agreement this month 
+            you don’t need to download or populate a MI template file; instead you should simply select and confirm the ‘Report no business’ 
+            option beneath the relevant task.
+          %p.govuk-body
+            To report no business for multiple tasks simultaneously select the action button at the top right corner of your tasks page.
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              What is a ‘Supplier reference number?’
+        .govuk-accordion__section-content
+          %p.govuk-body
+            ‘Supplier reference number’ is a field which appears on a large number of MI templates.
+          %p.govuk-body
+            This field is where you should enter your own organisation's reference number for the particular contract/piece of work you are 
+            reporting. This is most commonly a contract reference or customer account number from your own system.
+          %p.govuk-body
+            This reference should appear consistently against all invoice/credit line items reported for each unique customer contract. If your 
+            MI submission also requests contract data in addition to invoice data, this same reference should appear on the corresponding contract 
+            line item you originally submitted when that contract was awarded, tying the invoices/credits back to the original overall contract.
+
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              Why is my task showing 'We were unable to process your file'?
+        .govuk-accordion__section-content
+          %p.govuk-body 
+            If the Report-MI service is unable to process/ingest your uploaded file, please first ensure that you are using the correct and most 
+            up-to-date MI template file for the task you are trying to complete, and that you have loaded the file to the correct task. Each MI 
+            template is, to some extent, bespoke to its agreement and the Report-MI system reads the structure of the file in order to find and 
+            ingest your data.
+          %p.govuk-body 
+            If you are using the correct template, please ensure that you haven’t changed nor omitted any sheet names or column headers on the 
+            orange data collection tabs.
+          %p.govuk-body 
+            Ensure that cells you have populated in the file contain values only (remove any formulae or links), and ensure that the file is not 
+            password protected.
+          %p.govuk-body 
+            For any date fields, ensure that the dates you have entered are of the format DD/MM/YYYY and are real calendar dates (e.g. not 30 February).
+          %p.govuk-body 
+            If the above checks have not resolved your issue, please contact our support team for further assistance.
+          %p.govuk-body 
+            Email support:
+            = mail_to support_email_address
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              When can I stop reporting MI? / How long do I need to report MI for?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            For live agreements, MI reporting requirements can only end if your organisation withdraws or is removed from the agreement.
+          %p.govuk-body
+            Once an agreement expires, no new business can be won; MI reporting requirements continue until any contracts which outlive the life 
+            of the agreement come to an end. Supplier MI reporting requirements are therefore managed down over time as accounts/contracts become inactive.
+          %p.govuk-body
+            CCS colleagues monitor and remove inactive suppliers as part of an ongoing review process for legacy/expired agreements. However, if 
+            you know that your organisation has nothing further to report on an expired agreement you are welcome to contact us to pre-empt this 
+            process and end your reporting obligations immediately. This will prevent you from unnecessarily needing to report no business for a 
+            legacy agreement where you have nothing further to report.
+          %p.govuk-body
+            Email support: 
+            = mail_to support_email_address
+          %p.govuk-body
+            When contacting us with the details of your request, please include the organisation name, agreement name and agreement reference for 
+            the status you wish to update.
+          %p.govuk-body
+            Please note that we won’t deactivate MI reporting for a live agreement via requests made in this way. To speak with us about terminating 
+            your place on a live agreement please contact 
+            = mail_to 'info@crowncommercial.gov.uk'
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              How do I correct a task which has failed data validation?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            When an uploaded file fails to pass data validation, you will be asked to review and correct the identified errors. You can access the 
+            list of errors by selecting the ‘view and correct errors’ button beneath the task from your 
+            = link_to 'tasks', tasks_path
+            page. You should make any necessary corrections to the data in your template and reload the corrected replacement file, this will overwrite 
+            your initial submission.
+          %p.govuk-body  
+            When viewing the errors summary page, a list of errors will be displayed describing the logic which has failed to pass validation. This 
+            description will appear against an identified sheet name, row number and column name to help you to locate the error in your file.
+          %p.govuk-body
+            The most common errors include:
+          %ul.govuk-list.govuk-list--bullet
+            %li Where a mandatory field has been left blank
+            %li Entering a string of text into a numeric field
+            %li The use of an invalid customer URN
+            %li The use of an invalid date
+            %li The use of a lot number that your organisation doesn’t have access to
+            %li An improper product/service combination or text string in validated product/service fields
+          %p.govuk-body
+            Validation failure resolution can be complex. If you need further support with this process, please contact us.
+          %p.govuk-body
+            Email support:
+            = mail_to support_email_address
+          %p.govuk-body
+            When contacting us with the details of your request, please include a description of the issue you need support with, and help us to identify 
+            your task by including your task date, organisation name, agreement name and agreement reference.
+
+      .govuk-accordion__section
+        .govuk-accordion__section-header
+          %h2.govuk-accordion__section-heading
+            %span.govuk-accordion__section-button
+              How can I correct a historic, previously completed, task?
+        .govuk-accordion__section-content
+          %p.govuk-body
+            If you need to make a correction to a historic task that has already been completed, you can navigate to your 
+            = succeed ', ' do
+              = link_to 'Completed tasks', history_tasks_path 
+            find and ‘view’ the task you want to replace, and follow the on-screen steps to load a replacement submission.
+          %p.govuk-body
+            Please note: this process will replace the original submission, not amend or append to it, so please load a full file containing all of the 
+            correct data for that task when completing a correction.
+          %p.govuk-body
+            Following a replacement, if you previously received a management charge invoice from CCS for your submission, this invoice will automatically 
+            be credited and a new invoice will be issued for the management charge applicable to your new replacement submission to that task.
+          %p.govuk-body
+            If you have a complex or large number of historic MI corrections that you need make and you would like advice on how to best approach or minimise 
+            the number of corrections, or you wish to minimise the number of credit notes/invoices you receive and have to process, the MI team can support you 
+            with more advanced management of the corrections process.
+          %p.govuk-body
+            Please get in touch with us for support:
+            = mail_to support_email_address
+          %p.govuk-body
+            When contacting us with the details of your request, please include a description of the issue you need support with, and help us by including your 
+            organisation name, agreement name and agreement reference, the dates of the task(s) to be replaced, and the reason for the corrections.
 
     %h2.govuk-heading-l
       Guidance
@@ -16,24 +214,11 @@
     %p
       All CCS suppliers need to complete MI submissions on a monthly basis for any agreements they are listed on. Submissions are made using this service.
     %p
-      There are a number of guides for the process:
     %ul.govuk-list.govuk-list--bullet
       %li
-        = link_to 'Management Information introduction',
-          '/guides/Management_Information_introduction.pdf'
-        (PDF, 289KB, 9 pages)
+        = link_to 'Gov supplier guidance web page', 'https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know'
       %li
-        = link_to 'RMI supplier guidance and FAQs',
-          '/guides/RMI_supplier_guidance_and_FAQs.pdf'
-        (PDF, 822KB, 8 pages)
-      %li
-        = link_to 'Navigating CCS MI templates',
-          '/guides/Navigating_CCS_MI_templates.pdf'
-        (PDF, 150KB, 3 pages)
-      %li
-        = link_to 'MI admin fees and default charges',
-          '/guides/MI_admin_fees_and_default_charges.pdf'
-        (PDF, 281KB, 7 pages)
+        = link_to 'Webinar', 'https://attendee.gotowebinar.com/register/2613784768274845273'
 
     %h2.govuk-heading-l
       Support
@@ -67,20 +252,3 @@
       %br
       = succeed '.' do
         = mail_to finance_email_address
-
-    %h2.govuk-heading-l
-      Correcting management information
-
-    %p
-      If a task has failed validation, you will need to access the task from your main task screen, view the errors, and load a replacement file once you have made corrections. 
-      %br
-      If you need further support with this process, please contact us.
-    %p
-      If you need to make a correction to a historic task that has already been completed, find the return in your 
-      = link_to 'Completed tasks', history_tasks_path
-      and follow the on-screen steps to load a replacement submission.
-    %p
-      Please note: this process will 
-      %strong
-        replace 
-      the original submission, not amend or append to it, so please load a full file when completing a correction.
