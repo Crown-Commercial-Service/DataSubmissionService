@@ -15,9 +15,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-1.govuk-accordion__section-button
               What is a customer unique reference number (URN) and how do I find one?
-        .govuk-accordion__section-content
+        #accordion-default-content-1.govuk-accordion__section-content
           %p.govuk-body
             Public sector customers who buy products/services through CCS agreements are identified by a unique 8-digit integer, 
             a Unique Reference Number (URN). CCS maintains a list of customer URNs which are used in MI reporting.
@@ -40,9 +40,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-2.govuk-accordion__section-button
               How can I update my user profile, opt out, or set up a new MI contact for my organisation?
-        .govuk-accordion__section-content
+        #accordion-default-content-2.govuk-accordion__section-content
           %p.govuk-body
             All active supplier organisations on CCS agreements must have at least one active MI contact as a user of the Report-MI 
             service. If you want to update your user details, add an additional user, remove yourself as a user of this service, or 
@@ -59,9 +59,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-3.govuk-accordion__section-button
               Why do I have to report when I have conducted no business?
-        .govuk-accordion__section-content
+        #accordion-default-content-3.govuk-accordion__section-content
           %p.govuk-body
             It is a contractual obligation to provide MI for your organisation’s activity on all relevant CCS agreements each month. 
             This includes if you have not done any business on an agreement.
@@ -79,9 +79,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-4.govuk-accordion__section-button
               What is a ‘Supplier reference number?’
-        .govuk-accordion__section-content
+        #accordion-default-content-4.govuk-accordion__section-content
           %p.govuk-body
             ‘Supplier reference number’ is a field which appears on a large number of MI templates.
           %p.govuk-body
@@ -96,9 +96,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-5.govuk-accordion__section-button
               Why is my task showing 'We were unable to process your file'?
-        .govuk-accordion__section-content
+        #accordion-default-content-5.govuk-accordion__section-content
           %p.govuk-body 
             If the Report-MI service is unable to process/ingest your uploaded file, please first ensure that you are using the correct and most 
             up-to-date MI template file for the task you are trying to complete, and that you have loaded the file to the correct task. Each MI 
@@ -121,9 +121,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-6.govuk-accordion__section-button
               When can I stop reporting MI? / How long do I need to report MI for?
-        .govuk-accordion__section-content
+        #accordion-default-content-6.govuk-accordion__section-content
           %p.govuk-body
             For live agreements, MI reporting requirements can only end if your organisation withdraws or is removed from the agreement.
           %p.govuk-body
@@ -148,9 +148,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-7.govuk-accordion__section-button
               How do I correct a task which has failed data validation?
-        .govuk-accordion__section-content
+        #accordion-default-content-7.govuk-accordion__section-content
           %p.govuk-body
             When an uploaded file fails to pass data validation, you will be asked to review and correct the identified errors. You can access the 
             list of errors by selecting the ‘view and correct errors’ button beneath the task from your 
@@ -181,9 +181,9 @@
       .govuk-accordion__section
         .govuk-accordion__section-header
           %h2.govuk-accordion__section-heading
-            %span.govuk-accordion__section-button
+            %span#accordion-default-heading-8.govuk-accordion__section-button
               How can I correct a historic, previously completed, task?
-        .govuk-accordion__section-content
+        #accordion-default-content-8.govuk-accordion__section-content
           %p.govuk-body
             If you need to make a correction to a historic task that has already been completed, you can navigate to your 
             = succeed ', ' do
@@ -216,9 +216,9 @@
     %p
     %ul.govuk-list.govuk-list--bullet
       %li
-        = link_to 'Gov supplier guidance web page', 'https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know'
+        = link_to 'Gov supplier guidance web page', 'https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know', target: :_blank
       %li
-        = link_to 'Webinar', 'https://attendee.gotowebinar.com/register/2613784768274845273'
+        = link_to 'Webinar', 'https://attendee.gotowebinar.com/register/2639978441923226206', target: :_blank
 
     %h2.govuk-heading-l
       Support
