@@ -270,6 +270,7 @@ GEM
     msgpack (1.7.1)
     multi_xml (0.6.0)
     multipart-post (2.4.0)
+    mutex_m (0.3.0)
     net-imap (0.5.6)
       date
       net-protocol
@@ -529,6 +530,7 @@ DEPENDENCIES
   listen (~> 3.5, >= 3.5.1)
   lograge (>= 0.13.0)
   mini_racer
+  mutex_m (~> 0.3.0)
   nokogiri (>= 1.18.4)
   omniauth (>= 2.1.2)
   omniauth-auth0 (~> 2.1.0)

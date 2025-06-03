@@ -23,6 +23,8 @@ gem 'jwt', '~> 2.2'
 
 gem 'csv', '~> 3.3', '>= 3.3.4'
 
+gem 'mutex_m', '~> 0.3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
