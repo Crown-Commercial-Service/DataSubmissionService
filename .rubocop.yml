@@ -81,7 +81,7 @@ Metrics/AbcSize:
     Exclude:
         - 'spec/**/*'
 
-Metrics/LineLength:
+Layout/LineLength:
     Max: 120
     Exclude:
         - 'lib/tasks/yarn.rake'

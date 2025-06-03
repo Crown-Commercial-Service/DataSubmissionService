@@ -19,7 +19,7 @@
 
   %body.govuk-template__body.app-body-class{ data: (current_user_id ? { user_id: current_user&.id } : {}) }
     = render 'shared/tag_manager' 
-    %a{ href: '#main-content', class: 'govuk-skip-link' }
+    %a{ href: '#main-content', class: 'govuk-skip-link', 'data-module': 'govuk-skip-link' }
       Skip to main content
 
     = render 'layouts/cookie_banner' unless cookies[:rmi_cookie_settings_viewed] == 'true' || controller.action_name == 'cookie_settings'
