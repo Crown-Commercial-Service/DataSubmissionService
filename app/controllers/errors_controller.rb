@@ -23,10 +23,11 @@ class ErrorsController < ApplicationController
     error_description = params[:error_description]
     
     if error.blank? && request.env['omniauth.error'].present?
-      error = request.env['omniauth.error'].message
+      error = request.env['omniauth.error'].error 
       error_description = request.env['omniauth.error'].message
     end
 
+    flash[:notice] = params
     flash[:alert] = "#{error} : #{error_description}" # if error.present?
     render 'auth_failure', status: :unauthorized
   end
