@@ -6,8 +6,11 @@ class ErrorsController < ApplicationController
   end
 
   def internal_server_error
+    flash[:alert] = params[:error_description] if params[:error_description].present?
     render status: :internal_server_error
   end
 
-  def auth_failure; end
+  def auth_failure
+    flash[:alert] = params[:error_description] if params[:error_description].present?
+  end
 end
