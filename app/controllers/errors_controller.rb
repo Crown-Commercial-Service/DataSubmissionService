@@ -6,14 +6,28 @@ class ErrorsController < ApplicationController
   end
 
   def internal_server_error
-    error = request.env['omniauth.error'].error_reason if request.env['omniauth.error'].present?
-    flash[:alert] = error if error.present?
+    error = params[:error]
+    error_description = params[:error_description]
+
+    if error.blank? && request.env['omniauth.error'].present?
+      error = request.env['omniauth.error'].message
+      error_description = request.env['omniauth.error'].message
+    end
+
+    flash[:alert] = "#{error} : #{error_description}" if error.present?
     render status: :internal_server_error
   end
 
   def auth_failure
-    error = request.env['omniauth.error'].error_reason if request.env['omniauth.error'].present?
-    flash[:alert] = error if error.present?
+    error = params[:error]
+    error_description = params[:error_description]
+    
+    if error.blank? && request.env['omniauth.error'].present?
+      error = request.env['omniauth.error'].message
+      error_description = request.env['omniauth.error'].message
+    end
+
+    flash[:alert] = "#{error} : #{error_description}" if error.present?
     render 'auth_failure', status: :unauthorized
   end
 end
