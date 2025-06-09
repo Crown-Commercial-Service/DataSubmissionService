@@ -15,6 +15,10 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
   border-bottom: 0;
 }
 
+.govuk-header__navigation-list {
+  padding-left: 0;
+}
+
 .govuk-header__navigation-item--active {
   a {
     &:link,

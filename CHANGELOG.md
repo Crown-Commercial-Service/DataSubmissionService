@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-113] - 2025-06-09
+
+- NRMI-43: redesigned help page
+- NRMI-128: improved error messaging for account lockout 
+- NRMI-95: Fix gtm user ID between logins
+
 ## [release-112] - 2025-05-12
 
 - NRMI-105: bulk select page to retain selection when returned to via back link
@@ -634,6 +640,7 @@
 
 Initial release
 
+[release-113]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-112...release-113
 [release-112]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-111...release-112
 [release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
 [release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
