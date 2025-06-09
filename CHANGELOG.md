@@ -4,6 +4,7 @@
 
 - NRMI-43: redesigned help page
 - NRMI-128: improved error messaging for account lockout 
+- NRMI-95: Fix gtm user ID between logins
 
 ## [release-112] - 2025-05-12
 
