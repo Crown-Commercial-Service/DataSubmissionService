@@ -1,5 +1,11 @@
 # Change Log
 
+## [release-114] - 2025-06-23
+
+- NRMI-122: fix logo in win11
+- NRMI-127: update password policy (ITHC)
+- NRMI-128: update account lockout policy (ITHC)
+
 ## [release-113] - 2025-06-09
 
 - NRMI-43: redesigned help page
@@ -640,6 +646,7 @@
 
 Initial release
 
+[release-114]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-113...release-114
 [release-113]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-112...release-113
 [release-112]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-111...release-112
 [release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
