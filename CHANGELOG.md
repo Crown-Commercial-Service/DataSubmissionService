@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-114] - 2025-07-03
+
+- NRMI-157: wording change on failed login page
+
 ## [release-114] - 2025-06-23
 
 - NRMI-122: fix logo in win11
@@ -646,6 +650,7 @@
 
 Initial release
 
+[release-115]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-114...release-115
 [release-114]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-113...release-114
 [release-113]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-112...release-113
 [release-112]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-111...release-112
