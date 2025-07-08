@@ -6,7 +6,11 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     %p
-      We were unable to sign you in with the provided credentials. Please try again.
+      We were unable to sign you in with the provided credentials.
+    %p 
+      Please reset your password.
+    %p 
+      Click the 'Sign in' button and follow the link for 'Don’t remember your password'.
 
     %p{class: 'govuk-!-margin-top-9'}
       = button_to 'Sign in', '/auth/auth0', class: 'govuk-button govuk-button--start', id: 'sign-in', 'aria-label' => "Sign in to the service"
