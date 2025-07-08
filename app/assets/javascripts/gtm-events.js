@@ -1,5 +1,5 @@
 $(() => {
-  const userId = $('body').data('session-id');
+  const userId = $('body').data('user-id') || null;
   const pageLocation = document.location.href;
   const [navigation] = performance.getEntriesByType('navigation');
   const isDynamic = navigation && navigation.type === 'reload' ? false : true;
