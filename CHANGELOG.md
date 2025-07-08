@@ -1,9 +1,31 @@
 # Change Log
 
+## [release-114] - 2025-07-03
+
+- NRMI-157: wording change on failed login page
+
+## [release-114] - 2025-06-23
+
+- NRMI-122: fix logo in win11
+- NRMI-127: update password policy (ITHC)
+- NRMI-128: update account lockout policy (ITHC)
+
+## [release-113] - 2025-06-09
+
+- NRMI-43: redesigned help page
+- NRMI-128: improved error messaging for account lockout 
+- NRMI-95: Fix gtm user ID between logins
+
+## [release-112] - 2025-05-12
+
+- NRMI-105: bulk select page to retain selection when returned to via back link
+- NRMI-123: address vulnerabilities raised in ITHC
+- NRMI-104: Dependency updates
+
 ## [release-111] - 2025-03-31
 
 - NRMI-138: Enable supplier's to view/resubmit tasks pre-dating Jan-2019
-- NRMI-106: NRMI-106: Remove the dead 'Feedback' link from the footer
+- NRMI-106: Remove the dead 'Feedback' link from the footer
 
 ## [release-110] - 2025-03-18
 
@@ -628,6 +650,10 @@
 
 Initial release
 
+[release-115]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-114...release-115
+[release-114]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-113...release-114
+[release-113]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-112...release-113
+[release-112]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-111...release-112
 [release-111]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-110...release-111
 [release-110]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-109...release-110
 [release-109]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-108...release-109
