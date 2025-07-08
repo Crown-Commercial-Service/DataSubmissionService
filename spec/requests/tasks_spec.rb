@@ -99,6 +99,7 @@ RSpec.describe 'the tasks list' do
 
   context 'when signed-in as a user with no tasks' do
     before do
+      mock_user_endpoint!
       mock_empty_tasks_endpoint!
       mock_notifications_endpoint!
       stub_signed_in_user
