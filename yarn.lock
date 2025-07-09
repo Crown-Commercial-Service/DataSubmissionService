@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-govuk-frontend@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.0.0.tgz#4b58df200b85be72589fa3b4655638f972ade427"
-  integrity sha512-liaJildULUNSSvEgDm36SQTivqBHiZLdrm+O7bBxnW4Q1g64asi+mJIMzW8QeOqlG4Yn8s0gSklsIyaFOuCisQ==
+govuk-frontend@4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.9.0.tgz#a09068130fa087e67de25956940cb8280a364372"
+  integrity sha512-zfX+GBUKpWBeV6JwCIawEuI8VRWlskH8Ok8aNUjKOvzo3zIaNbcrv4IOwgy+oSnMoGh67Eeh+vb7+9GFxN2fNg==
