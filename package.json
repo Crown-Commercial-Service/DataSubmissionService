@@ -2,6 +2,6 @@
   "name": "report-mi-service",
   "private": true,
   "dependencies": {
-    "govuk-frontend": "4.9.0"
+    "govuk-frontend": "4.10.0"
   }
 }
