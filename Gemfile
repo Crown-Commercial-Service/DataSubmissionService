@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.12', '>= 2.12.0'
+gem 'jbuilder', '~> 2.13', '>= 2.13.0'
 
 gem 'jwt', '~> 2.2'
 
@@ -74,7 +74,7 @@ gem 'rack-maintenance', '~> 3.0'
 gem 'auth0', '~> 4.17', require: false
 
 # Locking above vulnerable version https://nvd.nist.gov/vuln/detail/CVE-2019-5477
-gem 'nokogiri', '>= 1.18.4'
+gem 'nokogiri', '>= 1.18.8'
 
 gem 'highline', '~> 3.1', '>= 3.1.2'
 gem 'prism', '~> 1.4'
