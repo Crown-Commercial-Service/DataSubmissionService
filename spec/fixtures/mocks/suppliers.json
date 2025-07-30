@@ -1,0 +1,63 @@
+{
+    "data": [
+        {
+            "id": "059c1d91-8535-4c53-97a7-955775a63f03",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Bandersnatch"
+            },
+            "relationships": {
+                "tasks": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "eb070719-d6d0-43b5-ac7a-090e064d93e0",
+            "type": "suppliers",
+            "attributes": {
+                "name": "San Junipero"
+            },
+            "relationships": {
+                "tasks": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "3caf4046-a9c8-442f-998e-cc61c5b3823b",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Joan is Awful"
+            },
+            "relationships": {
+                "tasks": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        },
+        {
+            "id": "551f9ca2-9c91-4589-a434-58ec6fbbc3a9",
+            "type": "suppliers",
+            "attributes": {
+                "name": "Supplier A"
+            },
+            "relationships": {
+                "tasks": {
+                    "meta": {
+                        "included": false
+                    }
+                }
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
