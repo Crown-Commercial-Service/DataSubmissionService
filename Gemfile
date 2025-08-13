@@ -85,7 +85,7 @@ group :development, :test do
   gem 'dotenv-rails', '>= 3.1.3'
   gem 'factory_bot_rails', '>= 6.4.4'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 6.1.3'
+  gem 'rspec-rails', '>= 8.0.2'
   gem 'rubocop', '>= 1.66.0', require: false
   gem 'rubocop-rails', '>= 2.30.2', require: false
 end
