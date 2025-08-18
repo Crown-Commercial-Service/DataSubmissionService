@@ -11,6 +11,10 @@ module ApplicationHelper
     task.status == 'completed' ? 'Task Completed' : "Due by #{task.due_on.to_date}"
   end
 
+  def user_created_date(user)
+    user.created_at.to_date
+  end
+
   def task_due_date(task)
     task.due_on.to_date
   end
