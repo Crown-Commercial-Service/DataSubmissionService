@@ -28,6 +28,7 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/data_submission_service_test
+      API_ROOT='https://ccs.api/'
 
     steps:
       - name: Checkout code
