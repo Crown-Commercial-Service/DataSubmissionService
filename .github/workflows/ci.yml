@@ -18,7 +18,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: data_submission_service_api_test
+          POSTGRES_DB: data_submission_service_test
         options: >-
           --health-cmd "pg_isready -U postgres"
           --health-interval 10s
@@ -27,7 +27,7 @@ jobs:
 
     env:
       RAILS_ENV: test
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/data_submission_service_api_test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/data_submission_service_test
 
     steps:
       - name: Checkout code
