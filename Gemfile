@@ -83,7 +83,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 3.1.3'
-  gem 'factory_bot_rails', '>= 6.4.4'
+  gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 6.1.3'
   gem 'rubocop', '>= 1.66.0', require: false
