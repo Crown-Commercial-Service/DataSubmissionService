@@ -37,7 +37,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby ruby]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'aws-sdk-s3'
-gem 'haml-rails', '>= 2.1.0'
+gem 'haml-rails', '>= 3.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
