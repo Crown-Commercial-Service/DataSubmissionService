@@ -544,7 +544,7 @@ DEPENDENCIES
   lograge (>= 0.13.0)
   mini_racer
   mutex_m (~> 0.3.0)
-  nokogiri (>= 1.18.8)
+  nokogiri (>= 1.18.9)
   omniauth (>= 2.1.4)
   omniauth-auth0 (~> 2.4.1)
   omniauth-rails_csrf_protection (>= 1.0.2)
