@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.13', '>= 2.13.0'
+gem 'jbuilder', '~> 2.14', '>= 2.14.0'
 
 gem 'jwt', '~> 2.2'
 
@@ -37,14 +37,14 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby ruby]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'aws-sdk-s3'
-gem 'haml-rails', '>= 2.1.0'
+gem 'haml-rails', '>= 3.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
-gem 'omniauth', '>= 2.1.3'
-gem 'omniauth-auth0', '~> 2.2.0'
+gem 'omniauth', '>= 2.1.4'
+gem 'omniauth-auth0', '~> 2.4.1'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.2'
 
 # API requests
@@ -57,7 +57,7 @@ gem 'kaminari', '>= 1.2.2'
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
 
-gem 'jquery-rails', '>= 4.6.0'
+gem 'jquery-rails', '>= 4.6.1'
 
 # Exception tracking
 gem 'rollbar'
@@ -83,11 +83,11 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 3.1.3'
-  gem 'factory_bot_rails', '>= 6.4.4'
+  gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 8.0.2'
   gem 'rubocop', '>= 1.66.0', require: false
-  gem 'rubocop-rails', '>= 2.30.2', require: false
+  gem 'rubocop-rails', '>= 2.33.0', require: false
 end
 
 group :development do
@@ -105,7 +105,7 @@ group :test do
   gem 'database_cleaner', '>= 2.1.0'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '~> 3.15.1'
+  gem 'webmock', '~> 3.16.1'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
