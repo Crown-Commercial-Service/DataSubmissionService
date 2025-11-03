@@ -44,7 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
 gem 'omniauth', '>= 2.1.4'
-gem 'omniauth-auth0', '~> 2.3.0'
+gem 'omniauth-auth0', '~> 2.4.1'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.2'
 
 # API requests
@@ -57,7 +57,7 @@ gem 'kaminari', '>= 1.2.2'
 # Cookie handling
 gem 'js_cookie_rails', '~> 2.2', '>= 2.2.0'
 
-gem 'jquery-rails', '>= 4.6.0'
+gem 'jquery-rails', '>= 4.6.1'
 
 # Exception tracking
 gem 'rollbar'
