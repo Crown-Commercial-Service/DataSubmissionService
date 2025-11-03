@@ -460,6 +460,14 @@ module ApiHelpers
       )
   end
 
+  def mock_suppliers_endpoint!
+    stub_request(:get, api_url('suppliers'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('suppliers.json')
+      )
+  end
+
   private
 
   def json_headers
