@@ -1,0 +1,27 @@
+- page_title 'User profile'
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %h1.govuk-heading-xl
+      User profile
+
+.govuk-grid-row
+  .govuk-grid-column-full
+    %table.govuk-table
+      %tbody.govuk-table__body
+        %tr.govuk-table__row
+          %td.govuk-table__cell Name
+          %td.govuk-table__cell= current_user.name 
+        %tr.govuk-table__row
+          %td.govuk-table__cell Email
+          %td.govuk-table__cell= current_user.email
+        %tr.govuk-table__row
+          %td.govuk-table__cell User since
+          %td.govuk-table__cell= user_created_date(current_user).to_fs(:default)
+        %tr.govuk-table__row
+          %td.govuk-table__cell Supplier(s)
+          %td.govuk-table__cell 
+            %ul.govuk-list.govuk-list
+              - @suppliers.each do |supplier|
+                %li= supplier.name
+
