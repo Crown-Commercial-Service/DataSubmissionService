@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.13', '>= 2.13.0'
+gem 'jbuilder', '~> 2.14', '>= 2.14.0'
 
 gem 'jwt', '~> 2.2'
 
@@ -102,7 +102,7 @@ end
 group :test do
   gem 'capybara', '>= 3.40.0', require: false
   gem 'climate_control'
-  gem 'database_cleaner', '>= 2.0.2'
+  gem 'database_cleaner', '>= 2.1.0'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
   gem 'webmock', '~> 3.15.1'
