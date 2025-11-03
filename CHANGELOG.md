@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-117] - 2025-10-13
+
+- NRMI-172: set up github actions
+
 ## [release-116] - 2025-08-18
 
 - [Snyk] Upgrade rails from 7.2.0 to 8.0.0
@@ -661,6 +665,7 @@
 
 Initial release
 
+[release-117]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-116...release-117
 [release-116]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-115...release-116
 [release-115]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-114...release-115
 [release-114]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-113...release-114
