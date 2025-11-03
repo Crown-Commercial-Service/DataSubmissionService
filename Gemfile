@@ -105,7 +105,7 @@ group :test do
   gem 'database_cleaner', '>= 2.1.0'
   # gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist', '>= 1.18.1'
-  gem 'webmock', '~> 3.15.1'
+  gem 'webmock', '~> 3.16.1'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'orderly', '>= 0.1.1'
 end
