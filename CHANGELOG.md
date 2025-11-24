@@ -1,5 +1,15 @@
 # Change Log
 
+## [release-118] - 2025-11-24
+
+- [Snyk] Security upgrade haml-rails from 2.1.0 to 3.0.0
+- [Snyk] Security upgrade rails from 8.0.0 to 8.0.2.1 
+- [Snyk] Upgrade govuk-frontend from 4.10.0 to 4.10.1
+- [Snyk] Security upgrade nokogiri from 1.18.8 to 1.18.9 
+- [Snyk] Security upgrade jquery-rails from 4.6.0 to 4.6.1 
+- [Snyk] Security upgrade jbuilder from 2.13.0 to 2.14.0
+- [Snyk] Security upgrade database_cleaner from 2.0.2 to 2.1.0
+
 ## [release-117] - 2025-10-13
 
 - NRMI-172: set up github actions
@@ -665,6 +675,7 @@
 
 Initial release
 
+[release-118]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-117...release-118
 [release-117]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-116...release-117
 [release-116]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-115...release-116
 [release-115]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-114...release-115
