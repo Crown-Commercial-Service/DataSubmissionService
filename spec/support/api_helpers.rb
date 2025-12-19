@@ -468,6 +468,24 @@ module ApiHelpers
       )
   end
 
+  def mock_update_user_name_endpoint!
+    stub_request(:patch, api_url('users/update_name'))
+      .with(body: { name: 'New Name' }.to_json)
+      .to_return(status: 200, headers: json_headers, body: json_fixture_file('user.json'))
+  end
+
+  def mock_update_user_name_endpoint_failure!
+    stub_request(:patch, api_url('users/update_name'))
+      .with(body: { name: 'New Name' }.to_json)
+      .to_return(status: 422, headers: json_headers, body: '{}')
+  end
+
+  def mock_update_user_name_endpoint_connection_error!
+    stub_request(:patch, api_url('users/update_name'))
+      .with(body: { name: 'New Name' }.to_json)
+      .to_raise(Faraday::ConnectionFailed.new('Connection failed'))
+  end
+
   private
 
   def json_headers
