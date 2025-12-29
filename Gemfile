@@ -48,7 +48,7 @@ gem 'omniauth-auth0', '~> 2.4.1'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.2'
 
 # API requests
-gem 'httparty', '>= 0.21.0'
+gem 'httparty', '>= 0.24.0'
 gem 'jsonapi-consumer', git: 'https://github.com/jsmestad/jsonapi-consumer.git', ref: '7d9721e'
 
 # Pagination
