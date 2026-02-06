@@ -27,7 +27,7 @@ services:
   db:
     image: postgres
     volumes:
-      - pg_data:/var/lib/postgresql/data/:cached
+      - pg_data:/var/lib/postgresql
     restart: on-failure
     container_name: "data-submission-service_db"
     networks:
