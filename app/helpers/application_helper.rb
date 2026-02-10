@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def finance_email_address
-    'ccsfinance@gca.gov.uk'
+    'gcafinance@gca.gov.uk'
   end
 
   def task_status(task)
