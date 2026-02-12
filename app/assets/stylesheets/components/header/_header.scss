@@ -54,12 +54,12 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
   background-size: cover;
   @include govuk-media-query($until: desktop) {
     width: auto;
-    height: 32px;
+    height: 40px;
     background-image: govuk-image-url("GCA_linear_logo.png");
     background-size: contain;
   }
   @include govuk-media-query($until: tablet) {
-    height: 24px;
+    height: 40px;
     margin-bottom: govuk-spacing(3);
   }
 }
