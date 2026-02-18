@@ -524,7 +524,7 @@ PLATFORMS
 
 DEPENDENCIES
   auth0 (~> 4.17)
-  aws-sdk-s3
+  aws-sdk-s3 (>= 1.208.0)
   bootsnap (>= 1.1.0)
   brakeman
   byebug
