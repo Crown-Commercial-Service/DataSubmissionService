@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0', '>= 8.0.2.1'
+gem 'rails', '~> 8.1', '>= 8.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -44,8 +44,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
 gem 'omniauth', '>= 2.1.4'
-gem 'omniauth-auth0', '~> 2.4.1'
-gem 'omniauth-rails_csrf_protection', '>= 1.0.2'
+gem 'omniauth-auth0', '~> 3.1'
+gem 'omniauth-rails_csrf_protection', '>= 2.0.0'
 
 # API requests
 gem 'httparty', '>= 0.21.0'
@@ -82,12 +82,12 @@ gem 'prism', '~> 1.4'
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 3.1.3'
+  gem 'dotenv-rails', '>= 3.2.0'
   gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 8.0.2'
+  gem 'rspec-rails', '>= 8.0.3'
   gem 'rubocop', '>= 1.66.0', require: false
-  gem 'rubocop-rails', '>= 2.33.0', require: false
+  gem 'rubocop-rails', '>= 2.34.0', require: false
 end
 
 group :development do
