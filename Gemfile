@@ -44,7 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication
 gem 'omniauth', '>= 2.1.4'
-gem 'omniauth-auth0', '~> 2.4.2'
+gem 'omniauth-auth0', '~> 3.1'
 gem 'omniauth-rails_csrf_protection', '>= 2.0.0'
 
 # API requests
