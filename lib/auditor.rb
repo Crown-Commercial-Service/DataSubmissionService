@@ -5,11 +5,11 @@ class Auditor
 
   def self.normalized_api_root
     raw = ENV.fetch('API_ROOT')
-    raw = "http://#{raw}" unless raw.match?(/\Ahttps?:\/\//)
+    raw = "http://#{raw}" unless raw.match?(%r{\Ahttps?://})
 
     api_root = URI(raw)
     api_root.host = api_root.host.downcase if api_root.host
-    
+
     api_root = api_root.to_s
     api_root += '/' unless api_root.end_with?('/')
     api_root
