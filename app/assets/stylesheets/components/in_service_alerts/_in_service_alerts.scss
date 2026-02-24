@@ -7,22 +7,22 @@
   background-color: lighten($bordercolour, $percentage);
 };
 
-.ccs-in-service-alert {
+.gca-in-service-alert {
   @extend .govuk-inset-text;
 }
 
-.ccs-in-service-alert--notice {
+.gca-in-service-alert--notice {
   @include bgalert-color-borderleft-color(govuk-colour("dark-grey"), 50%);
 }
 
-.ccs-in-service-alert--failure {
+.gca-in-service-alert--failure {
   @include bgalert-color-borderleft-color(govuk-colour("failure"), 55%);
 }
 
-.ccs-in-service-alert--success {
+.gca-in-service-alert--success {
   @include bgalert-color-borderleft-color(govuk-colour("success"), 55%);
 }
 
-.ccs-in-service-alert--warning {
+.gca-in-service-alert--warning {
   @include bgalert-color-borderleft-color(govuk-colour("warning"), 40%);
 }
