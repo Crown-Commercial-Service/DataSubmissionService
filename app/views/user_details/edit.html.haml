@@ -1,0 +1,14 @@
+- page_title 'Change your name'
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %h1.govuk-heading-xl Change your name
+
+    = form_with url: user_detail_path, method: :patch, local: true do |form|
+      .govuk-form-group
+        = form.label :name, 'Name', class: 'govuk-label'
+        = form.text_field :name, class: 'govuk-input', value: current_user.name
+
+      %p{class: 'govuk-!-margin-top-7'}
+        = form.submit 'Update name', class: 'govuk-button'
+        = link_to 'Cancel', user_detail_path, class: 'govuk-link govuk-!-margin-left-3 govuk-!-font-size-19'
