@@ -11,17 +11,23 @@
       %tbody.govuk-table__body
         %tr.govuk-table__row
           %td.govuk-table__cell Name
-          %td.govuk-table__cell= current_user.name 
+          %td.govuk-table__cell
+            = current_user.name 
+          %td.govuk-table__cell
+            = link_to 'Change name', edit_user_detail_path, class: 'govuk-link'
         %tr.govuk-table__row
           %td.govuk-table__cell Email
           %td.govuk-table__cell= current_user.email
+          %td.govuk-table__cell
         %tr.govuk-table__row
           %td.govuk-table__cell User since
           %td.govuk-table__cell= user_created_date(current_user).to_fs(:default)
+          %td.govuk-table__cell
         %tr.govuk-table__row
           %td.govuk-table__cell Supplier(s)
           %td.govuk-table__cell 
             %ul.govuk-list.govuk-list
               - @suppliers.each do |supplier|
                 %li= supplier.name
+          %td.govuk-table__cell
 

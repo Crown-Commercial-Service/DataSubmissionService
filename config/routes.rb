@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   resources :release_notes, only: %i[index]
 
-  resource :user_detail, only: %i[show]
+  resource :user_detail, only: %i[show edit update]
 
   match '/auth/:provider/callback', to: 'sessions#create', via: %i[get post]
   match '/auth/failure', to: 'errors#auth_failure', via: %i[get post]
