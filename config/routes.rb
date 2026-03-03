@@ -43,8 +43,8 @@ Rails.application.routes.draw do
 
   resource :user_detail, only: %i[show edit update]
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/failure', to: 'errors#auth_failure'
+  match '/auth/:provider/callback', to: 'sessions#create', via: %i[get post]
+  match '/auth/failure', to: 'errors#auth_failure', via: %i[get post]
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
   get '/style_guide', to: 'styleguide#index'
   get '/support', to: 'support#index'
