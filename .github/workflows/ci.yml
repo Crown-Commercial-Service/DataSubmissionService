@@ -37,7 +37,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.2
+          ruby-version: 3.4.8
           bundler-cache: true
 
       - name: Run migrations
