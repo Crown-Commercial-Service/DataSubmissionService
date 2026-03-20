@@ -2,6 +2,8 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
+    = link_to 'Back', request.referer.present? ? request.referer : tasks_path, { class: 'govuk-back-link', title: 'Return to previous page' }
+
     %h1.govuk-heading-xl
       Cookie policy
 
