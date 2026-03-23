@@ -1,5 +1,17 @@
 # Change Log
 
+## [release-119] - 2026-03-23
+
+- NRMI-278: address outdated container package
+- NRMI-277: fix login issue
+- [Snyk] Security upgrade nokogiri from 1.18.10 to 1.19.1 
+- [Dependabot] Bump httparty from 0.21.0 to 0.24.0
+- [Dependabot] Bump rack from 3.2.3 to 3.2.5
+- [Dependabot] Bump faraday from 1.10.4 to 1.10.5 
+- [Dependabot] Bump action_text-trix from 2.1.15 to 2.1.16 
+- NRMI-39: self-service update user name 
+- [Snyk] Security upgrade aws-sdk-s3 from 1.114.0 to 1.208.0 
+
 ## [release-118] - 2025-11-24
 
 - [Snyk] Security upgrade haml-rails from 2.1.0 to 3.0.0
@@ -675,6 +687,7 @@
 
 Initial release
 
+[release-119]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-118...release-119
 [release-118]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-117...release-118
 [release-117]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-116...release-117
 [release-116]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-115...release-116
