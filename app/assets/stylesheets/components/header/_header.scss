@@ -15,6 +15,10 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
   border-bottom: 0;
 }
 
+.govuk-header__link{
+  color: #000 !important;
+}
+
 .govuk-header__navigation-list {
   padding-left: 0;
 }
@@ -24,7 +28,7 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
     &:link,
     &:hover,
     &:visited {
-      color: govuk-colour("white");
+      color: govuk-colour("black");
       text-decoration: underline;
       @include govuk-media-query($until: desktop) {
         text-decoration: none;
@@ -43,26 +47,26 @@ $ccs-header-nav-item-border-color: darken(govuk-colour("primary"), 2);
 
 .govuk-header__link--homepage {
   display: block;
-  width: 122px;
+  width: 117px;
   height: 102px;
-  background-image: govuk-image-url("vertical_logo.png");
+  background-image: govuk-image-url("GCA_vertical_black.svg");
   background-repeat: no-repeat;
   background-size: cover;
   @include govuk-media-query($until: desktop) {
     width: auto;
-    height: 32px;
-    background-image: govuk-image-url("horizontal_logo.png");
+    height: 40px;
+    background-image: govuk-image-url("GCA_linear_logo.png");
     background-size: contain;
   }
   @include govuk-media-query($until: tablet) {
-    height: 24px;
+    height: 40px;
     margin-bottom: govuk-spacing(3);
   }
 }
 
 .govuk-header__service-name {
   font-size: 1.5rem;
-  color: govuk-colour("white");
+  color: govuk-colour("black");
   margin-bottom: 10px;
   margin-top: 10px;
 }
