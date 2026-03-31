@@ -1,5 +1,20 @@
 # Change Log
 
+## [release-120] - 2026-03-31
+
+- NRMI-260: GCA header and footer updates
+- NRMI-264: GCA help page updates updates
+- NRMI-263: cookie policy content update
+- NRMI-262: cookie settings content update
+- NRMI-261: accessibility statement content update
+- NRMI-294: tab name change
+- NRMI-272: Add claret color and use for panel confirmation
+- NRMI-294: fix contrast issue on mobile
+- NRMI-273: updated css class names
+- NRMI-297: correct webinar link on help page
+- NRMI-296: correct finance email address
+- NRMI-266: back links for statements and policies
+
 ## [release-119] - 2026-03-23
 
 - NRMI-278: address outdated container package
@@ -687,6 +702,7 @@
 
 Initial release
 
+[release-120]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-119...release-120
 [release-119]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-118...release-119
 [release-118]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-117...release-118
 [release-117]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-116...release-117
