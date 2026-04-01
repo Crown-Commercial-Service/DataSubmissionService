@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.1', '>= 8.1.1'
+gem 'rails', '~> 8.1', '>= 8.1.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -86,7 +86,11 @@ group :development, :test do
   gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 8.0.4'
+<<<<<<< snyk-fix-60df382fd6d926c0eaaf2379a88d0e7d
   gem 'rubocop', '>= 1.81.6', require: false
+=======
+  gem 'rubocop', '>= 1.66.0', require: false
+>>>>>>> develop
   gem 'rubocop-rails', '>= 2.34.0', require: false
 end
 

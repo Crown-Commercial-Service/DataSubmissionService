@@ -29,7 +29,7 @@
     - if task.status == 'in_progress' || task.correcting?
       %p.ccs-task-status-message
         - if task.active_submission.status == 'in_review' || task.latest_submission.status == 'in_review'
-          This submission has been validated. Please review and submit to CCS.
+          This submission has been validated. Please review and submit to GCA.
         - else
           - if task.errors?
             There were errors with this submission. Please submit a corrected return.
