@@ -1,5 +1,32 @@
 # Change Log
 
+## [release-120] - 2026-03-31
+
+- NRMI-260: GCA header and footer updates
+- NRMI-264: GCA help page updates updates
+- NRMI-263: cookie policy content update
+- NRMI-262: cookie settings content update
+- NRMI-261: accessibility statement content update
+- NRMI-294: tab name change
+- NRMI-272: Add claret color and use for panel confirmation
+- NRMI-294: fix contrast issue on mobile
+- NRMI-273: updated css class names
+- NRMI-297: correct webinar link on help page
+- NRMI-296: correct finance email address
+- NRMI-266: back links for statements and policies
+
+## [release-119] - 2026-03-23
+
+- NRMI-278: address outdated container package
+- NRMI-277: fix login issue
+- [Snyk] Security upgrade nokogiri from 1.18.10 to 1.19.1 
+- [Dependabot] Bump httparty from 0.21.0 to 0.24.0
+- [Dependabot] Bump rack from 3.2.3 to 3.2.5
+- [Dependabot] Bump faraday from 1.10.4 to 1.10.5 
+- [Dependabot] Bump action_text-trix from 2.1.15 to 2.1.16 
+- NRMI-39: self-service update user name 
+- [Snyk] Security upgrade aws-sdk-s3 from 1.114.0 to 1.208.0 
+
 ## [release-118] - 2025-11-24
 
 - [Snyk] Security upgrade haml-rails from 2.1.0 to 3.0.0
@@ -675,6 +702,8 @@
 
 Initial release
 
+[release-120]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-119...release-120
+[release-119]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-118...release-119
 [release-118]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-117...release-118
 [release-117]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-116...release-117
 [release-116]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-115...release-116

@@ -92,7 +92,7 @@ RSpec.describe 'the tasks list' do
                       task_submission_path(task_id: correcting_task_id, id: correcting_submission_id),
                       text: 'Review and submit'
         assert_select 'p.ccs-task-status-message',
-                      text: 'This submission has been validated. Please review and submit to CCS.'
+                      text: 'This submission has been validated. Please review and submit to GCA.'
       end
     end
   end
