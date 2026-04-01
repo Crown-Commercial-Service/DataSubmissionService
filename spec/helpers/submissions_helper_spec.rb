@@ -42,7 +42,7 @@ RSpec.describe SubmissionsHelper do
 
       it 'includes the task name and shortname in the message' do
         expect(helper.submission_completed_text(task))
-          .to eql 'Management information for CBOARD5 Cheese Board 5 submitted to CCS'
+          .to eql 'Management information for CBOARD5 Cheese Board 5 submitted to GCA'
       end
     end
 
@@ -55,7 +55,7 @@ RSpec.describe SubmissionsHelper do
 
       it 'prefixes the messaage with the description with appropriate capitalisation' do
         expect(helper.submission_completed_text(task))
-          .to eql 'Company Name management information for CBOARD5 Cheese Board 5 submitted to CCS'
+          .to eql 'Company Name management information for CBOARD5 Cheese Board 5 submitted to GCA'
       end
     end
   end

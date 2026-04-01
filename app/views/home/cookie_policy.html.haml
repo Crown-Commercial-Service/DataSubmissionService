@@ -2,6 +2,8 @@
 
 .govuk-grid-row
   .govuk-grid-column-full
+    = link_to 'Back', request.referer.present? ? request.referer : tasks_path, { class: 'govuk-back-link', title: 'Return to previous page' }
+
     %h1.govuk-heading-xl
       Cookie policy
 
@@ -75,7 +77,7 @@
     %h2.govuk-heading-m
       Measuring website usage (Contentsquare)
     %p
-      We use Contentsquare software to collect information about how you use CCS. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
+      We use Contentsquare software to collect information about how you use GCA. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
     %p
       Contentsquare stores information about:
     %ul{ :class => 'govuk-list govuk-list--bullet' }
