@@ -7,7 +7,7 @@ RSpec.describe 'support-rooted pages' do
 
       expect(response).to be_successful
       expect(response.body).to include('Help')
-      expect(response.body).to include('report-mi@crowncommercial.gov.uk')
+      expect(response.body).to include('report-mi@gca.gov.uk')
     end
   end
 end
