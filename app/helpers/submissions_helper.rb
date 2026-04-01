@@ -6,7 +6,7 @@ module SubmissionsHelper
   def submission_completed_text(task)
     [
       task.description,
-      "management information for #{task.framework.short_name} #{task.framework.name} submitted to CCS"
+      "management information for #{task.framework.short_name} #{task.framework.name} submitted to GCA"
     ].compact.join(' ').upcase_first
   end
 end

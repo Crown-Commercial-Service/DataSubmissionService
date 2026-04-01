@@ -3,9 +3,13 @@
 $govuk-button-colour: govuk-colour("secondary");
 $govuk-button-hover-colour: darken($govuk-button-colour, 5%);
 $govuk-button-shadow-colour: darken($govuk-button-colour, 15%);
-$govuk-button-text-colour: govuk-colour("white");
+$govuk-button-text-colour: govuk-colour("black");
 
 $button-shadow-size: $govuk-border-width-form-element;
+
+.govuk-header__menu-button {
+  color: $govuk-button-text-colour;
+}
 
 .govuk-button {
   color: $govuk-button-text-colour;
