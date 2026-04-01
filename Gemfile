@@ -85,14 +85,14 @@ group :development, :test do
   gem 'dotenv-rails', '>= 3.2.0'
   gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 8.0.3'
+  gem 'rspec-rails', '>= 8.0.4'
   gem 'rubocop', '>= 1.66.0', require: false
   gem 'rubocop-rails', '>= 2.34.0', require: false
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.2.1'
+  gem 'web-console', '>= 4.3.0'
   gem 'listen', '~> 3.5', '>= 3.5.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
