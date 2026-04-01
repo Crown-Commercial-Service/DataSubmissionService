@@ -86,11 +86,7 @@ group :development, :test do
   gem 'factory_bot_rails', '>= 6.5.1'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 8.0.4'
-<<<<<<< snyk-fix-60df382fd6d926c0eaaf2379a88d0e7d
   gem 'rubocop', '>= 1.81.6', require: false
-=======
-  gem 'rubocop', '>= 1.66.0', require: false
->>>>>>> develop
   gem 'rubocop-rails', '>= 2.34.0', require: false
 end
 
