@@ -1,5 +1,19 @@
 - page_title 'User profile'
 
+- if @email_verification&.token.present?
+  .govuk-notification-banner{"aria-labelledby" => "govuk-notification-banner-title", "data-module" => "govuk-notification-banner", :role => "region"}
+    .govuk-notification-banner__header
+      %h2#govuk-notification-banner-title.govuk-notification-banner__title
+        Important
+    .govuk-notification-banner__content
+      %p.govuk-notification-banner__heading
+        Verify your new email address 
+        = @email_verification.new_email
+        = succeed "." do
+          = link_to 'Resend email', resend_email_verification_path(email: @email_verification.new_email), method: :post, class: 'govuk-notification-banner__link'
+      .govuk-button-group
+        = button_to 'Cancel', cancel_pending_email_change_path, method: :post, data: { confirm: 'Are you sure you want to cancel your pending email change?' }, class: 'govuk-button govuk-button--secondary'
+
 .govuk-grid-row
   .govuk-grid-column-full
     %h1.govuk-heading-xl
@@ -24,6 +38,28 @@
           %td.govuk-table__cell User since
           %td.govuk-table__cell= user_created_date(current_user).to_fs(:default)
           %td.govuk-table__cell
+        - if @user_logs.present?
+          %tr.govuk-table__row
+            %td.govuk-table__cell User log(s)
+            %td.govuk-table__cell
+              - @user_logs.each_with_index do |log, i|
+                %ul.govuk-list.govuk-list
+                  %li
+                    %strong Date:
+                    = Time.parse(log.date).utc.strftime("%d %B %Y, %l:%M %p")
+                  %li
+                    %strong IP:
+                    = log.ip
+                  %li
+                    %strong User Agent:
+                    = log.user_agent
+                  %li
+                    %strong Device:
+                    = log.isMobile ? "Mobile" : "Desktop"
+                - unless i == @user_logs.size - 1
+                  %hr.govuk-section-break.govuk-section-break--visible
+
+            %td.govuk-table__cell
         %tr.govuk-table__row
           %td.govuk-table__cell Supplier(s)
           %td.govuk-table__cell 

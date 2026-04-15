@@ -57,4 +57,8 @@ Rails.application.routes.draw do
   get '/cookie-policy', to: 'home#cookie_policy'
   get '/accessibility', to: 'accessibility#index'
   get '/check', to: 'check#index'
+  get '/email/verification/:token', to: 'email_verifications#show', as: :email_verification
+  post '/email/verification/resend', to: 'email_verifications#resend_email', as: :resend_email_verification
+  post '/email/verification/cancel_pending_email_change', to: 'email_verifications#cancel_pending_email_change',
+                                                          as: :cancel_pending_email_change
 end
