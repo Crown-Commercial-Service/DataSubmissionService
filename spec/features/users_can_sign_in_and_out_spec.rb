@@ -7,6 +7,8 @@ RSpec.feature 'Signing in and out as a user' do
     mock_incomplete_tasks_endpoint!
     mock_notifications_endpoint!
     mock_user_endpoint!
+    mock_email_verification_pending_endpoint!
+    mock_user_auth_logs_endpoint!
 
     visit '/tasks'
 
@@ -38,6 +40,8 @@ RSpec.feature 'Signing in and out as a user' do
     mock_unstarted_tasks_endpoint!
     mock_incomplete_tasks_endpoint!
     mock_user_endpoint!
+    mock_email_verification_pending_endpoint!
+    mock_user_auth_logs_endpoint!
 
     click_on 'sign-in'
 
@@ -51,6 +55,8 @@ RSpec.feature 'Signing in and out as a user' do
     mock_incomplete_tasks_endpoint!
     mock_notifications_endpoint!
     mock_user_endpoint!
+    mock_email_verification_pending_endpoint!
+    mock_user_auth_logs_endpoint!
 
     visit '/'
     click_on 'sign-in'

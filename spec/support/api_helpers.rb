@@ -486,6 +486,14 @@ module ApiHelpers
       .to_raise(Faraday::ConnectionFailed.new('Connection failed'))
   end
 
+  def mock_email_verification_pending_endpoint!(result = nil)
+    allow(API::EmailVerification).to receive(:email_verification_pending?).and_return(result)
+  end
+
+  def mock_user_auth_logs_endpoint!(logs = [])
+    allow(API::User).to receive(:user_auth_logs).and_return(logs)
+  end
+
   private
 
   def json_headers
