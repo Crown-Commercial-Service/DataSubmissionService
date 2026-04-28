@@ -6,6 +6,8 @@ RSpec.feature 'User can view profile' do
     mock_user_with_multiple_suppliers_endpoint!
     mock_notifications_endpoint!
     mock_suppliers_endpoint!
+    mock_email_verification_pending_endpoint!
+    mock_user_auth_logs_endpoint!
 
     visit '/'
     click_button 'sign-in'

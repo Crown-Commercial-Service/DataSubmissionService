@@ -5,6 +5,8 @@ RSpec.describe 'the user details page' do
     mock_notifications_endpoint!
     mock_user_with_multiple_suppliers_endpoint!
     mock_suppliers_endpoint!
+    mock_email_verification_pending_endpoint!
+    mock_user_auth_logs_endpoint!
   end
 
   describe 'visiting the user profile page' do

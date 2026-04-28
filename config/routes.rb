@@ -41,11 +41,15 @@ Rails.application.routes.draw do
 
   resources :release_notes, only: %i[index]
 
-  resource :user_detail, only: %i[show edit update]
+  resource :user_detail, only: %i[show edit update] do
+    get :edit_email
+    patch :update_email
+  end
 
   match '/auth/:provider/callback', to: 'sessions#create', via: %i[get post]
   match '/auth/failure', to: 'errors#auth_failure', via: %i[get post]
   get '/sign_out', to: 'sessions#destroy', as: :sign_out
+  get '/verify_email', to: 'sessions#verify_email', as: :verify_email
   get '/style_guide', to: 'styleguide#index'
   get '/support', to: 'support#index'
   get '/support/frameworks', to: 'support#frameworks'
@@ -53,4 +57,8 @@ Rails.application.routes.draw do
   get '/cookie-policy', to: 'home#cookie_policy'
   get '/accessibility', to: 'accessibility#index'
   get '/check', to: 'check#index'
+  get '/email/verification/:token', to: 'email_verifications#show', as: :email_verification
+  post '/email/verification/resend', to: 'email_verifications#resend_email', as: :resend_email_verification
+  post '/email/verification/cancel_pending_email_change', to: 'email_verifications#cancel_pending_email_change',
+                                                          as: :cancel_pending_email_change
 end

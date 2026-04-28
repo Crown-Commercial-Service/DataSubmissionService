@@ -1,0 +1,26 @@
+- page_title 'Change your email address'
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    %h1.govuk-heading-xl Change your email address
+
+    - if flash[:alert].present?
+      .govuk-error-summary{role: "alert", tabindex: "-1"}
+        .govuk-error-summary__title
+          %h2.govuk-error-summary__title There is a problem
+        .govuk-error-summary__body
+          %ul.govuk-list.govuk-error-summary__list
+            %li= flash[:alert]
+
+    = form_with url: update_email_user_detail_path, method: :patch, local: true do |form|
+      .govuk-form-group
+        = form.label :email, 'Email address', class: 'govuk-label'
+        = form.email_field :email, class: 'govuk-input'
+
+      .govuk-form-group
+        = form.label :email_confirmation, 'Confirm email address', class: 'govuk-label'
+        = form.email_field :email_confirmation, class: 'govuk-input'
+
+      %p{class: 'govuk-!-margin-top-7'}
+        = form.submit 'Update email', class: 'govuk-button'
+        = link_to 'Cancel', user_detail_path, class: 'govuk-link govuk-!-margin-left-3 govuk-!-font-size-19'
