@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  #Contents
+\*------------------------------------*/
+
+.app-contents-list {
+  margin-bottom: govuk-spacing(6);
+}
+
+.app-contents-list__list-item {
+  position: relative;
+  padding-left: govuk-spacing(5);
+  margin-bottom: govuk-spacing(4);
+}
+
+.app-contents-list__list-item::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+}
