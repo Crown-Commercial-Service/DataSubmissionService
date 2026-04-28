@@ -5,10 +5,20 @@
     %h1.govuk-heading-xl
       Help
 
+    %nav.app-contents-list{"aria-label" => "Contents"}
+      %h2.govuk-heading-m#contents Contents
+      %ol.govuk-list.app-contents-lists__list
+        %li.app-contents-list__list-item
+          = link_to "Frequently asked questions", "#frequently-asked-questions", class: "govuk-link"
+        %li.app-contents-list__list-item
+          = link_to "Further guidance", "#further-guidance", class: "govuk-link"
+        %li.app-contents-list__list-item
+          = link_to "Contact us", "#contact-us", class: "govuk-link"
+
 .govuk-grid-row
   .govuk-grid-column-full
 
-    %h2.govuk-heading-l 
+    %h2.govuk-heading-l#frequently-asked-questions 
       Frequently Asked Questions
     
     #accordion-default.govuk-accordion{"data-module" => "govuk-accordion"}
@@ -212,8 +222,8 @@
             When contacting us with the details of your request, please include a description of the issue you need support with, and help us by including your 
             organisation name, agreement name and agreement reference, the dates of the task(s) to be replaced, and the reason for the corrections.
 
-    %h2.govuk-heading-l
-      Guidance
+    %h2.govuk-heading-l#further-guidance
+      Further guidance
 
     %p
       GCA Management Information (MI) submissions are a record of business contracted to or invoiced by suppliers on GCA commercial agreements.
@@ -226,8 +236,8 @@
       %li
         = link_to 'Webinar', 'https://attendee.gotowebinar.com/register/8784986209844630614', target: :_blank
 
-    %h2.govuk-heading-l
-      Support
+    %h2.govuk-heading-l#contact-us
+      Contact us
 
     %p
       For additional help and guidance please email our support team at:
