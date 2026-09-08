@@ -1,5 +1,30 @@
 # Change Log
 
+## [release-121] - 2026-07-13
+
+- [Snyk] Security upgrade rails from 8.1.2 to 8.1.2.1
+- build(deps): bump action_text-trix from 2.1.16 to 2.1.18
+- [Snyk] Security upgrade rspec-rails from 8.0.3 to 8.0.4
+- [Snyk] Security upgrade web-console from 4.2.1 to 4.3.0
+- [Snyk] Security upgrade rubocop from 1.81.1 to 1.86.0
+- build(deps): bump rack from 3.2.5 to 3.2.6
+- NRMI-361: add a table of contents to help page
+- NRMI-289: update user email
+- NRMI-321: email Update Workflow and Auth0 Sync
+- NRMI-171: display previous Auth0 user logins
+- NRMI-387: update finance email address
+- NRMI-249: adding gtm to auth0
+- build(deps): bump concurrent-ruby from 1.3.6 to 1.3.7
+- build(deps): bump nokogiri from 1.19.1 to 1.19.4
+- build(deps): bump net-imap from 0.5.12 to 0.5.15
+- build(deps): bump puma from 6.4.3 to 7.2.1
+- build(deps): bump jwt, auth0, mini_racer and rubocop
+- build(deps): bump erb from 6.0.2 to 6.0.4
+- build(deps): bump rack-session from 2.1.1 to 2.1.2
+- [Snyk] Security upgrade webmock from 3.16.2 to 3.17.0
+- [Snyk] Security upgrade ruby from 3.4.8-alpine to 3.4.9-alpine
+- NRMI-366: link sign in on email verification page
+
 ## [release-120] - 2026-03-31
 
 - NRMI-260: GCA header and footer updates
@@ -702,6 +727,7 @@
 
 Initial release
 
+[release-121]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-120...release-121
 [release-120]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-119...release-120
 [release-119]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-118...release-119
 [release-118]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-117...release-118

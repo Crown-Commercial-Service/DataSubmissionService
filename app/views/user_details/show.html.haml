@@ -38,6 +38,8 @@
           %td.govuk-table__cell User since
           %td.govuk-table__cell= user_created_date(current_user).to_fs(:default)
           %td.govuk-table__cell
+            - if current_user.can_deactivate?
+              = link_to 'Deactivate account', deactivate_confirmation_user_detail_path, class: 'govuk-link'
         - if @user_logs.present?
           %tr.govuk-table__row
             %td.govuk-table__cell Previous logins

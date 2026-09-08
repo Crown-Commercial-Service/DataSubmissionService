@@ -387,6 +387,30 @@ module ApiHelpers
       )
   end
 
+  def mock_user_who_cannot_deactivate_endpoint!
+    stub_request(:get, api_url("users?filter[auth_id]=#{JWT.encode(mock_auth_id, 'test')}"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('user_who_cannot_deactivate.json')
+      )
+  end
+
+  def mock_user_who_can_deactivate_endpoint!
+    stub_request(:get, api_url("users?filter[auth_id]=#{JWT.encode(mock_auth_id, 'test')}"))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('user_who_can_deactivate.json')
+      )
+  end
+
+  def mock_deactivate_user_endpoint!
+    stub_request(:patch, api_url('users/deactivate'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('user_deactivated.json')
+      )
+  end
+
   def mock_customer_effort_score_endpoint!
     feedback_params = {
       data: {
