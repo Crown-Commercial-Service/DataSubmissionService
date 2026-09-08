@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   resource :user_detail, only: %i[show edit update] do
     get :edit_email
     patch :update_email
+    get :deactivate_confirmation, path: 'deactivate'
+    patch :deactivate
   end
 
   match '/auth/:provider/callback', to: 'sessions#create', via: %i[get post]

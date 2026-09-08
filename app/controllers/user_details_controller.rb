@@ -49,6 +49,32 @@ class UserDetailsController < ApplicationController
     render :edit_email, status: :service_unavailable
   end
 
+  def deactivate_confirmation
+    return if current_user.can_deactivate?
+
+    redirect_to user_detail_path,
+                alert: 'You cannot deactivate your account because you are the only active user for a linked supplier.'
+  end
+
+  def deactivate
+    unless current_user.can_deactivate?
+      return redirect_to user_detail_path,
+                         alert: 'You cannot deactivate your account because you are the only active user for a linked supplier.'
+    end
+
+    API::User.deactivate
+
+    reset_session
+
+    redirect_to root_path, notice: 'Your account has been deactivated.'
+  rescue JSONAPI::Consumer::Errors::UnprocessableEntity
+    redirect_to user_detail_path,
+                alert: 'You can no longer deactivate your account because you are the only active user for a linked supplier.'
+  rescue JSONAPI::Consumer::Errors::ConnectionError
+    redirect_to deactivate_confirmation_user_detail_path,
+                alert: 'There was a problem connecting to the user service. Please try again later.'
+  end
+
   private
 
   def email_update_validation(email, confirmation)
