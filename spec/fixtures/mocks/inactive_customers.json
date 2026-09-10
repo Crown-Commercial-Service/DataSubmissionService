@@ -1,0 +1,39 @@
+{
+   "data": [
+    {
+        "id": "ed16e530-5300-450e-b65e-16216186fa36",
+        "type": "inactive_customers",
+        "attributes": {
+            "inactive_urn":56338561,
+            "inactive_customer_name":"Ministry for Silly Walks",
+            "date_made_inactive":"2023-01-01",
+            "replacement_urn":56338562,
+            "replacement_customer_name":"Ministry for Outrageous Hats",
+            "replacement_post_code":"HR2 6BS",
+            "replacement_status":"active"
+        }
+    },
+    {
+        "id": "d52d7d1d-8272-4f47-a550-5f412122ba47",
+        "type": "inactive_customers",
+        "attributes": {
+            "inactive_urn":62221732,
+            "inactive_customer_name":"Department for Serious Business",
+            "date_made_inactive":"2023-01-01",
+            "replacement_urn":62221733,
+            "replacement_customer_name":"Department for Sombre Business",
+            "replacement_post_code":"WC2R 1HG",
+            "replacement_status":"active"
+        }
+    }
+  ],
+  "meta": {
+    "pagination": {
+        "total": 2,
+        "per_page": 25,
+        "offset_value": 0,
+        "current_page": 1,
+        "total_pages": 1
+    }
+  }
+}
