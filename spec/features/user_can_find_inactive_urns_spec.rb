@@ -19,7 +19,7 @@ RSpec.feature 'Finding inactive URNs' do
 
     expect(page).to have_content 'Inactive URN list'
     expect(page).to have_content 'You can search for inactive URNs below, or access our published downloadable list'
-    expect(page).to have_content 'Inactive customer Organisation name Replacement customer Replacement postcode'
+    expect(page).to have_content 'Inactive customer Inactive Date Replacement customer Replacement postcode'
     expect(page).to have_content 'Ministry for Silly Walks 56338561 2023-01-01 Ministry for Outrageous Hats 56338562'
   end
 
