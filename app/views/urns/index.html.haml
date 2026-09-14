@@ -7,8 +7,10 @@
 .govuk-grid-row
   .govuk-grid-column-full
     %p
-      When you submit a return, you need to supply your customers' Unique Reference Numbers or URNs. You can search for URNs below or 
-      = link_to 'download a list that includes a log of recent changes.', "https://www.gov.uk/guidance/current-crown-commercial-service-suppliers-what-you-need-to-know#customer-unique-reference-number-urn-list", target: :_blank
+      When you complete a task, you will need to supply your customers' Unique Reference Numbers or URNs. You can search for URNs below.
+    %p 
+      If you cannot find a URN, you can 
+      = link_to 'view our log of recent changes.', inactive_urns_path
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds

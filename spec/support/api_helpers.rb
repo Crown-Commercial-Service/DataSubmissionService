@@ -434,6 +434,22 @@ module ApiHelpers
       )
   end
 
+  def mock_inactive_customers_endpoint!
+    stub_request(:get, api_url('inactive_customers?filter%5Bsearch%5D&page%5Bpage%5D'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('inactive_customers.json')
+      )
+  end
+
+  def mock_inactive_customers_search_endpoint!
+    stub_request(:get, api_url('inactive_customers?filter%5Bsearch%5D=Silly&page%5Bpage%5D'))
+      .to_return(
+        headers: json_headers,
+        body: json_fixture_file('inactive_customers_search.json')
+      )
+  end
+
   def mock_notifications_endpoint!
     stub_request(:get, api_url('notifications'))
       .to_return(

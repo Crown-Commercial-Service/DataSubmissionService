@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   resources :urns, only: %i[index]
 
+  resources :inactive_urns, only: %i[index]
+
   resource :template, only: %i[show]
 
   resources :agreements, only: %i[index]
