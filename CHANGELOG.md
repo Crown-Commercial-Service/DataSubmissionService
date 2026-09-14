@@ -1,5 +1,16 @@
 # Change Log
 
+## [release-122] - 2026-09-14
+
+- [Dependabot] bump oauth2 from 2.0.18 to 2.0.22
+- [Dependabot] bump msgpack from 1.7.1 to 1.8.2
+- NRMI-41: self serve user deactivate
+- NRMI-427: snyk fix bump websocket-driver
+- NRMI-431: snyk fix upgrade activestorage
+- [Dependabot] bump mail from 2.8.1 to 2.9.1
+- NRMI-164: searchable inactive URN list for suppliers
+- NRMI-426: Help page copy update
+
 ## [release-121] - 2026-07-13
 
 - [Snyk] Security upgrade rails from 8.1.2 to 8.1.2.1
@@ -727,6 +738,7 @@
 
 Initial release
 
+[release-122]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-121...release-122
 [release-121]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-120...release-121
 [release-120]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-119...release-120
 [release-119]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-118...release-119
