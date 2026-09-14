@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   resources :urns, only: %i[index]
 
+  resources :inactive_urns, only: %i[index]
+
   resource :template, only: %i[show]
 
   resources :agreements, only: %i[index]
@@ -44,6 +46,8 @@ Rails.application.routes.draw do
   resource :user_detail, only: %i[show edit update] do
     get :edit_email
     patch :update_email
+    get :deactivate_confirmation, path: 'deactivate'
+    patch :deactivate
   end
 
   match '/auth/:provider/callback', to: 'sessions#create', via: %i[get post]

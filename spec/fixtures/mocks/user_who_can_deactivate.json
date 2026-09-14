@@ -1,10 +1,10 @@
 {
   "data": [
     {
-      "id": "efa8ebb8-de51-4718-b085-a583f8d41e3e",
+      "id": "efa8ebb8-de51-4718-b085-a583f8d41e3f",
       "type": "users",
       "attributes": {
-        "multiple_suppliers?": true,
+        "multiple_suppliers?": false,
         "can_deactivate?": true,
         "name": "User Name",
         "email": "user@example.com",

@@ -1,0 +1,26 @@
+{
+   "data": [
+    {
+        "id": "ed16e530-5300-450e-b65e-16216186fa36",
+        "type": "inactive_customers",
+        "attributes": {
+            "inactive_urn":56338561,
+            "inactive_customer_name":"Ministry for Silly Hats",
+            "date_made_inactive":"2023-01-01",
+            "replacement_urn":56338562,
+            "replacement_customer_name":"Ministry for Even Sillier Hats",
+            "replacement_post_code":"HR2 6BS",
+            "replacement_status":"active"
+        }
+    }
+  ],
+  "meta": {
+    "pagination": {
+        "total": 1,
+        "per_page": 25,
+        "offset_value": 0,
+        "current_page": 1,
+        "total_pages": 1
+    }
+  }
+}

@@ -1,0 +1,27 @@
+- page_title 'Deactivate my account'
+
+= link_to 'Back', user_detail_path, { class: 'govuk-back-link', title: 'Back to user profile page' }
+
+.govuk-grid-row
+  .govuk-grid-column-three-quarters
+    %h1.govuk-heading-xl
+      Deactivate my account
+    
+    %p
+      By choosing to proceed you will be logged out of the Report-MI service and will no longer be able 
+      to log in using this account. Management information tasks you have previously completed on behalf 
+      of your organisation(s) are preserved and your account access can be restored in the future by 
+      contacting support: 
+      = mail_to(support_email_address)
+
+    .govuk-button-group{ class: 'button-group govuk-!-margin-top-7' }
+      = button_to 'Continue to deactivate my account',
+                  deactivate_user_detail_path,
+                  method: :patch,
+                  class: 'govuk-button',
+                  data: { module: 'govuk-button' }
+
+      = link_to 'Cancel',
+                user_detail_path,
+                class: 'govuk-button'
+      

@@ -86,6 +86,7 @@ Layout/LineLength:
     Exclude:
         - 'lib/tasks/yarn.rake'
         - 'spec/support/api_helpers.rb'
+        - 'app/controllers/user_details_controller.rb'
 
 Metrics/BlockLength:
     Max: 40
