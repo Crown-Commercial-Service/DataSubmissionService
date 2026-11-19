@@ -4,7 +4,7 @@
 # It also improves build times by caching the base stage.
 
 # Base stage
-FROM ruby:3.4.9-alpine AS base
+FROM ruby:3.4.13-alpine AS base
 RUN apk add build-base curl git yaml-dev libc-utils libpq-dev nodejs tzdata && rm -rf /var/cache/apk/*
 
 # Set locale and timezone
