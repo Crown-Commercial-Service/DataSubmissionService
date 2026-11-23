@@ -1,5 +1,9 @@
 # Change Log
 
+## [release-123] - 2026-11-23
+
+- [Snyk] Security upgrade ruby from 3.4.9-alpine to 3.4.13-alpine 
+
 ## [release-122] - 2026-09-14
 
 - [Dependabot] bump oauth2 from 2.0.18 to 2.0.22
@@ -738,6 +742,7 @@
 
 Initial release
 
+[release-123]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-122...release-123
 [release-122]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-121...release-122
 [release-121]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-120...release-121
 [release-120]: https://github.com/Crown-Commercial-Service/DataSubmissionService/compare/release-119...release-120
